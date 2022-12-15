@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OKKY - 커뮤니티</title>
+    <link rel="stylesheet" href="../static/reset.css" />
+    <link rel="stylesheet" href="../static/community.css" />
+  </head>
+  <body>
+    <div id="main">
+<!--      왼쪽-->
+      <div id="left-div">
+
+<!--        인기태그-->
+        <ul id="popular-tag">
+          <p>#인기 태그</p>
+          <div>
+            <li><a href="">#java</a><span>68</span></li>
+            <li><a href="">#javascript</a><span>40</span></li>
+            <li><a href="">#react</a><span>29</span></li>
+            <li><a href="">#springboot</a><span>29</span></li>
+            <li><a href="">#spring</a><span>28</span></li>
+          </div>
+        </ul>
+
+<!--        광고-->
+        <a><img id="left-side-img" src="../img/community-1668664024096.png"></a>
+
+<!--        Top Writers-->
+        <ul id="top-writers">
+          <p>Top Writers</p>
+          <div>
+            <li>
+              <div class="top-user">
+                <a><img src="../img/community-profile.jpeg">고등어통조림</a>
+              </div>
+              <div class="posts">
+                <img><span>200</span>
+              </div>
+            </li>
+            <li>
+              <div class="top-user">
+                <a><img src="../img/community-profile.jpeg">kemu</a>
+              </div>
+              <div class="posts">
+                <img><span>132</span>
+              </div>
+            </li>
+            <li>
+              <div class="top-user">
+                <a><img src="../img/community-profile.jpeg">무명시인</a>
+              </div>
+              <div class="posts">
+                <img><span>115</span>
+              </div>
+            </li>
+            <li>
+              <div class="top-user">
+                <a><img src="../img/community-profile.jpeg">leemong77</a>
+              </div>
+              <div class="posts">
+                <img><span>98</span>
+              </div>
+            </li>
+            <li>
+              <div class="top-user">
+                <a><img src="../img/community-profile.jpeg">목다방고양이</a>
+              </div>
+              <div class="posts">
+                <img><span>96</span>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+
+<!--      ===========================================================================================-->
+
+<!--      중앙-->
+      <div id="center-div">
+        <a href="">
+          <img src="../img/community-1670485527069.jpg">
+        </a>
+        <div id="board-category">
+          <div id="board-category-background">
+            <div></div>
+          </div>
+          <div id="board-category-text">
+            <h1>커뮤니티</h1>
+            <p>다양한 사람을 만나고 생각의 폭을 넓혀보세요.</p>
+          </div>
+          <img src="../img/community-character.svg">
+        </div>
+
+<!--        작성하기, 카테고리, 정렬 버튼-->
+        <div id="button-group">
+          <button id="write-post-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path></svg>
+            <span>작성하기</span>
+          </button>
+          <div id="board-detail-category">
+            <a>사는얘기</a>
+            <a>모임&스터디</a>
+            <a>전체</a>
+          </div>
+          <button id="sort">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25"></path></svg>
+            <span>최신순</span>
+          </button>
+        </div>
+
+<!--        새로고침, 검색, 페이지 버튼-->
+        <div id="button-group2">
+          <button id="refresh">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-500 hover:cursor-pointer hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path></svg>
+          </button>
+          <form id="search">
+            <button type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3.5 w-3.5 text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path></svg>
+            </button>
+            <input type="text" placeholder="커뮤니티 내에서 검색">
+          </form>
+          <div id="page-move">
+            <span>1/6362 페이지</span>
+            <svg style="color: hsla(220, 9%, 46%, 0.3);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="text-gray-300 dark:text-gray-700 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path></svg>
+            <a>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+
+<!--        게시글 목록-->
+        <div id="post-list">
+          <div class="post">
+            <div class="post-first-line">
+              <a href=""><img class="profile-picture" src="../img/community-profile2.png" alt=""><span>OKKY ㆍ </span></a>
+              <img src="" alt="">
+              <span>4.8k</span>
+              <span> ㆍ 1일 전</span>
+            </div>
+            <div class="post-second-line">
+              <a href="">생능출판사 [비전공이지만 개발자로 먹고삽니다] 리뷰 이벤트</a>
+            </div>
+            <div class="post-third-line">
+              <div class="tag-link">
+                <a href="">공지사항</a>
+                <div class="post-tag">
+                  <a href="">#리뷰이벤트</a>
+                  <a href="">#생능출판사</a>
+                  <a href="">#비전공자이지만개발자로먹고삽니다</a>
+                  <a href="">#비전공개발자</a>
+                </div>
+              </div>
+              <div class="user-reaction">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>444</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path></svg>
+                  <span>12</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path></svg>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="post-first-line">
+              <a href=""><img class="profile-picture" src="../img/community-profile2.png" alt=""><span>OKKY ㆍ </span></a>
+              <img src="" alt="">
+              <span>4.8k</span>
+              <span> ㆍ 1일 전</span>
+            </div>
+            <div class="post-second-line">
+              <a href="">생능출판사 [비전공이지만 개발자로 먹고삽니다] 리뷰 이벤트</a>
+            </div>
+            <div class="post-third-line">
+              <div class="tag-link">
+                <a href="">공지사항</a>
+                <div class="post-tag">
+                  <a href="">#리뷰이벤트</a>
+                  <a href="">#생능출판사</a>
+                  <a href="">#비전공자이지만개발자로먹고삽니다</a>
+                  <a href="">#비전공개발자</a>
+                </div>
+              </div>
+              <div class="user-reaction">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>444</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path></svg>
+                  <span>12</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path></svg>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="post-first-line">
+              <a href=""><img class="profile-picture" src="../img/community-profile2.png" alt=""><span>OKKY ㆍ </span></a>
+              <img src="" alt="">
+              <span>4.8k</span>
+              <span> ㆍ 1일 전</span>
+            </div>
+            <div class="post-second-line">
+              <a href="">생능출판사 [비전공이지만 개발자로 먹고삽니다] 리뷰 이벤트</a>
+            </div>
+            <div class="post-third-line">
+              <div class="tag-link">
+                <a href="">공지사항</a>
+                <div class="post-tag">
+                  <a href="">#리뷰이벤트</a>
+                  <a href="">#생능출판사</a>
+                  <a href="">#비전공자이지만개발자로먹고삽니다</a>
+                  <a href="">#비전공개발자</a>
+                </div>
+              </div>
+              <div class="user-reaction">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>444</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path></svg>
+                  <span>12</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path></svg>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="post-first-line">
+              <a href=""><img class="profile-picture" src="../img/community-profile2.png" alt=""><span>OKKY ㆍ </span></a>
+              <img src="" alt="">
+              <span>4.8k</span>
+              <span> ㆍ 1일 전</span>
+            </div>
+            <div class="post-second-line">
+              <a href="">생능출판사 [비전공이지만 개발자로 먹고삽니다] 리뷰 이벤트</a>
+            </div>
+            <div class="post-third-line">
+              <div class="tag-link">
+                <a href="">공지사항</a>
+                <div class="post-tag">
+                  <a href="">#리뷰이벤트</a>
+                  <a href="">#생능출판사</a>
+                  <a href="">#비전공자이지만개발자로먹고삽니다</a>
+                  <a href="">#비전공개발자</a>
+                </div>
+              </div>
+              <div class="user-reaction">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>444</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path></svg>
+                  <span>12</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path></svg>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="post-first-line">
+              <a href=""><img class="profile-picture" src="../img/community-profile2.png" alt=""><span>OKKY ㆍ </span></a>
+              <img src="" alt="">
+              <span>4.8k</span>
+              <span> ㆍ 1일 전</span>
+            </div>
+            <div class="post-second-line">
+              <a href="">생능출판사 [비전공이지만 개발자로 먹고삽니다] 리뷰 이벤트</a>
+            </div>
+            <div class="post-third-line">
+              <div class="tag-link">
+                <a href="">공지사항</a>
+                <div class="post-tag">
+                  <a href="">#리뷰이벤트</a>
+                  <a href="">#생능출판사</a>
+                  <a href="">#비전공자이지만개발자로먹고삽니다</a>
+                  <a href="">#비전공개발자</a>
+                </div>
+              </div>
+              <div class="user-reaction">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>444</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path></svg>
+                  <span>12</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path></svg>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="post-first-line">
+              <a href=""><img class="profile-picture" src="../img/community-profile2.png" alt=""><span>OKKY ㆍ </span></a>
+              <img src="" alt="">
+              <span>4.8k</span>
+              <span> ㆍ 1일 전</span>
+            </div>
+            <div class="post-second-line">
+              <a href="">생능출판사 [비전공이지만 개발자로 먹고삽니다] 리뷰 이벤트</a>
+            </div>
+            <div class="post-third-line">
+              <div class="tag-link">
+                <a href="">공지사항</a>
+                <div class="post-tag">
+                  <a href="">#리뷰이벤트</a>
+                  <a href="">#생능출판사</a>
+                  <a href="">#비전공자이지만개발자로먹고삽니다</a>
+                  <a href="">#비전공개발자</a>
+                </div>
+              </div>
+              <div class="user-reaction">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>444</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path></svg>
+                  <span>12</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path></svg>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="post-first-line">
+              <a href=""><img class="profile-picture" src="../img/community-profile2.png" alt=""><span>OKKY ㆍ </span></a>
+              <img src="" alt="">
+              <span>4.8k</span>
+              <span> ㆍ 1일 전</span>
+            </div>
+            <div class="post-second-line">
+              <a href="">생능출판사 [비전공이지만 개발자로 먹고삽니다] 리뷰 이벤트</a>
+            </div>
+            <div class="post-third-line">
+              <div class="tag-link">
+                <a href="">공지사항</a>
+                <div class="post-tag">
+                  <a href="">#리뷰이벤트</a>
+                  <a href="">#생능출판사</a>
+                  <a href="">#비전공자이지만개발자로먹고삽니다</a>
+                  <a href="">#비전공개발자</a>
+                </div>
+              </div>
+              <div class="user-reaction">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>444</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path></svg>
+                  <span>12</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path></svg>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post">
+            <div class="post-first-line">
+              <a href=""><img class="profile-picture" src="../img/community-profile2.png" alt=""><span>OKKY ㆍ </span></a>
+              <img src="" alt="">
+              <span>4.8k</span>
+              <span> ㆍ 1일 전</span>
+            </div>
+            <div class="post-second-line">
+              <a href="">생능출판사 [비전공이지만 개발자로 먹고삽니다] 리뷰 이벤트</a>
+            </div>
+            <div class="post-third-line">
+              <div class="tag-link">
+                <a href="">공지사항</a>
+                <div class="post-tag">
+                  <a href="">#리뷰이벤트</a>
+                  <a href="">#생능출판사</a>
+                  <a href="">#비전공자이지만개발자로먹고삽니다</a>
+                  <a href="">#비전공개발자</a>
+                </div>
+              </div>
+              <div class="user-reaction">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <span>444</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path></svg>
+                  <span>12</span>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"></path></svg>
+                  <span>1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--        paging-->
+        <div id="page-move-bottom">
+          <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg> Previous</button>
+          <div id="page">
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+            <a href="">6364</a>
+          </div>
+          <button>Next <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path></svg></button>
+        </div>
+      </div>
+      <!--      ===========================================================================================-->
+
+
+
+<!--      오른쪽-->
+      <div id="right-div">
+        <a><img class="right-side-advertisement" src="../img/k-digital-trainning.jpg"></a>
+        <a><img class="right-side-advertisement" src="../img/k-digital-trainning.jpg"></a>
+      </div>
+    </div>
+  </body>
+</html>
