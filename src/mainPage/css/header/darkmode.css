@@ -1,0 +1,60 @@
+.toggleSwitch {
+    width: 44px;
+    height: 24px;
+    display: block;
+    position: relative;
+    border-radius: 30px;
+    background-color: #0090f9;
+    cursor: pointer;
+}
+
+/* 토글 버튼 */
+.toggleSwitch .toggleButton {
+    /* 버튼은 토글보다 작아야함  */
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #fff;
+}
+
+.toggleSwitch .toggleImage_off,
+.toggleImage_on {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 10%;
+}
+
+.toggleSwitch .toggleImage_off {
+    left: calc(100% - 23px);
+}
+.toggleSwitch .toggleImage_on {
+    left: 2;
+    display: none;
+}
+
+#toggle:checked ~ .toggleSwitch {
+    background: #374151;
+}
+
+#toggle:checked ~ .toggleSwitch .toggleButton {
+    left: calc(100% - 23px);
+    background: #fff;
+}
+
+#toggle:checked ~ .toggleSwitch .toggleImage_off {
+    display: none;
+}
+
+#toggle:checked ~ .toggleSwitch .toggleImage_on {
+    display: block;
+}
+
+.toggleSwitch,
+.toggleButton {
+    transition: all 0.1s ease-in;
+}

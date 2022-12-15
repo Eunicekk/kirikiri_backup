@@ -1,0 +1,16 @@
+.sponsored_text {
+    display: flex;
+    justify-content: right;
+}
+
+.sponsored_text div {
+    color: #374151;
+    font-size: 14px;
+}
+
+.sponsored_logo {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
