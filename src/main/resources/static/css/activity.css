@@ -1,0 +1,189 @@
+*{
+    margin: 0px;
+    height: 0px;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.main{
+    width: 1280px;
+    height: 776px;
+    margin: 18px auto 0px auto;
+    display: flex;
+    justify-content: center;
+}
+.main_without_m{
+    width: 1280px;
+    height: 776px;
+
+}
+.main_without_m>div{
+    float: left;
+}
+
+.left{
+    width: 180px;
+    height: 776px;
+}
+.middle{
+    margin-left: 40px;
+    width: 840px;
+    height: 776px;
+}
+.right{
+    margin-left: 40px;
+    width: 180px;
+    height: 776px;
+}
+.ad1, .ad1>a, .ad1 img{
+    width: 180px;
+    height: 180px;
+}
+.ad2, .ad2>a, .ad2 img{
+    width:180px;
+    height: 380px;
+}
+.info{
+    border: 1px solid gray;
+    height: 181px;
+    border-radius: 0.375rem;
+}
+.info_m{
+    margin: 32px 24px;
+    height: 64px;
+}
+
+.photo_div{
+    width: 64px;
+    height: 64px;
+    float: left;
+}
+.username{
+    height: 64px;
+}
+.photo{
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+}
+.name{
+    margin-left: 20px;
+    float: left;
+    height: 64px;
+}
+name>h2{
+    font-size: 24px;
+    font-weight: 700;
+}
+.act_score{
+    height: 24px;
+}
+.username{
+    height: 40px;
+}
+.thunder{
+    width: 16px;
+    height: 16px;
+}
+.act_score>span{
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(107, 114, 128);
+}
+.link{
+    float: right;
+    padding: 8px 16px;
+    border: 1px solid rgb(107, 114, 128);
+    height: 20px;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color : black;
+}
+.link:hover{
+    border-color: black;
+    border: 2px solid black;
+}
+.menu{
+    border-top: solid 1px rgb(107, 114, 128);
+    background-color: rgb(243, 244, 246);
+    height: 52px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+#link_1{
+    position: relative;
+    float: left;
+    list-style: none;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 0px;
+    padding-left: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    height: 53px;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#link_2, #link_3{
+    position: relative;
+    float: left;
+    list-style: none;
+    padding: 16px 4px;
+    font-size: 14px;
+    font-weight: 500;
+    height: 53px;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.borderBottom{
+    margin-top: 60px;
+    height: 1px;
+    background: rgb(107, 114, 128);
+}
+.bottomMargin{
+    margin-bottom: 64px;
+}
+.content{
+    height: 62px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(107, 114, 128);
+}
+.whereAndTime{
+    height: 30px;
+}
+.title{
+    height: 24px;
+    margin-top: 8px;
+
+}
+.aTitle{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    line-height: 24px;
+}
+.where{
+    width: 600px;
+    height: 30px;
+    height: 14px;
+    line-height: 20px;
+}
+.time{
+    float: right;
+    height: 30px;
+    height: 14px;
+    line-height: 20px;
+}
