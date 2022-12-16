@@ -1,0 +1,370 @@
+#main {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#left-div {
+    width: 180px;
+}
+#center-div {
+    min-width: 0;
+    margin-left: 30px;
+}
+#right-div {
+    width: 180px;
+    margin-left: 30px;
+}
+
+/*왼쪽*/
+#popular-tag > p {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#popular-tag > div {
+    padding-top: 20px;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    margin-bottom: 40px;
+}
+
+#popular-tag li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 13px;
+    font-weight: bold;
+}
+#popular-tag a:hover {
+    color: rgb(0 144 249);
+}
+#popular-tag span {
+    font-weight: bold;
+    color: rgb(0 144 249);
+}
+
+#left-side-img {
+    width: 180px;
+    margin-bottom: 30px;
+}
+
+#top-writers > p {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#top-writers > div {
+    padding-top: 20px;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    margin-bottom: 40px;
+}
+#top-writers li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.top-user > a {
+    display: flex;
+    align-items: center;
+}
+.top-user > a:hover {
+    color: rgb(0 144 249);
+}
+.top-user img {
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+}
+
+
+/*중앙*/
+#board-category {
+    position: relative;
+    margin: 24px 0;
+
+}
+#board-category-background {
+    background-color: rgb(240 246 250);
+    position: relative;
+    border-radius: 10px;
+}
+#board-category-background > div {
+    width: 100%;
+    height: 80px;
+    background-image: url(https://okky.kr/pattern.svg);
+    background-position: right top 1000px;
+    opacity: 0.1;
+    border-radius: 10px;
+}
+#board-category-text {
+    position: absolute;
+    top: 0;
+    padding: 20px 30px;
+}
+#board-category-text > h1 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+    top: 0;
+    margin-bottom: 8px;
+}
+#board-category-text > p {
+    font-size: 13px;
+}
+#board-category > img {
+    width: 140px;
+    position: absolute;
+    top: -12px;
+    right: 60px;
+}
+#button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
+}
+#write-post-button{
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    background-color: rgb(0 144 249);
+    cursor: pointer;
+}
+#write-post-button > svg {
+    width: 20px;
+}
+#board-detail-category > a {
+    margin: 0 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+}
+#board-detail-category > a:hover {
+    color: rgb(0 144 249);
+}
+#board-detail-category > a:nth-child(3) {
+    background-color: rgb(243 244 246);
+    color: #000;
+}
+#sort {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+}
+#sort > svg {
+    width: 20px;
+    margin-right: 5px;
+}
+
+#button-group2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#refresh {
+    background: #fff;
+    border: 0px solid #fff;
+    cursor: pointer;
+}
+#refresh > svg {
+    width: 20px;
+}
+#refresh > svg:hover {
+    color: rgb(0 144 249);
+}
+
+#search {
+    padding: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#search > button {
+    border: 0 solid #fff;
+    background: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 13px;
+    left: 10px;
+}
+#search svg {
+    width: 16px;
+    color: hsla(220, 9%, 46%, 0.7);
+}
+#search svg:hover {
+    color: rgb(0 144 249);
+}
+#search > input {
+    border: 0 solid #fff;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 20px;
+}
+#search > input:active{
+    border-color: rgb(0 144 249);
+}
+#page-move {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#page-move svg {
+    width: 20px;
+    margin: 0 10px;
+}
+#page-move svg:hover {
+    color: rgb(0 144 249);
+}
+
+/*post*/
+#post-list {
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+.post {
+    padding: 20px 5px;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+}
+.post:nth-child(1) {
+    background-color: rgb(240 246 250);
+}
+.post:nth-child(2) {
+    background-color: rgb(240 246 250);
+}
+.post-first-line {
+    display: flex;
+    align-items: center;
+}
+.post-first-line > a {
+    display: flex;
+    align-items: center;
+}
+.post-first-line > a:hover {
+    color: rgb(0 144 249);
+}
+.profile-picture {
+    width: 20px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
+.post-first-line  span {
+    font-size: 14px;
+
+}
+.post-second-line {
+    margin-top: 10px;
+}
+.post-second-line > a {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.post-second-line > a:hover {
+    color: rgb(0 144 249);
+}
+.post-third-line {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 10px;
+}
+.tag-link {
+    display: flex;
+}
+.tag-link > a {
+    background-color: rgb(209 233 250);
+    color: rgb(0 144 249);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.post-tag > a {
+    margin: 0 3px;
+    font-size: 12px;
+    color: rgb(75 85 99);
+}
+.post-tag > a:hover {
+    color: rgb(0 144 249);
+}
+.user-reaction {
+    display: flex;
+    align-items: center;
+}
+.user-reaction > div {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+.user-reaction svg {
+    width: 20px;
+}
+
+
+
+/*page*/
+#page-move-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    position: relative;
+}
+#page-move-bottom > button {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 0 solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+#page-move-bottom > button:hover {
+    color: rgb(0 144 249);
+}
+#page-move-bottom > button:nth-child(1) {
+    color: hsla(220, 9%, 46%, 0.3);
+}
+#page-move-bottom > button > svg {
+    width: 20px;
+    margin: 0 10px;
+}
+#page > a {
+    position: relative;
+    padding: 20px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#page > a:hover {
+    color: rgb(0 144 249);
+}
+#page > a:nth-child(1) {
+    color: rgb(0 144 249);
+    border-top: 2px solid rgb(0 144 249);
+    line-height: 61px;
+}
+#page svg {
+    width: 20px;
+}
+
+/*오른쪽 사이드*/
+.right-side-advertisement {
+    width: 180px;
+    margin-bottom: 20px;
+}
