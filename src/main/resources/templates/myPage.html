@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/myPage.css">
+    <script type="text/javascript" src="../static/javascript/myPage.js"></script>
+    <title>myPage</title>
+</head>
+<body>
+<div class="main">
+    <div class="main_top_margin">
+        <div class="main_without_margin">
+            <aside class="menu_bar">
+                <h2>내 계정</h2>
+                <div class="menu">
+                    <!--https://iconmonstr.com/ 사용 -->
+                    <ul>
+                        <li id="link_1"><img src="../img/account.svg"></img><span>계정 관리</span></Link></li>
+                        <!--<li id="link_2"><img src="./images/letter.svg"></img><span>쓴 게시글/댓글</span></Link></li>
+                        <li id="link_3"><img src="./images/like.svg"></img><span>좋아요 누른 글</span></Link></li> -->
+                        <li id="link_4"><img src="../img/question.svg"></img><span>자주 묻는 질문</span></Link></li>
+                        <li id="link_5"><img src="../img/deleteaccount.svg"></img><span>회원 탈퇴</span></li>
+                    </ul>
+                </div>
+            </aside>
+            <div class="content">
+                <!-- 계정관리 화면 -->
+                <div class="tabpage" id="tabpage_1">
+                    <form id="user_info" action="serverscriptfile" name="person_info" method="post">
+                        <div class="info">
+                            <h2>회원정보</h2>
+                            <div class="info_word">
+                                <div class="person_info">
+                                    <div class="name">
+                                        <label for="username" class="username">이름</label>
+                                        <div class="name_enter">
+                                            <input type="text" id="username" value="원래 아이디명">
+                                        </div>
+                                    </div>
+                                    <div class="nickname">
+                                        <label for="usernickname" class="usernickname">닉네임</label>
+                                        <div class="nickname_enter">
+                                            <input type="text" id="usernickname" value="원래 닉네임">
+                                        </div>
+                                    </div>
+                                    <div class="nationality">
+                                        <div class="usernationality">국적</div>
+                                        <div class="nationality_enter">
+                                            <select name="nation" id="usernationality">
+                                                <option value ="a">원래 국적</option>
+                                                <option value="china">중국</option>
+                                                <option value="vietnam">베트남</option>
+                                                <option value="thailand">태국</option>
+                                                <option value="us">미국</option>
+                                                <option value="uzbec">우즈베키스탄</option>
+                                                <option value="philp">필리핀</option>
+                                                <option value="japan">일본</option>
+                                                <option value="other">기타</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="age">
+                                        <label for="userage" class="userage">나이</label>
+                                        <div class="age_enter">
+                                            <input type="text" id="userage" value="원래 나이">
+                                        </div>
+                                    </div>
+                                    <div class="livingplace">
+                                        <label for="userlivingplace" class="userlivingplace">거주 지역</label>
+                                        <p class="checkinfo">구 단위만 입력</p>
+                                        <div class="livingplace_enter">
+                                            <input type="text" id="userlivingplace" value="원래 거주지">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile">
+                                    <label for="picture">
+                                        <div class="change"><p>변경</p></div>
+                                    </label>
+                                    <input type="file" id="picture">
+                                </div>
+                                <div class="btn">
+                                    <input type="checkbox" id="toggle-slide1">
+                                    <label for="toggle-slide1">on/off</label>
+                                    <input type="checkbox" id="toggle-slide2">
+                                    <label for="toggle-slide2">on/off</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <hr>
+                    <div class="sub">
+                        <button type="submit" form="user_info"><p>저장</p></button>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <!--<div class="tabpage" id="tabpage_2"><h1>쓴 게시글/댓글</h1></div>
+                <div class="tabpage" id="tabpage_3"><h1>좋아요 누른글</h1></div> -->
+
+
+
+                <div class="tabpage" id="tabpage_4">
+                    <h1>FAQ부분</h1>
+                </div>
+
+                <div class="tabpage" id="tabpage_5">
+                    <div class="delete">
+                        <div class="notice">
+                            <h2>계정 삭제</h2>
+                            <div>
+                                <p class="p1">회원 탈퇴일로부터 계정과 닉네임을 포함한 계정 정보(아이디/이메일/닉네임)은
+                                    <br>개인정보 보호방침에 따라 60일간 보관(잠김)되며, 60일이 경과된 후에는 모든 개인 정보는 완전히 삭제되며 더 이상 복구할 수 없게 됩니다.
+                                </p>
+                                <p class="p2">작성된 게시물은 삭제되지 않으며, 익명처리 후 OKKY로 소유권이 귀속됩니다</p>
+                            </div>
+                        </div>
+                        <div class="checknotice_div">
+                            <form action="serverScriptfile" method="post" id="delete_form">
+                                <p><input type="checkbox" name="checknotice" id="checknotice"><label for="checknotice">계정 삭제에 관한 정책을 읽고 이에 동의합니다.</label></p>
+                                <input type="submit" id="delete" value="회원 탈퇴" disabled>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
