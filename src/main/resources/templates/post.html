@@ -32,7 +32,7 @@
 <!--            프로필, 공유, 스크랩-->
             <div id="post-first-line">
                 <div id="post-info">
-                    <a href=""><img src="../static/img/post_profile.png" alt=""></a>
+                    <a href=""><img class="profile-picture" src="../static/img/community-profile.png" alt=""></a>
                     <div id="post-info-text">
                         <a href="">상동닭집</a>
                         <div><span>
@@ -74,13 +74,66 @@
                     </button>
                 </div>
             </div>
-            <a href="">
-                <img src="../static/img/advertisement.png">
+            <a class="advertisement" href="">
+                <img src="../static/img/post-advertisement.png">
             </a>
 
 <!--            댓글-->
-            <div>
+            <div id="comment-area">
+                <p>11개의 댓글</p>
+                <div id="add-comment-box">
+                    <div class="add-comment">
+                        <div>
+                            <img class="profile-picture" src="../static/img/community-profile.png" alt="">
+                        </div>
+                        <form class="add-comment-form" action="">
+                            <div>
 
+                            </div>
+                            <button type="submit">댓글 쓰기</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="comment-list">
+                    <div id="comment">
+                        <div>
+                            <div>
+                                <a href=""><img src="" alt=""></a>
+                                <div>
+                                    <p>takin17</p>
+                                    <span><img src="" alt="">4.9k ㆍ 1일 전</span>
+                                </div>
+                            </div>
+                            <div class="comment-like-dislike">
+                                <button><img src="" alt=""></button>
+                                <p></p>
+                                <button><img src="" alt=""></button>
+                            </div>
+                        </div>
+                        <div id="comment-reply-button">
+
+                        </div>
+                        <div id="comment-reply">
+                            <div>
+                                <div>
+                                    <div>
+                                        <a href=""><img src="" alt=""></a>
+                                        <div>
+                                            <p>takin17</p>
+                                            <span><img src="" alt="">4.9k ㆍ 1일 전</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-like-dislike">
+                                        <button><img src="" alt=""></button>
+                                        <p></p>
+                                        <button><img src="" alt=""></button>
+                                    </div>
+                                </div>
+                                <button id="add-comment-reply"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

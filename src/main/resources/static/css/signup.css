@@ -1,118 +1,106 @@
 #signup-page {
-  max-width: 28rem;
-  width: 100%;
-  margin: 8rem auto;
+  width: 450px;
+  margin: 150px auto;
 }
 
-.main-image {
-  height: 3rem;
+.main-logo {
+  width: 70px;
   display: flex;
-  justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 30px;
 }
-
-#signup-page h2 {
+#okky-welcome {
+  font-weight: bold;
+  font-size: 30px;
   text-align: center;
-  font-weight: 700;
-  margin-top: 1.5rem;
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
-
 .explan-site {
+  margin-top: 15px;
+  font-size: 13px;
   text-align: center;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  margin-top: 0.5rem;
   color: rgb(75 85 99);
 }
 
+/*SNS로 로그인*/
 #SNS-signup {
-  margin-top: 2rem;
+  margin-top: 40px;
 }
+#SNS-signup > span {
+  font-weight: bold;
 
+}
 #SNS-signup > div {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 0.25rem;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  margin-top: 10px;
 }
-
 #SNS-signup > div > a {
-  border: 0.5px solid hsla(220, 9%, 46%, 0.3);
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem 0.5rem 1rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border: 1px solid hsla(220,9%,46%,.3);
+  padding: 10px 20px;
+  border-radius: 10px;
 }
-.grid > a:hover {
+#SNS-signup > div > a:hover {
   border-color: #000;
 }
-
-.SNS-image {
-  width: 1.5rem;
-  height: 1.5rem;
+#SNS-signup svg {
+  width: 20px;
 }
 
+/*OKKY로 로그인*/
 #okky-signup-msg {
-  margin-top: 1.75rem;
+  margin-top: 30px;
+  position: relative;
+}
+#center-line {
   position: relative;
 }
 #center-line {
   position: absolute;
-  display: flex;
-  align-items: center;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
-#center-line > div {
-  border-top-width: 1px;
+  top: 8px;
   width: 100%;
-  border: 0.5px solid hsla(220, 9%, 46%, 0.3);
-  position: relative;
+  height: 0;
+  border-top: 1px solid hsla(220,9%,46%,.3);
   z-index: 0;
 }
 #okky-signup-text {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  position: relative;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 #okky-signup-text > span {
   position: relative;
-  z-index: 100;
-  background-color: rgb(255 255 255);
-  color: rgb(107 114 128);
-  padding: 0 7px 0 7px;
+  background-color: #fff;
+  padding: 0 10px;
+  z-index: 10;
+  font-size: 13px;
+  color: hsla(220,9%,46%,.7);
 }
 
+/*로그인폼*/
 #signup-form {
-  margin-top: 2rem;
-}
-
-.signup-label {
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: rgb(55 65 81);
+  margin: 40px 0;
 }
 .mt-1 {
-  margin-top: 0.25rem;
-}
-.signup-input {
-  font-size: 0.9rem;
-  line-height: 1.5rem;
-  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-  width: 93%;
-  border: 1px solid hsla(220, 9%, 46%, 0.3);
-  border-radius: 0.375rem;
+  margin-top: 8px;
 }
 .mt-2 {
-  margin-top: 1.5rem;
+  margin-top: 25px;
 }
-
+.signup-label {
+  font-size: 12px;
+  font-weight: bold;
+}
+.signup-input {
+  width: 428px;
+  border: 1px solid hsla(220,9%,46%,.3);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+}
 #email-agree {
   display: flex;
   justify-content: space-between;
@@ -147,6 +135,7 @@
 }
 
 #email-explan {
+  margin-top: 10px;
   color: rgb(107 114 128);
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -158,58 +147,47 @@
   justify-content: center;
   align-items: center;
 }
-
+#find-account {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+#find-account > a {
+  color: #0090f9;
+  margin: 0 20px;
+}
+#find-account > a:hover {
+  color: rgb(11 127 211);
+}
 #find-account > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.5rem;
+  width: 0;
+  border: 1px solid rgb(229 231 235);
 }
-
-#find-account a {
-  color: rgb(0 144 249);
-  text-decoration: inherit;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-#find-account > div > div {
-  background-color: rgb(229 231 235);
-  width: 0.125rem;
-  height: 0.75rem;
-  border: 0 solid #e5e7eb;
-  font-size: 0.875rem;
-  color: rgb(17 24 39);
-}
-
 #signup-button {
-  margin-top: 1.5rem;
+  margin-top: 20px;
 }
-#signup-button button {
+#signup-button > button {
   width: 100%;
-  color: rgb(255 255 255);
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  padding: 0.5rem 1rem;
-  background-color: rgb(0 144 249);
-  border: 1px solid transparent;
-  border-radius: 0.375rem;
+  padding: 8px 0;
+  color: #fff;
+  font-weight: bold;
+  background-color: #0090f9;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
-
-#go-login {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  margin: 1.5rem auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(17 24 39);
+#signup-button > button:hover {
+  background-color: rgb(11 127 211);
 }
-#go-login a {
-  margin-left: 0.5rem;
+#go-signup {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 13px ;
+}
+#go-login > a {
+  color: #0090f9;
   text-decoration: underline;
-  color: rgb(0 144 249);
+}
+#go-login > a:hover {
+  color: rgb(11 127 211);
 }

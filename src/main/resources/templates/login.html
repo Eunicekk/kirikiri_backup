@@ -9,16 +9,18 @@
     <link rel="stylesheet" href="../static/css/login.css" />
   </head>
   <body>
+<!--  전체 페이지-->
     <div id="login-page">
       <div>
         <a href="">
-          <img class="main-image" src="../img/okky.svg" alt="OKKY" />
+          <img class="main-logo" src="../img/okky.svg" alt="OKKY" />
         </a>
-        <h2>OKKY에 오신것을 환영합니다.</h2>
+        <h2 id="okky-welcome">OKKY에 오신것을 환영합니다.</h2>
         <p class="explan-site">
           OKKY는 소프트웨어 개발자를 위한 지식공유 플랫폼입니다.
         </p>
         <div>
+<!--          SNS 로그인-->
           <div id="SNS-login">
             <span>SNS 로그인</span>
             <div>
@@ -178,6 +180,8 @@
               <span>OKKY 아이디로 로그인</span>
             </div>
           </div>
+
+<!--          로그인폼-->
           <form id="login-form" action="">
             <div>
               <div>
@@ -194,9 +198,7 @@
               </div>
             </div>
             <div id="find-account">
-              <div>
-                <a href="">계정찾기</a>
-              </div>
+              <a href="">계정찾기</a>
             </div>
             <div id="login-button">
               <button type="submit">로그인</button>
