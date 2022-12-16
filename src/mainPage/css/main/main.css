@@ -1,0 +1,10 @@
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.main > div {
+    display: flex;
+    width: 1280px;
+    margin-top: 18px;
+}
