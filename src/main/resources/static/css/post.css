@@ -139,22 +139,43 @@
     padding: 5px 10px;
     font-size: 13px;
 }
+#post-tag > a:hover {
+    color: rgb(0 144 249);
+}
 #like-dislike {
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid hsla(220, 9%, 46%, 0.7);
-    border-bottom: 1px solid hsla(220, 9%, 46%, 0.7);
+    border-radius: 10px;
 }
 #like-dislike > button {
+    height: 100%;
     background-color: #fff;
-    border-left: 1px solid hsla(220, 9%, 46%, 0.7);
-    border-right: 1px solid hsla(220, 9%, 46%, 0.7);
-    border-top: 0px solid #fff;
-    border-bottom: 0px solid #fff;
+    cursor: pointer;
+    padding: 10px;
+    line-height: 38px;
+}
+#like-dislike > button:hover {
+    border: 1px solid hsla(220, 9%, 46%, 0.7);
+}
+#like-dislike > p {
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
+    line-height: 36px;
+}
+#up-button {
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+}
+#down-button {
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
 }
 #like-dislike svg {
     width: 20px;
+}
+#like-dislike  > p {
+    width: 50px;
+    text-align: center;
 }
 
 /*댓글*/
