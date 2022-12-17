@@ -155,35 +155,50 @@ name>h2{
 .bottomMargin{
     margin-bottom: 64px;
 }
-.content{
+.content, .commentContent, .likeContent{
     height: 62px;
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid rgb(107, 114, 128);
 }
-.whereAndTime{
+.whereAndTime, .commentWhereAndTime, .likeWhere{
     height: 30px;
 }
-.title{
+.title, .commentTitle, .likeTitle{
     height: 24px;
     margin-top: 8px;
 
 }
-.aTitle{
+.aTitle, .commentATitle, .likeATitle{
     text-decoration: none;
     color: black;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 24px;
+    font-width: 600;
 }
-.where{
+.aTitle:hover, .commentATitle:hover, .likeATitle:hover{
+    color : blue;
+}
+.where, .commentWhere{
     width: 600px;
-    height: 30px;
-    height: 14px;
+    height: 20px;
     line-height: 20px;
+    float: left;
+    font-size: 14px;
+    color: gray;
 }
-.time{
-    float: right;
-    height: 30px;
-    height: 14px;
+.likeAWhere{
+    width: 600px;
+    height: 20px;
     line-height: 20px;
+    font-size: 14px;
+    color: gray;
+}
+
+.time, .commentTime{
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: gray;
 }
