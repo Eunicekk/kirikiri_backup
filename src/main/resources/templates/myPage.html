@@ -29,7 +29,7 @@
                         <div class="info">
                             <h2>회원정보</h2>
                             <div class="info_word">
-                                <div class="person_info">
+                                <div class="essentialInfo">
                                     <div class="name">
                                         <label for="username" class="username">이름</label>
                                         <div class="name_enter">
@@ -58,19 +58,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="age">
-                                        <label for="userage" class="userage">나이</label>
-                                        <div class="age_enter">
-                                            <input type="text" id="userage" value="원래 나이">
-                                        </div>
-                                    </div>
-                                    <div class="livingplace">
-                                        <label for="userlivingplace" class="userlivingplace">거주 지역</label>
-                                        <p class="checkinfo">구 단위만 입력</p>
-                                        <div class="livingplace_enter">
-                                            <input type="text" id="userlivingplace" value="원래 거주지">
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="profile">
                                     <label for="picture">
@@ -78,11 +65,28 @@
                                     </label>
                                     <input type="file" id="picture">
                                 </div>
-                                <div class="btn">
-                                    <input type="checkbox" id="toggle-slide1">
-                                    <label for="toggle-slide1">on/off</label>
-                                    <input type="checkbox" id="toggle-slide2">
-                                    <label for="toggle-slide2">on/off</label>
+                            </div>
+                        </div>
+                        <div class="optionalInfo">
+                            <div class="age">
+                                <label for="userage" class="userage">나이</label>
+                                <div class="age_enter">
+                                    <input type="text" id="userage" value="원래 나이">
+                                    <div class="btn">
+                                        <input type="checkbox" id="toggle-slide1">
+                                        <label for="toggle-slide1">on/off</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="livingplace">
+                                <label for="userlivingplace" class="userlivingplace">거주 지역</label>
+                                <p class="checkinfo">구 단위만 입력</p>
+                                <div class="livingplace_enter">
+                                    <input type="text" id="userlivingplace" value="원래 거주지">
+                                    <div class="btn">
+                                        <input type="checkbox" id="toggle-slide2">
+                                        <label for="toggle-slide2">on/off</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -121,31 +125,31 @@
                         <div class="connect">
                             <ul>
                                 <li class="connectTo1">
-                                    <button type="button" onclick= "location.href ='여기에 경로 작성'" class="connectButton">
+                                    <button type="button" onclick= "location.href ='여기에 경로 작성'" class="connectButton" id="git">
                                         <img src="../img/git_logo.png" alt="">
                                         <span>깃허브 연결하기</span>
                                     </button>
 
                                 </li>
                                 <li class="connectTo">
-                                    <button type="button" onclick= "location.href =''" class="connectButton">
+                                    <button type="button" onclick= "location.href =''" class="connectButton" id="google">
                                         <img src="../img/google_logo.png" alt="">
                                         <span>구글 연결하기</span>
                                     </button>
                                 </li>
                                 <li class="connectTo">
-                                  <button type="button" onclick= "location.href =''" class="connectButton">
+                                  <button type="button" onclick= "location.href =''" class="connectButton" id="facebook">
                                       <img src="../img/facebook_logo.png" alt="">
                                       <span>메타 연결하기</span>
                                   </button>
                                 </li>
                                 <li class="connectTo">
-                                    <button type="button" onclick= "location.href =''" class="connectButton">
+                                    <button type="button" onclick= "location.href =''" class="connectButton" id="naver">
                                         <img src="../img/naver_logo.png" alt="">
                                         <span>네이버 해제하기</span>
                                     </button></li>
                                 <li class="connectTo">
-                                    <button type="button" onclick= "location.href =''" class="connectButton">
+                                    <button type="button" onclick= "location.href =''" class="connectButton" id="kakao">
                                         <img src="../img/kakao_logo.png" alt="">
                                         <span>카카오 연결하기</span>
                                     </button>

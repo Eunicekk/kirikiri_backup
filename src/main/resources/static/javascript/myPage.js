@@ -1,28 +1,28 @@
-window.onload=function(){
+window.onload=function() {
 
     // 메뉴로 페이지 이동 이벤트
     let navitem = document.querySelector(".menu ul li");
     let ident = navitem.id.split("_")[1];
 
     navitem.parentNode.setAttribute("data-current", ident);
-    navitem.setAttribute("style","background-color : gray");
+    navitem.setAttribute("style", "background-color : gray");
 
     let pages = document.querySelectorAll(".tabpage");
-    for(let i=1; i<pages.length; i++){
-        pages[i].style.display="none";
+    for (let i = 1; i < pages.length; i++) {
+        pages[i].style.display = "none";
     }
 
     let tabs = document.querySelectorAll(".menu ul li");
-    for(let j=0; j<tabs.length; j++){
-        tabs[j].onclick=click;
+    for (let j = 0; j < tabs.length; j++) {
+        tabs[j].onclick = click;
     }
 
 
-    function click(){
+    function click() {
         let current = this.parentNode.getAttribute("data-current");
-        document.getElementById("link_" + current).setAttribute("style","background-color : #fff");
+        document.getElementById("link_" + current).setAttribute("style", "background-color : #fff");
 
-        document.getElementById("tabpage_" + current).style.display="none";
+        document.getElementById("tabpage_" + current).style.display = "none";
 
         let ident = this.id.split("_")[1];
         this.setAttribute("style", "background-color: gray");
@@ -35,15 +35,15 @@ window.onload=function(){
     // 썸네일 이벤트
     const file = document.querySelector("input[type='file']");
     const thumbnail = document.querySelector("label[for='picture'] div");
-    file.addEventListener("change", function(event){
+    file.addEventListener("change", function (event) {
         let reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
-        reader.onload = function(event){
+        reader.onload = function (event) {
             console.log(event);
             let url = event.target.result;
-            if(url.includes("image")){
-                thumbnail.style.backgroundImage = "url('" + url +"')";
-            }else{
+            if (url.includes("image")) {
+                thumbnail.style.backgroundImage = "url('" + url + "')";
+            } else {
                 thumbnail.style.backgroundImage = "url('../images/account.svg')";
                 // ../images/account.svg 대신 backend에 저장된 이미지 파일
             }
@@ -57,23 +57,52 @@ window.onload=function(){
     const submitButton = document.querySelector("#delete");
     let agreement = false;
 
-    checkBox.addEventListener('input', function(event){
+    checkBox.addEventListener('input', function (event) {
         agreement = !agreement;
         toggleSubmitButton();
     });
 
-    function toggleSubmitButton(){
-        if(agreement){
+    function toggleSubmitButton() {
+        if (agreement) {
             submitButton.disabled = false; // 동의가 되었으면 활성화
-        }else{
+        } else {
             submitButton.disabled = true; // 동의가 안되어있으면 비활성화
         }
     }
 
+    // -------------------------------------------------------------------------------
 
+    // 소셜 계정 연동 여부
 
+    let git = true;
+    let google = false;
+    let facebook = true;
+    let naver = false;
+    let kakao = true;
+
+    let trueCount = 3;
+
+    if(git === true){
+        document.getElementById("git").style.opacity = 1;
+        document.querySelector("#git span").innerHTML = "깃허브 해제하기";
+   }
+    if(google === true){
+        document.getElementById("google").style.opacity = 1;
+        document.querySelector("#google span").innerHTML = "구글 해제하기";
+    }
+    if(facebook === true){
+        document.getElementById("facebook").style.opacity = 1;
+        document.querySelector("#facebook span").innerHTML = "메타 해제하기";
+    }
+    if(naver === true){
+        document.getElementById("naver").style.opacity = 1;
+        document.querySelector("#naver span").innerHTML = "네이버 해제하기";
+    }
+    if(kakao === true){
+        document.getElementById("kakao").style.opacity = 1;
+        document.querySelector("#kakao span").innerHTML = "카카오톡 해제하기";
+    }
 
 
 
 }
-
