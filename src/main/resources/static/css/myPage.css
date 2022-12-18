@@ -1,3 +1,8 @@
+ul, li{
+    margin: 0px;
+    padding: 0px;
+}
+
 .main{
     width: 1280px;
     height: 874px;
@@ -268,6 +273,7 @@ label[for="toggle-slide2"]::after{
 .delete{
     padding-left: 80px;
     height: 874px;
+    border-top: 1px solid gray;
 }
 .notice>h2{
     font-size: 20px;
@@ -316,4 +322,146 @@ label[for="toggle-slide2"]::after{
 #delete:disabled{
     opacity: 0.3;
     cursor: default;
+}
+.socialLoad{
+    height: 346px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-left : 80px;
+}
+.socialLoadInfo{
+    height: 48px;
+}
+.socialLoadInfo>h2{
+    height: 24px;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0px;
+}
+.socialLoadInfo>p{
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 4px;
+    color: gray;
+}
+.connect{
+    margin-top: 8px;
+    height: 290px;
+}
+.connect>ul{
+    height: 290px;
+    margin: 0px;
+    float: right;
+}
+.connectTo{
+    height: 42px;
+    margin-top: 20px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 192px;
+}
+.connectTo1{
+    height: 42px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 192px;
+}
+.connectButton{
+    width:192px;
+    height: 40px;
+    border: 1px solid gray;
+    background-color: white;
+    opacity: 0.3;
+    padding: 0px;
+}
+.connectButton:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.connectButton>img{
+    margin-left: 8px;
+    padding-left: 4px;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+.connectTo1>a{
+    text-decoration: none;
+    color: black;
+    line-height: 42px;
+}
+.connectTo>a{
+    text-decoration: none;
+    color: black;
+    line-height: 42px;
+}
+.emailCheck{
+    border-bottom: 1px solid gray;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    height: 118px;
+}
+.emailCheck_2{
+    padding-left: 80px;
+    height: 118px;
+}
+.emailCheck_2>h2{
+    font-size: 20px;
+    height: 24px;
+    line-height: 24px;
+    font-weight: 600;
+    margin: 0px;
+}
+#emailInfo{
+    margin-top: 16px;
+    height: 42px;
+}
+#emailDiv{
+    height: 42px;
+}
+#emailDivDiv{
+    width: 479px;
+    height: 42px;
+    float: left;
+}
+#email{
+    width: 453px;
+    height: 24px;
+    line-height: 24px;
+    padding: 8px 12px;
+    border: 1px solid gray;
+    margin: 0px;
+    border-radius: 0.375rem;
+}
+#emailSubmit{
+    width: 192px;
+    height: 42px;
+    border: 1px solid black;
+    border-radius: 0.375rem;
+    float: right;
+    opacity: 0.3;
+    background-color: white;
+    padding : 0px 16px;
+}
+#emailSubmit:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+#emailSubmit>img{
+    float: left;
+}
+#emailSubmit>span {
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 1px;
+}
+.emailCheck_2>p{
+    margin-top: 16px;
+    height:20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: gray;
 }
