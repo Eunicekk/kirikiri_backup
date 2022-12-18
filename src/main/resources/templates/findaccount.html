@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>OKKY - All That Developer</title>
-    <link rel="stylesheet" href="../static/css/findaddress.css">
+    <link rel="stylesheet" href="../static/css/findaccount.css">
 </head>
 <body>
 <container class="contain">
@@ -11,14 +11,14 @@
     <h2 class="main-title">계정찾기</h2>
     <div class = "guide">회원 가입시 입력하신 이메일 주소를 입력하시면,
         <br>해당 이메일로 아이디 및 비밀번호 변경 링크를 보내드립니다.</div>
-    <div class="address-input">
-        <label for="input-checkbox" class="input-label">이메일 주소</label>
-        <p><input id="input-checkbox" placeholder="이메일을 입력해주세요" type="text" required></p>
-    </div>
-    <ul>
-        <li><p class="cancle-button"><a href="../templates/login.html">취소</a></p></li>
-        <li><p class="find-address"><a href="#">계정찾기</a></p></li>
-    </ul>
+    <form action="" method="get">
+        <div class="address-input">
+         <label for="input-checkbox" class="input-label">이메일 주소</label>
+         <div><input id="input-checkbox" type="email" placeholder="이메일을 입력해주세요" required></div>
+        </div>
+        <div class="cancel-button"><a href="../templates/login.html">취소</a></div>
+        <div class="find-address"><input type="submit" value="계정찾기"></div>
+    </form>
 </container>
 </body>
 </html>
