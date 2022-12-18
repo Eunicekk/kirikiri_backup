@@ -86,6 +86,9 @@
     flex-direction: column;
     margin-left: 10px;
 }
+#post-info-text > a:hover {
+    color: #0090f9;
+}
 #post-info-text p {
     margin-top: 5px;
     font-size: 14px;
@@ -99,10 +102,13 @@
 #share-scrap {
     display: flex;
 }
-#share-scrap svg {
+#share-scrap > a {
     width: 25px;
-    margin-left: 15px;
+    padding: 10px;
     color: hsla(220, 9%, 46%, 0.7);
+}
+#share-scrap > a:hover {
+    color: #0090f9;
 }
 
 /*게시글 제목*/
@@ -283,6 +289,9 @@
 .comment-info-text {
     margin-left: 10px;
 }
+.comment-info-text > a:hover {
+    color: #0090f9;
+}
 .comment-info-text > span {
     margin-top: 5px;
     font-size: 12px;
@@ -356,6 +365,9 @@
     border: 1px solid #fff;
     color: #0090f9;
     cursor: pointer;
+}
+.comment-reply-hidden:hover {
+    color: rgb(11 127 211);
 }
 .comment-reply-hidden svg {
     width: 15px;

@@ -95,11 +95,12 @@
   font-weight: bold;
 }
 .login-input {
-  width: 428px;
+  width: 100%;
   border: 1px solid hsla(220,9%,46%,.3);
   border-radius: 8px;
   padding: 10px;
   font-size: 20px;
+  box-sizing: border-box;
 }
 #find-account {
   margin-top: 20px;
