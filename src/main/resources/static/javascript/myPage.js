@@ -45,17 +45,17 @@ window.onload=function(){
                 thumbnail.style.backgroundImage = "url('" + url +"')";
             }else{
                 thumbnail.style.backgroundImage = "url('../images/account.svg')";
+                // ../images/account.svg 대신 backend에 저장된 이미지 파일
             }
         }
     });
+
 
     // delete 버튼 활성화
     const form = document.querySelector("#delete_form");
     const checkBox = document.querySelector("#checknotice");
     const submitButton = document.querySelector("#delete");
     let agreement = false;
-
-    form.addEventListener('submit', (e)=>e.preventDefault()); // 새로 고침(submit) 되는 것을 막음
 
     checkBox.addEventListener('input', function(event){
         agreement = !agreement;

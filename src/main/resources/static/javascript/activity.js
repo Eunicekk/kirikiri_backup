@@ -67,7 +67,7 @@ window.onload=function () {
         this.parentNode.setAttribute("data-current", ident);
     }
 
-    // 데이터 개수에 따라 div 구현
+    // 데이터 개수에 따라 게시물 수 구현
 
     class content{
         constructor(boardType, time, title){
@@ -76,12 +76,12 @@ window.onload=function () {
             this.title = title;
         }
     }
-    // 받은 데이터가 2개라고 가정
+    // 받은 데이터가 5개라고 가정
     let A = new content("자유 게시판", "2022-12-10", "제목1");
     let B = new content("맛집/놀거리", "2022-12-11", "제목2");
-    let C = new content("맛집/놀거리", "2022-12-11", "제목2");
-    let D = new content("맛집/놀거리", "2022-12-11", "제목2");
-    let E = new content("맛집/놀거리", "2022-12-11", "제목2");
+    let C = new content("고민 상담", "2022-12-12", "제목3");
+    let D = new content("구인/구직", "2022-12-13", "제목4");
+    let E = new content("맛집/놀거리", "2022-12-14", "제목5");
 
     let contentArray = [A,B,C,D,E];
     let count = 5;
@@ -93,7 +93,7 @@ window.onload=function () {
             div.className = "content";
             div.id = "content"+ i;
 
-            document.querySelector(".contentParent").prepend(div);
+            document.querySelector(".write").prepend(div);
         }
     }
 
@@ -145,6 +145,167 @@ window.onload=function () {
     }
 
     makeWhereAndTimeInside();
+
+    //---------------------------------------------------------------------------------
+
+    // 데이터 개수에 따라 댓글 수 구현
+
+    class comment{
+        constructor(boardType, time, title, writer){
+            this.boardType = boardType;
+            this.time = time;
+            this.title = title;
+            this.writer = writer;
+        }
+    }
+    // 받은 데이터가 3개라고 가정
+    let comment1 = new comment("자유 게시판", "2022-12-10", "제목1", "작성자1");
+    let comment2 = new comment("맛집/놀거리", "2022-12-11", "제목2", "작성자2");
+    let comment3 = new comment("고민 상담", "2022-12-12", "제목3", "작성자3");
+
+    let commentArray = [comment1, comment2, comment3];
+    let commentCount = 3;
+
+    // 받은 데이터의 개수(count) 만큼 div 태그 생성
+    function makeCommentDiv(){
+        for(let i=0; i<commentCount; i++) {
+            let div = document.createElement("div");
+            div.className = "commentContent";
+            div.id = "commentContent"+ i;
+
+            document.querySelector(".comment").prepend(div);
+        }
+    }
+
+    makeCommentDiv();
+
+    function makeCommentDivInside(){
+        for(let i=0; i<commentCount; i++) {
+            let whereAndTime = document.createElement("div");
+            whereAndTime.className = "commentWhereAndTime";
+            whereAndTime.id = "commentWhereAndTime" + i;
+
+            let title = document.createElement("div");
+            title.className = "commentTitle";
+            title.id = "commentTitle" + i;
+
+            document.querySelector("#commentContent" + i).append(whereAndTime, title);
+        }
+    }
+
+    makeCommentDivInside();
+
+    function makeCommentTitleInside(){
+        for(let i=0; i<commentCount; i++){
+            let title = document.createElement("a");
+
+            document.querySelector("#commentTitle" + i).append(title);
+            title.innerHTML = commentArray[i].title;
+            title.className = "commentATitle"
+            title.id = "commentATitle"+i;
+            title.href ="/";
+        }
+    }
+
+    makeCommentTitleInside();
+
+    function makeCommentWhereAndTimeInside(){
+        for(let i=0; i<commentCount; i++){
+            let where = document.createElement("div");
+            where.className="commentWhere";
+            where.id="commentWhere"+ i;
+            let time = document.createElement("div");
+            time.className="commentTime";
+            time.id="commentTime"+ i;
+            document.querySelector("#commentWhereAndTime"+ i).append(where, time);
+
+            time.innerHTML = commentArray[i].time;
+            where.innerHTML = commentArray[i].boardType + "에 " + commentArray[i].writer + "님이 작성한 게시물에 댓글을 작성하였습니다";
+        }
+    }
+
+    makeCommentWhereAndTimeInside();
+
+    //--------------------------------------------------------------------------------------------------
+
+    class like{
+        constructor(boardType, title, writer){
+            this.boardType = boardType;
+            this.title = title;
+            this.writer = writer;
+        }
+    }
+    // 받은 데이터가 10개라고 가정
+    let like1 = new like("자유 게시판", "제목1", "작성자1");
+    let like2 = new like("맛집/놀거리 게시판", "제목2", "작성자2");
+    let like3 = new like("고민 상담 게시판", "제목3", "작성자3");
+    let like4 = new like("구인/구직 게시판", "제목4", "작성자4");
+    let like5 = new like("자유 게시판", "제목5", "작성자5");
+    let like6 = new like("자유 게시판", "제목6", "작성자6");
+    let like7 = new like("고민 상담 게시판", "제목7", "작성자7");
+    let like8 = new like("구인/구직 게시판", "제목8", "작성자8");
+    let like9 = new like("자유 게시판", "제목9", "작성자9");
+    let like10 = new like("맛집/놀거리 게시판", "제목10", "작성자10");
+
+    let likeArray = [like1, like2, like3, like4, like5, like6, like7, like8, like9, like10];
+    let likeCount = 10;
+
+    function makeLikeDiv(){
+        for(let i=0; i<likeCount; i++) {
+            let div = document.createElement("div");
+            div.className = "likeContent";
+            div.id = "likeContent"+ i;
+
+            document.querySelector(".like").prepend(div);
+        }
+    }
+
+    makeLikeDiv();
+
+    function makeLikeDivInside(){
+        for(let i=0; i<likeCount; i++) {
+            let where = document.createElement("div");
+            where.className = "likeWhere";
+            where.id = "likeWhere" + i;
+
+            let title = document.createElement("div");
+            title.className = "likeTitle";
+            title.id = "likeTitle" + i;
+
+            document.querySelector("#likeContent" + i).append(where, title);
+
+        }
+    }
+
+    makeLikeDivInside();
+
+
+    function makeLikeTitleInside(){
+        for(let i=0; i<likeCount; i++){
+            let title = document.createElement("a");
+
+            document.querySelector("#likeTitle" + i).append(title);
+            title.innerHTML = likeArray[i].title;
+            title.className = "likeATitle"
+            title.id = "likeATitle"+i;
+            title.href ="/";
+        }
+    }
+
+    makeLikeTitleInside();
+
+    function makeLikeWhereInside(){
+        for(let i=0; i<likeCount; i++){
+            let where = document.createElement("div");
+
+            document.querySelector("#likeWhere" + i).append(where);
+            where.innerHTML = likeArray[i].boardType + "에 " + likeArray[i].writer + "님이 작성한 게시물에 좋아요를 작성하였습니다";
+            where.className = "likeAWhere";
+            where.id = "likeAWhere"+i;
+        }
+    }
+
+    makeLikeWhereInside();
 
 
 }
