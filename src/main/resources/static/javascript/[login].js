@@ -31,7 +31,7 @@ window.onload = () => {
         }
     })
 
-
+    // 로그인 버튼 클릭 시, DB와 대조하여 아닐 시에 경고 메세지 출력
     let login = document.getElementById("login-button");
     let loginErrMsg = document.getElementById("login-fail");
     login.addEventListener("click", ()=>{

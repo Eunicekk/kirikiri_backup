@@ -102,6 +102,8 @@
   font-size: 15px;
   box-sizing: border-box;
 }
+
+/*이메일 수신 동의*/
 #email-agree {
   display: flex;
   justify-content: space-between;
@@ -124,7 +126,7 @@
   position: relative;
   display: inline-flex;
 }
-#email-agree-button > span {
+#email-agree-button-circle {
   background-color: hsla(0, 0%, 100%, 0.9);
   border-radius: 9999px;
   width: 1.25rem;
@@ -133,6 +135,10 @@
   right: 0;
   top: 0;
   cursor: pointer;
+  transition: transform 0.5s;
+}
+#email-check {
+  display: none;
 }
 
 #email-explan {
@@ -142,12 +148,9 @@
   line-height: 1.25rem;
 }
 
-#robot-check {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
+/*약관*/
 #terms {
   margin-top: 50px;
   display: flex;
@@ -164,6 +167,8 @@
   width: 0;
   border: 1px solid rgb(229 231 235);
 }
+
+/*회원가입 버튼*/
 #signup-button {
   margin-top: 20px;
 }
@@ -191,4 +196,62 @@
 }
 #go-login > a:hover {
   color: rgb(11 127 211);
+}
+
+/*입력 오류 메세지*/
+.warning-msg {
+  margin-top: 20px;
+  color: rgb(239 68 68);
+  font-size: 12px;
+  font-weight: bold;
+}
+.warning-msg svg {
+  width: 15px;
+  margin-right: 5px;
+}
+#warning-msg-id {
+  display: none;
+  align-items: center;
+}
+#warning-msg-pw1 {
+  display: none;
+  align-items: center;
+}
+#warning-msg-pw2 {
+  display: none;
+  align-items: center;
+}
+#warning-msg-email {
+  display: none;
+  align-items: center;
+}
+#warning-msg-name {
+  display: none;
+  align-items: center;
+}
+#warning-msg-nickname {
+  display: none;
+  align-items: center;
+}
+
+/*회원가입 실패*/
+#signup-fail {
+  display: none;
+  margin-top: 30px;
+  background-color: rgb(240 246 250);
+  border: 1px solid rgb(254 226 226);
+  border-radius: 10px;
+  color: rgb(153 27 27);
+  padding: 15px;
+  font-size: 12px;
+}
+#signup-fail > div {
+  margin-right: 10px;
+}
+#signup-fail svg {
+  width: 20px;
+}
+#signup-fail h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
 }

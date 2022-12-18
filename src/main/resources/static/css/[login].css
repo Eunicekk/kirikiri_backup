@@ -103,26 +103,6 @@
   box-sizing: border-box;
 }
 
-/*경고 메세지*/
-#warning-msg {
-  margin-top: 20px;
-  color: rgb(239 68 68);
-  font-size: 12px;
-  font-weight: bold;
-}
-#warning-msg svg {
-  width: 15px;
-  margin-right: 5px;
-}
-#warning-msg-id {
-  display: none;
-  align-items: center;
-}
-#warning-msg-pw {
-  display: none;
-  align-items: center;
-}
-
 /*계정 찾기*/
 #find-account {
   margin-top: 20px;
@@ -166,6 +146,26 @@
 }
 #go-signup > a:hover {
   color: rgb(11 127 211);
+}
+
+/*경고 메세지*/
+#warning-msg {
+  margin-top: 20px;
+  color: rgb(239 68 68);
+  font-size: 12px;
+  font-weight: bold;
+}
+#warning-msg svg {
+  width: 15px;
+  margin-right: 5px;
+}
+#warning-msg-id {
+  display: none;
+  align-items: center;
+}
+#warning-msg-pw {
+  display: none;
+  align-items: center;
 }
 
 /*로그인 실패*/
