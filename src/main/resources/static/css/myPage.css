@@ -1,6 +1,8 @@
 ul, li{
     margin: 0px;
     padding: 0px;
+    text-decoration: none;
+    list-style: none;
 }
 
 .main{
@@ -48,7 +50,7 @@ ul, li{
 .menu>ul{
     padding: 0px;
 }
-ul>li{
+.menu li{
     list-style: none;
     border-radius: 0.375rem;
 }
@@ -58,11 +60,13 @@ ul>li{
 .menu img{
     margin-left: -4px;
     margin-right: 12px;
+    transform : translate(0px, 3px);
 }
 .menu span{
-    display: inline-block;
+    display:inline-block;
     height: 24px;
     line-height: 24px;
+    transform: translate(0px, -3px);
 }
 #link_1{
     display: block;
@@ -85,22 +89,20 @@ ul>li{
 }
 .info{
     padding-left: 80px;
-    height: 874px;
-
+    border-bottom: 1px solid gray;
 }
 .info>h2{
     font-size: 20px;
-    font-weight: semi-bold;
 }
 .info_word{
     margin-top: 40px;
     margin-bottom: 40px;
-    height: 874px;
+    overflow: auto;
 }
 .info_word>div{
     float:left;
 }
-.person_info{
+.essentialInfo{
     width: 511px;
 }
 .name{
@@ -114,11 +116,14 @@ ul>li{
     width: 511px;
     height: 20px;
 }
+.username:hover, .userNickname:hover, .userage:hover, .userlivingplace:hover, .usernationality:hover, #usernationality:hover{
+    cursor: pointer;
+}
 .name_enter, .nickname_enter, .nationality_enter, .age_enter, .livingplace_enter{
     margin-top: 4px;
     height: 42px;
 }
-#username, #usernickname, #userage, #userlivingplace{
+#username, #userNickname, #userage, #userlivingplace{
     border: 1px solid gray;
     border-radius: 0.375rem;
     padding : 8px 12px;
@@ -126,13 +131,21 @@ ul>li{
     line-height: 24px;
     width: 485px;
 }
+#userlivingplace, #userage{
+    float: left;
+}
+
+
 #usernationality{
     border: 1px solid gray;
     border-radius: 0.375rem;
     padding: 8px 12px;
-    height: 35px;
-    line-height: 35px;
+    height: 42px;
+    line-height: 42px;
     width: 511px;
+}
+.optionalInfo{
+    padding-left: 80px;
 }
 .livingplace{
     height: 90px;
@@ -177,16 +190,13 @@ label[for="picture"] div:hover{
     opacity: 1;
 }
 .btn{
-    margin-left: 208px;
-    width: 160px;
-    height: 270px;
+    height: 42px;
+    float: right;
 }
 #toggle-slide1{
     display:none;
 }
 label[for="toggle-slide1"]{
-    margin-top: 20px;
-    margin-left: 20px;
     display: inline-block;
     width: 120px;
     height: 42px;
@@ -220,8 +230,6 @@ label[for="toggle-slide1"]::after{
     display:none;
 }
 label[for="toggle-slide2"]{
-    margin-top: 70px;
-    margin-left: 20px;
     display: inline-block;
     width: 120px;
     height: 42px;
@@ -250,25 +258,31 @@ label[for="toggle-slide2"]::after{
     top: 5px;
     left: 75px;
 }
-#tabpage_1, #user_info{
-    height: 600px;
+.sub{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px 0px 20px 80px;
+    height: 40px;
 }
 .sub>button{
-    margin-top: 20px;
+    margin: 0px;
+    padding: 8px 32px;
+    height: 40px;
     float: right;
-    border-radius: 0.375rem;
-    border: none;
-    width: 88px;
-    padding: 8px, 32px;
     background-color: gray;
-    cursor: pointer;
+    border: none;
+    border-radius: 0.375rem;
 }
 .sub>button:hover{
     background-color: aqua;
+    cursor: pointer;
 }
 .sub>button>p{
+    display: inline-block;
     color:white;
     font-weight: bold;
+    height: 24px;
+    margin: 0px;
 }
 .delete{
     padding-left: 80px;
@@ -357,13 +371,13 @@ label[for="toggle-slide2"]::after{
 .connectTo{
     height: 42px;
     margin-top: 20px;
-    border: 1px solid black;
+    border: none;
     box-sizing: border-box;
     width: 192px;
 }
 .connectTo1{
     height: 42px;
-    border: 1px solid black;
+    border: none;
     box-sizing: border-box;
     width: 192px;
 }
@@ -374,6 +388,7 @@ label[for="toggle-slide2"]::after{
     background-color: white;
     opacity: 0.3;
     padding: 0px;
+    border-radius: 0.375rem;
 }
 .connectButton:hover{
     opacity: 1;
