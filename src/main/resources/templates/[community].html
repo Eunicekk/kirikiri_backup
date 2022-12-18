@@ -7,6 +7,7 @@
     <title>OKKY - 커뮤니티</title>
     <link rel="stylesheet" href="../static/css/reset.css" />
     <link rel="stylesheet" href="../static/css/[community].css" />
+    <script type="text/javascript" src="../static/javascript/[community].js"></script>
   </head>
   <body>
     <div id="main">
@@ -105,10 +106,19 @@
             <a>모임&스터디</a>
             <a>전체</a>
           </div>
-          <button id="sort">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25"></path></svg>
-            <span>최신순</span>
-          </button>
+          <div id="sort">
+            <button id="sort-button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25"></path></svg>
+              <span>최신순</span>
+            </button>
+            <div id="sort-type">
+              <button type="button">최신순</button>
+              <button type="button">추천순</button>
+              <button type="button">댓글순</button>
+              <button type="button">스크랩순</button>
+              <button type="button">조회순</button>
+            </div>
+          </div>
         </div>
 
 <!--        새로고침, 검색, 페이지 버튼-->
