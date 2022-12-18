@@ -39,10 +39,10 @@ label{
     color: #373D4B;
     font-weight: bold;
 }
-input[type=text]{
+.address-input>div>input {
     width: 436px;
     height: 41px;
-    border: 1px solid hsla(220,9%,46%,.3);
+    border: 1px solid hsla(220, 9%, 46%, .3);
     border-radius: 6px;
     margin-bottom: 23px;
     font-size: 87%;
@@ -56,7 +56,7 @@ ul{
 ul>li {
     float: left;
 }
-.cancle-button>a {
+.cancel-button>a {
     display: block;
     border: 1px solid hsla(220,9%,46%,.3);
     width: 215px;
@@ -69,8 +69,9 @@ ul>li {
     font-size: 80%;
     font-weight: bold;
     line-height: 36px;
+    float: left;
 }
-.cancle-button>a:hover{
+.cancel-button>a:hover{
     display: block;
     border: 1px solid #f0f0f0;
     width: 215px;
@@ -79,7 +80,7 @@ ul>li {
     color: black;
     border-radius: 5px;
 }
-.find-address>a{
+.find-address>input{
     display: block;
     border: 1px solid #3092F5;
     width: 215px;
@@ -92,8 +93,9 @@ ul>li {
     font-size: 80%;
     font-weight: bold;
     line-height: 36px;
+
 }
-.find-address>a:hover{
+.find-address>input:hover{
     display: block;
     border: 1px solid #2277CD;
     width: 215px;
@@ -106,4 +108,5 @@ ul>li {
     font-size: 80%;
     font-weight: bold;
     line-height: 36px;
+
 }
