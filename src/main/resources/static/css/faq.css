@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+body{
+    justify-content: center;
+}
+
+#logo{
+    
+}
+#nav{
+
+}
+#nav.ul{
+    display: inline-block;
+}
+#nav li{
+    display: inline-block;
+}

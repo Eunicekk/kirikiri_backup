@@ -2,292 +2,187 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/faq.css">
 </head>
 <body>
 <!-- header -->
-<div id="header">
-    <div><img src="#" alt="logo"></div>
-    <ul>
-        <li>Q&A</li>
-        <li>지식</li>
-        <li>커뮤니티</li>
-        <li>이벤트</li>
-        <li>JOBS</li>
-        <li>공지사항</li>
-    </ul>
-</div>
-<div id="search"></div>
-<div id="darkmode"></div>
-<div id="user">
-    <button>로그인</button>
-    <button>회원가입</button>
-</div>
+<header>
+    <div id="logo"><img src="../static/img/okky_logo.svg" alt="logo"></div>
+    <div id="nav">
+        <ul>
+            <li><a href="#">Q&A</a></li>
+            <li><a href="#">지식</a></li>
+            <li><a href="#">커뮤니티</a></li>
+            <li><a href="#">이벤트</a></li>
+            <li><a href="#">JOBS</a></li>
+            <li><a href="#">공지사항</a></li>
+        </ul>
+    </div>
+    <div id="search">
+        <form>
+            <button class="find">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3.5 w-3.5 text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path></svg>
+            </button>
+            <input type="text" placeholder="검색">
+        </form>
+    </div>
+    <div id="darkmode">
+        <button></button>
+    </div>
+    <div id="user">
+        <button>로그인</button>
+        <button>회원가입</button>
+    </div>
+</header>
 
-<!-- navigator -->
-<div id="tag">
-    <ul>
-        <li>#인기 태그</li>
-        <li>#java<span>64</span></li>
-        <li>#springboot<span>34</span></li>
-        <li>#spring<span>34</span></li>
-        <li>#javascript<span>32</span></li>
-        <li>#react<span>29</span></li>
-    </ul>
-</div>
-<div id="writer">
-    <ul>
-        <li>Top Writers</li>
-        <li>고등어통조림<span>313</span></li>
-        <li>adduci<span>172</span></li>
-        <li>1층<span>158</span></li>
-        <li>leemong77<span>143</span></li>
-        <li>제운<span>138</span></li>
-    </ul>
-</div>
+<!-- aside -->
+<aside>
+    <div id="tag">
+        <ul>
+            <li>#인기 태그</li>
+            <li><a href="#">#java</a><span>64</span></li>
+            <li><a href="#">#springboot</a><span>34</span></li>
+            <li><a href="#">#spring</a><span>34</span></li>
+            <li><a href="#">#javascript</a><span>32</span></li>
+            <li><a href="#">#react</a><span>29</span></li>
+        </ul>
+    </div>
+    <div id="writer">
+        <ul>
+            <li>Top Writers</li>
+            <li><a href="#">고등어통조림</a><span>313</span></li>
+            <li><a href="#">adduci</a><span>172</span></li>
+            <li><a href="#">1층</a><span>158</span></li>
+            <li><a href="#">leemong77</a><span>143</span></li>
+            <li><a href="#">제운</a><span>138</span></li>
+        </ul>
+    </div>
+</aside>
 
 <!-- main -->
-<!-- title -->
-<div>
-    <h3>공지사항</h3>
-    <p>OKKY의 새소식, 이벤트, 행사 정보를 공유하는 공간입니다.</p>
-</div>
+<article>
+    <!-- title -->
+    <div id="center">
+        <h1>공지사항</h1>
+        <p>OKKY의 새소식, 이벤트, 행사 정보를 공유하는 공간입니다.</p>
+        <img src="../static/img/faq_img.svg">
+    </div>
 
-<!-- select -->
-<div>
-    <ul>
-        <li>공지사항</li>
-        <li>아카이브</li>
-    </ul>
-    <button>최신순</button>
-</div>
+    <!-- select -->
+    <div>
+        <ul>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">아카이브</a></li>
+        </ul>
+        <button>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25"></path></svg>
+            <span>최신순</span>
+        </button>
+    </div>
 
-<!-- search -->
-<div>
-    <img src="#" alt="renew">
-    <input type="text">
-    <span>1 / 69 페이지</span>
-    <img src="#" alt="left">
-    <img src="#" alt="right">
-</div>
+    <!-- search -->
+    <div id="center-search">
+        <button id="refresh">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-500 hover:cursor-pointer hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path></svg>
+        </button>
+        <form>
+            <button class="find">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3.5 w-3.5 text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path></svg>
+            </button>
+            <input type="text" placeholder="FAQ 내에서 검색">
+        </form>
+        <div id="page-move">
+            <span>1 / 69 페이지</span>
+            <button id="left">
+                <svg style="color: hsla(220, 9%, 46%, 0.3);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="text-gray-300 dark:text-gray-700 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path></svg>
+            </button>
+            <button id="right">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg>
+            </button>
+        </div>
+    </div>
+</article>
 
-<!-- contents -->
-<div>
-    <ul>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
+    <!-- contents -->
+    <article>
+        <div class="post">
+            <div class="post-first-line">
+                <a href="#"><img src="#" alt="profile"></a>
+                <span>OKKY</span>
+                <span>· 4.8k ·</span>
+                <span>4년 전</span>
             </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
+            <details>
+                <summary>OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</summary>
+                <p>OKKY 회원 여러분, 안녕하세요.<br>
+                    스팸 단어에 대한 간단한 안내 드립니다.<br><br>
+                    운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
+                    운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
+                    https://okky.kr/article/451325<br><br>
+                    운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
+                    단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
+                    혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+            </details>
+            <div class="tag-link">
+                <button>공지사항</button>
+                <a href="#">#공지</a>
+                <a href="#">#스팸</a>
+                <a href="#">#단어</a>
             </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-        <li>
-            <div>
-                <img src="#" alt="profile-image">
-                <span>sbroh</span>
-                <span>11.7k</span>
-                <span>10일 전</span>
-            </div>
-            <div>
-                <a href="#">2022년 OKKY 송년회 안내(마감)</a>
-            </div>
-            <div>
-                <span>공지사항</span>
-                <span>#송년회</span>
-                <span>#okky</span>
-            </div>
-            <div>
-                <span>5.5k</span>
-                <span>24</span>
-                <span>20</span>
-            </div>
-        </li>
-    </ul>
-</div>
+        </div>
+    </article>
 
 <!-- footer -->
+<footer>
+    <div id="footer-left">
+        <img src="../static/img/okky_logo.svg" alt="logo">
+        <span>All That Developer</span>
+        <div id="icon">
+            <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>
+            <svg fill="currentColor" viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true"><path d="M23.4907 6.87953C23.2173 5.86181 22.4122 5.05674 21.3793 4.78333C19.511 4.29725 12.0375 4.29725 12.0375 4.29725C12.0375 4.29725 4.70083 4.26687 2.83248 4.75295C1.79957 5.02636 0.812224 5.86181 0.538806 6.87953C0.0375402 8.73269 0.0831098 12.5757 0.0831098 12.5757C0.0831098 12.5757 0.0375402 16.4188 0.538806 18.2719C0.812224 19.2897 1.81476 20.1251 2.83248 20.3985C4.70083 20.8998 12.0375 20.8542 12.0375 20.8542C12.0375 20.8542 19.3743 20.8846 21.2426 20.3985C22.2755 20.1251 23.2325 19.2897 23.5059 18.2719C24.0072 16.434 24.0072 12.5757 24.0072 12.5757C24.0072 12.5757 23.992 8.73269 23.4907 6.87953Z"></path><path d="M9.74365 16.2513L15.7133 12.5754L9.74365 8.89941V16.2513Z" fill="white"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-6 w-6"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"></path><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"></path></svg>
+        </div>
+    </div>
+    <div id="footer-center">
+        <ul>
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">공지사항</a></li>
+            <li><a href="#">연락처</a></li>
+            <li><a href="#">광고문의</a></li>
+            <li><a href="#">채용</a></li>
+            <li><a href="#">버그제보</a></li>
+            <li><a href="#">개인정보 처리방침</a></li>
+            <li><a href="#">서비스 이용약관</a></li>
+        </ul>
+        <small>
+            <dl>
+                <dt>상호명:</dt>
+                <dd>(주)오키코리아</dd>
+                <dt>대표명:</dt>
+                <dd>노상범, 장기진</dd>
+                <dt>사업자등록번호:</dt>
+                <dd>592-87-02037</dd>
+                <dt>문의:</dt>
+                <dd><a>info&#64;okky.kr</a></dd>
+                <dt>통신판매업신고번호:</dt>
+                <dd>제 2022-서울강남-04742호</dd>
+                <dt>주소:</dt>
+                <dd>서울
+                    강남구 봉은사로 303 TGL경복빌딩 502호 (06103)</dd>
+            </dl>
+            © 2022 (주)오키코리아, Inc. All rights reserved
+        </small>
+    </div>
+    <div id="footer-right">
+        <span>SPONSORED BY</span>
+        <a href="#"><img src="../static/img/footer-logo-01.svg"></a>
+        <a href="#"><img src="../static/img/footer-logo-02.svg"></a>
+    </div>
+</footer>
 
 </body>
 </html>
