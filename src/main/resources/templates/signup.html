@@ -7,12 +7,13 @@
     <title>OKKY - All That Developer</title>
     <link rel="stylesheet" href="../static/css/reset.css" />
     <link rel="stylesheet" href="../static/css/signup.css" />
+    <script type="text/javascript" src="../static/javascript/signup.js"></script>
   </head>
   <body>
     <div id="signup-page">
       <div>
         <a href="">
-          <img class="main-logo" src="../img/okky.svg" alt="OKKY" />
+          <img class="main-logo" src="../static/img/okky.svg" alt="OKKY" />
         </a>
         <h2 id="okky-welcome">OKKY에 오신것을 환영합니다.</h2>
         <p class="explan-site">
@@ -22,20 +23,7 @@
           <div id="SNS-signup">
             <span>SNS 회원가입</span>
             <div>
-              <a href="">
-                <svg
-                  class="SNS-image"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
+
               <a href="">
                 <svg
                   class="SNS-image"
@@ -81,20 +69,7 @@
                   </defs>
                 </svg>
               </a>
-              <a href="">
-                <svg
-                  class="SNS-image"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
+
               <a href="">
                 <svg
                   class="SNS-image"
@@ -178,68 +153,106 @@
               <span>회원가입에 필요한 기본정보를 입력해주세요.</span>
             </div>
           </div>
+          <div id="signup-fail">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5 text-red-800 dark:text-red-200"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div>
+              <h3>회원가입 실패</h3>
+              <p>이미 사용하고 있는 아이디입니다.</p>
+            </div>
+          </div>
+          </div>
           <form id="signup-form" action="">
             <div>
               <div>
-                <label class="signup-label" for="">아이디</label>
+                <label class="signup-label" for="id">아이디</label>
                 <div class="mt-1">
                   <input
+                    id="id"
                     class="signup-input"
                     type="text"
                     placeholder="4~15자 이내로 입력해주세요"
                     required
                   />
+                  <div class="warning-msg">
+                    <p id="warning-msg-id" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                      <span>아이디는 최소 4자 이상 입력하세요.</span></p>
+                  </div>
                 </div>
               </div>
               <div class="mt-2">
-                <label class="signup-label" for="">비밀번호</label>
+                <label class="signup-label" for="password">비밀번호</label>
                 <div class="mt-1">
                   <input
+                    id="password"
                     class="signup-input"
                     type="password"
                     placeholder="최소 6자 이상(알파벳, 숫자 필수)"
                     required
                   />
+                  <div class="warning-msg">
+                    <p id="warning-msg-pw1" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                      <span>비밀번호는 최소 6자 이상 입력하세요.</span></p>
+                    <p id="warning-msg-pw2" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                      <span>알파벳, 숫자를 조합한 비밀번호를 입력하세요.</span></p>
+                  </div>
                 </div>
               </div>
               <div class="mt-2">
-                <label class="signup-label" for="">이메일</label>
+                <label class="signup-label" for="email">이메일</label>
                 <div class="mt-1">
                   <input
+                    id="email"
                     class="signup-input"
-                    type="password"
+                    type="email"
                     placeholder="munchkin@okky.kr"
                     required
                   />
+                  <div class="warning-msg">
+                    <p id="warning-msg-email" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                      <span>유효한 이메일 주소를 입력해주세요.</span></p>
+                  </div>
                 </div>
               </div>
               <div class="mt-2">
-                <label class="signup-label" for="">실명</label>
+                <label class="signup-label" for="name">실명</label>
                 <div class="mt-1">
                   <input
+                    id="name"
                     class="signup-input"
-                    type="password"
+                    type="text"
                     placeholder="홍길동"
                     required
                   />
+                  <div class="warning-msg">
+                    <p id="warning-msg-name" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                      <span>실명은 최소 2자 이상 입력하세요.</span></p>
+                  </div>
                 </div>
               </div>
               <div class="mt-2">
-                <label class="signup-label" for="">닉네임</label>
+                <label class="signup-label" for="nickname">닉네임</label>
                 <div class="mt-1">
                   <input
+                    id="nickname"
                     class="signup-input"
-                    type="password"
+                    type="text"
                     placeholder="별명을 알파벳, 한글, 숫자를 20자 이하로 입력해주세요."
                     required
                   />
+                  <div class="warning-msg">
+                    <p id="warning-msg-nickname" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                      <span>닉네임은 최소 1자 이상 입력하세요.</span></p>
+                  </div>
                 </div>
               </div>
               <div class="mt-2">
                 <div id="email-agree">
                   <p>이메일 수신동의</p>
-                  <button id="email-agree-button">
-                    <span></span>
+                  <button id="email-agree-button" type="button">
+                    <span id="email-check">true</span>
+                    <span id="email-agree-button-circle"></span>
                   </button>
                 </div>
                 <p id="email-explan">
@@ -248,43 +261,7 @@
                 </p>
               </div>
             </div>
-            <div id="robot-check">
-              <div>
-                <div>
-                  <div style="width: 304px; height: 78px">
-                    <div>
-                      <iframe
-                        title="reCAPTCHA"
-                        src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lcvw_gSAAAAAH3zOofJBJOFLpmjx7Vq3hxnYIRw&amp;co=aHR0cHM6Ly9va2t5LmtyOjQ0Mw..&amp;hl=ko&amp;type=image&amp;v=pn3ro1xnhf4yB8qmnrhh9iD2&amp;theme=light&amp;size=normal&amp;badge=bottomright&amp;cb=dpyscq4isknz"
-                        width="304"
-                        height="78"
-                        role="presentation"
-                        name="a-r8nmd2pm5yy5"
-                        frameborder="0"
-                        scrolling="no"
-                        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"
-                      ></iframe>
-                    </div>
-                    <textarea
-                      id="g-recaptcha-response"
-                      name="g-recaptcha-response"
-                      class="g-recaptcha-response"
-                      style="
-                        width: 250px;
-                        height: 40px;
-                        border: 1px solid rgb(193, 193, 193);
-                        margin: 10px 25px;
-                        padding: 0px;
-                        resize: none;
-                        display: none;
-                      "
-                    ></textarea>
-                  </div>
-                  <iframe style="display: none"></iframe>
-                </div>
-              </div>
-            </div>
-            <div id="find-account">
+            <div id="terms">
               <a href="">서비스이용약관</a>
               <div></div>
               <a href="">개인정보처리방침</a>

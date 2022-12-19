@@ -95,12 +95,15 @@
   font-weight: bold;
 }
 .login-input {
-  width: 428px;
+  width: 100%;
   border: 1px solid hsla(220,9%,46%,.3);
   border-radius: 8px;
   padding: 10px;
   font-size: 20px;
+  box-sizing: border-box;
 }
+
+/*계정 찾기*/
 #find-account {
   margin-top: 20px;
   display: flex;
@@ -112,6 +115,8 @@
 #find-account > a:hover {
   color: rgb(11 127 211);
 }
+
+/*로그인 버튼*/
 #login-button {
   margin-top: 20px;
 }
@@ -128,6 +133,8 @@
 #login-button > button:hover {
   background-color: rgb(11 127 211);
 }
+
+/*회원가입 이동*/
 #go-signup {
   margin-top: 30px;
   text-align: center;
@@ -139,4 +146,46 @@
 }
 #go-signup > a:hover {
   color: rgb(11 127 211);
+}
+
+/*경고 메세지*/
+#warning-msg {
+  margin-top: 20px;
+  color: rgb(239 68 68);
+  font-size: 12px;
+  font-weight: bold;
+}
+#warning-msg svg {
+  width: 15px;
+  margin-right: 5px;
+}
+#warning-msg-id {
+  display: none;
+  align-items: center;
+}
+#warning-msg-pw {
+  display: none;
+  align-items: center;
+}
+
+/*로그인 실패*/
+#login-fail {
+  margin-top: 30px;
+  background-color: rgb(240 246 250);
+  border: 1px solid rgb(254 226 226);
+  border-radius: 10px;
+  color: rgb(153 27 27);
+  padding: 15px;
+  display: none;
+  font-size: 12px;
+}
+#login-fail > div {
+  margin-right: 10px;
+}
+#login-fail svg {
+  width: 20px;
+}
+#login-fail h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
 }
