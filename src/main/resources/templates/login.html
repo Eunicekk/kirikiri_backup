@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OKKY - All That Developer</title>
     <link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href="../static/css/[signup].css" />
-    <script type="text/javascript" src="../static/javascript/[signup].js"></script>
+    <link rel="stylesheet" href="../static/css/login.css" />
+    <script type="text/javascript" src="../static/javascript/login.js"></script>
   </head>
   <body>
-    <div id="signup-page">
+<!--  전체 페이지-->
+    <div id="login-page">
       <div>
         <a href="">
           <img class="main-logo" src="../static/img/okky.svg" alt="OKKY" />
@@ -20,8 +21,9 @@
           OKKY는 소프트웨어 개발자를 위한 지식공유 플랫폼입니다.
         </p>
         <div>
-          <div id="SNS-signup">
-            <span>SNS 회원가입</span>
+<!--          SNS 로그인-->
+          <div id="SNS-login">
+            <span>SNS 로그인</span>
             <div>
 
               <a href="">
@@ -145,135 +147,58 @@
               </a>
             </div>
           </div>
-          <div id="okky-signup-msg">
+          <div id="okky-login-msg">
             <div id="center-line">
               <div></div>
             </div>
-            <div id="okky-signup-text">
-              <span>회원가입에 필요한 기본정보를 입력해주세요.</span>
+            <div id="okky-login-text">
+              <span>OKKY 아이디로 로그인</span>
             </div>
           </div>
-          <div id="signup-fail">
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5 text-red-800 dark:text-red-200"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd"></path></svg>
-            </div>
-            <div>
-              <h3>회원가입 실패</h3>
-              <p>이미 사용하고 있는 아이디입니다.</p>
-            </div>
-          </div>
-          </div>
-          <form id="signup-form" action="">
+
+<!--          로그인폼-->
+          <form id="login-form" action="">
             <div>
               <div>
-                <label class="signup-label" for="id">아이디</label>
+                <label class="login-label" for="id">아이디</label>
                 <div class="mt-1">
-                  <input
-                    id="id"
-                    class="signup-input"
-                    type="text"
-                    placeholder="4~15자 이내로 입력해주세요"
-                    required
-                  />
-                  <div class="warning-msg">
-                    <p id="warning-msg-id" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
-                      <span>아이디는 최소 4자 이상 입력하세요.</span></p>
-                  </div>
+                  <input id="id" class="login-input" type="text" />
                 </div>
               </div>
               <div class="mt-2">
-                <label class="signup-label" for="password">비밀번호</label>
+                <label class="login-label" for="password">비밀번호</label>
                 <div class="mt-1">
-                  <input
-                    id="password"
-                    class="signup-input"
-                    type="password"
-                    placeholder="최소 6자 이상(알파벳, 숫자 필수)"
-                    required
-                  />
-                  <div class="warning-msg">
-                    <p id="warning-msg-pw1" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
-                      <span>비밀번호는 최소 6자 이상 입력하세요.</span></p>
-                    <p id="warning-msg-pw2" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
-                      <span>알파벳, 숫자를 조합한 비밀번호를 입력하세요.</span></p>
-                  </div>
+                  <input id="password" class="login-input" type="password" />
                 </div>
               </div>
-              <div class="mt-2">
-                <label class="signup-label" for="email">이메일</label>
-                <div class="mt-1">
-                  <input
-                    id="email"
-                    class="signup-input"
-                    type="email"
-                    placeholder="munchkin@okky.kr"
-                    required
-                  />
-                  <div class="warning-msg">
-                    <p id="warning-msg-email" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
-                      <span>유효한 이메일 주소를 입력해주세요.</span></p>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-2">
-                <label class="signup-label" for="name">실명</label>
-                <div class="mt-1">
-                  <input
-                    id="name"
-                    class="signup-input"
-                    type="text"
-                    placeholder="홍길동"
-                    required
-                  />
-                  <div class="warning-msg">
-                    <p id="warning-msg-name" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
-                      <span>실명은 최소 2자 이상 입력하세요.</span></p>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-2">
-                <label class="signup-label" for="nickname">닉네임</label>
-                <div class="mt-1">
-                  <input
-                    id="nickname"
-                    class="signup-input"
-                    type="text"
-                    placeholder="별명을 알파벳, 한글, 숫자를 20자 이하로 입력해주세요."
-                    required
-                  />
-                  <div class="warning-msg">
-                    <p id="warning-msg-nickname" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
-                      <span>닉네임은 최소 1자 이상 입력하세요.</span></p>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-2">
-                <div id="email-agree">
-                  <p>이메일 수신동의</p>
-                  <button id="email-agree-button" type="button">
-                    <span id="email-check">true</span>
-                    <span id="email-agree-button-circle"></span>
-                  </button>
-                </div>
-                <p id="email-explan">
-                  OKKY에서 주최하는 다양한 이벤트, 정보성 뉴스레터 및 광고
-                  수신여부를 설정할 수 있습니다.
-                </p>
+              <div id="warning-msg">
+                <p id="warning-msg-id"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                  <span>아이디를 입력해주세요.</span></p>
+                <p id="warning-msg-pw"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
+                  <span>비밀번호를 입력해주세요.</span></p>
               </div>
             </div>
-            <div id="terms">
-              <a href="">서비스이용약관</a>
-              <div></div>
-              <a href="">개인정보처리방침</a>
+            <div id="find-account">
+              <a href="">계정찾기</a>
             </div>
-            <div id="signup-button">
-              <button type="submit">회원가입</button>
+            <div id="login-button">
+<!--              백엔드 시 submit으로 전환-->
+              <button type="button">로그인</button>
             </div>
-            <p id="go-login">
-              <span>이미 회원이신가요?</span>
-              <a href="">로그인</a>
+            <p id="go-signup">
+              <span>아직 회원이 아니신가요?</span>
+              <a href="">회원가입</a>
             </p>
           </form>
+        </div>
+        <div id="login-fail">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5 text-red-800 dark:text-red-200"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd"></path></svg>
+          </div>
+          <div>
+            <h3>로그인 실패</h3>
+            <p>아이디 혹은 비밀번호가 일치하지 않습니다.</p>
+          </div>
         </div>
       </div>
     </div>
