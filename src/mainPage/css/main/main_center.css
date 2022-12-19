@@ -1,40 +1,52 @@
-.test {
-    width: 840px;
-    height: 104px;
-    background-color: beige;
+.banner {
+    width: 100%;
 }
 
-.main_center {
-    width: 840px;
-    height: 2070px;
-    margin-left: 40px;
+.banner:hover {
+    cursor: pointer;
+}
+
+.banner_s {
+    display: none;
+    width: 640px;
+}
+
+.banner_s:hover {
+    cursor: pointer;
 }
 
 .tag_box {
     display: flex;
-    justify-content: space-between;
     margin: 32px 0;
 }
 
 .tag {
-    width: 400px;
+    width: 100%;
+}
+
+.f_tag {
+    margin-right: 40px;
 }
 
 .tag_title {
     background-image: url(../../image/tag-background.png);
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 32px;
     font-weight: 500;
     height: 64px;
     border-radius: 10px;
 }
 
+.tag_title:hover {
+    cursor: pointer;
+    color: #0090f9;
+}
+
 .tag_title img {
     position: relative;
     height: 69px;
-    top: -3px;
+    top: -4px;
 }
 
 .posts :last-child {
@@ -64,14 +76,27 @@
     align-items: center;
 }
 
+.writers_info > span:nth-child(2):hover {
+    cursor: pointer;
+    color: #0090f9;
+}
+
 .post_title span {
     font-weight: 500;
+}
+.post_title span:hover {
+    cursor: pointer;
+    color: #0090f9;
 }
 
 .icon-user {
     margin-right: 8px;
     width: 20px;
     height: 20px;
+}
+
+.icon-user:hover {
+    cursor: pointer;
 }
 
 .icon-lightning {
@@ -88,52 +113,4 @@
 .icon-comment {
     width: 16px;
     height: 16px;
-}
-
-.event {
-}
-
-.event > div {
-    margin: 8px;
-}
-
-.event_span {
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.event_boxs {
-    display: flex;
-    justify-content: space-between;
-}
-
-.event_box {
-    width: 256px;
-    height: 218px;
-}
-
-.event_img {
-    display: flex;
-    justify-content: center;
-    background-color: #f9fafb;
-    border: 1px solid #dadada;
-    border-radius: 8px;
-}
-
-.event_img img {
-    height: 160px;
-}
-
-.event_info {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    font-weight: 100;
-    margin-top: 9px;
-}
-
-.event_title {
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 9px;
 }

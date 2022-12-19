@@ -9,13 +9,17 @@
 }
 
 .search img {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .searchIcon {
-    width: 11px;
+    width: 15px;
     height: 11px;
     padding-right: 4px;
+}
+
+.searchIcon:hover {
+    cursor: pointer;
 }
 
 .searchInput {

@@ -1,6 +1,9 @@
-.main_right {
+.side_banner img {
     width: 180px;
-    height: 800px;
-    margin-left: 40px;
-    background-color: beige;
+
+    margin-bottom: 10px;
+}
+
+.side_banner img:hover {
+    cursor: pointer;
 }

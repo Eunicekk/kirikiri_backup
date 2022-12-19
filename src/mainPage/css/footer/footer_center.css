@@ -8,6 +8,11 @@
     color: #111827;
 }
 
+.footerMenu span:hover {
+    cursor: pointer;
+    color: #0090f9;
+}
+
 .company {
     margin-top: 28px;
 }

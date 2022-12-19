@@ -8,6 +8,10 @@
     cursor: pointer;
 }
 
+.toggleSwitch:hover {
+    cursor: pointer;
+}
+
 /* 토글 버튼 */
 .toggleSwitch .toggleButton {
     /* 버튼은 토글보다 작아야함  */

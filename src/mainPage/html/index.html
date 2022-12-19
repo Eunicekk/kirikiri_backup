@@ -7,18 +7,20 @@
         <title>OKKY</title>
         <link rel="stylesheet" href="../css/reset.css" />
         <link rel="stylesheet" href="../css/main/main.css" />
+        <link rel="stylesheet" href="../css/media.css" />
         <script src="../js/include-html.js"></script>
     </head>
     <body>
-        <div>
+        <div class="body">
             <header include-html="header.html"></header>
 
             <div class="main">
-                <div>
-                    <main_left include-html="main_left.html"></main_left>
-                    <main_center include-html="main_center.html"></main_center>
-                    <main_right include-html="main_right.html"></main_right>
-                </div>
+                <div id="main_left" include-html="main_left.html"></div>
+                <div id="main_center" include-html="main_center.html"></div>
+                <div id="main_right" include-html="main_right.html"></div>
+            </div>
+            <div id="event">
+                <div include-html="event.html"></div>
             </div>
 
             <footer include-html="footer.html"></footer>
