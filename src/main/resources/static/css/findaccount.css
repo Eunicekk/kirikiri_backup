@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.contain{
+    padding-top: 103px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo{
+    width: 67px;
+    height: 67px;
+    object-fit: cover;
+    padding-top: 25px;
+    padding-bottom: 3px;
+}
+.main-title{
+    font-weight: bolder;
+    font-size: 173%;
+    letter-spacing: -2px;
+}
+.guide{
+    padding-top: 10px;
+    color: #474C5B;
+    font-size: 81%;
+    text-align: center;
+    margin-bottom: 36px;
+    letter-spacing: -0.8px;
+    line-height: 19px;
+
+}
+label{
+    display: block;
+    letter-spacing: -0.8px;
+    vertical-align: top;
+    font-size: 13px;
+    padding-bottom: 7px;
+    color: #373D4B;
+    font-weight: bold;
+}
+.address-input>div>input {
+    width: 436px;
+    height: 41px;
+    border: 1px solid hsla(220, 9%, 46%, .3);
+    border-radius: 6px;
+    margin-bottom: 23px;
+    font-size: 87%;
+    line-height: 41px;
+    padding-left: 11px;
+}
+
+ul{
+    list-style: none;
+}
+ul>li {
+    float: left;
+}
+.cancel-button>a {
+    display: block;
+    border: 1px solid hsla(220,9%,46%,.3);
+    width: 215px;
+    height: 36px;
+    margin-right: 16px;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    line-height: 36px;
+    float: left;
+}
+.cancel-button>a:hover{
+    display: block;
+    border: 1px solid #f0f0f0;
+    width: 215px;
+    height: 36px;
+    margin-right: 16px;
+    color: black;
+    border-radius: 5px;
+}
+.find-address>input{
+    display: block;
+    border: 1px solid #3092F5;
+    width: 215px;
+    height: 36px;
+    background-color: #3092F5;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    line-height: 36px;
+
+}
+.find-address>input:hover{
+    display: block;
+    border: 1px solid #2277CD;
+    width: 215px;
+    height: 36px;
+    background-color: #2277CD;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    line-height: 36px;
+
+}
