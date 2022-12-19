@@ -29,7 +29,7 @@
 }
 
 .tag_title {
-    background-image: url(../../image/tag-background.png);
+    background-image: url(../../../img/mainPageImage/tag-background.png);
     display: flex;
     align-items: center;
     padding: 0 32px;
