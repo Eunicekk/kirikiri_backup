@@ -6,7 +6,7 @@ window.onload=function() {
     let ident = navitem.id.split("_")[1];
 
     navitem.parentNode.setAttribute("data-current", ident);
-    navitem.setAttribute("style", "background-color : gray");
+    navitem.setAttribute("style", "background-color : #e5e7eb");
 
     let pages = document.querySelectorAll(".tabpage");
     for (let i = 1; i < pages.length; i++) {
@@ -26,7 +26,7 @@ window.onload=function() {
         document.getElementById("tabpage_" + current).style.display = "none";
 
         let ident = this.id.split("_")[1];
-        this.setAttribute("style", "background-color: gray");
+        this.setAttribute("style", "background-color: #e5e7eb");
         document.getElementById("tabpage_" + ident).style = "block";
 
         this.parentNode.setAttribute("data-current", ident);
@@ -45,8 +45,8 @@ window.onload=function() {
             if (url.includes("image")) {
                 thumbnail.style.backgroundImage = "url('" + url + "')";
             } else {
-                thumbnail.style.backgroundImage = "url('../images/account.svg')";
-                // ../images/account.svg 대신 backend에 저장된 이미지 파일
+                thumbnail.style.backgroundImage = "url('../../img/account.png')";
+                // ../images/account.png 대신 backend에 저장된 이미지 파일
             }
         }
     });
@@ -73,69 +73,86 @@ window.onload=function() {
 
     // -------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+    // -------------------------------------------------------------------------------
     // 미완성...
     // 소셜 계정 연동 여부
 
-    class social{
-        constructor(socialType, bool){
-            this.socialType =socialType;
-            this.bool = bool;
-        }
-    }
-
-    let git = new social("git", false);
-    let google = new social("google", false);
-    let facebook = new social("facebook", true);
-    let naver = new social("naver", false);
-    let kakao = new social("kakao", true);
 
 
-    if(git.bool === true){
-        document.getElementById("git").style.opacity = 1;
-        document.querySelector("#git span").innerHTML = "깃허브 해제하기";
-    }
-    if(google.bool === true){
-        document.getElementById("google").style.opacity = 1;
-        document.querySelector("#google span").innerHTML = "구글 해제하기";
-    }
-    if(facebook.bool === true){
-        document.getElementById("facebook").style.opacity = 1;
-        document.querySelector("#facebook span").innerHTML = "메타 해제하기";
-    }
-    if(naver.bool === true){
-        document.getElementById("naver").style.opacity = 1;
-        document.querySelector("#naver span").innerHTML = "네이버 해제하기";
-    }
-    if(kakao.bool === true){
-        document.getElementById("kakao").style.opacity = 1;
-        document.querySelector("#kakao span").innerHTML = "카카오톡 해제하기";
-    }
+    // class social{
+    //     constructor(socialType, bool){
+    //         this.socialType =socialType;
+    //         this.bool = bool;
+    //     }
+    // }
+    //
+    // let git = new social("git", true);
+    // let google = new social("google", false);
+    // let facebook = new social("facebook", true);
+    // let naver = new social("naver", false);
+    // let kakao = new social("kakao", true);
 
+    // let socialArray = [git, google, facebook, naver, kakao]
 
-
-    if(git.bool === false){
-        document.getElementById("git").style.opacity = 0.3;
-        document.querySelector("#git span").innerHTML = "깃허브 연결하기";
-        document.getElementById("git").onclick = function () {
-            document.getElementById("git").href = "";
-        }
-    }
-    if(google.bool === false){
-        document.getElementById("google").style.opacity = 0.3;
-        document.querySelector("#google span").innerHTML = "구글 연결하기";
-    }
-    if(facebook.bool === false){
-        document.getElementById("facebook").style.opacity = 0.3;
-        document.querySelector("#facebook span").innerHTML = "메타 연결하기";
-    }
-    if(naver.bool === false){
-        document.getElementById("naver").style.opacity = 0.3;
-        document.querySelector("#naver span").innerHTML = "네이버 연결하기";
-    }
-    if(kakao.bool === false){
-        document.getElementById("kakao").style.opacity = 0.3;
-        document.querySelector("#kakao span").innerHTML = "카카오톡 연결하기";
-    }
+    //
+    // if(git.bool === true){
+    //     document.getElementById("git").style.opacity = 1;
+    //     document.querySelector("#git span").innerHTML = "깃허브 해제하기";
+    // }
+    // if(google.bool === true){
+    //     document.getElementById("google").style.opacity = 1;
+    //     document.querySelector("#google span").innerHTML = "구글 해제하기";
+    // }
+    // if(facebook.bool === true){
+    //     document.getElementById("facebook").style.opacity = 1;
+    //     document.querySelector("#facebook span").innerHTML = "메타 해제하기";
+    // }
+    // if(naver.bool === true){
+    //     document.getElementById("naver").style.opacity = 1;
+    //     document.querySelector("#naver span").innerHTML = "네이버 해제하기";
+    // }
+    // if(kakao.bool === true){
+    //     document.getElementById("kakao").style.opacity = 1;
+    //     document.querySelector("#kakao span").innerHTML = "카카오톡 해제하기";
+    // }
+    //
+    //
+    //
+    // if(git.bool === false){
+    //     document.getElementById("git").style.opacity = 0.3;
+    //     document.querySelector("#git span").innerHTML = "깃허브 연결하기";
+    //     document.getElementById("git").onclick = function () {
+    //         document.getElementById("git").href = "";
+    //     }
+    // }
+    // if(google.bool === false){
+    //     document.getElementById("google").style.opacity = 0.3;
+    //     document.querySelector("#google span").innerHTML = "구글 연결하기";
+    // }
+    // if(facebook.bool === false){
+    //     document.getElementById("facebook").style.opacity = 0.3;
+    //     document.querySelector("#facebook span").innerHTML = "메타 연결하기";
+    // }
+    // if(naver.bool === false){
+    //     document.getElementById("naver").style.opacity = 0.3;
+    //     document.querySelector("#naver span").innerHTML = "네이버 연결하기";
+    // }
+    // if(kakao.bool === false){
+    //     document.getElementById("kakao").style.opacity = 0.3;
+    //     document.querySelector("#kakao span").innerHTML = "카카오톡 연결하기";
+    // }
 
 
     // let trueCount = 3;
@@ -201,9 +218,21 @@ window.onload=function() {
 
     const exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
     let duplicateCheck = false;
+    let count = 0;
 
     document.getElementById("emailSubmit").addEventListener("click",function (event) {
-        if(changeEmail.length == 0){
+        if((changeEmail.length == 0 || !exptext.test(changeEmail)) && count === 0){
+            event.preventDefault();
+            let div = document.createElement("div");
+            div.className = "wrong-email-div";
+            div.innerText = "올바른 이메일 형식이 아닙니다."
+            document.querySelector(".wrong-email").append(div);
+            count++;
+        }else if(changeEmail.length == 0 || !exptext.test(changeEmail)){
+            event.preventDefault();
+        }
+
+        /*if(changeEmail.length == 0){
             swal({
                 title : "이메일 오류",
                 text : "이메일을 입력하지 않으셨습니다",
@@ -228,7 +257,7 @@ window.onload=function() {
             event.preventDefault();
         }else{
             return true;
-        }
+        }*/
     });
 
     // 필수 정보 입력 여부
@@ -305,4 +334,31 @@ window.onload=function() {
             }
     })
 
+}
+
+function checkSlide1(){
+    if(document.querySelector("#toggle-slide1").checked){
+        document.querySelector(".userage span").innerText = "공개";
+        document.querySelector(".userage span").style.color = "#0090F9";
+    }else{
+        document.querySelector(".userage span").innerText = "비공개";
+        document.querySelector(".userage span").style.color = "#e5e7eb";
+    }
+}
+function checkSlide2(){
+    if(document.querySelector("#toggle-slide2").checked){
+        document.querySelector(".userlivingplace span").innerText = "공개";
+        document.querySelector(".userlivingplace span").style.color = "#0090F9";
+    }else{
+        document.querySelector(".userlivingplace span").innerText = "비공개";
+        document.querySelector(".userlivingplace span").style.color = "#e5e7eb";
+    }
+}
+
+function mouseOver(target){
+    target.style.opacity = "1";
+    target.style.cursor = "pointer";
+}
+function mouseOut(target){
+    target.style.opacity = "0.3";
 }

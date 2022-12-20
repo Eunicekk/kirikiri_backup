@@ -22,8 +22,8 @@ window.onload=function () {
     let ident = menuCheck.id.split("_")[1];
 
     menuCheck.parentNode.setAttribute("data-current", ident);
-    menuCheck.style.color = "blue";
-    menuCheck.style.borderBottom = "2px solid blue";
+    menuCheck.style.color = "rgb(0, 144, 249)";
+    menuCheck.style.borderBottom = "2px solid rgb(0, 144, 249)";
 
     let tabPages = document.querySelectorAll(".tabPage");
     for(let i =1; i<tabPages.length; i++){
@@ -58,8 +58,8 @@ window.onload=function () {
         document.getElementById("tabPage_"+ current).style.display = "none";
 
         let ident = this.id.split("_")[1];
-        this.style.color = "blue";
-        this.style.borderBottom = "2px solid blue"
+        this.style.color = "rgb(0, 144, 249)";
+        this.style.borderBottom = "2px solid rgb(0, 144, 249)"
 
         document.getElementById("tabPage_"+ ident).style= "block";
 
