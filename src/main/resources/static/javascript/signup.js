@@ -73,14 +73,14 @@ window.onload = ()=>{
     let emailButtonCircle = document.getElementById("email-agree-button-circle");
 
     emailButton.addEventListener("click", ()=>{
-        if(check.value === "true") {
+        if(check.checked === true) {
             emailButton.style.backgroundColor = "rgb(229 231 235)";
             emailButtonCircle.style.transform = "translate(-20px)";
-            check.value = "false";
+            check.checked = false;
         } else {
             emailButton.style.backgroundColor = "rgb(0 144 249)";
             emailButtonCircle.style.transform = "translate(0)";
-            check.value = "true";
+            check.checked = true;
         }
     })
 }
