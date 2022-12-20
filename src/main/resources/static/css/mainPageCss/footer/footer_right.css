@@ -14,3 +14,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.sponsored_logo img:hover {
+    cursor: pointer;
+}

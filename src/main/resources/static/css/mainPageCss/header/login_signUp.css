@@ -15,8 +15,18 @@
     border: 1px solid #c5c5c5;
 }
 
+.login:hover {
+    cursor: pointer;
+    background-color: #f3f3f3;
+}
+
 .signUp {
     background-color: #0090f9;
+}
+
+.signUp:hover {
+    cursor: pointer;
+    background-color: #0079cf;
 }
 
 .signUp button {
