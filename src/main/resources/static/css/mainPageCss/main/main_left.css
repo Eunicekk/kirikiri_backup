@@ -1,11 +1,3 @@
-.main_left {
-    width: 180px;
-}
-
-.main_left_Menu {
-    width: 180px;
-}
-
 .bestTag {
     padding-bottom: 16px;
     border-bottom: 1px solid #dadada;
@@ -23,6 +15,11 @@
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
+}
+
+.tag_menu_li > span:first-child:hover {
+    cursor: pointer;
+    color: #0090f9;
 }
 
 .span_count {
@@ -72,6 +69,11 @@
     font-size: 11.6px;
 }
 
+.main_left_BugReport:hover {
+    cursor: pointer;
+    color: #0090f9;
+}
+
 .main_left_TopWriters {
     width: 180px;
     height: 237px;
@@ -106,9 +108,17 @@
     margin-left: 4px;
 }
 
+.user_name span:hover {
+    cursor: pointer;
+    color: #0090f9;
+}
+
 .user_icon {
     width: 24px;
     height: 24px;
+}
+.user_icon:hover {
+    cursor: pointer;
 }
 
 .medal_icon {

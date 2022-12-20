@@ -1,0 +1,9 @@
+.side_banner img {
+    width: 180px;
+
+    margin-bottom: 10px;
+}
+
+.side_banner img:hover {
+    cursor: pointer;
+}
