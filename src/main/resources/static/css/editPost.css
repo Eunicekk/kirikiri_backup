@@ -25,29 +25,28 @@ h2 {
 }
 
 /*새 글 작성*/
-#add-post-text > h1 {
+#edit-post-text > h1 {
     font-size: 30px;
     font-weight: bold;
 }
-#add-post-text > p {
+#edit-post-text > p {
     margin-top: 20px;
     color: rgb(107 114 128);
     font-size: 13px;
 }
-#add-post-text > p > span {
+#edit-post-text > p > span {
     font-weight: bold;
 }
-#add-post-form {
+#edit-post-form {
     width: 100%;
 }
 #topic {
     margin-top: 50px;
-    position: relative;
 }
 #topic-select {
     margin-top: 10px;
     width: 100%;
-    padding: 12px 5px;
+    padding: 10px 5px;
     color: rgb(107 114 128);
     font-weight: bold;
     font-size: 14px;
@@ -92,13 +91,7 @@ h2 {
     border-radius: 5px;
     box-sizing: border-box;
 }
-#tag-box > button > svg {
-    color: rgb(153, 153, 153);
-}
-#tag-box > button > svg:hover {
-    color: #0090f9;
-}
-.arrow-button {
+#tag-box > button {
     position: absolute;
     right: 0px;
     top: 20px;
@@ -109,16 +102,55 @@ h2 {
 #content {
     margin-top: 30px;
 }
+#edit-post-box {
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 10px;
+    margin-top: 40px;
+}
 
+.write-post-content {
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 10px;
+}
+.button-group {
+    display: flex;
+    align-items: center;
+    background-color: rgb(249 250 251);
+    border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 10px 10px 0 0;
+    padding: 4px;
+}
+.button-group > button {
+    background-color: inherit;
+    border: 0px solid #e5e7eb;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    margin: 0 3px;
+}
+.button-group > button:hover {
+    background-color: hsla(220, 9%, 46%, 0.2);
+}
+.button-group svg {
+    width: 15px;
+}
+.button-group > div {
+    width: 0;
+    height: 18px;
+    border-left: 1px solid hsla(220, 9%, 46%, 0.5);
+    margin: 0 5px;
+}
 #content-box {
     margin-top: 10px;
 }
-.add-post-button {
+.edit-post-button {
     display: flex;
     justify-content: flex-end;
     margin-top: 15px;
 }
-.add-post-button > button {
+.edit-post-button > button {
     margin-left: 10px;
     padding: 10px 30px;
 
@@ -136,7 +168,7 @@ h2 {
     color: #fff;
     border: 0px solid #fff;
 }
-.add-post-button > button:hover {
+.edit-post-button > button:hover {
     background-color: rgb(11 127 211);
 }
 
