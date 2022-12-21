@@ -114,7 +114,6 @@ ul, li{
     float:left;
 }
 .essentialInfo{
-    width: 511px;
 }
 .name{
     height: 66px;
@@ -122,6 +121,9 @@ ul, li{
 .nickname, .nationality, .age, .livingplace{
     height: 66px;
     margin-top: 24px;
+}
+.nationality{
+    margin-bottom: 24px;
 }
 .username{
     width: 511px;
@@ -360,7 +362,7 @@ label[for="checknotice"]{
 }
 .socialLoad{
     height: 346px;
-    margin-top: 40px;
+    margin-top: 32px;
     margin-bottom: 40px;
     padding-left : 80px;
 }
@@ -434,11 +436,9 @@ label[for="checknotice"]{
     border-bottom: 1px solid #e5e7eb;
     padding-top: 24px;
     padding-bottom: 16px;
-    height: 118px;
 }
 .emailCheck_2{
     padding-left: 80px;
-    height: 118px;
 }
 .emailCheck_2>h2{
     font-size: 20px;
@@ -607,6 +607,11 @@ label[for="toggle-slide3"]{
     cursor: pointer;
 }
 .wrong-email-div{
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(239, 68, 68);
+}
+.empty-name-div, .empty-nickname-div{
     font-size: 14px;
     line-height: 20px;
     color: rgb(239, 68, 68);

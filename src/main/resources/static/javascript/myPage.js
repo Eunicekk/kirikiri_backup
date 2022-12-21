@@ -263,7 +263,9 @@ window.onload=function() {
     // 필수 정보 입력 여부
 
     let changeName = null;
+    let changeNameCheck = 0;
     let changeNickname = null;
+    let changeNicknameCheck = 0;
     let nicknameDuplicate = false;
 
     document.getElementById("username").addEventListener("change", function () {
@@ -275,7 +277,29 @@ window.onload=function() {
 
     document.getElementById("infoSubmit").addEventListener("click",function (event) {
 
-        if(changeName != null && changeNickname == null) {
+        if(changeName != null && changeName.length == 0 && changeNameCheck == 0){
+            event.preventDefault();
+            let div = document.createElement("div");
+            div.className = "empty-name-div";
+            div.innerText = "이름을 입력하지 않으셨습니다."
+            document.querySelector(".empty-name").append(div);
+            changeNameCheck++;
+        }else if(changeName != null && changeName.length == 0 && changeNameCheck != 0){
+            event.preventDefault();
+        }
+
+        if(changeNickname != null && changeNickname.length == 0 && changeNickname == 0){
+            event.preventDefault();
+            let div = document.createElement("div");
+            div.className = "empty-nickname-div";
+            div.innerText = "닉네임을 입력하지 않으셨습니다."
+            document.querySelector(".empty-nickname").append(div);
+            changeNicknameCheck++;
+        }else if(changeNickname != null && changeNickname.length == 0 && changeNicknameCheck != 0){
+            event.preventDefault();
+        }
+
+        /*if(changeName != null && changeNickname == null) {
             if(changeName.length == 0){
                 swal({
                     title : "이름 오류",
@@ -331,7 +355,7 @@ window.onload=function() {
                     event.preventDefault();
                 }
 
-            }
+            }*/
     })
 
 }
