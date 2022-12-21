@@ -4,6 +4,9 @@
     justify-content: center;
     margin-top: 20px;
 }
+#main a {
+    text-decoration: none;
+}
 #left-div {
     width: 180px;
 }
@@ -31,6 +34,11 @@
 }
 
 /*중앙*/
+.advertisement-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .advertisement {
     border: 0px solid inherit;
 }
@@ -52,13 +60,14 @@
     position: relative;
 }
 #category-link > div {
-    width: 120px;
+    width:140px;
     background-color: #fff;
     position: relative;
     font-size: 12px;
     padding: 5px 10px;
     z-index: 10;
 }
+
 #category-link > div > a:nth-child(1) {
     color: hsla(220, 9%, 46%, 0.7);
 }
