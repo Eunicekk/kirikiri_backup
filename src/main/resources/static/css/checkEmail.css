@@ -7,22 +7,29 @@
 * {
     font-family: Pretendard-Regular;
 }
+.container{
+    height: 322px;
+    width: 576px;
+    margin: 128px 0 0 0;
+    padding: 0 0 64px 0;
+    display: block;
+    margin: auto;
+}
+
 .email-guid{
     height: 152px;
     width: 576px;
     display: block;
+    text-align: center;
 }
-span{
+.email-guid>span{
     height: 36px;
     font-size: 30px;
     font-weight: 700;
-    text-align: center;
+    line-height: 36px;
 }
-.container{
-    height: 386px;
-    width: 1519.2px;
-    margin: 128px 0 0 0;
-    padding: 0 0 64px 0;
+.email {
+    color: #0090F9;
 }
 
 .notification{
@@ -30,9 +37,18 @@ span{
     height: 72px;
     width: 576px;
     padding: 16px 16px 16px 16px;
-    border: 0px solid #E5E7EB;
     background-color: #F9FAFB;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: #111827;
+    box-sizing: border-box;
+    border-top-left: 6px;
+    border-radius: 7px;
 }
+.notification>p{
+}
+
 .login-button{
     display: block;
 }
