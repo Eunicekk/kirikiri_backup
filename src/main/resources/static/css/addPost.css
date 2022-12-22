@@ -1,7 +1,6 @@
 #main {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
     box-sizing: border-box;
 }
 #left-div {
@@ -45,7 +44,6 @@ h2 {
     position: relative;
 }
 #topic-select {
-    margin-top: 10px;
     width: 100%;
     padding: 12px 5px;
     color: rgb(107 114 128);
@@ -63,7 +61,6 @@ h2 {
     margin-top: 30px;
 }
 #title > input {
-    margin-top: 10px;
     width: 100%;
     padding: 10px 5px;
     font-weight: bold;
@@ -83,7 +80,6 @@ h2 {
     position: relative;
 }
 #tag-box > input {
-    margin-top: 10px;
     width: 100%;
     padding: 10px 5px;
     font-weight: bold;
@@ -101,7 +97,7 @@ h2 {
 .arrow-button {
     position: absolute;
     right: 0px;
-    top: 20px;
+    top: 8px;
     border: 0px solid #fff;
     border-left: 1px solid hsla(220, 9%, 46%, 0.3);
     background-color: inherit;
@@ -110,9 +106,7 @@ h2 {
     margin-top: 30px;
 }
 
-#content-box {
-    margin-top: 10px;
-}
+
 .add-post-button {
     display: flex;
     justify-content: flex-end;
