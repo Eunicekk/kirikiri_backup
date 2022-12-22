@@ -140,11 +140,35 @@ window.onload=function () {
             document.querySelector("#whereAndTime"+ i).append(where, time);
 
             time.innerHTML = contentArray[i].time;
-            where.innerHTML = contentArray[i].boardType + "에 게시물을 작성하였습니다";
+            //where.innerHTML = contentArray[i].boardType + "에 게시물을 작성하였습니다";
         }
     }
 
     makeWhereAndTimeInside();
+
+    function makeWhereInside(){
+        for(let i=0; i<count; i++){
+            let link = document.createElement("a");
+            link.className = "where-link";
+            link.id = "where-link" + i;
+
+            let word = document.createElement("div");
+            word.className= "where-word";
+            word.id = "where-word" + i;
+
+
+            document.querySelector("#where" + i).append(link);
+            document.querySelector("#where" + i).append(word);
+
+            link.innerHTML = contentArray[i].boardType;
+            link.addEventListener("click", function(){
+                location.href = "/"
+            })
+            word.innerHTML = " 에 게시물을 작성하였습니다";
+        }
+    }
+
+    makeWhereInside();
 
     //---------------------------------------------------------------------------------
 
@@ -220,11 +244,35 @@ window.onload=function () {
             document.querySelector("#commentWhereAndTime"+ i).append(where, time);
 
             time.innerHTML = commentArray[i].time;
-            where.innerHTML = commentArray[i].boardType + "에 " + commentArray[i].writer + "님이 작성한 게시물에 댓글을 작성하였습니다";
+           // where.innerHTML = commentArray[i].boardType + "에 " + commentArray[i].writer + "님이 작성한 게시물에 댓글을 작성하였습니다";
         }
     }
 
     makeCommentWhereAndTimeInside();
+
+    function makeCommentWhereInside(){
+        for(let i=0; i<commentCount; i++){
+            let link = document.createElement("a");
+            link.className = "comment-where-link";
+            link.id = "comment-where-link" + i;
+
+            let word = document.createElement("div");
+            word.className= "comment-where-word";
+            word.id = "comment-where-word" + i;
+
+
+            document.querySelector("#commentWhere" + i).append(link);
+            document.querySelector("#commentWhere" + i).append(word);
+
+            link.innerHTML = commentArray[i].boardType;
+            link.addEventListener("click", function(){
+                location.href = "/"
+            })
+            word.innerHTML = " 에 " + commentArray[i].writer + "님이 작성한 게시물을 댓글을 작성하였습니다";
+        }
+    }
+
+    makeCommentWhereInside();
 
     //--------------------------------------------------------------------------------------------------
 
@@ -296,16 +344,56 @@ window.onload=function () {
 
     function makeLikeWhereInside(){
         for(let i=0; i<likeCount; i++){
-            let where = document.createElement("div");
+            let link = document.createElement("a");
+            link.className = "like-where-link";
+            link.id = "like-where-link" + i;
 
-            document.querySelector("#likeWhere" + i).append(where);
-            where.innerHTML = likeArray[i].boardType + "에 " + likeArray[i].writer + "님이 작성한 게시물에 좋아요를 작성하였습니다";
-            where.className = "likeAWhere";
-            where.id = "likeAWhere"+i;
+            let word = document.createElement("div");
+            word.className= "like-where-word";
+            word.id = "like-where-word" + i;
+
+
+            document.querySelector("#likeWhere" + i).append(link);
+            document.querySelector("#likeWhere" + i).append(word);
+
+            link.innerHTML = likeArray[i].boardType;
+            link.addEventListener("click", function(){
+                location.href = "/"
+            })
+            word.innerHTML = " 에 " + likeArray[i].writer + "님이 작성한 게시물에 좋아요를 작성하였습니다";
         }
     }
 
     makeLikeWhereInside();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // function makeLikeWhereInside(){
+    //     for(let i=0; i<likeCount; i++){
+    //         let where = document.createElement("div");
+    //
+    //         document.querySelector("#likeWhere" + i).append(where);
+    //         where.innerHTML = likeArray[i].boardType + "에 " + likeArray[i].writer + "님이 작성한 게시물에 좋아요를 작성하였습니다";
+    //         where.className = "likeAWhere";
+    //         where.id = "likeAWhere"+i;
+    //     }
+    // }
+    //
+    // makeLikeWhereInside();
+
+
 
 
 }
