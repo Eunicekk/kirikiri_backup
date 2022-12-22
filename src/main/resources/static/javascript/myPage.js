@@ -103,9 +103,9 @@ window.onload=function() {
     // let facebook = new social("facebook", true);
     // let naver = new social("naver", false);
     // let kakao = new social("kakao", true);
-
+    //
     // let socialArray = [git, google, facebook, naver, kakao]
-
+    //
     //
     // if(git.bool === true){
     //     document.getElementById("git").style.opacity = 1;
@@ -153,6 +153,8 @@ window.onload=function() {
     //     document.getElementById("kakao").style.opacity = 0.3;
     //     document.querySelector("#kakao span").innerHTML = "카카오톡 연결하기";
     // }
+
+//
 
 
     // let trueCount = 3;

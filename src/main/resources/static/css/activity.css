@@ -216,3 +216,23 @@ name>h2{
 .write, .comment, .like{
     height: auto;
 }
+.where-link, .comment-where-link, .like-where-link{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: rgb(0, 144, 249);
+    padding: 6px 12px;
+    box-sizing: border-box;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 30px;
+}
+.where-link:hover, .comment-where-link:hover, .like-where-link:hover{
+    cursor: pointer;
+    border-color: rgba(107, 114, 128, 1);
+}
+.where-word, .comment-where-word, .like-where-word{
+    display: inline;
+    color: rgb(107 114 128);
+    font-size: 14px;
+    line-height: 20px;
+}
