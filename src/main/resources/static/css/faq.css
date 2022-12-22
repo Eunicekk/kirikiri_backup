@@ -1,18 +1,354 @@
 @charset "utf-8";
 
 body{
-    justify-content: center;
+    font-family: Pretendard, sans-serif;
 }
 
+header{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #c5c5c5;
+}
+#header{
+    width: 1280px;
+    height: 35px;
+    margin: 0 auto;
+    position: relative;
+}
 #logo{
-    
+    display: inline-block;
+}
+#logo img{
+    height: 30px;
 }
 #nav{
-
-}
-#nav.ul{
     display: inline-block;
+    position: absolute;
+    left: 150px; bottom: 8px;
 }
 #nav li{
     display: inline-block;
+    padding: 0 10px;
+    font-size: 1rem;
+}
+#nav li:nth-child(5){
+    border-right: 2px solid darkgray;
+    border-left: 2px solid darkgray;
+    padding: 0px 20px;
+}
+#nav li>a:hover{
+    color: #0090f9;
+}
+.search{
+    display: inline-block;
+    width: 235px;
+    height: 33px;
+    border-radius: 35px;
+    border: 1px solid gray;
+    position: absolute;
+    right: 300px;
+}
+.search form{
+    position: relative;
+}
+.search button{
+    border-style: none;
+    background-color: #ffffff;
+    position: absolute;
+    left: 10px; top: 8px;
+}
+.search svg{
+    width: 14px; height: 14px;
+    color: gray;
+}
+.search svg:hover{
+    color: #0090f9;
+}
+.search input{
+    font-size: 12px;
+    border-style: none;
+    position: absolute;
+    left: 35px; top: 9px;
+}
+.search input:focus{
+    outline: none;
+    /* #search에 이벤트 애니메이션 */
+}
+#user{
+    display: inline-block;
+    position: absolute;
+    right: 0px; bottom: 0px;
+}
+#user>button{
+    width: 85px;
+    height: 35px;
+    border: 1px solid gray;
+    border-radius: 50px;
+    font-size: 10px;
+    font-weight: 600;
+}
+#user #login{
+    background-color: #fff;
+    color: #111827;
+}
+#user #signup{
+    background-color: #0090f9;
+    color: #ffffff;
+    margin-left: 10px;
+}
+
+/* articles */
+article{
+    width: 1268.8px;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 0;
+}
+
+/* aside */
+aside{
+    width: 180px;
+}
+.tag {
+    height: 280px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.tag li{
+    padding: 16px;
+    font-size: 14px;
+}
+.tag li:first-child {
+    font-size: 14px;
+    font-weight: 700;
+    height: 20px;
+    padding-top: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid lightgray;
+}
+.tag span{
+    position: absolute;
+    right: 16px;
+    color: #0090f9;
+}
+
+/* main */
+#main{
+    margin: 0 40px;
+}
+
+/* title */
+#center{
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
+#center-bg{
+    width: 100%;
+    height: 80px;
+    background-image: url(https://okky.kr/pattern.svg);
+    opacity: 0.2;
+    border-radius: 10px;
+}
+#center-text{
+    position: absolute;
+    left: 40px; top: 20px;
+}
+#center-text>h1{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+#center-text>p{
+    font-size: 14px;
+}
+#center img{
+    width: 130px;
+    position: absolute;
+    right: 40px; bottom: 0;
+}
+
+/* contents */
+#contents{
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 30px;
+    position: relative;
+}
+#contents input[type=radio]{
+    display: none;
+}
+#line{
+    height: 30px;
+    border-bottom: 1px solid lightgray;
+}
+#sort{
+    position: absolute;
+    right: 0; bottom: 0;
+}
+#sort-button{
+    width: 100px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+}
+#sort-button:hover{
+    border: 1px solid hsla(220, 9%, 46%, 0.7);
+}
+#sort-button>svg{
+    width: 20px;
+    margin-right: 5px;
+}
+#sort-check{
+    display: none;
+}
+#sort-type{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 130px;
+    position: absolute;
+    right: 0;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 5px;
+    visibility: hidden;
+}
+#sort-type>button{
+    text-align: left;
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#sort-type>button:hover{
+    color: #0090f9;
+}
+#content-search{
+    padding: 30px 0;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#refresh{
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin-right: 600px;
+}
+#refresh svg{
+    color: #6b7280;
+    width: 20px;
+}
+#refresh svg:hover{
+    color: #0090f9;
+}
+#page-move span{
+    font-size: 14px;
+    margin-right: 10px;
+}
+#page-move button{
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    vertical-align: center;
+}
+#page-move svg{
+    color: #6b7280;
+    width: 16px;
+}
+#page-move svg:hover{
+    color: #0090f9;
+}
+#tab{
+    margin: 0px auto;
+    width: 400px;
+}
+#tab label{
+    font-size: 18px;
+    margin: 0 10px;
+    border-radius: 7px;
+    padding:  10px 15px;
+    color: #111827;
+}
+#tab label:hover{
+    color: #0090f9;
+}
+#tab-1:checked ~ #tab label:nth-child(1),
+#tab-2:checked ~ #tab label:nth-child(2),
+#tab-3:checked ~ #tab label:nth-child(3),
+#tab-4:checked ~ #tab label:nth-child(4){
+    background-color: #f3f4f6;
+    color: #111827;
+}
+.content>div {
+    display: none;
+}
+#tab-1:checked ~ .content div:nth-child(1),
+#tab-2:checked ~ .content div:nth-child(2),
+#tab-3:checked ~ .content div:nth-child(3),
+#tab-4:checked ~ .content div:nth-child(4)  {
+    display: block;
+}
+.content li{
+    width: 100%;
+    padding: 35px 0;
+    border-bottom: 1px solid lightgray;
+}
+.content summary {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.question{
+    width: 50px;
+    color: #0090f9;
+    font-size: 30px;
+    font-weight: 800;
+}
+.faq-title{
+    width: 700px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.arrow{
+    width: 50px;
+    font-size: 26px;
+    font-weight: 600;
+    color: black;
+}
+.faq-answer{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 30px;
+}
+.faq-answer p{
+    width: 700px;
+    line-height: 24px;
+}
+.answer{
+    width: 50px;
+    color: #0090f9;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+/* ad */
+.ad{
+    width: 180px;
+}
+.ad img{
+    display: block;
+    margin-bottom: 20px;
 }
