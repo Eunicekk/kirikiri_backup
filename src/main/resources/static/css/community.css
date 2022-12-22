@@ -180,6 +180,9 @@
     width: 20px;
     margin-right: 5px;
 }
+#sort-check {
+    display: none;
+}
 #sort-type {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,43 @@
+@media screen and (max-width: 1024px) {
+    header {
+        padding: 0 16px;
+    }
+
+    #main_left,
+    #main_right {
+        display: none;
+    }
+
+    .footer_right {
+        display: none;
+    }
+
+    .banner_s {
+        display: block;
+    }
+
+    .banner {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 0 16px;
+    }
+    .menu_btn {
+        display: flex;
+    }
+
+    .header_left_menu,
+    .header_right {
+        display: none;
+    }
+    .tag_box {
+        display: block;
+    }
+
+    .banner_s {
+        width: 100%;
+    }
+}

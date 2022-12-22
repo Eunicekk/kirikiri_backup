@@ -1,0 +1,25 @@
+.main {
+    margin: 0 auto;
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+#main_left {
+    width: 180px;
+}
+#main_center {
+    margin-right: 40px;
+    margin-left: 40px;
+    max-width: 840px;
+    flex: 1;
+}
+#main_right {
+    width: 180px;
+}
+
+#event {
+    max-width: 840px;
+    margin: 0 auto;
+    overflow: hidden;
+}

@@ -1,3 +1,7 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+*{
+    font-family: Pretendard;
+}
 ul, li{
     margin: 0px;
     padding: 0px;
@@ -36,19 +40,21 @@ ul, li{
     height: 874px;
     padding-right: 64px;
     float: left;
-    border-right: solid 1px gray;
+    border-right: solid 1px #e5e7eb;
 }
 .menu_bar>h2{
     margin: 0px;
     height: 24px;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 24px;
 }
 .menu{
     margin: 40px 0px;
+    height: 88px;
 }
 .menu>ul{
     padding: 0px;
+    height: 88px;
 }
 .menu li{
     list-style: none;
@@ -57,22 +63,25 @@ ul, li{
 .checkfalse{
     background-color: white;
 }
-.menu img{
+.menu svg{
     margin-left: -4px;
     margin-right: 12px;
-    transform : translate(0px, 3px);
+    width: 24px;
+    height: 24px;
+    float: left;
 }
 .menu span{
-    display:inline-block;
+    float: left;
     height: 24px;
     line-height: 24px;
-    transform: translate(0px, -3px);
+    font-weight: 500;
 }
 #link_1{
     display: block;
     text-decoration: none;
     color: black;
     padding: 8px 12px;
+    height: 24px;
     cursor: pointer;
 }
 #link_2, #link_3, #link_4, #link_5{
@@ -82,28 +91,29 @@ ul, li{
     padding: 8px 12px;
     margin-top: 8px;
     cursor: pointer;
+    height: 24px;
 }
+
 .content{
     float: left;
     width: 959px;
 }
 .info{
     padding-left: 80px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #e5e7eb;
 }
 .info>h2{
     font-size: 20px;
 }
 .info_word{
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
     overflow: auto;
 }
 .info_word>div{
     float:left;
 }
 .essentialInfo{
-    width: 511px;
 }
 .name{
     height: 66px;
@@ -111,6 +121,9 @@ ul, li{
 .nickname, .nationality, .age, .livingplace{
     height: 66px;
     margin-top: 24px;
+}
+.nationality{
+    margin-bottom: 24px;
 }
 .username{
     width: 511px;
@@ -124,20 +137,41 @@ ul, li{
     height: 42px;
 }
 #username, #userNickname, #userage, #userlivingplace{
-    border: 1px solid gray;
+    border: 1px solid rgba(107, 114, 128, 0.3);
     border-radius: 0.375rem;
     padding : 8px 12px;
     height: 24px;
     line-height: 24px;
     width: 485px;
 }
+#username:focus, #userNickname:focus, #userage:focus, #userlivingplace:focus, #usernationality:focus{
+    outline: none;
+    border: 1px solid rgba(107, 114, 128, 1);
+}
+
 #userlivingplace, #userage{
     float: left;
+}
+.userage{
+    display: table;
+}
+.userage>span{
+    font-size: 12px;
+    display: table-cell;
+    vertical-align: middle;
+    color: rgba(107, 114, 128, 0.3);
+
+}
+.userlivingplace>span{
+    font-size: 12px;
+    display: table-cell;
+    vertical-align: middle;
+    color: rgba(107, 114, 128, 0.3);
 }
 
 
 #usernationality{
-    border: 1px solid gray;
+    border: 1px solid rgba(107, 114, 128, 0.3);
     border-radius: 0.375rem;
     padding: 8px 12px;
     height: 42px;
@@ -148,12 +182,11 @@ ul, li{
     padding-left: 80px;
 }
 .livingplace{
-    height: 90px;
     margin-top: 24px;
 }
 .checkinfo{
-    font-size: 14px;
-    color: gray;
+    font-size: 12px;
+    color: #e5e7eb;
     margin-top: 0px;
     margin-bottom: 0px;
 }
@@ -173,138 +206,115 @@ ul, li{
 label[for="picture"] div{
     width: 160px;
     height: 160px;
-    background-image: url(../../img/account.svg);
+    background-image: url(../../img/account.png);
     background-size: 100% 100%;
     cursor: pointer;
     border-radius: 100%;
 }
 label[for="picture"] div:hover{
-    background-color: gray;
+    filter: brightness(0.3);
 }
 .change>p{
-    text-align: center;
+    height: 160px;
+    color: rgb(0, 144, 249);
+    font-size: 14px;
     line-height: 160px;
+    font-weight: 500;
     opacity: 0;
+    margin: 0px;
+    text-align: center;
 }
 .change>p:hover{
     opacity: 1;
 }
 .btn{
-    height: 42px;
+    width: 40px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0);
+    margin-left: 16px;
     float: right;
+    transform: translate(0px, 9px);
 }
 #toggle-slide1{
     display:none;
 }
 label[for="toggle-slide1"]{
-    display: inline-block;
-    width: 120px;
-    height: 42px;
-    background-color: gray;
-    text-indent: -9999px;
-    border-radius: 25px;
     position: relative;
     cursor: pointer;
-    transition: 0.5s;
-}
-label[for="toggle-slide1"]::after{
-    content:"";
-    position: absolute;
+    display: inline-block;
     width: 40px;
-    height: 36px;
-    background-color: #e5e5e5;
+    height: 20px;
+    background-color: #e5e7eb;
     border-radius: 25px;
-    top: 3px;
-    left: 5px;
+    transition: 0.5s;
+    border: 2px solid rgb(229, 231, 235);
+}
+.onf_btn{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: white;
     transition: 0.5s;
 }
 #toggle-slide1:checked + label[for="toggle-slide1"]{
-    background-color: aqua;
+    background-color: rgb(0, 144, 249);
+    border-color: rgb(0, 144, 249);
 }
-#toggle-slide1:checked + label[for="toggle-slide1"]::after{
-    top: 5px;
-    left: 75px;
+#toggle-slide1:checked + label[for="toggle-slide1"] .onf_btn{
+    left: 20px;
 }
-
+.clicked{
+    color: rgb(0, 144, 249);
+}
 #toggle-slide2{
     display:none;
 }
 label[for="toggle-slide2"]{
-    display: inline-block;
-    width: 120px;
-    height: 42px;
-    background-color: gray;
-    text-indent: -9999px;
-    border-radius: 25px;
     position: relative;
     cursor: pointer;
-    transition: 0.5s;
-}
-label[for="toggle-slide2"]::after{
-    content:"";
-    position: absolute;
+    display: inline-block;
     width: 40px;
-    height: 36px;
-    background-color: #e5e5e5;
+    height: 20px;
+    background-color: #e5e7eb;
     border-radius: 25px;
-    top: 3px;
-    left: 5px;
     transition: 0.5s;
+    border: 2px solid rgb(229, 231, 235);
 }
 #toggle-slide2:checked + label[for="toggle-slide2"]{
-    background-color: aqua;
+    background-color: rgb(0, 144, 249);
+    border-color: rgb(0, 144, 249);
 }
-#toggle-slide2:checked + label[for="toggle-slide2"]::after{
-    top: 5px;
-    left: 75px;
-}
-.sub{
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding: 20px 0px 20px 80px;
-    height: 40px;
-}
-.sub>button{
-    margin: 0px;
-    padding: 8px 32px;
-    height: 40px;
-    float: right;
-    background-color: gray;
-    border: none;
-    border-radius: 0.375rem;
-}
-.sub>button:hover{
-    background-color: aqua;
-    cursor: pointer;
-}
-.sub>button>p{
-    display: inline-block;
-    color:white;
-    font-weight: bold;
-    height: 24px;
-    margin: 0px;
+#toggle-slide2:checked + label[for="toggle-slide2"] .onf_btn{
+    left: 20px;
 }
 .delete{
     padding-left: 80px;
     height: 874px;
-    border-top: 1px solid gray;
+    border-top: 1px solid #e5e7eb;
 }
 .notice>h2{
     font-size: 20px;
+    height: 24px;
+    line-height: 24px;
+    font-weight: 600;
 }
 .notice div{
     margin-top: 12px;
-    border: 1px solid gray;
+    border: 1px solid #e5e7eb;
     padding: 12px;
     border-radius: 0.375rem;
 }
-.notice p{
+.p1{
     font-size: 12px;
-    color: gray;
+    color: rgb(107, 114, 128);
+    margin: 0px;
 }
 .p2{
     margin-top: 8px;
     margin-bottom: 0px;
+    font-size: 12px;
+    color: rgb(107, 114, 128);
 }
 .checknotice_div{
     padding-top: 16px;
@@ -318,8 +328,21 @@ label[for="toggle-slide2"]::after{
     float:left;
     margin: 0px;
 }
-#checknotice, label[for="checknotice"]{
+label[for="checknotice"]{
     cursor: pointer;
+    font-size: 14px;
+    float: left;
+    hegiht: 16px;
+    line-height: 16px;
+}
+#checknotice{
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    margin: 0px;
+    margin-right: 5px;
+    float: left;
+
 }
 #delete{
     float: right;
@@ -339,7 +362,7 @@ label[for="toggle-slide2"]::after{
 }
 .socialLoad{
     height: 346px;
-    margin-top: 40px;
+    margin-top: 32px;
     margin-bottom: 40px;
     padding-left : 80px;
 }
@@ -351,6 +374,7 @@ label[for="toggle-slide2"]::after{
     font-size: 20px;
     line-height: 24px;
     margin: 0px;
+    font-weight: 600;
 }
 .socialLoadInfo>p{
     height: 20px;
@@ -384,16 +408,13 @@ label[for="toggle-slide2"]::after{
 .connectButton{
     width:192px;
     height: 40px;
-    border: 1px solid gray;
+    border: 1px solid #e5e7eb;
     background-color: white;
     opacity: 0.3;
     padding: 0px;
     border-radius: 0.375rem;
 }
-.connectButton:hover{
-    opacity: 1;
-    cursor: pointer;
-}
+
 .connectButton>img{
     margin-left: 8px;
     padding-left: 4px;
@@ -412,14 +433,12 @@ label[for="toggle-slide2"]::after{
     line-height: 42px;
 }
 .emailCheck{
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #e5e7eb;
     padding-top: 24px;
     padding-bottom: 16px;
-    height: 118px;
 }
 .emailCheck_2{
     padding-left: 80px;
-    height: 118px;
 }
 .emailCheck_2>h2{
     font-size: 20px;
@@ -445,38 +464,155 @@ label[for="toggle-slide2"]::after{
     height: 24px;
     line-height: 24px;
     padding: 8px 12px;
-    border: 1px solid gray;
+    border: 1px solid rgba(107, 114, 128, 0.3);
     margin: 0px;
     border-radius: 0.375rem;
+}
+#email:focus{
+    outline: none;
+    border: 1px solid rgba(107, 114, 128, 1);
 }
 #emailSubmit{
     width: 192px;
     height: 42px;
-    border: 1px solid black;
+    border: 1px solid rgba(107, 114, 128, 0.3);
     border-radius: 0.375rem;
     float: right;
-    opacity: 0.3;
     background-color: white;
     padding : 0px 16px;
 }
 #emailSubmit:hover{
     cursor: pointer;
-    opacity: 1;
+    border: 1px solid rgba(107, 114, 128, 1);
 }
-#emailSubmit>img{
+#emailSubmit>svg{
     float: left;
+    width: 20px;
+    height: 20px;
 }
 #emailSubmit>span {
     display: inline-block;
     font-size: 14px;
     height: 20px;
     line-height: 20px;
-    margin-top: 1px;
 }
 .emailCheck_2>p{
     margin-top: 16px;
     height:20px;
+}
+.email-warning>svg{
+    width: 16px;
+    height: 16px;
+    float: left;
+    transform: translate(0px, 1px);
+}
+.email-warning path{
+    width: 12px;
+    height: 12px;
+    color: rgb(107, 114, 128);
+}
+.email-warning span{
+    margin-left: 4px;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: rgb(107, 114, 128);
+}
+.email-agree{
+    border-top: 1px solid #e5e7eb;
+    margin-top: 40px;
+
+}
+.email-agree2{
+    padding-left: 80px;
+}
+.agree>h2{
+    margin-top: 24px;
+    margin-bottom: 0px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.agree>p{
+    margin-top: 4px;
     font-size: 14px;
     line-height: 20px;
-    color: gray;
+    margin-bottom: 0px;
+    color: rgb(107, 114, 128);
+}
+.marketing-agree{
+    margin-top: 8px;
+}
+.p-m1{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0px;
+}
+.p-m2{
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(107, 114, 128);
+    margin: 0px;
+}
+.marketing-info{
+    float: left;
+}
+.marketing-btn{
+    float: right;
+    height: 30px;
+}
+#toggle-slide3{
+    display:none;
+}
+label[for="toggle-slide3"]{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #e5e7eb;
+    border-radius: 25px;
+    transition: 0.5s;
+    border: 2px solid rgb(229, 231, 235);
+}
+#toggle-slide3:checked + label[for="toggle-slide3"]{
+    background-color: rgb(0, 144, 249);
+    border-color: rgb(0, 144, 249);
+}
+#toggle-slide3:checked + label[for="toggle-slide3"] .onf_btn{
+    left: 20px;
+}
+
+.submit-div{
+    margin-top: 68px;
+    margin-bottom: 40px;
+    height: 40px;
+    border-top: 1px solid #e5e7eb;
+    padding: 20px 0px 20px 80px;
+}
+#infoSubmit{
+    padding: 8px 32px;
+    height: 40px;
+    float: right;
+    background-color: rgba(0, 144, 249, 0.3);
+    border: none;
+    border-radius: 0.375rem;
+    color: white;
+    font-weight: 600;
+}
+#infoSubmit:hover{
+    background-color: rgba(0, 144, 249, 1);
+    cursor: pointer;
+}
+.wrong-email-div{
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(239, 68, 68);
+}
+.empty-name-div, .empty-nickname-div{
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(239, 68, 68);
 }
