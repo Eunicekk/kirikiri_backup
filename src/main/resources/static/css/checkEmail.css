@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+* {
+    font-family: Pretendard-Regular;
+}
+.container{
+    height: 322px;
+    width: 576px;
+    margin: 128px 0 0 0;
+    padding: 0 0 64px 0;
+    display: block;
+    margin: auto;
+}
+
+.email-guid{
+    height: 152px;
+    width: 576px;
+    display: block;
+    text-align: center;
+}
+.email-guid>span{
+    height: 36px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+}
+.email {
+    color: #0090F9;
+}
+
+.notification{
+    display: block;
+    height: 72px;
+    width: 576px;
+    padding: 16px 16px 16px 16px;
+    background-color: #F9FAFB;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: #111827;
+    box-sizing: border-box;
+    border-top-left: 6px;
+    border-radius: 7px;
+}
+.notification>p{
+}
+
+.login-button{
+    display: block;
+}
