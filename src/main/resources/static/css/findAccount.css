@@ -110,3 +110,19 @@ form>input:hover{
     line-height: 36px;
 
 }
+.find-fail{
+    background-color: rgb(240 246 250);
+    border: 1px solid rgb(254 226 226);
+    border-radius: 10px;
+    color: rgb(153 27 27);
+    padding: 15px;
+    display: none;
+    font-size: 12px;
+}
+.login-fail>svg {
+    width: 20px;
+}
+.login-fail>h3 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
