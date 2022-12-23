@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>OKKY - All That Developer</title>
     <link rel="stylesheet" href="../static/css/findAccount.css">
+    <script src="../static/javascript/findAccount.js"></script>
 </head>
 <body>
 <container class="contain">
@@ -17,7 +18,7 @@
          <div><input id="input-checkbox" type="email" placeholder="이메일을 입력해주세요" required></div>
         </div>
         <div class="cancel-button"><a href="../templates/login.html">취소</a></div>
-        <div class="find-address"><input type="submit" value="계정찾기"></div>
+        <input id="find-address" type="submit" onclick="input_find()" value="계정찾기">
     </form>
 </container>
 </body>

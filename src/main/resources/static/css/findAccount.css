@@ -80,7 +80,7 @@ ul>li {
     color: black;
     border-radius: 5px;
 }
-.find-address>input{
+form>input{
     display: block;
     border: 1px solid #3092F5;
     width: 215px;
@@ -95,7 +95,7 @@ ul>li {
     line-height: 36px;
 
 }
-.find-address>input:hover{
+form>input:hover{
     display: block;
     border: 1px solid #2277CD;
     width: 215px;
