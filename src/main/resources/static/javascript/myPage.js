@@ -380,6 +380,7 @@ function checkSlide2(){
         document.querySelector(".userlivingplace span").style.color = "#e5e7eb";
     }
 }
+let connectCheck = false;
 
 function mouseOver(target){
     target.style.opacity = "1";
@@ -387,4 +388,18 @@ function mouseOver(target){
 }
 function mouseOut(target){
     target.style.opacity = "0.3";
+}
+function mouseClick(target){
+    if(connectCheck == false){
+        target.style.opacity= "1";
+        target.style.backgroundColor = "#e5e7eb";
+        connectCheck = !connectCheck;
+    }
+    else if(connectCheck == true){
+        target.style.opacity="0.3";
+        target.style.backgroundColor = "white";
+        connectCheck = !connectCheck;
+
+    }
+
 }

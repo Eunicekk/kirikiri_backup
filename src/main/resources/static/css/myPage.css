@@ -596,14 +596,14 @@ label[for="toggle-slide3"]{
     padding: 8px 32px;
     height: 40px;
     float: right;
-    background-color: rgba(0, 144, 249, 0.3);
+    background-color: rgba(139, 195, 74, 0.3);
     border: none;
     border-radius: 0.375rem;
     color: white;
     font-weight: 600;
 }
 #infoSubmit:hover{
-    background-color: rgba(0, 144, 249, 1);
+    background-color: rgba(139, 195, 74, 1);
     cursor: pointer;
 }
 .wrong-email-div{
