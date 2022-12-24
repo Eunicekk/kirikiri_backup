@@ -37,7 +37,7 @@
     line-height: 36px;
 }
 .email {
-    color: #0090F9;
+    color: #8BC34A;
 }
 
 .notification{
@@ -56,11 +56,6 @@
 p{
     line-height: 20px;
 }
-
-.login-button{
-    display: block;
-}
-
 button{
     height: 38px;
     width: 192px;
@@ -68,7 +63,7 @@ button{
     padding: 8px 16px 8px 16px;
     font-weight: 500;
     font-size: 14px;
-    background-color: #0090F9;
+    background-color: #8BC34A;
     border-radius: 6px;
 }
 button:hover{
@@ -78,6 +73,6 @@ button:hover{
     padding: 8px 16px 8px 16px;
     font-weight: 500;
     font-size: 14px;
-    background-color: #0B7FD3;
+    background-color: #689f38;
     border-radius: 6px;
 }
