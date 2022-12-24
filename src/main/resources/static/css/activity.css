@@ -2,7 +2,7 @@
 
 *{
     margin: 0px;
-    height: 0px;
+    padding: 0px;
     font-family: Pretendard;
 }
 ul{
@@ -12,15 +12,12 @@ ul{
 }
 .main{
     width: 1280px;
-    height: 776px;
     margin: 18px auto 0px auto;
     display: flex;
     justify-content: center;
 }
 .main_without_m{
     width: 1280px;
-    height: 776px;
-
 }
 .main_without_m>div{
     float: left;
@@ -28,17 +25,15 @@ ul{
 
 .left{
     width: 180px;
-    height: 776px;
 }
 .middle{
     margin-left: 40px;
     width: 840px;
-    height: 776px;
+
 }
 .right{
     margin-left: 40px;
     width: 180px;
-    height: 776px;
 }
 .ad1, .ad1>a, .ad1 img{
     width: 180px;
@@ -46,7 +41,6 @@ ul{
 }
 .ad2, .ad2>a, .ad2 img{
     width:180px;
-    height: 380px;
 }
 .info{
     border: 1px solid #e5e7eb;
@@ -163,7 +157,6 @@ name>h2{
 }
 .bottomMargin{
     padding-bottom: 64px;
-
 }
 .content, .commentContent, .likeContent{
     height: 62px;
@@ -188,7 +181,7 @@ name>h2{
     color: rgb(17, 24, 39);
 }
 .aTitle:hover, .commentATitle:hover, .likeATitle:hover{
-    color : rgb(0, 144, 249);
+    color : rgb(139, 195, 74);
 }
 .where, .commentWhere{
     width: 600px;
@@ -220,7 +213,7 @@ name>h2{
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
-    color: rgb(0, 144, 249);
+    color: rgb(139, 195, 74);
     padding: 6px 12px;
     box-sizing: border-box;
     border: 1px solid rgba(107, 114, 128, 0.3);
@@ -235,4 +228,59 @@ name>h2{
     color: rgb(107 114 128);
     font-size: 14px;
     line-height: 20px;
+}
+
+<!-- -->
+#page-move-bottom1, #page-move-bottom2, #page-move-bottom3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    position: relative;
+    margin-bottom: 64px;
+}
+#page-move-bottom1 > button, #page-move-bottom2 > button, #page-move-bottom3 > button {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 0 solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+#page-move-bottom1 > button:hover, #page-move-bottom2 > button:hover, #page-move-bottom3 > button:hover {
+    color: rgb(0 144 249);
+}
+#page-move-bottom1 > button:nth-child(1), #page-move-bottom2 > button:nth-child(1), #page-move-bottom3 > button:nth-child(1) {
+    color: hsla(220, 9%, 46%, 0.3);
+}
+#page-move-bottom1 > button > svg,
+#page-move-bottom2 > button > svg,
+#page-move-bottom3 > button > svg
+{
+    width: 20px;
+    margin: 0 10px;
+}
+#page1 > a, #page2 > a, #page3 > a {
+    position: relative;
+    padding: 20px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#page1 > a:hover, #page2 > a:hover, #page3 > a:hover {
+    color: rgb(139, 195, 74);
+}
+#page1 > a:nth-child(1),
+#page2 > a:nth-child(1),
+#page3 > a:nth-child(1)
+{
+    color: rgb(139, 195, 74);
+    border-top: rgb(139, 195, 74);
+    line-height: 61px;
+}
+#page1 svg,
+#page2 svg,
+#page3 svg
+{
+    width: 20px;
 }

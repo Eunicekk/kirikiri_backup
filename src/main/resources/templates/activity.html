@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/activity.css">
     <script type="text/javascript" src="../static/javascript/activity.js"></script>
+    <script type="text/javascript" src="../static/javascript/mainPageJs/include-html.js"></script>
     <title>activity</title>
 </head>
 <body>
+<header include-html="../../templates/mainPageHtml/header.html"></header>
 <div class="main">
     <div class="main_without_m">
         <div class="left">
@@ -39,24 +41,63 @@
                         <li id="link_3"><span>좋아요</span></li>
                     </ul>
                 </div>
+            </div>
                 <div class="tabPages">
                     <div class="tabPage" id="tabPage_1">
                         <div class="borderBottom"></div>
                         <div class="write"><!-- 받은 데이터 값에 따라 div 생성 --></div>
                         <div class="bottomMargin"></div>
+                        <div id="page-move-bottom1">
+                            <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg> Previous</button>
+                            <div id="page1">
+                                <a href="">1</a>
+                                <a href="">2</a>
+                                <a href="">3</a>
+                                <a href="">4</a>
+                                <a href="">5</a>
+                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+                                <a href="">6364</a>
+                            </div>
+                            <button>Next <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path></svg></button>
+                        </div>
                     </div>
                     <div class="tabPage" id="tabPage_2">
                         <div class="borderBottom"></div>
                         <div class="comment"><!-- 받은 데이터 값에 따라 div 생성 --></div>
                         <div class="bottomMargin"></div>
+                        <div id="page-move-bottom2">
+                            <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg> Previous</button>
+                            <div id="page2">
+                                <a href="">1</a>
+                                <a href="">2</a>
+                                <a href="">3</a>
+                                <a href="">4</a>
+                                <a href="">5</a>
+                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+                                <a href="">6364</a>
+                            </div>
+                            <button>Next <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path></svg></button>
+                        </div>
                     </div>
                     <div class="tabPage" id="tabPage_3">
                         <div class="borderBottom"></div>
                         <div class="like"><!-- 받은 데이터 값에 따라 div 생성 --></div>
                         <div class="bottomMargin"></div>
+                        <div id="page-move-bottom3">
+                            <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg> Previous</button>
+                            <div id="page3">
+                                <a href="">1</a>
+                                <a href="">2</a>
+                                <a href="">3</a>
+                                <a href="">4</a>
+                                <a href="">5</a>
+                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+                                <a href="">6364</a>
+                            </div>
+                            <button>Next <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path></svg></button>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
         <div class="right">
             <div class="ad2">
@@ -68,5 +109,9 @@
         </div>
     </div>
 </div>
+<footer include-html="../../templates/mainPageHtml/footer.html"></footer>
 </body>
+<script>
+    includeHTML();
+</script>
 </html>
