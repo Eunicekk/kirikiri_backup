@@ -48,24 +48,25 @@ label{
     height: 41px;
     border: 1px solid hsla(220, 9%, 46%, .3);
     border-radius: 6px;
-    margin-bottom: 23px;
     font-size: 87%;
     line-height: 41px;
     padding-left: 11px;
 }
 
-ul{
-    list-style: none;
+#not-email{
+    margin-top: 10px;
+    margin-left: 5px;
+    font-size: 12px;
+    color: #ef4444;
 }
-ul>li {
-    float: left;
-}
+
 .cancel-button>a {
     display: block;
     border: 1px solid hsla(220,9%,46%,.3);
     width: 215px;
     height: 36px;
     margin-right: 16px;
+    margin-top: 23px;
     color: black;
     border-radius: 5px;
     text-decoration: none;
@@ -81,62 +82,56 @@ ul>li {
     width: 215px;
     height: 36px;
     margin-right: 16px;
+    margin-top: 23px;
     color: black;
     border-radius: 5px;
 }
-.find-address>input{
+#find-address>input{
     display: block;
-    border: 1px solid #3092F5;
+    border: 1px solid #8BC34A;
     width: 215px;
     height: 36px;
-    background-color: #3092F5;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 36px;
-
-}
-.find-address>input:hover{
-    display: block;
-    border: 1px solid #2277CD;
-    width: 215px;
-    height: 36px;
-    background-color: #2277CD;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 36px;
-
-}
-.failed-search {
-    height: 82px;
-    width: 448px;
     margin-top: 23px;
-    padding: 16px 16px 16px 16px;
-    background-color: rgb(240,246,250);
-    border: 1px solid #FEE2E2;
-    border-radius: 6px;
-    color: rgb(153,27,27);
-    font-size: 12px;
-    box-sizing: border-box;
-    display: flex;
+    background-color: #8BC34A;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+
 }
-svg{
-    height: 20px;
-    width: 20px;
+#find-address>input:hover{
+    display: block;
+    border: 1px solid #689f38;
+    width: 215px;
+    height: 36px;
+    margin-top: 23px;
+    background-color: #689f38;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+
+}
+#failed-search {
+    width: 415px;
+    margin-top: 30px;
+    background-color: rgb(240 246 250);
+    border: 1px solid rgb(254 226 226);
+    border-radius: 5px;
+    color: rgb(153 27 27);
+    padding: 15px;
+    font-size: 12px;
+}
+#failed-search > div {
     margin-right: 10px;
 }
-.search-err>h3{
-    font-weight: 300;
-}
-.search-err>p{
-    font-size: 14px;
-    margin-top: 13px;
-    font-weight: 100;
+#failed-search h3 {
+    font-weight: bold;
+    margin-bottom: 12px;
 }
