@@ -1,14 +1,17 @@
+body{
+  font-family: Pretendard, sans-serif;
+}
 #signup-page {
   width: 450px;
   margin: 150px auto;
 }
 
 .main-logo {
-  width: 70px;
+  width: 120px;
   display: flex;
   margin: 0 auto 30px;
 }
-#okky-welcome {
+#kirikiri-welcome {
   font-weight: bold;
   font-size: 30px;
   text-align: center;
@@ -50,7 +53,7 @@
 }
 
 /*OKKY로 로그인*/
-#okky-signup-msg {
+#kirikiri-signup-msg {
   margin-top: 30px;
   position: relative;
 }
@@ -65,13 +68,13 @@
   border-top: 1px solid hsla(220,9%,46%,.3);
   z-index: 0;
 }
-#okky-signup-text {
+#kirikiri-signup-text {
   position: relative;
   display: flex;
   justify-content: center;
   text-align: center;
 }
-#okky-signup-text > span {
+#kirikiri-signup-text > span {
   position: relative;
   background-color: #fff;
   padding: 0 10px;
@@ -102,6 +105,19 @@
   font-size: 15px;
   box-sizing: border-box;
 }
+.signup-select {
+  width: 100%;
+  border: 1px solid hsla(220,9%,46%,.3);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
 
 /*이메일 수신 동의*/
 #email-agree {
@@ -116,7 +132,7 @@
 }
 
 #email-agree-button {
-  background-color: rgb(0 144 249);
+  background-color: #8BC34A;
   border: 2px solid transparent;
   border-radius: 9999px;
   cursor: pointer;
@@ -157,11 +173,11 @@
   justify-content: center;
 }
 #terms > a {
-  color: #0090f9;
+  color: #8BC34A;
   margin: 0 20px;
 }
 #terms > a:hover {
-  color: rgb(11 127 211);
+  color: #689F38;
 }
 #terms > div {
   width: 0;
@@ -177,13 +193,13 @@
   padding: 8px 0;
   color: #fff;
   font-weight: bold;
-  background-color: #0090f9;
+  background-color: #8BC34A;
   border: 1px solid #fff;
   border-radius: 5px;
   cursor: pointer;
 }
 #signup-button > button:hover {
-  background-color: rgb(11 127 211);
+  background-color: #689F38;
 }
 #go-login {
   margin-top: 30px;
@@ -191,11 +207,11 @@
   font-size: 13px ;
 }
 #go-login > a {
-  color: #0090f9;
+  color: #8BC34A;
   text-decoration: underline;
 }
 #go-login > a:hover {
-  color: rgb(11 127 211);
+  color: #689F38;
 }
 
 /*입력 오류 메세지*/
@@ -238,7 +254,7 @@
 #signup-fail {
   display: none;
   margin-top: 30px;
-  background-color: rgb(240 246 250);
+  background-color: #F1F8E9;
   border: 1px solid rgb(254 226 226);
   border-radius: 10px;
   color: rgb(153 27 27);

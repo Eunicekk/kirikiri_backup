@@ -1,3 +1,7 @@
+
+body{
+    font-family: Pretendard, sans-serif;
+}
 #main {
     display: flex;
     justify-content: center;
@@ -18,7 +22,8 @@
 /*왼쪽*/
 #popular-tag > p {
     margin-bottom: 20px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
 }
 #popular-tag > div {
     padding-top: 20px;
@@ -31,15 +36,15 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 500;
 }
 #popular-tag a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 #popular-tag span {
     font-weight: bold;
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 
 #left-side-img {
@@ -49,7 +54,8 @@
 
 #top-writers > p {
     margin-bottom: 20px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
 }
 #top-writers > div {
     padding-top: 20px;
@@ -61,15 +67,15 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 500;
 }
 .top-user > a {
     display: flex;
     align-items: center;
 }
 .top-user > a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 .top-user img {
     margin-right: 5px;
@@ -137,14 +143,16 @@
     align-items: center;
     border: 1px solid #ffffff;
     border-radius: 8px;
-    background-color: rgb(0 144 249);
+    background-color: #8BC34A;
     cursor: pointer;
+    font-size: 14px;
 }
 #write-post-button:hover {
-    background-color: rgb(11 127 211);
+    background-color: #689F38;
 }
 #write-post-button > svg {
-    width: 20px;
+    width: 16px;
+    margin-right: 5px;
 }
 #board-detail-category > a {
     margin: 0 20px;
@@ -153,7 +161,7 @@
     padding: 10px;
 }
 #board-detail-category > a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 #board-detail-category > a:nth-child(3) {
     background-color: rgb(243 244 246);
@@ -203,7 +211,7 @@
     cursor: pointer;
 }
 #sort-type > button:hover {
-    color: #0090f9;
+    color: #8BC34A;
 }
 
 #button-group2 {
@@ -222,7 +230,7 @@
     width: 20px;
 }
 #refresh > svg:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 
 #search {
@@ -244,7 +252,7 @@
     color: hsla(220, 9%, 46%, 0.7);
 }
 #search svg:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 #search > input {
     border: 0 solid #fff;
@@ -253,7 +261,7 @@
     border-radius: 20px;
 }
 #search > input:active{
-    border-color: rgb(0 144 249);
+    border-color: #8BC34A;
 }
 #page-move {
     display: flex;
@@ -265,10 +273,10 @@
     margin: 0 10px;
 }
 #page-move svg:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 
-/*post*/
+/*게시글 목록*/
 #post-list {
     margin-top: 20px;
     margin-bottom: 60px;
@@ -278,10 +286,10 @@
     border-top: 1px solid hsla(220, 9%, 46%, 0.3);
 }
 .post:nth-child(1) {
-    background-color: rgb(240 246 250);
+    background-color: #F1F8E9;
 }
 .post:nth-child(2) {
-    background-color: rgb(240 246 250);
+    background-color: #F1F8E9;
 }
 .post-first-line {
     display: flex;
@@ -292,7 +300,7 @@
     align-items: center;
 }
 .post-first-line > a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 .profile-picture {
     width: 20px;
@@ -307,11 +315,11 @@
     margin-top: 10px;
 }
 .post-second-line > a {
-    font-weight: bold;
+    font-weight: 600;
     margin-top: 10px;
 }
 .post-second-line > a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 .post-third-line {
     display: flex;
@@ -321,13 +329,15 @@
 }
 .tag-link {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .tag-link > a {
-    background-color: rgb(209 233 250);
-    color: rgb(0 144 249);
-    font-size: 10px;
-    font-weight: bold;
-    padding: 5px 10px;
+    background-color: #DCEDC8;
+    color: #8BC34A;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
     border-radius: 5px;
     margin-right: 10px;
 }
@@ -337,7 +347,7 @@
     color: rgb(75 85 99);
 }
 .post-tag > a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 .user-reaction {
     display: flex;
@@ -347,6 +357,7 @@
     display: flex;
     align-items: center;
     margin: 0 5px;
+    font-size: 14px;
 }
 .user-reaction svg {
     width: 20px;
@@ -372,7 +383,7 @@
     font-weight: bold;
 }
 #page-move-bottom > button:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 #page-move-bottom > button:nth-child(1) {
     color: hsla(220, 9%, 46%, 0.3);
@@ -388,11 +399,11 @@
     font-weight: bold;
 }
 #page > a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 #page > a:nth-child(1) {
-    color: rgb(0 144 249);
-    border-top: 2px solid rgb(0 144 249);
+    color: #8BC34A;
+    border-top: 2px solid #8BC34A;
     line-height: 61px;
 }
 #page svg {

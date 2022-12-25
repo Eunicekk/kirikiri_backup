@@ -78,7 +78,7 @@ window.onload = ()=>{
             emailButtonCircle.style.transform = "translate(-20px)";
             check.checked = false;
         } else {
-            emailButton.style.backgroundColor = "rgb(0 144 249)";
+            emailButton.style.backgroundColor = "#8BC34A";
             emailButtonCircle.style.transform = "translate(0)";
             check.checked = true;
         }
