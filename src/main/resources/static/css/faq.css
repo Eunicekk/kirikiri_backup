@@ -4,43 +4,6 @@ body{
     font-family: Pretendard, sans-serif;
 }
 
-header{
-    display: flex;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #c5c5c5;
-}
-#header{
-    width: 1280px;
-    height: 35px;
-    margin: 0 auto;
-    position: relative;
-}
-#logo{
-    display: inline-block;
-}
-#logo img{
-    height: 30px;
-}
-#nav{
-    display: inline-block;
-    position: absolute;
-    left: 150px; bottom: 8px;
-}
-#nav li{
-    display: inline-block;
-    padding: 0 10px;
-    font-size: 1rem;
-}
-#nav li:nth-child(5){
-    border-right: 2px solid darkgray;
-    border-left: 2px solid darkgray;
-    padding: 0px 20px;
-}
-#nav li>a:hover{
-    color: #0090f9;
-}
 .search{
     display: inline-block;
     width: 235px;
@@ -76,28 +39,6 @@ header{
     outline: none;
     /* #search에 이벤트 애니메이션 */
 }
-#user{
-    display: inline-block;
-    position: absolute;
-    right: 0px; bottom: 0px;
-}
-#user>button{
-    width: 85px;
-    height: 35px;
-    border: 1px solid gray;
-    border-radius: 50px;
-    font-size: 10px;
-    font-weight: 600;
-}
-#user #login{
-    background-color: #fff;
-    color: #111827;
-}
-#user #signup{
-    background-color: #0090f9;
-    color: #ffffff;
-    margin-left: 10px;
-}
 
 /* articles */
 article{
@@ -109,7 +50,7 @@ article{
 
 /* aside */
 aside{
-    width: 180px;
+    width: 200px;
 }
 .tag {
     height: 280px;
@@ -136,7 +77,8 @@ aside{
 
 /* main */
 #main{
-    margin: 0 40px;
+    height: 1100px;
+    margin: 0 30px;
 }
 
 /* title */
@@ -282,6 +224,7 @@ aside{
 }
 #tab label:hover{
     color: #0090f9;
+    cursor: pointer;
 }
 #tab-1:checked ~ #tab label:nth-child(1),
 #tab-2:checked ~ #tab label:nth-child(2),
@@ -304,6 +247,10 @@ aside{
     padding: 35px 0;
     border-bottom: 1px solid lightgray;
 }
+.content li:last-child{
+    padding: 0;
+    border: none;
+}
 .content summary {
     list-style: none;
     display: flex;
@@ -321,6 +268,9 @@ aside{
     width: 700px;
     font-size: 18px;
     font-weight: 600;
+}
+.faq-title:hover{
+    color: #0090f9;
 }
 .arrow{
     width: 50px;
@@ -351,4 +301,39 @@ aside{
 .ad img{
     display: block;
     margin-bottom: 20px;
+}
+
+/* page */
+.move-page{
+    width: 100%;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.move-page button{
+    background-color: #fff;
+    border-style: none;
+    width: 100px;
+    color: #bababa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.next:hover{
+    color: #0090f9;
+}
+.move-page svg{
+    width: 16px;
+}
+.page a{
+    padding: 36px 10px;
+    font-size: 14px;
+}
+.page a:hover{
+    color: #0090f9;
+    border-top: 2px solid #0090f9;
+}
+.page a:nth-child(6):hover{
+    border-top: none;
 }
