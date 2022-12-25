@@ -72,7 +72,7 @@ aside{
 .tag span{
     position: absolute;
     right: 16px;
-    color: #0090f9;
+    color: #8BC34A;
 }
 
 /* main */
@@ -172,7 +172,7 @@ aside{
     cursor: pointer;
 }
 #sort-type>button:hover{
-    color: #0090f9;
+    color: #8BC34A;
 }
 #content-search{
     padding: 30px 0;
@@ -192,7 +192,7 @@ aside{
     width: 20px;
 }
 #refresh svg:hover{
-    color: #0090f9;
+    color: #8BC34A;
 }
 #page-move span{
     font-size: 14px;
@@ -209,7 +209,7 @@ aside{
     width: 16px;
 }
 #page-move svg:hover{
-    color: #0090f9;
+    color: #8BC34A;
 }
 #tab{
     margin: 0px auto;
@@ -223,7 +223,7 @@ aside{
     color: #111827;
 }
 #tab label:hover{
-    color: #0090f9;
+    color: #8BC34A;
     cursor: pointer;
 }
 #tab-1:checked ~ #tab label:nth-child(1),
@@ -260,7 +260,7 @@ aside{
 }
 .question{
     width: 50px;
-    color: #0090f9;
+    color: #8BC34A;
     font-size: 30px;
     font-weight: 800;
 }
@@ -270,7 +270,7 @@ aside{
     font-weight: 600;
 }
 .faq-title:hover{
-    color: #0090f9;
+    color: #8BC34A;
 }
 .arrow{
     width: 50px;
@@ -289,7 +289,7 @@ aside{
 }
 .answer{
     width: 50px;
-    color: #0090f9;
+    color: #8BC34A;
     font-size: 30px;
     font-weight: 800;
 }
@@ -321,7 +321,7 @@ aside{
     justify-content: center;
 }
 .next:hover{
-    color: #0090f9;
+    color: #8BC34A;
 }
 .move-page svg{
     width: 16px;
@@ -331,8 +331,8 @@ aside{
     font-size: 14px;
 }
 .page a:hover{
-    color: #0090f9;
-    border-top: 2px solid #0090f9;
+    color: #8BC34A;
+    border-top: 2px solid #8BC34A;
 }
 .page a:nth-child(6):hover{
     border-top: none;
