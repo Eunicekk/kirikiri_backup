@@ -4,29 +4,51 @@
     <meta charset="UTF-8">
     <title>OKKY - All That Developer</title>
     <link rel="stylesheet" href="../static/css/findAccount.css">
-    <script src="../static/javascript/findAccount.js"></script>
+    <script type="text/javascript" src="../static/javascript/findAccount.js"></script>
 </head>
 <body>
 <container class="contain">
     <p class="logo"><a href="../templates/community.html"><img src ="../static/img/okky.svg" alt="로고 이미지"></a></p>
     <h2 class="main-title">계정찾기</h2>
     <div class = "guide">회원 가입시 입력하신 이메일 주소를 입력하시면,
-        <br>해당 이메일로 아이디 및 비밀번호 변경 링크를 보내드립니다.</div>
-    <form action="" method="get">
+        <br>해당 이메일로 아이디 및 비밀번호 변경 링크를 보내드립니다 .
+    </div>
+    <form id="email-form" action="" method="get" onsubmit="email_check()">
         <div class="address-input">
-         <label for="input-checkbox" class="input-label">이메일 주소</label>
-         <div><input id="input-checkbox" type="email" placeholder="이메일을 입력해주세요" required></div>
+            <label for="input-checkbox" class="input-label">이메일 주소</label>
+            <div><input id="input-checkbox" type="email" placeholder="이메일을 입력해주세요" required></div>
+        </div>
+        <div id="not-email" >
+            <p>! 유효한 이메일 주소를 입력해주세요.</p>
         </div>
         <div class="cancel-button"><a href="../templates/login.html">취소</a></div>
-        <input id="find-address" type="submit" onclick="js:FindButton()" value="계정찾기" >
+        <div id="find-address"><input type="submit" value="계정찾기"></div>
     </form>
-    <div class="failed-search">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-red-800 dark:text-red-200"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd"></path></svg>
+    <div id="failed-search">
         <div class="search-err">
-            <h3>계정찾기 실패</h3>
+            <h3>! 계정찾기 실패</h3>
             <p>해당 이메일 주소를 찾을 수 없습니다.</p>
         </div>
     </div>
 </container>
 </body>
+<script>
+    document.getElementById("not-email").style.display="none";
+    document.getElementById("failed-search").style.display="none";
+    document.addEventListener("keyup", email_check, false);
+    function email_check(event) {
+        var email = document.getElementById("input-checkbox").value;
+        var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
+        if(exptext.test(email)!=true){ //이메일 형식이 아닐 경우
+            document.getElementById("not-email").style.display="";
+            document.getElementById("failed-search").style.display="none";
+            return false;
+        }
+        else { //이메일 형식이 맞을 경우
+            document.getElementById("not-email").style.display="none";
+            document.getElementById("failed-search").style.display="";
+        }
+    }
+</script>
 </html>
