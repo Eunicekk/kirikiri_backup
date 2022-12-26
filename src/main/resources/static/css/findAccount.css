@@ -16,11 +16,8 @@
     align-items: center;
 }
 .logo{
-    width: 67px;
-    height: 67px;
-    object-fit: cover;
-    padding-top: 25px;
-    padding-bottom: 3px;
+    align-items: center;
+    margin: 0 167px 15px 165px;
 }
 .main-title{
     font-weight: 700;

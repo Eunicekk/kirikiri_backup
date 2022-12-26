@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title>OKKY - All That Developer</title>
     <link rel="stylesheet" href="../static/css/findAccount.css">
-    <script type="text/javascript" src="../static/javascript/findAccount.js"></script>
 </head>
 <body>
 <container class="contain">
-    <p class="logo"><a href="../templates/community.html"><img src ="../static/img/okky.svg" alt="로고 이미지"></a></p>
+    <p class="logo"><a href="../templates/community.html"><img src ="../static/img/Logo.png" alt="로고 이미지" width="140px" height="67px"></a></p>
     <h2 class="main-title">계정찾기</h2>
     <div class = "guide">회원 가입시 입력하신 이메일 주소를 입력하시면,
         <br>해당 이메일로 아이디 및 비밀번호 변경 링크를 보내드립니다 .
@@ -48,6 +47,10 @@
         else { //이메일 형식이 맞을 경우
             document.getElementById("not-email").style.display="none";
             document.getElementById("failed-search").style.display="";
+            
+        }
+        function emailOutput() {  // DB와 비교해 있는 이메일이면 출력
+            document.getElementById("email").textContent = this.content.value;
         }
     }
 </script>
