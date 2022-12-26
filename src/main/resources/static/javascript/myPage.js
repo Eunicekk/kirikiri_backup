@@ -221,6 +221,7 @@ window.onload=function() {
     const exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
     let duplicateCheck = false;
     let count = 0;
+    let count2 = 0;
 
     document.getElementById("emailSubmit").addEventListener("click",function (event) {
         if((changeEmail.length == 0 || !exptext.test(changeEmail)) && count === 0){
@@ -232,34 +233,31 @@ window.onload=function() {
             count++;
         }else if(changeEmail.length == 0 || !exptext.test(changeEmail)){
             event.preventDefault();
+        }else if(changeEmail.length != 0 && exptext.test(changeEmail) && count2 === 0){
+            event.preventDefault();
+            if(count == 0) {
+                // 이메일 전송하기
+                let div = document.createElement("div");
+                div.className = "right-email-div";
+                div.innerText = "입력하신 이메일로 인증 이메일 발송되었습니다."
+                document.querySelector(".wrong-email").append(div);
+                count2++;
+            }else{
+                document.querySelector(".wrong-email-div").style.color = "#8BC34A";
+                document.querySelector(".wrong-email-div").innerHTML = "입력하신 이메일로 인증 이메일 발송되었습니다.";
+
+            }
+
+        }else if(changeEmail.length != 0 && exptext.test(changeEmail) && count2 === 1){
+            // 이메일 전송하기
+            event.preventDefault();
+            if(count != 0){
+                document.querySelector(".wrong-email-div").style.color = "#8BC34A";
+                document.querySelector(".wrong-email-div").innerHTML = "입력하신 이메일로 인증 이메일 발송되었습니다.";
+            }
+
         }
 
-        /*if(changeEmail.length == 0){
-            swal({
-                title : "이메일 오류",
-                text : "이메일을 입력하지 않으셨습니다",
-                icon : "error"
-            })
-            //alert(changeEmail.length);
-            event.preventDefault();
-        }else if(!exptext.test(changeEmail)){
-            swal({
-                title : "이메일 오류",
-                text : "올바르지 않은 형식입니다",
-                icon : "warning"
-            })
-            //alert(changeEmail.length);
-            event.preventDefault();
-        }else if(duplicateCheck == true){
-            swal({
-                title : "이메일 오류",
-                text : "중복된 이메일입니다",
-                icon : "error"
-            })
-            event.preventDefault();
-        }else{
-            return true;
-        }*/
     });
 
     // 필수 정보 입력 여부
@@ -300,64 +298,6 @@ window.onload=function() {
         }else if(changeNickname != null && changeNickname.length == 0 && changeNicknameCheck != 0){
             event.preventDefault();
         }
-
-        /*if(changeName != null && changeNickname == null) {
-            if(changeName.length == 0){
-                swal({
-                    title : "이름 오류",
-                    text : "이름이 입력되지 않았습니다",
-                    icon : "warning"
-                })
-                event.preventDefault();
-            }
-        }else if(changeName == null && changeNickname != null) {
-            if (changeNickname.length == 0) {
-                swal({
-                    title: "닉네임 오류",
-                    text: "닉네임이 입력되지 않았습니다",
-                    icon: "warning"
-                })
-                event.preventDefault();
-            } else if (nicknameDuplicate == true) {
-                swal({
-                    title: "닉네임 오류",
-                    text: "중복되 닉네임입니다",
-                    icon: "warning"
-                })
-                event.preventDefault();
-            }
-        }else if (changeName != null && changeNickname != null) {
-                if (changeName.length == 0 && changeNickname.length == 0) {
-                    swal({
-                        title: "이름, 닉네임 오류",
-                        text: "이름과 닉네임이 입력되지 않았습니다",
-                        icon: "warning"
-                    })
-                    event.preventDefault();
-                } else if (changeName.length == 0) {
-                    swal({
-                        title: "이름 오류",
-                        text: "이름이 입력되지 않았습니다",
-                        icon: "warning"
-                    })
-                    event.preventDefault();
-                } else if (changeNickname == 0) {
-                    swal({
-                        title: "닉네임 오류",
-                        text: "닉네임이 입력되지 않았습니다",
-                        icon: "warning"
-                    })
-                    event.preventDefault();
-                } else if (nicknameDuplicate === true) {
-                    swal({
-                        title: "닉네임 오류",
-                        text: "중복된 닉네임입니다",
-                        icon: "warning"
-                    })
-                    event.preventDefault();
-                }
-
-            }*/
     })
 
 }
@@ -365,7 +305,7 @@ window.onload=function() {
 function checkSlide1(){
     if(document.querySelector("#toggle-slide1").checked){
         document.querySelector(".userage span").innerText = "공개";
-        document.querySelector(".userage span").style.color = "#0090F9";
+        document.querySelector(".userage span").style.color = "#8BC34A";
     }else{
         document.querySelector(".userage span").innerText = "비공개";
         document.querySelector(".userage span").style.color = "#e5e7eb";
@@ -374,32 +314,42 @@ function checkSlide1(){
 function checkSlide2(){
     if(document.querySelector("#toggle-slide2").checked){
         document.querySelector(".userlivingplace span").innerText = "공개";
-        document.querySelector(".userlivingplace span").style.color = "#0090F9";
+        document.querySelector(".userlivingplace span").style.color = "#8BC34A";
     }else{
         document.querySelector(".userlivingplace span").innerText = "비공개";
         document.querySelector(".userlivingplace span").style.color = "#e5e7eb";
     }
 }
+
+// 버튼 하나에 대해서만
+// 연동이 되어 있을 경우
 let connectCheck = false;
+let clicked = false;
 
 function mouseOver(target){
     target.style.opacity = "1";
     target.style.cursor = "pointer";
 }
 function mouseOut(target){
-    target.style.opacity = "0.3";
+    if(clicked) {
+        target.style.opacity = "1";
+    }else{
+        target.style.opacity = "0.3";
+    }
 }
 function mouseClick(target){
+    clicked = !clicked;
     if(connectCheck == false){
         target.style.opacity= "1";
         target.style.backgroundColor = "#e5e7eb";
         connectCheck = !connectCheck;
+        document.querySelector("#git span").innerHTML = "깃허브 해제하기"
     }
     else if(connectCheck == true){
         target.style.opacity="0.3";
         target.style.backgroundColor = "white";
         connectCheck = !connectCheck;
-
+        document.querySelector("#git span").innerHTML = "깃허브 연결하기"
     }
 
 }
