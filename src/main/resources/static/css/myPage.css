@@ -596,14 +596,14 @@ label[for="toggle-slide3"]{
     padding: 8px 32px;
     height: 40px;
     float: right;
-    background-color: rgba(0, 144, 249, 0.3);
+    background-color: rgba(139, 195, 74, 0.3);
     border: none;
     border-radius: 0.375rem;
     color: white;
     font-weight: 600;
 }
 #infoSubmit:hover{
-    background-color: rgba(0, 144, 249, 1);
+    background-color: rgba(139, 195, 74, 1);
     cursor: pointer;
 }
 .wrong-email-div{
@@ -615,4 +615,34 @@ label[for="toggle-slide3"]{
     font-size: 14px;
     line-height: 20px;
     color: rgb(239, 68, 68);
+}
+.connect svg{
+    width: 20px;
+    height: 20px;
+}
+.connect svg{
+    margin-left: 8px;
+    padding-left: 4px;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+#facebook svg{
+    margin-left: 8px;
+    padding-left: 4px;
+    width: 16px;
+    height: 16px;
+    float: left;
+}
+#naver svg{
+    width: 14px;
+    height: 12px;
+    margin-left: 8px;
+    padding-left: 4px;
+    float: left;
+    transform: translate(0px, 3px);
+}
+#kakao svg{
+    width: 16px;
+    height: 15px;
 }

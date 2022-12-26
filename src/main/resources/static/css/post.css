@@ -1,10 +1,17 @@
 /*전체*/
+body{
+    font-family: Pretendard, sans-serif;
+}
 #main {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-#main a {
+a {
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
     text-decoration: none;
 }
 #left-div {
@@ -67,15 +74,17 @@
     padding: 5px 10px;
     z-index: 10;
 }
-
+#category-link > div > a {
+    color: #8BC34A;
+}
 #category-link > div > a:nth-child(1) {
     color: hsla(220, 9%, 46%, 0.7);
 }
 #category-link > div > a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 .blue-font {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 
 /*게시글 프로필 및 게시글 공유*/
@@ -96,7 +105,7 @@
     margin-left: 10px;
 }
 #post-info-text > a:hover {
-    color: #0090f9;
+    color: #8BC34A;
 }
 #post-info-text p {
     margin-top: 5px;
@@ -112,12 +121,12 @@
     display: flex;
 }
 #share-scrap > a {
-    width: 25px;
+    width: 45px;
     padding: 10px;
     color: hsla(220, 9%, 46%, 0.7);
 }
 #share-scrap > a:hover {
-    color: #0090f9;
+    color: #8BC34A;
 }
 
 /*게시글 제목*/
@@ -151,14 +160,13 @@
     font-size: 13px;
 }
 #post-tag > a:hover {
-    color: rgb(0 144 249);
+    color: #8BC34A;
 }
 #like-dislike {
     height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 #like-dislike > button {
     height: 100%;
@@ -177,13 +185,14 @@
     border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
     line-height: 36px;
     padding: 0 5px;
+    margin: 0;
 }
 #up-button {
     border: 1px solid hsla(220, 9%, 46%, 0.3);
     border-radius: 0 5px 5px 0;
 }
 #up-button:hover {
-    color: #0090f9;
+    color: #8BC34A;
 }
 #down-button {
     border: 1px solid hsla(220, 9%, 46%, 0.3);
@@ -224,43 +233,7 @@
     border: 1px solid hsla(220, 9%, 46%, 0.3);
     border-radius: 10px;
 }
-#button-group {
-    display: flex;
-    align-items: center;
-    background-color: rgb(249 250 251);
-    border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
-    border-radius: 10px 10px 0 0;
-    padding: 4px;
-}
-#button-group > button {
-    background-color: inherit;
-    border: 0px solid #e5e7eb;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-    margin: 0 3px;
-}
-#button-group > button:hover {
-    background-color: hsla(220, 9%, 46%, 0.2);
-}
-#button-group svg {
-    width: 15px;
-}
-#button-group > div {
-    width: 0;
-    height: 18px;
-    border-left: 1px solid hsla(220, 9%, 46%, 0.5);
-    margin: 0 5px;
-}
-#coment-textbox {
-    padding: 15px 5px;
-    font-size: 14px;
-    border: 0px solid #fff;
-}
-#coment-textbox p {
-    border: 0px solid #fff;
-    height: 60px;
-}
+
 #add-comment-button {
     display: flex;
     justify-content: flex-end;
@@ -269,14 +242,14 @@
 #add-comment-button > button {
     padding: 13px 30px;
     color: #fff;
-    background-color: #0090f9;
+    background-color: #8BC34A;
     border: 0px solid #fff;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
 }
 #add-comment-button > button:hover {
-    background-color: rgb(11 127 211);
+    background-color: #689F38;
 }
 
 /*답글 추가*/
@@ -288,48 +261,7 @@
     width: 100%;
     margin-left: 10px;
 }
-.write-comment-content {
-    width: 100%;
-    border: 1px solid hsla(220, 9%, 46%, 0.3);
-    border-radius: 10px;
-}
-.button-group {
-    display: flex;
-    align-items: center;
-    background-color: rgb(249 250 251);
-    border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
-    border-radius: 10px 10px 0 0;
-    padding: 4px;
-}
-.button-group > button {
-    background-color: inherit;
-    border: 0px solid #e5e7eb;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
-    margin: 0 3px;
-}
-.button-group > button:hover {
-    background-color: hsla(220, 9%, 46%, 0.2);
-}
-.button-group svg {
-    width: 15px;
-}
-.button-group > div {
-    width: 0;
-    height: 18px;
-    border-left: 1px solid hsla(220, 9%, 46%, 0.5);
-    margin: 0 5px;
-}
-.coment-textbox {
-    padding: 15px 5px;
-    font-size: 14px;
-    border: 0px solid #fff;
-}
-.coment-textbox p {
-    border: 0px solid #fff;
-    height: 40px;
-}
+
 .add-comment-button {
     display: flex;
     justify-content: flex-end;
@@ -344,11 +276,11 @@
     margin-left: 15px;
     padding: 10px 30px;
     color: #fff;
-    background-color: #0090f9;
+    background-color: #8BC34A;
     border: 0px solid #fff;
 }
 .submit-comment-reply:hover {
-    background-color: rgb(11 127 211);
+    background-color: #689F38;
 }
 .cancel-comment-reply {
     padding: 10px 12px;
@@ -379,8 +311,12 @@
 .comment-info-text {
     margin-left: 10px;
 }
-.comment-info-text > a:hover {
-    color: #0090f9;
+.comment-nickname {
+    cursor: pointer;
+    color: #000;
+}
+.comment-nickname:hover {
+    color: #8BC34A;
 }
 .comment-info-text > span {
     margin-top: 5px;
@@ -414,13 +350,14 @@
     border-top: 1px solid hsla(220, 9%, 46%, 0.3);
     border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
     line-height: 28px;
+    margin: 0;
 }
 .up-button {
     border: 1px solid hsla(220, 9%, 46%, 0.3);
     border-radius: 0 5px 5px 0;
 }
 .up-button:hover {
-    color: #0090f9;
+    color: #8BC34A;
 }
 .down-button {
     border: 1px solid hsla(220, 9%, 46%, 0.3);
@@ -453,11 +390,11 @@
     font-weight: bold;
     background-color: #ffffff;
     border: 1px solid #fff;
-    color: #0090f9;
+    color: #8BC34A;
     cursor: pointer;
 }
 .comment-reply-hidden:hover {
-    color: rgb(11 127 211);
+    color: #689F38;
 }
 .comment-reply-hidden svg {
     width: 15px;
@@ -472,7 +409,7 @@
     cursor: pointer;
 }
 .comment-reply-add:hover {
-    color: #0090f9;
+    color: #8BC34A;
 }
 .comment-reply-area {
     margin: 30px 0 30px 30px;
