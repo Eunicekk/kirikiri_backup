@@ -21,7 +21,7 @@ public class BoardVO {
 //    BOARD_SCRAPS NUMBER DEFAULT 0,
 //    USER_ID VARCHAR2(1000) NOT NULL
 
-    private int boardId;
+    private Long boardId;
     private String nationName;
     private String categoryName;
     private String detailCategoryName;
@@ -31,7 +31,6 @@ public class BoardVO {
     private String boardUpdateDate;
     private int boardViews;
     private int boardLikes;
-    private int boardScraps;
     private String userId;
 
     @Builder
