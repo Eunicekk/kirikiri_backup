@@ -174,46 +174,9 @@ aside{
 #sort-type>button:hover{
     color: #8BC34A;
 }
-#content-search{
-    padding: 30px 0;
-    border-bottom: 1px solid lightgray;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#refresh{
-    border: none;
-    background-color: #ffffff;
-    cursor: pointer;
-    margin-right: 600px;
-}
-#refresh svg{
-    color: #6b7280;
-    width: 20px;
-}
-#refresh svg:hover{
-    color: #8BC34A;
-}
-#page-move span{
-    font-size: 14px;
-    margin-right: 10px;
-}
-#page-move button{
-    border: none;
-    background-color: #ffffff;
-    cursor: pointer;
-    vertical-align: center;
-}
-#page-move svg{
-    color: #6b7280;
-    width: 16px;
-}
-#page-move svg:hover{
-    color: #8BC34A;
-}
 #tab{
     margin: 0px auto;
-    width: 400px;
+    width: 210px;
 }
 #tab label{
     font-size: 18px;
@@ -227,9 +190,7 @@ aside{
     cursor: pointer;
 }
 #tab-1:checked ~ #tab label:nth-child(1),
-#tab-2:checked ~ #tab label:nth-child(2),
-#tab-3:checked ~ #tab label:nth-child(3),
-#tab-4:checked ~ #tab label:nth-child(4){
+#tab-2:checked ~ #tab label:nth-child(2){
     background-color: #f3f4f6;
     color: #111827;
 }
@@ -237,9 +198,7 @@ aside{
     display: none;
 }
 #tab-1:checked ~ .content div:nth-child(1),
-#tab-2:checked ~ .content div:nth-child(2),
-#tab-3:checked ~ .content div:nth-child(3),
-#tab-4:checked ~ .content div:nth-child(4)  {
+#tab-2:checked ~ .content div:nth-child(2){
     display: block;
 }
 .content li{
