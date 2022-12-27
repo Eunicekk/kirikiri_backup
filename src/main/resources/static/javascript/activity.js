@@ -69,7 +69,7 @@ window.onload=function () {
 
     // 데이터 개수에 따라 게시물 수 구현
 
-    class content{
+    /*class content{
         constructor(boardType, time, title){
             this.boardType = boardType;
             this.time = time;
@@ -168,7 +168,7 @@ window.onload=function () {
         }
     }
 
-    makeWhereInside();
+    makeWhereInside();*/
 
     //---------------------------------------------------------------------------------
 

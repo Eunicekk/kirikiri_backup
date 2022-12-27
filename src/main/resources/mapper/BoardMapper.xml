@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.kirikiri.mapper.BoardMapper">
+    <select id="selectWritten" resultType="boardVO">
 
+        SELECT BOARD_ID, CATEGORY_NAME, BOARD_TITLE, BOARD_REGISTER_DATE
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, CATEGORY_NAME, BOARD_TITLE, BOARD_REGISTER_DATE
+            FROM
+            (
+                SELECT BOARD_ID, CATEGORY_NAME, BOARD_TITLE, BOARD_REGISTER_DATE
+                FROM TBL_BOARD
+                WHERE USER_ID = #{userId}
+                ORDER BY BOARD_ID DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 10
+        )
+        WHERE R > (#{page}-1) * 10
+        ]]>
+    </select>
 </mapper>

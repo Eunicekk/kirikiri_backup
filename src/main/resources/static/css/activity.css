@@ -218,6 +218,7 @@ name>h2{
     box-sizing: border-box;
     border: 1px solid rgba(107, 114, 128, 0.3);
     border-radius: 30px;
+    text-decoration: none;
 }
 .where-link:hover, .comment-where-link:hover, .like-where-link:hover{
     cursor: pointer;
@@ -261,7 +262,7 @@ name>h2{
     width: 20px;
     margin: 0 10px;
 }
-#page1 > a, #page2 > a, #page3 > a {
+#page1 a, #page2 > a, #page3 > a {
     position: relative;
     padding: 20px 10px;
     font-size: 14px;
