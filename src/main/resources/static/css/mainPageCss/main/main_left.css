@@ -19,11 +19,11 @@
 
 .tag_menu_li > span:first-child:hover {
     cursor: pointer;
-    color: #0090f9;
+    color: #8BC34A;
 }
 
 .span_count {
-    color: #0090f9;
+    color: #8BC34A;
 }
 
 .main_left_Img {
@@ -71,7 +71,7 @@
 
 .main_left_BugReport:hover {
     cursor: pointer;
-    color: #0090f9;
+    color: #8BC34A;
 }
 
 .main_left_TopWriters {
@@ -110,7 +110,7 @@
 
 .user_name span:hover {
     cursor: pointer;
-    color: #0090f9;
+    color: #8BC34A;
 }
 
 .user_icon {

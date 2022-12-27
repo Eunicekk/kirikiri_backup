@@ -8,7 +8,7 @@
 }
 .event_span span:hover {
     cursor: pointer;
-    color: #0090f9;
+    color: #8BC34A;
 }
 
 .event_boxs {
@@ -60,5 +60,5 @@
 
 .event_title:hover {
     cursor: pointer;
-    color: #0090f9;
+    color: #8BC34A;
 }
