@@ -16,16 +16,16 @@ public class BoardFileVO {
 //    BOARD_FILE_SIZE VARCHAR2(1000),
 //    BOARD_ID NUMBER
 
-    private int boardFileId;
+    private Long boardFileId;
     private String boardFileName;
     private String boardFilePath;
     private String boardFileUuid;
     private char boardFileImageCheck;
     private String boardFileSize;
-    private int boardId;
+    private Long boardId;
 
     @Builder
-    public BoardFileVO(String boardFileName, String boardFilePath, String boardFileUuid, char boardFileImageCheck, String boardFileSize, int boardId) {
+    public BoardFileVO(String boardFileName, String boardFilePath, String boardFileUuid, char boardFileImageCheck, String boardFileSize, Long boardId) {
         this.boardFileName = boardFileName;
         this.boardFilePath = boardFilePath;
         this.boardFileUuid = boardFileUuid;
