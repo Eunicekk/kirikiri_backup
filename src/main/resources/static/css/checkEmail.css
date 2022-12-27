@@ -22,9 +22,6 @@
     text-align: center;
     margin: auto;
 }
-.checkimg{
-    margin-bottom: 20px;
-}
 .email-guid{
     height: 152px;
     width: 576px;
@@ -38,6 +35,9 @@
 }
 #email {
     color: #8BC34A;
+    font-weight: 900;
+    height: 36px;
+    font-size: 30px;
 }
 
 .notification{
