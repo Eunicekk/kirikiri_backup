@@ -66,6 +66,10 @@ button{
     background-color: #8BC34A;
     border-radius: 6px;
 }
+button>a{
+    text-decoration-line: none;
+    color: black;
+}
 button:hover{
     height: 38px;
     width: 192px;
