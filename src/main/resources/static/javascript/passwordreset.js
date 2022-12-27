@@ -3,25 +3,29 @@ window.onload=function(){
     let password2 = document.getElementById("password2");
     let password3 = document.getElementById("password3");
     let button_event= document.getElementById("button-event");
+    let passwordErrMsg = document.getElementById("warningPw");
+    let passwordErrMsg2 = document.getElementById("warningPw2");
+    //에러메세지
+
     // 비밀번호 최소 6자 이상 입력해주세요
     function over6Password() {
         var condi = /^(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
         var pwd = $("#resPass").val();
         if (false === condi.test(pwd)) {
-            alert('비밀번호는 6자 이상이어야 하며, 숫자/소문자를 포함해야 합니다.');
-            return false;
+            passwordErrMsg.style.display = "flex";
         } else {
-            console.log("이벤트");
-            return true;
-            }
+            passwordErrMsg.style.display = "none";
         }
     }
     // 비밀번호가 일치하지 않습니다
-function confirmPassword(){
-    if(password2 != password3) {
-        password3.setCustomValidity("비밀번호가 일치하지 않습니다.");
-    } else {
-        password3.setCustomValidity('');
+    function confirmPassword(){
+        if(password2.value != password3.value) {
+            button_event.addEventListener("click", ()=>{
+                passwordErrMsg2.style.display = "flex";
+            })
+        } else {
+            passwordErrMsg2.style.display = "none";
+            password3.onkeyup = confirmPassword;
+        }
     }
 }
-password3.onkeyup = confirmPassword;
