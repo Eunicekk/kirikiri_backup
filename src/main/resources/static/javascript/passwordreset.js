@@ -5,27 +5,29 @@ window.onload=function(){
     let button_event= document.getElementById("button-event");
     let passwordErrMsg = document.getElementById("warningPw");
     let passwordErrMsg2 = document.getElementById("warningPw2");
-    //에러메세지
-
     // 비밀번호 최소 6자 이상 입력해주세요
-    function over6Password() {
-        var condi = /^(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
-        var pwd = $("#resPass").val();
-        if (false === condi.test(pwd)) {
+    password2.addEventListener("keyup", ()=>{
+        if(password2.value.length < 6) {
             passwordErrMsg.style.display = "flex";
         } else {
             passwordErrMsg.style.display = "none";
         }
-    }
-    // 비밀번호가 일치하지 않습니다
-    function confirmPassword(){
+    })
+    //비밀번호는 영문과 숫자로 이뤄져야합니다
+    password2.addEventListener("keyup", ()=>{
+        const cond = /^(?=.*?[a-z])(?=.*?[0-9]).{6,}$/;
+        if(false===cond.test(password2.value)) {
+            passwordErrMsg.style.display = "flex";
+        } else {
+            passwordErrMsg.style.display = "none";
+        }
+    })
+    //비밀번호가 일치하지 않습니다
+    password3.addEventListener("keyup", ()=>{
         if(password2.value != password3.value) {
-            button_event.addEventListener("click", ()=>{
-                passwordErrMsg2.style.display = "flex";
-            })
+            passwordErrMsg2.style.display = "flex";
         } else {
             passwordErrMsg2.style.display = "none";
-            password3.onkeyup = confirmPassword;
         }
-    }
+    })
 }
