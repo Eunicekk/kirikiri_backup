@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OKKY - All That Developer</title>
+    <link rel="stylesheet" href="../static/css/findAccount.css">
+    <script type="text/javascript" src="../static/javascript/findAccount.js"></script>
+</head>
+<body>
+<container class="contain">
+    <p class="logo"><a href="../templates/community.html"><img src ="../static/img/Logo.png" alt="로고 이미지" width="140px" ></a></p>
+    <h2 class="main-title">계정찾기</h2>
+    <div class = "guide">회원 가입시 입력하신 이메일 주소를 입력하시면,
+        <br>해당 이메일로 아이디 및 비밀번호 변경 링크를 보내드립니다 .
+    </div>
+    <form id="email-form" action="" method="get" onsubmit="email_check()">
+        <div class="address-input">
+            <label for="input-checkbox" class="input-label">이메일 주소</label>
+            <div><input id="input-checkbox" type="email" placeholder="이메일을 입력해주세요" required></div>
+        </div>
+        <div id="not-email" >
+            <p>! 유효한 이메일 주소를 입력해주세요.</p>
+        </div>
+        <div class="cancel-button"><a href="../templates/login.html">취소</a></div>
+        <div id="find-address"><input type="submit" value="계정찾기"></div>
+    </form>
+    <div id="failed-search">
+        <div class="search-err">
+            <h3>! 계정찾기 실패</h3>
+            <p>해당 이메일 주소를 찾을 수 없습니다.</p>
+        </div>
+    </div>
+</container>
+</body>
+</html>

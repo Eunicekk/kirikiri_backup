@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+* {
+    font-family: Pretendard-Regular;
+}
+.containerbox{
+    height: 386px;
+    width: 1519.2px;
+    margin: 128px 0 0 0;
+    padding: 0 0 64px 0;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+.checkbox{
+    height: 322px;
+    width: 576px;
+    text-align: center;
+    margin: auto;
+}
+.email-guid{
+    height: 152px;
+    width: 576px;
+    display: block;
+}
+.email-guid>span{
+    height: 36px;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 36px;
+}
+#email {
+    color: #8BC34A;
+    font-weight: 900;
+    height: 36px;
+    font-size: 30px;
+}
+
+.notification{
+    height: 72px;
+    width: 576px;
+    background-color: #F9FAFB;
+    font-size: 14px;
+    color: #111827;
+    box-sizing: border-box;
+    border-radius: 7px;
+    margin-top: 34px;
+    margin-bottom: 25px;
+    display: inline-block;
+    vertical-align: center;
+}
+p{
+    line-height: 20px;
+}
+button{
+    height: 38px;
+    width: 192px;
+    border: 1px solid #FFFFFF;
+    padding: 8px 16px 8px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #8BC34A;
+    border-radius: 6px;
+}
+button>a{
+    text-decoration-line: none;
+    color: black;
+}
+button:hover{
+    height: 38px;
+    width: 192px;
+    border: 1px solid #FFFFFF;
+    padding: 8px 16px 8px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #689f38;
+    border-radius: 6px;
+}

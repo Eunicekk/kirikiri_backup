@@ -1,0 +1,435 @@
+/*전체*/
+body{
+    font-family: Pretendard, sans-serif;
+}
+#main {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    text-decoration: none;
+}
+#left-div {
+    width: 180px;
+}
+#center-div {
+    min-width: 0;
+    margin-left: 30px;
+}
+#right-div {
+    width: 180px;
+    margin-left: 30px;
+}
+
+/*공통*/
+.profile-picture {
+    width: 40px;
+    border-radius: 100%;
+}
+
+/*==================================================================================*/
+
+/*왼쪽*/
+#left-side-img {
+    width: 180px;
+    margin-bottom: 30px;
+}
+
+/*중앙*/
+.advertisement-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.advertisement {
+    border: 0px solid inherit;
+}
+/*카테고리*/
+#category {
+    position: relative;
+    margin-top: 50px;
+}
+.center-line {
+    width: 100%;
+    height: 0;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    position: absolute;
+    top: 10px;
+    z-index: 0;
+}
+#category-link {
+    margin-left: 20px;
+    position: relative;
+}
+#category-link > div {
+    width:140px;
+    background-color: #fff;
+    position: relative;
+    font-size: 12px;
+    padding: 5px 10px;
+    z-index: 10;
+}
+#category-link > div > a {
+    color: #8BC34A;
+}
+#category-link > div > a:nth-child(1) {
+    color: hsla(220, 9%, 46%, 0.7);
+}
+#category-link > div > a:hover {
+    color: #8BC34A;
+}
+.blue-font {
+    color: #8BC34A;
+}
+
+/*게시글 프로필 및 게시글 공유*/
+#post-first-line {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#post-info {
+    display: flex;
+    align-items: center;
+}
+
+#post-info-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+#post-info-text > a:hover {
+    color: #8BC34A;
+}
+#post-info-text p {
+    margin-top: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+#post-info-text svg {
+    width: 15px;
+}
+
+#share-scrap {
+    display: flex;
+}
+#share-scrap > a {
+    width: 45px;
+    padding: 10px;
+    color: hsla(220, 9%, 46%, 0.7);
+}
+#share-scrap > a:hover {
+    color: #8BC34A;
+}
+
+/*게시글 제목*/
+#post-title {
+    margin-top: 40px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/*게시글 내용*/
+#post-content {
+    margin-top: 40px;
+}
+#post-content > p {
+    margin: 10px 0;
+}
+
+/*태그, 좋아요*/
+#tag-like {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#post-tag > a {
+    background-color: hsla(220, 9%, 46%, 0.1);
+    border-radius: 20px;
+    margin: 0 7px;
+    padding: 5px 10px;
+    font-size: 13px;
+}
+#post-tag > a:hover {
+    color: #8BC34A;
+}
+#like-dislike {
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#like-dislike > button {
+    height: 100%;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+}
+#like-dislike > button:hover {
+    border: 1px solid hsla(220, 9%, 46%, 0.7);
+}
+#like-dislike > p {
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
+    line-height: 36px;
+    padding: 0 5px;
+    margin: 0;
+}
+#up-button {
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 0 5px 5px 0;
+}
+#up-button:hover {
+    color: #8BC34A;
+}
+#down-button {
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 5px 0 0 5px;
+}
+#down-button:hover {
+    color: #ff9933;
+}
+#like-dislike svg {
+    width: 15px;
+}
+#like-dislike  > p {
+    width: 50px;
+    text-align: center;
+}
+
+/*댓글추가*/
+#comment-area {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.7);
+}
+#add-comment-box {
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 10px;
+    margin-top: 40px;
+}
+#add-comment {
+    display: flex;
+    padding: 20px;
+}
+#add-comment-form {
+    width: 100%;
+    margin-left: 10px;
+}
+#write-comment-content {
+    width: 100%;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 10px;
+}
+
+#add-comment-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+#add-comment-button > button {
+    padding: 13px 30px;
+    color: #fff;
+    background-color: #8BC34A;
+    border: 0px solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#add-comment-button > button:hover {
+    background-color: #689F38;
+}
+
+/*답글 추가*/
+.add-comment {
+    display: flex;
+    padding: 20px;
+}
+.add-comment-form {
+    width: 100%;
+    margin-left: 10px;
+}
+
+.add-comment-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.add-comment-button > button {
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.submit-comment-reply {
+    margin-left: 15px;
+    padding: 10px 30px;
+    color: #fff;
+    background-color: #8BC34A;
+    border: 0px solid #fff;
+}
+.submit-comment-reply:hover {
+    background-color: #689F38;
+}
+.cancel-comment-reply {
+    padding: 10px 12px;
+    background-color: #fff;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+}
+.cancel-comment-reply:hover {
+    background-color: hsla(220, 9%, 46%, 0.1);
+}
+
+/*댓글 리스트*/
+#comment-list {
+    margin-top: 50px;
+}
+.comment {
+    border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
+    margin-bottom: 30px;
+}
+.comment-first-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comment-first-line > div {
+    display: flex;
+    align-items: center;
+}
+.comment-info-text {
+    margin-left: 10px;
+}
+.comment-nickname {
+    cursor: pointer;
+    color: #000;
+}
+.comment-nickname:hover {
+    color: #8BC34A;
+}
+.comment-info-text > span {
+    margin-top: 5px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+.comment-info-text svg {
+    width: 15px;
+}
+.like-dislike {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.like-dislike > button {
+    height: 100%;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+}
+.like-dislike > button:hover {
+    border: 1px solid hsla(220, 9%, 46%, 0.7);
+}
+.like-dislike > p {
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-bottom: 1px solid hsla(220, 9%, 46%, 0.3);
+    line-height: 28px;
+    margin: 0;
+}
+.up-button {
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 0 5px 5px 0;
+}
+.up-button:hover {
+    color: #8BC34A;
+}
+.down-button {
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 5px 0 0 5px;
+}
+.down-button:hover {
+    color: #ff9933;
+}
+.like-dislike svg {
+    width: 15px;
+}
+.like-dislike  > p {
+    width: 50px;
+    text-align: center;
+}
+.comment-content {
+    margin: 10px 0;
+    font-size: 12px;
+}
+.comment-reply-button {
+    display: flex;
+    margin-top: 10px;
+
+}
+.comment-reply-hidden {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border: 1px solid #fff;
+    color: #8BC34A;
+    cursor: pointer;
+}
+.comment-reply-hidden:hover {
+    color: #689F38;
+}
+.comment-reply-hidden svg {
+    width: 15px;
+    margin-right: 5px;
+}
+.comment-reply-add {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border: 1px solid #fff;
+    color: hsla(220, 9%, 46%, 0.7);
+    cursor: pointer;
+}
+.comment-reply-add:hover {
+    color: #8BC34A;
+}
+.comment-reply-area {
+    margin: 30px 0 30px 30px;
+    border-left: 2px solid hsla(220, 9%, 46%, 0.3);
+}
+.comment-reply-list {
+    display: block;
+}
+.comment-reply {
+    margin: 30px 0 30px 30px;
+}
+.comment-reply-write {
+    display: none;
+}
+.reply-check {
+    display: none;
+}
+
+/*오른쪽*/
+.right-side-advertisement {
+    width: 180px;
+    margin-bottom: 20px;
+}

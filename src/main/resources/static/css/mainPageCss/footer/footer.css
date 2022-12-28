@@ -1,0 +1,27 @@
+footer {
+    margin-top: 70px;
+    border-top: 1px solid #dadada;
+    padding: 28px 0;
+    display: flex;
+}
+
+footer > div {
+    max-width: 1280px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.footer_left {
+    width: 208px;
+    height: 126px;
+    margin: 0 16px;
+}
+.footer_center {
+    padding: 0 20px;
+    width: 100%-0px;
+    height: 126px;
+}
+.footer_right {
+    width: 178px;
+    height: 126px;
+}

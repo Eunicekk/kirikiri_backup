@@ -1,0 +1,153 @@
+body{
+    font-family: Pretendard, sans-serif;
+}
+#main {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+#left-div {
+    width: 180px;
+    flex-shrink: 0;
+}
+#center-div {
+    margin-left: 30px;
+    min-width: 0;
+    width: 850px;
+}
+#right-div {
+    width: 180px;
+    margin-left: 30px;
+    flex: none;
+}
+h2 {
+    color: rgb(107 114 128);
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/*새 글 작성*/
+#add-post-text > h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+#add-post-text > p {
+    margin-top: 20px;
+    color: rgb(107 114 128);
+    font-size: 13px;
+}
+#add-post-text > p > span {
+    font-weight: bold;
+}
+#add-post-form {
+    width: 100%;
+}
+#topic {
+    margin-top: 50px;
+    position: relative;
+}
+#topic-select {
+    width: 100%;
+    padding: 12px 5px;
+    color: rgb(107 114 128);
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 5px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+}
+#title {
+    margin-top: 30px;
+}
+#title > input {
+    width: 100%;
+    padding: 10px 5px;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#tag {
+    margin-top: 30px;
+
+}
+#tag > h2 > span {
+    color: #8BC34A;
+}
+#tag-box {
+    position: relative;
+}
+#tag-box > input {
+    width: 100%;
+    padding: 10px 5px;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+#tag-box > button > svg {
+    color: rgb(153, 153, 153);
+}
+#tag-box > button > svg:hover {
+    color: #8BC34A;
+}
+.arrow-button {
+    position: absolute;
+    right: 0px;
+    top: 8px;
+    border: 0px solid #fff;
+    border-left: 1px solid hsla(220, 9%, 46%, 0.3);
+    background-color: inherit;
+}
+#content {
+    margin-top: 30px;
+}
+
+
+.add-post-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.add-post-button > button {
+    margin-left: 10px;
+    padding: 10px 30px;
+
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#cancel-button {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+}
+#cancel-button:hover {
+    background-color: hsla(220, 9%, 46%, 0.1);
+}
+#register-button {
+    background-color: #8BC34A;
+    color: #fff;
+    border: 0px solid #fff;
+}
+#register-button:hover {
+    background-color: #689F38;
+}
+
+
+
+
+
+
+
+/*오른쪽 사이드*/
+.right-side-advertisement {
+    width: 180px;
+    margin-bottom: 20px;
+}

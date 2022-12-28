@@ -1,0 +1,85 @@
+header {
+    display: flex;
+    border-bottom: 1px solid #c5c5c5;
+}
+
+.header {
+    width: 1280px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 14px;
+    position: relative;
+}
+
+.header_left {
+    position: absolute;
+    left: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 639px;
+    height: 28px;
+}
+
+.header_left > img:hover {
+    cursor: pointer;
+}
+
+.header_left_menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 420px;
+    height: 28px;
+    font-size: 14px;
+}
+.header_left_menu > div > span:hover {
+    cursor: pointer;
+    color: #0090f9;
+}
+
+.header_right {
+    position: absolute;
+    right: 0px;
+    width: 523px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_right_search {
+    width: 303px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_right_login {
+    width: 180px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu_btn {
+    position: absolute;
+    right: -8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.menu_btn:hover {
+    background-color: #e7e7e9;
+    cursor: pointer;
+}
+
+.menu_btn img {
+    width: 18px;
+    height: 16px;
+}

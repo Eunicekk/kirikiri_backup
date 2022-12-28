@@ -1,0 +1,19 @@
+.footer_left span {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.icon {
+    margin-top: 16px;
+}
+.icon img {
+    width: 22px;
+    height: 22px;
+    margin-right: 22px;
+}
+
+.icon img:hover {
+    filter: invert(33%) sepia(82%) saturate(1690%) hue-rotate(184deg)
+        brightness(101%) contrast(101%);
+    cursor: pointer;
+}

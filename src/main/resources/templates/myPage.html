@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/myPage.css">
+    <script type="text/javascript" src="../static/javascript/myPage.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../static/javascript/mainPageJs/include-html.js"></script>
+    <title>myPage</title>
+</head>
+<body>
+<!--<header include-html="../../templates/mainPageHtml/header.html"></header>-->
+<div class="main">
+    <div class="main_top_margin">
+        <div class="main_without_margin">
+            <aside class="menu_bar">
+                <h2>내 계정</h2>
+                <div class="menu">
+                    <!--https://iconmonstr.com/ 사용 -->
+                    <ul>
+                        <!--<li id="link_1"><img src="../../img/account.svg"></img><span>회원 정보</span></li> -->
+                        <li id = "link_1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="text-gray-600 dark:text-gray-400 -ml-1 mr-3 h-6 w-6 shrink-0 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>회원정보</span>
+                        </li>
+                        <li id="link_5">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class=" text-gray-400 dark:text-gray-600 -ml-1 mr-3 h-6 w-6 shrink-0 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"></path>
+                            </svg>
+                            <span>계정</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <div class="content">
+                <!-- 계정관리 화면 -->
+                <div class="tabpage" id="tabpage_1">
+                    <form id="user_info" action="" name="user_info" method="post">
+                        <div class="info">
+                            <h2>회원정보</h2>
+                            <div class="info_word">
+                                <div class="essentialInfo">
+                                    <div class="name">
+                                        <label for="username" class="username">이름</label>
+                                        <div class="name_enter">
+                                            <input type="text" id="username" value="원래 아이디명">
+                                        </div>
+                                    </div>
+                                    <div class="empty-name"></div>
+                                    <div class="nickname">
+                                        <label for="userNickname" class="userNickname">닉네임</label>
+                                        <div class="nickname_enter">
+                                            <input type="text" id="userNickname" value="원래 닉네임">
+                                        </div>
+                                    </div>
+                                    <div class="empty-nickname"></div>
+                                    <div class="nationality">
+                                        <div class="usernationality">국적</div>
+                                        <div class="nationality_enter">
+                                            <select name="nation" id="usernationality">
+                                                <option value ="a">원래 국적</option>
+                                                <option value="china">중국</option>
+                                                <option value="vietnam">베트남</option>
+                                                <option value="thailand">태국</option>
+                                                <option value="us">미국</option>
+                                                <option value="uzbec">우즈베키스탄</option>
+                                                <option value="philp">필리핀</option>
+                                                <option value="japan">일본</option>
+                                                <option value="other">기타</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile">
+                                    <label for="picture">
+                                        <div class="change"><p>변경</p></div>
+                                    </label>
+                                    <input type="file" id="picture">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="optionalInfo">
+                            <div class="age">
+                                <label for="userage" class="userage">나이 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>비공개</span></label>
+                                <div class="age_enter">
+                                    <input type="text" id="userage" value="원래 나이">
+                                    <div class="btn">
+                                        <input type="checkbox" id="toggle-slide1" onclick="checkSlide1()">
+                                        <label for="toggle-slide1">
+                                            <span class="onf_btn"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="livingplace">
+                                <label for="userlivingplace" class="userlivingplace">거주 지역 &nbsp;&nbsp;<span>비공개</span></label>
+                                <p class="checkinfo">구 단위만 입력</p>
+                                <div class="livingplace_enter">
+                                    <input type="text" id="userlivingplace" value="원래 거주지">
+                                    <div class="btn">
+                                        <input type="checkbox" id="toggle-slide2" onclick="checkSlide2()">
+                                        <label for="toggle-slide2">
+                                            <span class="onf_btn"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="email-agree">
+                            <div class="email-agree2">
+                                <div class="agree">
+                                    <h2>이메일 수신동의</h2>
+                                    <p>kirikiri에서 주최하는 다양한 이벤트, 정보성 뉴스레터 및 광고 수신여부를 설정할 수 있습니다.</p>
+                                </div>
+                                <div class="marketing-agree">
+                                    <div>
+                                        <div class="marketing-info">
+                                            <p class="p-m1">뉴스레터 및 마케팅 메일 수신</p>
+                                            <p class="p-m2">유저가 만드는 다양한 컨텐츠를 뉴스레터로 받습니다.</p>
+                                        </div>
+                                        <div class="marketing-btn">
+                                            <input type="checkbox" id="toggle-slide3">
+                                            <label for="toggle-slide3">
+                                                <span class="onf_btn"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="submit-div">
+                                <button type="submit" form="user_info" id="infoSubmit">저장</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+                <div class="tabpage" id="tabpage_5">
+                    <div class ="emailCheck">
+                        <div class = "emailCheck_2">
+                            <h2>이메일 정보</h2>
+                            <form action="" id="emailInfo">
+                                <div id="emailDiv">
+                                    <div id="emailDivDiv">
+                                        <input type="text" id="email" name="email" value="원래 이메일 주소">
+                                    </div>
+                                    <button type="submit" id="emailSubmit" form="emailInfo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
+                                        </svg>
+                                        <span>이메일 인증</span>
+                                    </button>
+                                </div>
+                            </form>
+                            <div class = wrong-email></div>
+                            <p class = email-warning>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="inline-block h-4 w-4 shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
+                                </svg>
+                                <span>이메일 변경은 변경한 이메일로 인증 요청 메일이 발송되고 해당 이메일을 통해 인증을 정상적으로 완료한 후 최종적으로 반영됩니다</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class = "socialLoad">
+                        <div class="socialLoadInfo">
+                            <h2>소셜계정 연동</h2>
+                            <p>사용하시는 소셜 및 인증 제공자들과 계정을 연동하고 손쉽게 로그인하세요.</p>
+                        </div>
+                        <div class="connect">
+                            <ul>
+                                <li class="connectTo1">
+                                    <button type="button"  class="connectButton" id="git" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)" onclick="mouseClick(this)"> <!-- 경로 작성 -->
+                                        <svg class="h-5 w-5" aria-hidden="true" fill="black" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path></svg>
+                                        <span>깃허브 연결하기</span>
+                                    </button>
+
+                                </li>
+                                <li class="connectTo">
+                                    <button type="button"   class="connectButton" id="google" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+                                        <img src="../img/gogle_logo.png" alt="">
+                                        <span>구글 연결하기</span>
+                                    </button>
+                                </li>
+                                <li class="connectTo">
+                                  <button type="button" onclick= "location.href =''" class="connectButton" id="facebook" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 8C16 3.5816 12.4184 0 8 0C3.5816 0 0 3.5816 0 8C0 11.9928 2.9256 15.3024 6.7504 15.9024V10.3128H4.7184V8H6.7504V6.2376C6.7504 4.2328 7.944 3.1256 9.772 3.1256C10.6472 3.1256 11.5624 3.2816 11.5624 3.2816V5.2496H10.5544C9.56 5.2496 9.2504 5.8664 9.2504 6.4992V8H11.4688L11.1144 10.312H9.2504V15.9024C13.0744 15.3024 16 11.9928 16 8Z" fill="#3975EA"></path></svg>
+                                      <span>메타 연결하기</span>
+                                  </button>
+                                </li>
+                                <li class="connectTo">
+                                    <button type="button" onclick= "location.href =''" class="connectButton" id="naver" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+                                        <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.22454 0V6.0547L4.79292 0H0V12H4.77547V5.9453L9.20883 12H14V0H9.22454Z" fill="#5FC53A"></path></svg>
+                                        <span>네이버 연결하기</span>
+                                    </button></li>
+                                <li class="connectTo">
+                                    <button type="button" onclick= "location.href =''" class="connectButton" id="kakao" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+                                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_3_8)"><path d="M8 0C3.58162 0 0 2.88945 0 6.45389C0 8.77407 1.51769 10.8071 3.79506 11.9448C3.62762 12.5825 3.18914 14.2544 3.10128 14.6122C2.99311 15.0562 3.26084 15.0503 3.43615 14.9306C3.57375 14.8372 5.62856 13.4119 6.51505 12.7965C6.99622 12.8693 7.49231 12.9078 8 12.9078C12.4184 12.9078 16 10.0179 16 6.45389C16 2.88987 12.4184 0 8 0Z" fill="#321A1B"></path><path d="M4.77605 4.55362H2.43693C2.21686 4.55362 2.03906 4.73548 2.03906 4.95963C2.03906 5.18378 2.21727 5.36564 2.43693 5.36564H3.19743V8.22548C3.19743 8.32952 3.23888 8.43187 3.31182 8.50588C3.3831 8.57947 3.48298 8.62177 3.58535 8.62177H3.67031C3.77226 8.62177 3.87173 8.57947 3.94343 8.50588C4.01637 8.43187 4.05782 8.32995 4.05782 8.22548V5.36564H4.77605C4.99612 5.36564 5.17433 5.18378 5.17433 4.95963C5.17433 4.73548 4.99612 4.55362 4.77605 4.55362V4.55362Z" fill="#FDD835"></path><path d="M10.3961 7.85753H9.30818V4.93679C9.30818 4.69318 9.11505 4.49609 8.87675 4.49609C8.63844 4.49609 8.44531 4.69318 8.44531 4.93679V8.08506C8.44531 8.10959 8.44821 8.13243 8.45194 8.15569C8.4478 8.17853 8.44531 8.20222 8.44531 8.2259C8.44531 8.42975 8.60653 8.59469 8.80629 8.59469H10.3961C10.5963 8.59469 10.7571 8.42975 10.7571 8.2259C10.7571 8.02205 10.5959 7.85753 10.3961 7.85753V7.85753Z" fill="#FDD835"></path><path d="M13.8738 7.9916L12.6615 6.36671L13.7569 5.24848C13.9052 5.0975 13.9052 4.85178 13.7569 4.70037C13.6085 4.54896 13.3681 4.54896 13.2193 4.70037L11.8633 6.08419V4.93679C11.8633 4.69318 11.6702 4.49609 11.4319 4.49609C11.1935 4.49609 11 4.69318 11 4.93679V8.18191C11 8.42552 11.1931 8.62261 11.4319 8.62261C11.6706 8.62261 11.8633 8.42594 11.8633 8.18191V7.18084L12.1099 6.92962L13.2566 8.46528C13.3843 8.6391 13.6267 8.67505 13.7971 8.54352C13.9674 8.41283 14.0018 8.16584 13.8738 7.9916V7.9916Z" fill="#FDD835"></path><path d="M8.12192 8.09733L6.95609 4.84247C6.95609 4.84247 6.95319 4.83993 6.95236 4.83867C6.87776 4.64031 6.66266 4.49609 6.40612 4.49609C6.1214 4.49609 5.88599 4.67372 5.83916 4.90591C5.83129 4.92325 5.82341 4.94059 5.81678 4.9592L4.67043 8.09733C4.59956 8.30329 4.70566 8.52829 4.90667 8.60061C5.10808 8.67293 5.32898 8.56466 5.39985 8.35912L5.59837 7.7814H7.19398L7.39208 8.35912C7.46295 8.56466 7.68385 8.67293 7.88527 8.60061C8.08669 8.52829 8.19279 8.30329 8.12192 8.09733ZM5.8516 7.04339L6.38789 5.48194C6.3941 5.48194 6.39908 5.48363 6.40529 5.48363L6.94117 7.04339H5.85201H5.8516Z" fill="#FDD835"></path></g><defs><clipPath id="clip0_3_8"><rect width="16" height="15" fill="white"></rect></clipPath></defs></svg>
+                                        <span>카카오 연결하기</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="delete">
+                        <div class="notice">
+                            <h2>계정 삭제</h2>
+                            <div>
+                                <p class="p1">회원 탈퇴일로부터 계정과 닉네임을 포함한 계정 정보(아이디/이메일/닉네임)은
+                                    <br>개인정보 보호방침에 따라 60일간 보관(잠김)되며, 60일이 경과된 후에는 모든 개인 정보는 완전히 삭제되며 더 이상 복구할 수 없게 됩니다.
+                                </p>
+                                <p class="p2">작성된 게시물은 삭제되지 않으며, 익명처리 후 kirikiri로 소유권이 귀속됩니다</p>
+                            </div>
+                        </div>
+                        <div class="checknotice_div">
+                            <form action="" method="post" id="delete_form">
+                                <p>
+                                    <input type="checkbox" name="checknotice" id="checknotice" style="border-style: none">
+                                    <label for="checknotice">계정 삭제에 관한 정책을 읽고 이에 동의합니다.</label>
+                                </p>
+                                <button type="submit" id="delete" disabled form="delete_form">회원 탈퇴</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--<footer include-html="../../templates/mainPageHtml/footer.html"></footer>-->
+</body>
+<script>
+    includeHTML();
+</script>
+</html>
+

@@ -1,0 +1,286 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Pretendard;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.main{
+    width: 1280px;
+    margin: 18px auto 0px auto;
+    display: flex;
+    justify-content: center;
+}
+.main_without_m{
+    width: 1280px;
+}
+.main_without_m>div{
+    float: left;
+}
+
+.left{
+    width: 180px;
+}
+.middle{
+    margin-left: 40px;
+    width: 840px;
+
+}
+.right{
+    margin-left: 40px;
+    width: 180px;
+}
+.ad1, .ad1>a, .ad1 img{
+    width: 180px;
+    height: 180px;
+}
+.ad2, .ad2>a, .ad2 img{
+    width:180px;
+}
+.info{
+    border: 1px solid #e5e7eb;
+    height: 181px;
+    border-radius: 0.375rem;
+}
+.info_m{
+    margin: 32px 24px;
+    height: 64px;
+}
+
+.photo_div{
+    width: 64px;
+    height: 64px;
+    float: left;
+}
+.username{
+    height: 64px;
+}
+.photo{
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+}
+.name{
+    margin-left: 20px;
+    float: left;
+    height: 64px;
+}
+name>h2{
+    font-size: 24px;
+    font-weight: 700;
+}
+.act_score{
+    height: 24px;
+}
+.username{
+    height: 40px;
+}
+.thunder{
+    width: 16px;
+    height: 16px;
+    transform: translate(0px, 4px);
+}
+.act_score>span{
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(107, 114, 128);
+}
+.link{
+    float: right;
+    padding: 8px 16px;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    height: 20px;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color : black;
+}
+.link>span{
+    line-height: 20px;
+}
+.link:hover{
+    border: 1px solid rgba(107, 114, 128, 1);
+}
+.menu{
+    border-top: solid 1px #e5e7eb;
+    background-color: rgb(243, 244, 246);
+    height: 52px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+#link_1{
+    position: relative;
+    float: left;
+    list-style: none;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 0px;
+    padding-left: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    height: 53px;
+    justify-content: center;
+    margin-right: 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#link_2, #link_3{
+    position: relative;
+    float: left;
+    list-style: none;
+    padding: 16px 4px;
+    font-size: 14px;
+    font-weight: 500;
+    height: 53px;
+    justify-content: center;
+    margin-left: 24px;
+    margin-right: 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.menu span{
+    line-height: 21px;
+}
+
+.borderBottom{
+    margin-top: 60px;
+    height: 1px;
+    background: #e5e7eb;
+}
+.bottomMargin{
+    padding-bottom: 64px;
+}
+.content, .commentContent, .likeContent{
+    height: 62px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.whereAndTime, .commentWhereAndTime, .likeWhere{
+    height: 30px;
+}
+.title, .commentTitle, .likeTitle{
+    height: 24px;
+    margin-top: 8px;
+
+}
+.aTitle, .commentATitle, .likeATitle{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: rgb(17, 24, 39);
+}
+.aTitle:hover, .commentATitle:hover, .likeATitle:hover{
+    color : rgb(139, 195, 74);
+}
+.where, .commentWhere{
+    width: 600px;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    font-size: 14px;
+    color: gray;
+}
+.likeAWhere{
+    width: 600px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: gray;
+}
+
+.time, .commentTime{
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: rgb(107 114 128);
+}
+.write, .comment, .like{
+    height: auto;
+}
+.where-link, .comment-where-link, .like-where-link{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: rgb(139, 195, 74);
+    padding: 6px 12px;
+    box-sizing: border-box;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    border-radius: 30px;
+}
+.where-link:hover, .comment-where-link:hover, .like-where-link:hover{
+    cursor: pointer;
+    border-color: rgba(107, 114, 128, 1);
+}
+.where-word, .comment-where-word, .like-where-word{
+    display: inline;
+    color: rgb(107 114 128);
+    font-size: 14px;
+    line-height: 20px;
+}
+
+<!-- -->
+#page-move-bottom1, #page-move-bottom2, #page-move-bottom3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.3);
+    position: relative;
+    margin-bottom: 64px;
+}
+#page-move-bottom1 > button, #page-move-bottom2 > button, #page-move-bottom3 > button {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 0 solid #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+#page-move-bottom1 > button:hover, #page-move-bottom2 > button:hover, #page-move-bottom3 > button:hover {
+    color: rgb(0 144 249);
+}
+#page-move-bottom1 > button:nth-child(1), #page-move-bottom2 > button:nth-child(1), #page-move-bottom3 > button:nth-child(1) {
+    color: hsla(220, 9%, 46%, 0.3);
+}
+#page-move-bottom1 > button > svg,
+#page-move-bottom2 > button > svg,
+#page-move-bottom3 > button > svg
+{
+    width: 20px;
+    margin: 0 10px;
+}
+#page1 > a, #page2 > a, #page3 > a {
+    position: relative;
+    padding: 20px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#page1 > a:hover, #page2 > a:hover, #page3 > a:hover {
+    color: rgb(139, 195, 74);
+}
+#page1 > a:nth-child(1),
+#page2 > a:nth-child(1),
+#page3 > a:nth-child(1)
+{
+    color: rgb(139, 195, 74);
+    border-top: rgb(139, 195, 74);
+    line-height: 61px;
+}
+#page1 svg,
+#page2 svg,
+#page3 svg
+{
+    width: 20px;
+}

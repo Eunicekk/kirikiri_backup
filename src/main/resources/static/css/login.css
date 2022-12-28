@@ -1,0 +1,194 @@
+body{
+  font-family: Pretendard, sans-serif;
+}
+#login-page {
+  width: 450px;
+  margin: 150px auto;
+}
+
+.main-logo {
+  width: 120px;
+  display: flex;
+  margin: 0 auto 30px;
+}
+#kirikiri-welcome {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+.explan-site {
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: center;
+  color: rgb(75 85 99);
+}
+
+/*SNS로 로그인*/
+#SNS-login {
+  margin-top: 40px;
+}
+#SNS-login > span {
+  font-weight: bold;
+
+}
+#SNS-login > div {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  margin-top: 10px;
+}
+#SNS-login > div > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid hsla(220,9%,46%,.3);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+#SNS-login > div > a:hover {
+  border-color: #000;
+}
+#SNS-login svg {
+  width: 20px;
+}
+
+/*kirikiri로 로그인*/
+#kirikiri-login-msg {
+  margin-top: 30px;
+  position: relative;
+}
+#center-line {
+  position: relative;
+}
+#center-line {
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  height: 0;
+  border-top: 1px solid hsla(220,9%,46%,.3);
+  z-index: 0;
+}
+#kirikiri-login-text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+#kirikiri-login-text > span {
+  position: relative;
+  background-color: #fff;
+  padding: 0 10px;
+  z-index: 10;
+  font-size: 13px;
+  color: hsla(220,9%,46%,.7);
+}
+
+/*로그인폼*/
+#login-form {
+  margin: 40px 0;
+}
+.mt-1 {
+  margin-top: 8px;
+}
+.mt-2 {
+  margin-top: 25px;
+}
+.login-label {
+  font-size: 12px;
+  font-weight: bold;
+}
+.login-input {
+  width: 100%;
+  border: 1px solid hsla(220,9%,46%,.3);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+/*계정 찾기*/
+#find-account {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+#find-account > a {
+  color: #8BC34A;
+}
+#find-account > a:hover {
+  color: #689F38;
+}
+
+/*로그인 버튼*/
+#login-button {
+  margin-top: 20px;
+}
+#login-button > button {
+  width: 100%;
+  padding: 8px 0;
+  color: #fff;
+  font-weight: bold;
+  background-color: #8BC34A;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#login-button > button:hover {
+  background-color: #689F38;
+}
+
+/*회원가입 이동*/
+#go-signup {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 13px ;
+}
+#go-signup > a {
+  color: #8BC34A;
+  text-decoration: underline;
+}
+#go-signup > a:hover {
+  color: #689F38;
+}
+
+/*경고 메세지*/
+#warning-msg {
+  margin-top: 20px;
+  color: rgb(239 68 68);
+  font-size: 12px;
+  font-weight: bold;
+}
+#warning-msg svg {
+  width: 15px;
+  margin-right: 5px;
+}
+#warning-msg-id {
+  display: none;
+  align-items: center;
+}
+#warning-msg-pw {
+  display: none;
+  align-items: center;
+}
+
+/*로그인 실패*/
+#login-fail {
+  margin-top: 30px;
+  background-color: #F1F8E9;
+  border: 1px solid rgb(254 226 226);
+  border-radius: 10px;
+  color: rgb(153 27 27);
+  padding: 15px;
+  display: none;
+  font-size: 12px;
+}
+#login-fail > div {
+  margin-right: 10px;
+}
+#login-fail svg {
+  width: 20px;
+}
+#login-fail h3 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}

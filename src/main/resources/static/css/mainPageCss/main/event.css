@@ -1,0 +1,64 @@
+.event > div {
+    margin: 8px;
+}
+
+.event_span {
+    font-size: 20px;
+    font-weight: 400;
+}
+.event_span span:hover {
+    cursor: pointer;
+    color: #8BC34A;
+}
+
+.event_boxs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event_box {
+    width: 256px;
+    height: 218px;
+    margin-right: 24px;
+}
+
+.event_img {
+    display: flex;
+    justify-content: center;
+    background-color: #f9fafb;
+    border: 1px solid #dadada;
+    border-radius: 8px;
+}
+
+.event_img img {
+    height: 160px;
+}
+
+.event_info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 100;
+    margin-top: 9px;
+}
+
+.event_info span {
+    font-weight: 300;
+    clear: #374151;
+}
+
+.event_info div span:first-child:hover {
+    cursor: pointer;
+    color: #0090f9;
+}
+
+.event_title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 9px;
+}
+
+.event_title:hover {
+    cursor: pointer;
+    color: #8BC34A;
+}
