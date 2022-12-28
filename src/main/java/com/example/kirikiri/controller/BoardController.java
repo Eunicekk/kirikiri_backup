@@ -17,7 +17,7 @@ public class BoardController {
 //    작성한 게시글 조회
     @GetMapping("/activity")
     public void getWrittenBoard(String userId, Integer page, Model model){
-        model.addAttribute("pagination", new PageBoardDTO().createPageDTO(page, 167));
-        model.addAttribute("boards", boardService.getWrittenBoard("kevs",page));
+        model.addAttribute("pagination", new PageBoardDTO().createPageBoardDTO(1, 167));
+        model.addAttribute("boards", boardService.getWrittenBoard("kevs",1));
     }
 }

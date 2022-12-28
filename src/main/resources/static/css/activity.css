@@ -240,7 +240,7 @@ name>h2{
     position: relative;
     margin-bottom: 64px;
 }
-#page-move-bottom1 > button, #page-move-bottom2 > button, #page-move-bottom3 > button {
+#page-move-bottom1 > a, #page-move-bottom2 > a, #page-move-bottom3 > a {
     padding: 20px;
     display: flex;
     align-items: center;
@@ -248,16 +248,17 @@ name>h2{
     border: 0 solid #fff;
     cursor: pointer;
     font-weight: bold;
+    text-decoration: none;
 }
-#page-move-bottom1 > button:hover, #page-move-bottom2 > button:hover, #page-move-bottom3 > button:hover {
+#page-move-bottom1 > a:hover, #page-move-bottom2 > a:hover, #page-move-bottom3 > a:hover {
     color: rgb(0 144 249);
 }
-#page-move-bottom1 > button:nth-child(1), #page-move-bottom2 > button:nth-child(1), #page-move-bottom3 > button:nth-child(1) {
+#page-move-bottom1 > a:nth-child(1), #page-move-bottom2 > a:nth-child(1), #page-move-bottom3 > a:nth-child(1) {
     color: hsla(220, 9%, 46%, 0.3);
 }
-#page-move-bottom1 > button > svg,
-#page-move-bottom2 > button > svg,
-#page-move-bottom3 > button > svg
+#page-move-bottom1 > a > svg,
+#page-move-bottom2 > a > svg,
+#page-move-bottom3 > a > svg
 {
     width: 20px;
     margin: 0 10px;

@@ -19,7 +19,7 @@ public class PageBoardDTO {
     private int page;
 
 
-    public PageBoardDTO createPageDTO(int page, int total){
+    public PageBoardDTO createPageBoardDTO(int page, int total){
         this.page = page;
         this.total = total;
 //        현재 페이지를 기준으로 페이지 단위에 맞춰서 마지막 페이지 계산
