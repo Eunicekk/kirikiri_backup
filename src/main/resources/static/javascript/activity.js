@@ -35,19 +35,6 @@ window.onload=function () {
         menu[j].onclick = click;
     }
 
-    /* for(let k=0; k<menu.length; k++){
-         menu[k].onmouseover=function(){
-             menu[k].style.borderBottom = "2px solid blue";
-             menu[k].style.color = "blue";
-         };
-     }
-
-     for(let i=0; i<menu.length; i++) {
-         menu[i].onmouseout = function () {
-             menu[i].style.borderBottom = "none";
-             menu[i].style.color = "black";
-         };
-     }*/
 
 
     function click(){
@@ -69,7 +56,7 @@ window.onload=function () {
 
     // 데이터 개수에 따라 게시물 수 구현
 
-    class content{
+    /*class content{
         constructor(boardType, time, title){
             this.boardType = boardType;
             this.time = time;
@@ -168,7 +155,7 @@ window.onload=function () {
         }
     }
 
-    makeWhereInside();
+    makeWhereInside();*/
 
     //---------------------------------------------------------------------------------
 

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/activity.css">
-    <script type="text/javascript" src="../static/javascript/activity.js"></script>
+<!--    <link rel="stylesheet" href="../static/css/activity.css">-->
+    <link rel="stylesheet" href="/css/activity.css">
+    <script type="text/javascript" src="/javascript/activity.js"></script>
     <script type="text/javascript" src="../static/javascript/mainPageJs/include-html.js"></script>
     <title>activity</title>
 </head>
@@ -15,7 +16,7 @@
     <div class="main_without_m">
         <div class="left">
             <div class="ad1">
-                <a href="https://okky.kr/articles/1355338" target="_blank"><img src="../img/ad1.png"></a>
+                <a href="https://okky.kr/articles/1355338" target="_blank"><img src="/img/ad1.png"></a>
             </div>
         </div>
         <div class="middle">
@@ -45,20 +46,53 @@
                 <div class="tabPages">
                     <div class="tabPage" id="tabPage_1">
                         <div class="borderBottom"></div>
-                        <div class="write"><!-- 받은 데이터 값에 따라 div 생성 --></div>
+                        <div class="write">
+                            <!-- 받은 데이터 값에 따라 div 생성 -->
+                            <th:block th:each="board:${boards}">
+                                <div class="content">
+                                    <div class="whereAndTime">
+                                        <div class="where">
+                                            <a  class="where-link" href="" th:text="${board.categoryName}"></a>
+                                            <div class="where-word"> 에 게시물을 작성하였습니다</div>
+                                        </div>
+                                        <div class="time" th:text="*{board.boardRegisterDate}"></div>
+                                    </div>
+                                    <div class="Title">
+                                        <a class="aTitle" href="" th:text="*{board.boardTitle}"></a>
+                                    </div>
+                                </div>
+                            </th:block>
+                        </div>
                         <div class="bottomMargin"></div>
-                        <div id="page-move-bottom1">
-                            <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg> Previous</button>
+                        <div id="page-move-bottom1" th:object="${pagination}">
+                            <a class="changePage" th:href="*{startPage - 1}" th:if="*{prev}">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path>
+                                </svg>
+                                Previous
+                            </a>
                             <div id="page1">
-                                <a href="">1</a>
-                                <a href="">2</a>
-                                <a href="">3</a>
-                                <a href="">4</a>
-                                <a href="">5</a>
-                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
-                                <a href="">6364</a>
+                                <th:block th:each="page:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+                                    <a class="changePage" th:href="${page}" th:if="${pagination.page != page}"><code th:text="${page}"></code></a>
+                                    <code th:unless="${pagination.page != page}" th:text="${page}"></code>
+                                </th:block>
+
                             </div>
-                            <button>Next <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path></svg></button>
+                            <a class="changePage" th:href="*{endPage + 1}" th:if="*{next}">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                                </svg>
+                            </a>
+                            <p href="" th:unless="*{next}">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                                </svg>
+                            </p>
+                            <form th:action="@{/activity}" name="page-form">
+                                <input type="hidden" th:field="*{page}">
+                            </form>
                         </div>
                     </div>
                     <div class="tabPage" id="tabPage_2">
@@ -101,7 +135,7 @@
         </div>
         <div class="right">
             <div class="ad2">
-                <a href="https://www.itwillbs.co.kr/" target="_blank"><img src="../img/ad2.jpg"></a>
+                <a href="https://www.itwillbs.co.kr/" target="_blank"><img src="/img/ad2.jpg"></a>
             </div>
             <div class="ad3">
                 <a href="https://www.koybeauty.kr/goods/goods_view.php?goodsNo=1000000082&utm_source=criteo&utm_medium=consideration&utm_campaign=DA"></a>
@@ -113,5 +147,13 @@
 </body>
 <script>
     includeHTML();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script th:inline="javascript">
+    $("a.changePage").on("click",function(e){
+        e.preventDefault();
+        $("input#page").val($(this).attr("href"));
+        $("form[name='page-form']").submit();
+    });
 </script>
 </html>

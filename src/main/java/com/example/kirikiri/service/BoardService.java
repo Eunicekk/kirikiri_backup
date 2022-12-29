@@ -1,7 +1,9 @@
 package com.example.kirikiri.service;
 
 import com.example.kirikiri.domain.BoardVO;
+
 import com.example.kirikiri.repository.BoardDAO;
+
 
 import java.util.List;
 
@@ -26,4 +28,7 @@ public interface BoardService {
 
     //게시물 조회
     public BoardVO getBoard(Long boardId);
+
+    // 작성한 게시글 조회
+    public List<BoardVO> getWrittenBoard(String userId, Integer page);
 }
