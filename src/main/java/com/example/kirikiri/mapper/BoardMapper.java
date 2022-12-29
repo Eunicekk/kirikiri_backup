@@ -3,6 +3,7 @@ package com.example.kirikiri.mapper;
 import com.example.kirikiri.domain.BoardVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
