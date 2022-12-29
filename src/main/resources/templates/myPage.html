@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/myPage.css">
-    <script type="text/javascript" src="../static/javascript/myPage.js"></script>
+    <link rel="stylesheet" href="/css/myPage.css">
+    <script type="text/javascript" src="/javascript/myPage.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src="../static/javascript/mainPageJs/include-html.js"></script>
+    <script type="text/javascript" src="/javascript/mainPageJs/include-html.js"></script>
     <title>myPage</title>
 </head>
 <body>
@@ -39,7 +39,7 @@
             <div class="content">
                 <!-- 계정관리 화면 -->
                 <div class="tabpage" id="tabpage_1">
-                    <form id="user_info" action="" name="user_info" method="post">
+                    <form id="user_info" th:action="@{/myPage}" th:object="${user}" method="post">
                         <div class="info">
                             <h2>회원정보</h2>
                             <div class="info_word">
@@ -47,22 +47,22 @@
                                     <div class="name">
                                         <label for="username" class="username">이름</label>
                                         <div class="name_enter">
-                                            <input type="text" id="username" value="원래 아이디명">
+                                            <input type="text" id="username" th:field="*{userName}">
                                         </div>
                                     </div>
                                     <div class="empty-name"></div>
                                     <div class="nickname">
                                         <label for="userNickname" class="userNickname">닉네임</label>
                                         <div class="nickname_enter">
-                                            <input type="text" id="userNickname" value="원래 닉네임">
+                                            <input type="text" id="userNickname" th:field="*{userNickname}">
                                         </div>
                                     </div>
                                     <div class="empty-nickname"></div>
                                     <div class="nationality">
                                         <div class="usernationality">국적</div>
                                         <div class="nationality_enter">
-                                            <select name="nation" id="usernationality">
-                                                <option value ="a">원래 국적</option>
+                                            <select id="usernationality" th:field="*{userNation}">
+                                                <option value ="a" th:value="*{userNation}" selected></option>
                                                 <option value="china">중국</option>
                                                 <option value="vietnam">베트남</option>
                                                 <option value="thailand">태국</option>

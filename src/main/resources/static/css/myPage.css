@@ -206,7 +206,7 @@ ul, li{
 label[for="picture"] div{
     width: 160px;
     height: 160px;
-    background-image: url(../../img/account.png);
+    background-image: url(../img/account.png);
     background-size: 100% 100%;
     cursor: pointer;
     border-radius: 100%;

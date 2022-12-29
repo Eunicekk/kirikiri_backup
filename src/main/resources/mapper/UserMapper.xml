@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.kirikiri.mapper.UserMapper">
+    <select id="selectUser" resultType="com.example.kirikiri.domain.UserVO">
+        SELECT USER_NAME, USER_NICKNAME, USER_NATION, USER_AGE, USER_AGE_CHECK, USER_RESIDENCE, USER_RESIDENCE_CHECK, USER_EMAIL_RECEIVE_CHECK, USER_PROFILE
+        FROM TBL_USER
+        WHERE USER_ID = #{userId}
+    </select>
 </mapper>

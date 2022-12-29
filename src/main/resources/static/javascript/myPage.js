@@ -45,7 +45,7 @@ window.onload=function() {
             if (url.includes("image")) {
                 thumbnail.style.backgroundImage = "url('" + url + "')";
             } else {
-                thumbnail.style.backgroundImage = "url('../../img/account.png')";
+                thumbnail.style.backgroundImage = "url('/img/account.png')";
                 // ../images/account.png 대신 backend에 저장된 이미지 파일
             }
         }

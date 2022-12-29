@@ -27,9 +27,13 @@ public class UserVO {
     private char userEmailReceiveCheck;
     private String userRegisterDate;
     private String userProfile;
+    private Integer userAge;
+    private String userResidence;
+    private char userAgeCheck;
+    private char userResidenceCheck;
 
     @Builder
-    public UserVO(String userId, String userPassword, String userNickname, String userEmail, String userName, String userNation, char userEmailReceiveCheck, String userProfile) {
+    public UserVO(String userId, String userPassword, String userNickname, String userEmail, String userName, String userNation, char userEmailReceiveCheck, String userProfile, Integer userAge, String userResidence, char userAgeCheck, char userResidenceCheck) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.userNickname = userNickname;
@@ -38,5 +42,9 @@ public class UserVO {
         this.userNation = userNation;
         this.userEmailReceiveCheck = userEmailReceiveCheck;
         this.userProfile = userProfile;
+        this.userAge = userAge;
+        this.userResidence = userResidence;
+        this.userAgeCheck = userAgeCheck;
+        this.userResidenceCheck = userResidenceCheck;
     }
 }

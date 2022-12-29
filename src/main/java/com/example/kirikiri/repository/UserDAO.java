@@ -1,5 +1,6 @@
 package com.example.kirikiri.repository;
 
+import com.example.kirikiri.domain.UserVO;
 import com.example.kirikiri.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -8,4 +9,8 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class UserDAO {
     private final UserMapper userMapper;
+
+    public UserVO userInfoById(String userId){
+        return userMapper.selectUser(userId);
+    }
 }
