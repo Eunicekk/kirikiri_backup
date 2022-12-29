@@ -8,7 +8,7 @@
 
 .banner_s {
     display: none;
-    width: 640px;
+    width: 100%;
 }
 
 .banner_s:hover {
@@ -40,7 +40,7 @@
 
 .tag_title:hover {
     cursor: pointer;
-    color: #8BC34A;
+    color: #8bc34a;
 }
 
 .tag_title img {
@@ -86,7 +86,7 @@
 }
 .post_title span:hover {
     cursor: pointer;
-    color: #8BC34A;
+    color: #8bc34a;
 }
 
 .icon-user {
