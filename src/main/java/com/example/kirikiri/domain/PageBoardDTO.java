@@ -26,7 +26,7 @@ public class PageBoardDTO {
         this.endPage = (int)(Math.ceil(page / (double)10)) * 10;
         this.startPage = endPage - 10 + 1;
 //        게시글 전체 개수를 통해 가장 마지막 페이지 계산
-        this.realEnd = (int)(Math.ceil((double)total / page));
+        this.realEnd = (int)(Math.ceil((double)total / 10));
 //        만약 가장 마지막 페이지보다 마지막 페이지가 더 클 경우(endPage는 배수로 증가하기 떄문)
         if(realEnd < endPage){
 //            게시글이 한 개도 없다면, realEnd는 0이 되고, endPage도 0이 된다.
