@@ -10,8 +10,11 @@ public interface BoardMapper {
     //게시글 목록
     public List<BoardVO> selectAll();
 
-    //게시글 목록
-    public List<BoardVO> selectCategory(BoardVO boardVO);
+    //카테고리 목록
+    public List<BoardVO> selectCategory(String categoryName);
+    
+    //세부 카테고리 목록
+    public List<BoardVO> selectDetailCategory(String detailCategoryName);
 
     //게시글 추가
     public void insert(BoardVO boardVO);

@@ -9,7 +9,13 @@
     <select id="selectCategory" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
         FROM TBL_BOARD
-        WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
+        WHERE CATEGORY_NAME = #{categoryName}
+        ORDER BY BOARD_ID DESC
+    </select>
+    <select id="selectDetailCategory" resultType="boardVO">
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM TBL_BOARD
+        WHERE DETAIL_CATEGORY_NAME = #{detailCategoryName}
         ORDER BY BOARD_ID DESC
     </select>
     <insert id="insert">

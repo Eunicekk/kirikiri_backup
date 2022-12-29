@@ -20,8 +20,13 @@ public class BoardServiceImpl implements BoardService {
         return boardDAO.getListAll();
     }
     @Override
-    public List<BoardVO> getListByCategory(BoardVO boardVO) {
-        return boardDAO.getListByCategory(boardVO);
+    public List<BoardVO> getListByCategory(String categoryName) {
+        return boardDAO.getListByCategory(categoryName);
+    }
+
+    @Override
+    public List<BoardVO> getListByDetailCategory(String detailCategoryName) {
+        return boardDAO.getListByDetailCategory(detailCategoryName);
     }
 
     @Override

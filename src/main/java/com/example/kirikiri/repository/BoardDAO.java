@@ -16,8 +16,12 @@ public class BoardDAO {
         return boardMapper.selectAll();
     }
 
-    public List<BoardVO> getListByCategory(BoardVO boardVO){
-        return boardMapper.selectCategory(boardVO);
+    public List<BoardVO> getListByCategory(String categoryName){
+        return boardMapper.selectCategory(categoryName);
+    }
+
+    public List<BoardVO> getListByDetailCategory(String detailCategoryName){
+        return boardMapper.selectDetailCategory(detailCategoryName);
     }
 
     public void add(BoardVO boardVO){

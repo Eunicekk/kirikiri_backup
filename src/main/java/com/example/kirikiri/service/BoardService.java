@@ -10,7 +10,10 @@ public interface BoardService {
     public List<BoardVO> getListAll();
 
     //특정 게시판 조회
-    public List<BoardVO> getListByCategory(BoardVO boardVO);
+    public List<BoardVO> getListByCategory(String categoryName);
+
+    //특정 게시판 조회
+    public List<BoardVO> getListByDetailCategory(String detailCategoryName);
 
     //게시물 추가
     public void add(BoardVO boardVO);
