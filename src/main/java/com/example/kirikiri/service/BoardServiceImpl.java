@@ -48,4 +48,8 @@ public class BoardServiceImpl implements BoardService {
     public BoardVO getBoard(Long boardId) {
         return boardDAO.findById(boardId);
     }
+    @Override
+    public List<BoardVO> getWrittenBoard(String userId, Integer page) {
+        return boardDAO.WrittenBoard(userId, page);
+    }
 }

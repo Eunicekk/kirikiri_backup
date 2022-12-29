@@ -1,6 +1,7 @@
 package com.example.kirikiri.controller;
 
 import com.example.kirikiri.domain.BoardVO;
+import com.example.kirikiri.domain.PageBoardDTO;
 import com.example.kirikiri.domain.UserVO;
 import com.example.kirikiri.mapper.BoardMapper;
 import com.example.kirikiri.service.BoardService;
@@ -73,5 +74,13 @@ public class BoardController {
         model.addAttribute("boardVO", boardVO);
         model.addAttribute("userCheck", userCheck);
         return "/post";
+    }
+
+    //    작성한 게시글 조회
+    @GetMapping("/activity")
+    public void getWrittenBoard(String userId, Integer page, Model model){
+        PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
+        model.addAttribute("pagination", pbt);
+        model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
     }
 }
