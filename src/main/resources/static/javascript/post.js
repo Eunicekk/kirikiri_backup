@@ -1,4 +1,19 @@
 window.onload = ()=>{
+
+    //자신의 글일 경우 수정, 삭제 항목 보이기
+    let myMenu = document.getElementById("user-menu");
+    let myMenuBtn = document.getElementById("update-delete-btn");
+    let menuCheck = document.getElementById("menu-check");
+    myMenu.addEventListener("click", ()=>{
+        if(menuCheck.checked == false) {
+            myMenuBtn.style.display = "flex";
+            menuCheck.checked = true;
+        } else {
+            myMenuBtn.style.display = "none";
+            menuCheck.checked = false;
+        }
+    })
+
     // 댓글 모두 숨기기 버튼 클릭 시, 해당 댓글의 대댓글이 닫힘
     let hideCommentsButton = document.getElementsByClassName("comment-reply-hidden");
     let comments = document.getElementsByClassName("comment-reply-list");
@@ -55,4 +70,5 @@ window.onload = ()=>{
             minHeight: 100
         });
     });
+
 }

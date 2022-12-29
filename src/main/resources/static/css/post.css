@@ -119,6 +119,7 @@ a:hover{
 
 #share-scrap {
     display: flex;
+    position: relative;
 }
 #share-scrap > a {
     width: 45px;
@@ -127,6 +128,45 @@ a:hover{
 }
 #share-scrap > a:hover {
     color: #8BC34A;
+}
+#user-menu {
+    position: relative;
+}
+#user-menu {
+    background-color: #fff;
+    border: 0 solid #fff;
+    color: hsla(220, 9%, 46%, 0.7);
+}
+#user-menu:hover {
+    color: #8BC34A;
+}
+#user-menu svg {
+    width: 20px;
+}
+#update-delete-btn {
+    position: absolute;
+    width: 150px;
+    top: 50px;
+    right: 0;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 5px 15px;
+    display: none;
+    flex-direction: column;
+}
+#update-delete-btn > a {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+#update-delete-btn > a:hover {
+    color: #8BC34A;
+}
+#update-delete-btn svg {
+    width: 20px;
+    margin-right: 10px;
 }
 
 /*게시글 제목*/
