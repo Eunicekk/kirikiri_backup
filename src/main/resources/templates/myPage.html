@@ -87,9 +87,11 @@
                             <div class="age">
                                 <label for="userage" class="userage">나이 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>비공개</span></label>
                                 <div class="age_enter">
-                                    <input type="text" id="userage" value="원래 나이">
+<!--                                    <input type="text" id="userage" value="원래 나이">-->
+                                    <input type="text" id="userage" th:if="*{userAge}!=null" th:value="*{userAge}">
+                                    <input type="text" id="userage" th:unless="*{userAge}!=null" value="">
                                     <div class="btn">
-                                        <input type="checkbox" id="toggle-slide1" onclick="checkSlide1()">
+                                        <input type="checkbox" id="toggle-slide1" onclick="checkSlide1()" th:if*{userAgeCheck}="F" value="">
                                         <label for="toggle-slide1">
                                             <span class="onf_btn"></span>
                                         </label>
@@ -100,7 +102,9 @@
                                 <label for="userlivingplace" class="userlivingplace">거주 지역 &nbsp;&nbsp;<span>비공개</span></label>
                                 <p class="checkinfo">구 단위만 입력</p>
                                 <div class="livingplace_enter">
-                                    <input type="text" id="userlivingplace" value="원래 거주지">
+<!--                                    <input type="text" id="userlivingplace" value="원래 거주지">-->
+                                    <input type="text" id="userlivingplace" th:if="*{userResidence}!=null" th:value="*{userResidence}">
+                                    <input type="text" id="userlivingplace" th:unless="*{userResidence}!=null" value="">
                                     <div class="btn">
                                         <input type="checkbox" id="toggle-slide2" onclick="checkSlide2()">
                                         <label for="toggle-slide2">

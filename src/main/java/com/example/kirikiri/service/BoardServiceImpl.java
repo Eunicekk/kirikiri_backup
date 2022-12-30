@@ -50,6 +50,6 @@ public class BoardServiceImpl implements BoardService {
     }
     @Override
     public List<BoardVO> getWrittenBoard(String userId, Integer page) {
-        return boardDAO.WrittenBoard(userId, page);
+        return boardDAO.writtenBoard(userId, page);
     }
 }

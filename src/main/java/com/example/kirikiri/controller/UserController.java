@@ -13,7 +13,7 @@ public class UserController {
 
     @GetMapping("/myPage")
     public void getInfoById(String userId, Model model){
-        model.addAttribute("user", userService.getInfo("kevs"));
+        model.addAttribute("user", userService.getInfo("pigs"));
     }
 
 }
