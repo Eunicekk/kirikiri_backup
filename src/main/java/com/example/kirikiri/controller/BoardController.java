@@ -83,4 +83,7 @@ public class BoardController {
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
     }
+
+    @GetMapping("/activity/comment")
+    public void getComment(){}
 }

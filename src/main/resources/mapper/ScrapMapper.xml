@@ -3,10 +3,10 @@
 <mapper namespace="com.example.kirikiri.mapper.ScrapMapper">
     <select id="selectScrapped" resultType="com.example.kirikiri.domain.ScrapDTO">
 
-        SELECT SCRAP_ID, B.BOARD_ID, CATEGORY_NAME, BOARD_TITLE, SCRAP_REGISTER_DATE
+        SELECT SCRAP_ID, BOARD_ID, CATEGORY_NAME, BOARD_TITLE, SCRAP_REGISTER_DATE
         FROM
         (
-            SELECT ROWNUM R, SCRAP_ID, B.BOARD_ID, CATEGORY_NAME, BOARD_TITLE, SCRAP_REGISTER_DATE
+            SELECT ROWNUM R, SCRAP_ID, BOARD_ID, CATEGORY_NAME, BOARD_TITLE, SCRAP_REGISTER_DATE
             FROM
             (
                 SELECT SCRAP_ID, B.BOARD_ID, CATEGORY_NAME, BOARD_TITLE, SCRAP_REGISTER_DATE

@@ -33,13 +33,13 @@
                             <span>활동점수</span>&nbsp;<span id="actScore"></span>  <!-- 게시물 한개당 점수 1 -->
                         </div>
                     </div>
-                    <a href="../templates/myPage.html" class="link"><span>나의 계정</span></a>
+                    <a href="../myPage" class="link"><span>나의 계정</span></a>
                 </div>
                 <div class="menu">
                     <ul>
-                        <li id="link_1"><span>게시물</span></li>
+                        <li id="link_1" onclick="location.href='/activity/writtenBoard?page=1'"><span>게시물</span></li>
                         <li id="link_2"><span>스크랩</span></li>
-                        <li id="link_3"><span>댓글</span></li>
+                        <li id="link_3" onclick="location.href='/activity/comment'"><span>댓글</span></li>
                     </ul>
                 </div>
             </div>
@@ -121,4 +121,10 @@
         $("form[name='page-form']").submit();
     });
 </script>
+<style>
+    #link_2{
+        color: rgb(139, 195, 74);
+        border-bottom: 2px solid rgb(139, 195, 74);
+    }
+</style>
 </html>
