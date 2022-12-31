@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data @NoArgsConstructor
-public class BoardVO {
+public class BoardDTO {
 //    BOARD_ID NUMBER CONSTRAINT PK_BOARD PRIMARY KEY,
 //    NATION_NAME VARCHAR2(1000) NOT NULL,
 //    CATEGORY_NAME VARCHAR2(1000) NOT NULL,
@@ -32,9 +32,10 @@ public class BoardVO {
     private int boardViews;
     private int boardLikes;
     private String userId;
+    private int sortType;
 
     @Builder
-    public BoardVO(String nationName, String categoryName, String detailCategoryName, String boardTitle, String boardContent, String userId) {
+    public BoardDTO(String nationName, String categoryName, String detailCategoryName, String boardTitle, String boardContent, String userId) {
         this.nationName = nationName;
         this.categoryName = categoryName;
         this.detailCategoryName = detailCategoryName;
@@ -43,17 +44,8 @@ public class BoardVO {
         this.userId = userId;
     }
 
-    public BoardVO(Long boardId, String nationName, String categoryName, String detailCategoryName, String boardTitle, String boardContent, String boardRegisterDate, String boardUpdateDate, int boardViews, int boardLikes, String userId) {
-        this.boardId = boardId;
-        this.nationName = nationName;
-        this.categoryName = categoryName;
-        this.detailCategoryName = detailCategoryName;
-        this.boardTitle = boardTitle;
-        this.boardContent = boardContent;
-        this.boardRegisterDate = boardRegisterDate;
-        this.boardUpdateDate = boardUpdateDate;
-        this.boardViews = boardViews;
-        this.boardLikes = boardLikes;
-        this.userId = userId;
+    public BoardVO chageBoardVO(){
+        BoardVO boardVO = new BoardVO(boardId, nationName, categoryName, detailCategoryName, boardTitle, boardContent, boardRegisterDate, boardUpdateDate, boardViews, boardLikes, userId);
+        return boardVO;
     }
 }

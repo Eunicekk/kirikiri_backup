@@ -1,19 +1,25 @@
 package com.example.kirikiri.service;
 
+import com.example.kirikiri.domain.BoardDTO;
 import com.example.kirikiri.domain.BoardVO;
-import com.example.kirikiri.repository.BoardDAO;
 
 import java.util.List;
 
 public interface BoardService {
     //전체 게시물 조회
     public List<BoardVO> getListAll();
+    public List<BoardVO> getListAllOrderByLikes();
+    public List<BoardVO> getListAllOrderByViews();
 
     //특정 게시판 조회
-    public List<BoardVO> getListByCategory(String categoryName);
+    public List<BoardVO> getListByCategory(BoardVO boardVO);
+    public List<BoardVO> getListByCategoryOrderByLikes(BoardVO boardVO);
+    public List<BoardVO> getListByCategoryOrderByViews(BoardVO boardVO);
 
     //특정 게시판 조회
-    public List<BoardVO> getListByDetailCategory(String detailCategoryName);
+    public List<BoardVO> getListByDetailCategory(BoardVO boardVO);
+    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardVO boardVO);
+    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardVO boardVO);
 
     //게시물 추가
     public void add(BoardVO boardVO);

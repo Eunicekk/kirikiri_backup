@@ -116,6 +116,9 @@ a:hover{
 #post-info-text svg {
     width: 15px;
 }
+#update-check {
+    color: #689f38;
+}
 
 #share-scrap {
     display: flex;
@@ -189,7 +192,7 @@ a:hover{
     margin-top: 30px;
     margin-bottom: 70px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 #post-tag > a {

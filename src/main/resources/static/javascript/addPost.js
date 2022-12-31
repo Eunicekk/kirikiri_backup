@@ -7,4 +7,11 @@ window.onload = () =>{
             minHeight: 400,
         });
     });
+
+    $("#categoryName").change(function () {
+        console.log(3);
+        $("#category-form").submit();
+    });
+
+
 }
