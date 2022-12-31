@@ -62,11 +62,11 @@
                                         <div class="usernationality">국적</div>
                                         <div class="nationality_enter">
                                             <select id="usernationality" th:field="*{userNation}">
-                                                <option value ="a" th:value="*{userNation}" selected></option>
                                                 <option value="china">중국</option>
                                                 <option value="vietnam">베트남</option>
                                                 <option value="thailand">태국</option>
                                                 <option value="us">미국</option>
+                                                <option value="한국">한국</option>
                                                 <option value="uzbec">우즈베키스탄</option>
                                                 <option value="philp">필리핀</option>
                                                 <option value="japan">일본</option>
@@ -79,7 +79,7 @@
                                     <label for="picture">
                                         <div class="change"><p>변경</p></div>
                                     </label>
-                                    <input type="file" id="picture">
+                                    <input type="file" id="picture" th:field="*{userProfile}">
                                 </div>
                             </div>
                         </div>
@@ -88,12 +88,11 @@
                                 <label for="userage" class="userage">나이 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>비공개</span></label>
                                 <div class="age_enter">
 <!--                                    <input type="text" id="userage" value="원래 나이">-->
-                                    <input type="text" id="userage" th:if="*{userAge}!=null" th:value="*{userAge}">
-                                    <input type="text" id="userage" th:unless="*{userAge}!=null" value="">
+                                    <input type="text" id="userage" th:field="*{userAge}">
                                     <div class="btn">
-                                        <input type="checkbox" id="toggle-slide1" onclick="checkSlide1()">
+                                        <input type="checkbox" id="toggle-slide1" onclick="checkSlide1()" th:field="*{userAgeCheck}">
                                         <label for="toggle-slide1">
-                                            <span class="onf_btn"></span>
+                                            <span class="onf_btn1"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -103,12 +102,11 @@
                                 <p class="checkinfo">구 단위만 입력</p>
                                 <div class="livingplace_enter">
 <!--                                    <input type="text" id="userlivingplace" value="원래 거주지">-->
-                                    <input type="text" id="userlivingplace" th:if="*{userResidence}!=null" th:value="*{userResidence}">
-                                    <input type="text" id="userlivingplace" th:unless="*{userResidence}!=null" value="">
+                                    <input type="text" id="userlivingplace" th:field="*{userResidence}">
                                     <div class="btn">
-                                        <input type="checkbox" id="toggle-slide2" onclick="checkSlide2()">
+                                        <input type="checkbox" id="toggle-slide2" onclick="checkSlide2()" th:field="*{userResidenceCheck}">
                                         <label for="toggle-slide2">
-                                            <span class="onf_btn"></span>
+                                            <span class="onf_btn2"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -127,16 +125,16 @@
                                             <p class="p-m2">유저가 만드는 다양한 컨텐츠를 뉴스레터로 받습니다.</p>
                                         </div>
                                         <div class="marketing-btn">
-                                            <input type="checkbox" id="toggle-slide3">
+                                            <input type="checkbox" id="toggle-slide3" onclick="checkSlide3()" th:field="*{userEmailRecieveCheck}">
                                             <label for="toggle-slide3">
-                                                <span class="onf_btn"></span>
+                                                <span class="onf_btn3"></span>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="submit-div">
-                                <button type="submit" form="user_info" id="infoSubmit">저장</button>
+                                <button type="submit" id="infoSubmit">저장</button>
                             </div>
                         </div>
                     </form>
@@ -243,6 +241,120 @@
 </body>
 <script>
     includeHTML();
+</script>
+<script th:inline="javascript">
+    let userAge = [[${user.userAge}]];
+    if(!userAge){
+        document.getElementById("userage").value = "";
+    }
+
+    let userResidence =[[${user.userResidence}]];
+    if(!userResidence){
+        document.getElementById("userlivingplace").value = "";
+    }
+
+    let userAgeCheck = [[${user.userAgeCheck}]]
+    console.log(userAgeCheck);
+    if(userAgeCheck == false){
+        document.querySelector("#toggle-slide1").checked = false;
+        document.querySelector(".userage span").innerText = "비공개";
+        document.querySelector(".userage span").style.color = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide1]").style.backgroundColor = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide1]").style.borderColor = "#e5e7eb";
+        document.querySelector(".onf_btn1").style.left = "0px";
+    }else{
+        document.querySelector("#toggle-slide1").checked = true;
+        document.querySelector(".userage span").innerText = "공개";
+        document.querySelector(".userage span").style.color = "#8BC34A";
+        document.querySelector("label[for=toggle-slide1]").style.backgroundColor = "#8BC34A";
+        document.querySelector("label[for=toggle-slide1]").style.borderColor = "#8BC34A";
+        document.querySelector(".onf_btn1").style.left = "20px";
+    }
+
+    function checkSlide1(){
+        if(document.querySelector("#toggle-slide1").checked){
+            document.querySelector(".userage span").innerText = "공개";
+            document.querySelector(".userage span").style.color = "#8BC34A";
+            document.querySelector("label[for=toggle-slide1]").style.backgroundColor = "#8BC34A";
+            document.querySelector("label[for=toggle-slide1]").style.borderColor = "#8BC34A";
+            document.querySelector(".onf_btn1").style.left = "20px";
+
+        }else{
+            document.querySelector(".userage span").innerText = "비공개";
+            document.querySelector(".userage span").style.color = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide1]").style.backgroundColor = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide1]").style.borderColor = "#e5e7eb";
+            document.querySelector(".onf_btn1").style.left = "0px";
+        }
+    }
+
+    let userResidenceCheck = [[${user.userResidenceCheck}]]
+    console.log(userResidenceCheck);
+    if(userResidenceCheck == false){
+        document.querySelector("#toggle-slide2").checked = false;
+        document.querySelector(".userlivingplace span").innerText = "비공개";
+        document.querySelector(".userlivingplace span").style.color = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide2]").style.backgroundColor = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide2]").style.borderColor = "#e5e7eb";
+        document.querySelector(".onf_btn2").style.left = "0px";
+    }else{
+        document.querySelector("#toggle-slide2").checked = true;
+        document.querySelector(".userlivingplace span").innerText = "공개";
+        document.querySelector(".userlivingplace span").style.color = "#8BC34A";
+        document.querySelector("label[for=toggle-slide2]").style.backgroundColor = "#8BC34A";
+        document.querySelector("label[for=toggle-slide2]").style.borderColor = "#8BC34A";
+        document.querySelector(".onf_btn2").style.left = "20px";
+    }
+
+    function checkSlide2(){
+        if(document.querySelector("#toggle-slide2").checked){
+            document.querySelector(".userlivingplace span").innerText = "공개";
+            document.querySelector(".userlivingplace span").style.color = "#8BC34A";
+            document.querySelector("label[for=toggle-slide2]").style.backgroundColor = "#8BC34A";
+            document.querySelector("label[for=toggle-slide2]").style.borderColor = "#8BC34A";
+            document.querySelector(".onf_btn2").style.left = "20px";
+
+        }else{
+            document.querySelector(".userlivingplace span").innerText = "비공개";
+            document.querySelector(".userlivingplace span").style.color = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide2]").style.backgroundColor = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide2]").style.borderColor = "#e5e7eb";
+            document.querySelector(".onf_btn2").style.left = "0px";
+        }
+    }
+
+
+    let userEmailRecieveCheck = [[${user.userEmailRecieveCheck}]]
+    console.log(userEmailRecieveCheck);
+    if(userEmailRecieveCheck == false){
+        document.querySelector("#toggle-slide3").checked = false;
+        document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#e5e7eb";
+        document.querySelector("label[for=toggle-slide3]").style.borderColor = "#e5e7eb";
+        document.querySelector(".onf_btn3").style.left = "0px";
+    }else{
+        document.querySelector("#toggle-slide3").checked = true;
+        document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#8BC34A";
+        document.querySelector("label[for=toggle-slide3]").style.borderColor = "#8BC34A";
+        document.querySelector(".onf_btn3").style.left = "20px";
+    }
+
+    function checkSlide3(){
+        if(document.querySelector("#toggle-slide3").checked){
+            document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#8BC34A";
+            document.querySelector("label[for=toggle-slide3]").style.borderColor = "#8BC34A";
+            document.querySelector(".onf_btn3").style.left = "20px";
+
+        }else{
+            document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#e5e7eb";
+            document.querySelector("label[for=toggle-slide3]").style.borderColor = "#e5e7eb";
+            document.querySelector(".onf_btn3").style.left = "0px";
+        }
+    }
+
+
+
+
+
 </script>
 </html>
 

@@ -13,4 +13,6 @@ public class UserDAO {
     public UserVO userInfoById(String userId){
         return userMapper.selectUser(userId);
     }
+
+    public void updateUserInfo(UserVO userVO){userMapper.updateUser(userVO);}
 }

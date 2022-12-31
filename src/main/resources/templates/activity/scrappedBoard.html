@@ -49,18 +49,30 @@
                     <div class="comment">
                         <!-- 받은 데이터 값에 따라 div 생성 -->
                         <th:block th:each="scrap:${scraps}">
-                            <div class="comment">
-                                <div class="commentWhereAndTime">
-                                    <div class="commentWhere">
-                                        <a  class="comment-where-link" href="" th:text="${scrap.categoryName}"></a>
-                                        <div class="comment-where-word"> 에 게시물을 스크랩 하였습니다</div>
+                            <div class="content">
+                                <div class="whereAndTime">
+                                    <div class="where">
+                                        <a  class="where-link" href="" th:text="${scrap.categoryName}"></a>
+                                        <div class="where-word"> 에 게시물을 스크랩 하였습니다</div>
                                     </div>
-                                    <div class="commentTime" th:text="${scrap.scrapRegisterDate}"></div>
+                                    <div class="time" th:text="*{scrap.scrapRegisterDate}"></div>
                                 </div>
-                                <div class="commentTitle">
-                                    <a class="commentATitle" href="" th:text="${scrap.boardTitle}"></a>
+                                <div class="Title">
+                                    <a class="aTitle" href="" th:text="*{scrap.boardTitle}"></a>
                                 </div>
                             </div>
+<!--                            <div class="comment">-->
+<!--                                <div class="commentWhereAndTime">-->
+<!--                                    <div class="commentWhere">-->
+<!--                                        <a  class="comment-where-link" href="" th:text="${scrap.categoryName}"></a>-->
+<!--                                        <div class="comment-where-word"> 에 게시물을 스크랩 하였습니다</div>-->
+<!--                                    </div>-->
+<!--                                    <div class="commentTime" th:text="${scrap.scrapRegisterDate}"></div>-->
+<!--                                </div>-->
+<!--                                <div class="commentTitle">-->
+<!--                                    <a class="commentATitle" href="" th:text="${scrap.boardTitle}"></a>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </th:block>
                     </div>
                     <div class="bottomMargin"></div>
