@@ -2,6 +2,7 @@ package com.example.kirikiri.controller;
 
 import com.example.kirikiri.domain.BoardDTO;
 import com.example.kirikiri.domain.BoardVO;
+import com.example.kirikiri.domain.PageBoardDTO;
 import com.example.kirikiri.domain.UserVO;
 import com.example.kirikiri.service.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -89,6 +90,7 @@ public class BoardController {
         return "/post";
     }
 
+<<<<<<< HEAD
     @GetMapping("/edit")
     public String editPost(Long boardId, Model model){
         BoardVO boardVO = boardService.getBoard(boardId);
@@ -105,5 +107,13 @@ public class BoardController {
     public RedirectView deletePost(Long boardId){
         boardService.delete(boardId);
         return new RedirectView("/board/all");
+=======
+    //    작성한 게시글 조회
+    @GetMapping("/activity")
+    public void getWrittenBoard(String userId, Integer page, Model model){
+        PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
+        model.addAttribute("pagination", pbt);
+        model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
+>>>>>>> 04c9d628b636254702e3f63a815623423ff78d70
     }
 }

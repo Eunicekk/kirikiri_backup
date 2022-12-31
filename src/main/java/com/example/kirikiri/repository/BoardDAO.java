@@ -61,4 +61,8 @@ public class BoardDAO {
     public BoardVO findById(Long boardId){
         return boardMapper.select(boardId);
     }
+
+    public List<BoardVO> WrittenBoard(String userId, Integer page){
+        return boardMapper.selectWritten(userId, page);
+    };
 }

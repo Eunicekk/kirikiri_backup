@@ -12,12 +12,12 @@
         display: none;
     }
 
-    .banner_s {
-        display: block;
-    }
-
     .banner {
         display: none;
+    }
+
+    .main .banner_s {
+        display: block;
     }
 }
 
@@ -25,19 +25,21 @@
     header {
         padding: 0 16px;
     }
-    .menu_btn {
+
+    .header > .menu_btn {
         display: flex;
     }
 
-    .header_left_menu,
-    .header_right {
+    .header_left > .header_left_menu,
+    .header > .header_right {
         display: none;
     }
+
     .tag_box {
         display: block;
     }
 
-    .banner_s {
+    /* .main .banner_s {
         width: 100%;
-    }
+    } */
 }

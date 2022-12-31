@@ -81,4 +81,8 @@ public class BoardServiceImpl implements BoardService {
         boardDAO.updateBoardView(boardId);
         return boardDAO.findById(boardId);
     }
+    @Override
+    public List<BoardVO> getWrittenBoard(String userId, Integer page) {
+        return boardDAO.WrittenBoard(userId, page);
+    }
 }
