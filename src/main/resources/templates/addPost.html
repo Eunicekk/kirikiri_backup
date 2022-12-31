@@ -28,12 +28,11 @@
             <h1>함께 할 때 더 즐거운 순간</h1>
             <p><span th:text="${userVO.userNickname}"></span>님 지식공유 플랫폼 OKKY에서 다양한 사람을 만나고 생각의 폭을 넓혀보세요.</p>
         </div>
-        <div id="category" th:if="${boardVO.categoryName == ''}">
+        <div id="category" th:if="${boardVO.categoryName} == 'All'">
             <form action="/board/new" method="get" id="category-form">
                 <h2>Category</h2>
-                <select th:field="${boardVO.categoryName}" class="topic-select">
-                    <option value="">Select Category.</option>
-                    <option value="Free">Free</option>
+                <select th:field="${boardVO.categoryName}" class="topic-select" required>
+                    <option value="Free" selected>Free</option>
                     <option value="Counselling">Counselling</option>
                     <option value="Play">Play</option>
                     <option value="Job">Job</option>
@@ -41,7 +40,7 @@
             </form>
         </div>
         <form id="add-post-form" th:action="@{/board/new}" method="post" th:object="${boardVO}">
-            <div th:if="*{categoryName} != ''">
+            <div th:if="*{categoryName} != 'All'">
                 <div id="topic" th:if="*{categoryName} != 'Free'">
                     <h2>토픽</h2>
                     <select th:field="*{detailCategoryName}" class="topic-select" th:if="*{categoryName} == 'Counselling'">

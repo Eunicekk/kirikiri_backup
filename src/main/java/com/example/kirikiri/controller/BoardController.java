@@ -30,7 +30,7 @@ public class BoardController {
     public String moveCategory(BoardDTO boardDTO, Model model){
         BoardVO boardVO = boardDTO.chageBoardVO();
         if(boardDTO.getSortType() == 1) {
-            if(boardDTO.getCategoryName().isEmpty()){
+            if(boardDTO.getCategoryName().equals("All")){
                 model.addAttribute("boards", boardService.getListAll());
             }
             else {
@@ -40,7 +40,7 @@ public class BoardController {
             }
         }
         if(boardDTO.getSortType() == 2) {
-            if(boardDTO.getCategoryName().isEmpty()){
+            if(boardDTO.getCategoryName().equals("All")){
                 model.addAttribute("boards", boardService.getListAllOrderByLikes());
             } else{
                 if(boardDTO.getDetailCategoryName().isEmpty())
@@ -49,7 +49,7 @@ public class BoardController {
             }
         }
         if(boardDTO.getSortType() == 3) {
-            if(boardDTO.getCategoryName().isEmpty()){
+            if(boardDTO.getCategoryName().equals("All")){
                 model.addAttribute("boards", boardService.getListAllOrderByViews());
             } else {
                 if(boardDTO.getDetailCategoryName().isEmpty())
@@ -89,8 +89,6 @@ public class BoardController {
         model.addAttribute("updateCheck", updateCheck);
         return "/post";
     }
-
-<<<<<<< HEAD
     @GetMapping("/edit")
     public String editPost(Long boardId, Model model){
         BoardVO boardVO = boardService.getBoard(boardId);
@@ -104,16 +102,16 @@ public class BoardController {
         return new RedirectView("/board/post");
     }
     @GetMapping("/delete")
-    public RedirectView deletePost(Long boardId){
+    public RedirectView deletePost(Long boardId) {
         boardService.delete(boardId);
         return new RedirectView("/board/all");
-=======
-    //    작성한 게시글 조회
+    }
+
+        //    작성한 게시글 조회
     @GetMapping("/activity")
     public void getWrittenBoard(String userId, Integer page, Model model){
         PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
->>>>>>> 04c9d628b636254702e3f63a815623423ff78d70
     }
 }
