@@ -32,6 +32,10 @@ public class UserController {
         return new RedirectView("/myPage/info");
     }
     @GetMapping("/myPage/delete")
+    public void delete(){}
+
+
+    @PostMapping("/myPage/delete")
     public RedirectView delete(String userId){
         userService.deleteInfo("pigs");
         return new RedirectView("/mainPageHtml/index");

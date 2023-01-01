@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/myPage.css">
-    <script type="text/javascript" src="/javascript/myPage.js"></script>
+    <script type="text/javascript" src="/javascript/myPage2.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="/javascript/mainPageJs/include-html.js"></script>
     <title>myPage</title>
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="checknotice_div">
-                            <form action="" method="post" id="delete_form" th:action>
+                            <form action="" method="post" id="delete_form">
                                 <p>
                                     <input type="checkbox" name="checknotice" id="checknotice" style="border-style: none">
                                     <label for="checknotice">계정 삭제에 관한 정책을 읽고 이에 동의합니다.</label>
@@ -132,6 +132,76 @@
 </body>
 <script>
     includeHTML();
+    const form = document.querySelector("#delete_form");
+    const checkBox = document.querySelector("#checknotice");
+    const submitButton = document.querySelector("#delete");
+    let agreement = false;
+
+    checkBox.addEventListener('input', function (event) {
+        agreement = !agreement;
+        toggleSubmitButton();
+    });
+
+    function toggleSubmitButton() {
+        if (agreement) {
+            submitButton.disabled = false; // 동의가 되었으면 활성화
+        } else {
+            submitButton.disabled = true; // 동의가 안되어있으면 비활성화
+        }
+    }
+
+
+    // 이메일 유효성 검사
+
+    let userEmail = document.getElementById("email");
+    let changeEmail = null;
+
+    userEmail.addEventListener("change", function(){
+        changeEmail = userEmail.value;
+    })
+
+
+    const exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    let duplicateCheck = false;
+    let count = 0;
+    let count2 = 0;
+
+    document.getElementById("emailSubmit").addEventListener("click",function (event) {
+        if((changeEmail.length == 0 || !exptext.test(changeEmail)) && count === 0){
+            event.preventDefault();
+            let div = document.createElement("div");
+            div.className = "wrong-email-div";
+            div.innerText = "올바른 이메일 형식이 아닙니다."
+            document.querySelector(".wrong-email").append(div);
+            count++;
+        }else if(changeEmail.length == 0 || !exptext.test(changeEmail)){
+            event.preventDefault();
+        }else if(changeEmail.length != 0 && exptext.test(changeEmail) && count2 === 0){
+            event.preventDefault();
+            if(count == 0) {
+                // 이메일 전송하기
+                let div = document.createElement("div");
+                div.className = "right-email-div";
+                div.innerText = "입력하신 이메일로 인증 이메일 발송되었습니다."
+                document.querySelector(".wrong-email").append(div);
+                count2++;
+            }else{
+                document.querySelector(".wrong-email-div").style.color = "#8BC34A";
+                document.querySelector(".wrong-email-div").innerHTML = "입력하신 이메일로 인증 이메일 발송되었습니다.";
+
+            }
+
+        }else if(changeEmail.length != 0 && exptext.test(changeEmail) && count2 === 1){
+            // 이메일 전송하기
+            event.preventDefault();
+            if(count != 0){
+                document.querySelector(".wrong-email-div").style.color = "#8BC34A";
+                document.querySelector(".wrong-email-div").innerHTML = "입력하신 이메일로 인증 이메일 발송되었습니다.";
+            }
+
+        }
+
+    });
 </script>
 <style>
     #link_5{
@@ -141,5 +211,6 @@
         background-color: #e5e7eb;
     }
 </style>
+
 </html>
 

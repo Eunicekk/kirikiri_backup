@@ -39,7 +39,7 @@
             <div class="content">
                 <!-- 계정관리 화면 -->
                 <div class="tabpage" id="tabpage_1">
-                    <form id="user_info" th:action="@{/myPage}" th:object="${user}" method="post">
+                    <form id="user_info" th:action="@{/myPage/info}" th:object="${user}" method="post">
                         <div class="info">
                             <h2>회원정보</h2>
                             <div class="info_word">
@@ -257,6 +257,64 @@
         }
     }
 
+    const file = document.querySelector("input[type='file']");
+    const thumbnail = document.querySelector("label[for='picture'] div");
+    file.addEventListener("change", function (event) {
+        let reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = function (event) {
+            console.log(event);
+            let url = event.target.result;
+            if (url.includes("image")) {
+                thumbnail.style.backgroundImage = "url('" + url + "')";
+            } else {
+                thumbnail.style.backgroundImage = "url('/img/account.png')";
+                // ../images/account.png 대신 backend에 저장된 이미지 파일
+            }
+        }
+    });
+
+
+
+    // 필수 정보 입력 여부
+
+    let changeName = null;
+    let changeNameCheck = 0;
+    let changeNickname = null;
+    let changeNicknameCheck = 0;
+    let nicknameDuplicate = false;
+
+    document.getElementById("username").addEventListener("change", function () {
+        changeName = document.getElementById("username").value;
+    })
+    document.getElementById("userNickname").addEventListener("change", function () {
+        changeNickname = document.getElementById("userNickname").value;
+    })
+
+    document.getElementById("infoSubmit").addEventListener("click",function (event) {
+
+        if(changeName != null && changeName.length == 0 && changeNameCheck == 0){
+            event.preventDefault();
+            let div = document.createElement("div");
+            div.className = "empty-name-div";
+            div.innerText = "이름을 입력하지 않으셨습니다."
+            document.querySelector(".empty-name").append(div);
+            changeNameCheck++;
+        }else if(changeName != null && changeName.length == 0 && changeNameCheck != 0){
+            event.preventDefault();
+        }
+
+        if(changeNickname != null && changeNickname.length == 0 && changeNickname == 0){
+            event.preventDefault();
+            let div = document.createElement("div");
+            div.className = "empty-nickname-div";
+            div.innerText = "닉네임을 입력하지 않으셨습니다."
+            document.querySelector(".empty-nickname").append(div);
+            changeNicknameCheck++;
+        }else if(changeNickname != null && changeNickname.length == 0 && changeNicknameCheck != 0){
+            event.preventDefault();
+        }
+    })
 
 
 
