@@ -15,7 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
-@RequestMapping("/board/*")
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardService boardService;
@@ -109,12 +108,14 @@ public class BoardController {
 
     //    작성한 게시글 조회
     @GetMapping("/activity/writtenBoard")
-    public void getWrittenBoard(String userId, Integer page, Model model){
+    public String getWrittenBoard(String userId, Integer page, Model model){
         PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
+        return "/activity/writtenBoard";
     }
 
     @GetMapping("/activity/comment")
-    public void getComment(){}
+    public String getComment(){return "activity/comment";}
+
 }
