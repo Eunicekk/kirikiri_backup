@@ -36,9 +36,9 @@
             <div class="center-line"></div>
             <div id="category-link">
                 <div>
-                    <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = '', sortType = 1)}"><span th:text="*{categoryName}"></span></a>
+                    <a th:href="@{/board/board(categoryName = *{categoryName})}"><span th:text="*{categoryName}"></span></a>
                     <span> / </span>
-                    <a class="blue-font" th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 1)}"><span th:text="*{detailCategoryName}"></span></a>
+                    <a class="blue-font" th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName})}"><span th:text="*{detailCategoryName}"></span></a>
                 </div>
             </div>
         </div>

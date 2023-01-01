@@ -2,58 +2,177 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.kirikiri.mapper.BoardMapper">
 
+    <select id="countAll" resultType="Integer">
+        SELECT COUNT(BOARD_ID) FROM TBL_BOARD
+    </select>
+    <select id="countCategory" resultType="Integer">
+        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE CATEGORY_NAME = #{categoryName}
+    </select>
+    <select id="countDetailCategory" resultType="Integer">
+        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
+    </select>
+
     <select id="selectAll" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        ORDER BY BOARD_ID DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                ORDER BY BOARD_ID DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
+
     <select id="selectAllByLikes" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        ORDER BY BOARD_LIKES DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                ORDER BY BOARD_LIKES DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
     <select id="selectAllByViews" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        ORDER BY BOARD_VIEWS DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                ORDER BY BOARD_VIEWS DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
 
     <select id="selectCategory" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        WHERE CATEGORY_NAME = #{categoryName}
-        ORDER BY BOARD_ID DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                WHERE CATEGORY_NAME = #{categoryName}
+                ORDER BY BOARD_ID DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
     <select id="selectCategoryByLikes" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        WHERE CATEGORY_NAME = #{categoryName}
-        ORDER BY BOARD_LIKES DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                WHERE CATEGORY_NAME = #{categoryName}
+                ORDER BY BOARD_LIKES DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
     <select id="selectCategoryByViews" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        WHERE CATEGORY_NAME = #{categoryName}
-        ORDER BY BOARD_VIEWS DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                WHERE CATEGORY_NAME = #{categoryName}
+                ORDER BY BOARD_VIEWS DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
 
-    <select id="selectDetailCategory" resultType="boardVO">
+    <select id="selectDetailCategory" resultType="boardDTO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
-        ORDER BY BOARD_ID DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
+                ORDER BY BOARD_ID DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
     <select id="selectDetailCategoryByLikes" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
-        ORDER BY BOARD_LIKES DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
+                ORDER BY BOARD_LIKES DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
     <select id="selectDetailCategoryByViews" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
-        WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
-        ORDER BY BOARD_VIEWS DESC
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
+                ORDER BY BOARD_VIEWS DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
 
     <insert id="insert">

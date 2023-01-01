@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/reset.css" />
     <script type="text/javascript" src="/javascript/community.js"></script>
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   </head>
   <body>
     <div id="main">
@@ -102,20 +103,20 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path></svg>
             <span>작성하기</span>
           </a>
-          <div class="board-detail-category" th:if="*{categoryName} == 'Counselling'">
-            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Home', sortType = 1)}">Home</a>
-            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Work', sortType = 1)}">Work</a>
-            <a th:href="@{/board/board(categoryName = *{categoryName}, sortType = 1, detailCategoryName = '', sortType = 1)}">All</a>
+          <div class="board-detail-category" th:if="*{categoryName} == 'Counseling'">
+            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Home')}">Home</a>
+            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Work')}">Work</a>
+            <a th:href="@{/board/board(categoryName = *{categoryName})}">All</a>
           </div>
           <div class="board-detail-category" th:if="*{categoryName} == 'Play'">
-            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Food', sortType = 1)}">Food</a>
-            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Playground', sortType = 1)}">Playground</a>
-            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = '', sortType = 1)}">All</a>
+            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Food')}">Food</a>
+            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Playground')}">Playground</a>
+            <a th:href="@{/board/board(categoryName = *{categoryName})}">All</a>
           </div>
           <div class="board-detail-category" th:if="*{categoryName} == 'Job'">
-            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Offer', sortType = 1)}">Offer</a>
-            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Search', sortType = 1)}">Search</a>
-            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = '', sortType = 1)}">All</a>
+            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Offer')}">Offer</a>
+            <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Search')}">Search</a>
+            <a th:href="@{/board/board(categoryName = *{categoryName})}">All</a>
           </div>
           <div id="sort">
             <button id="sort-button">
@@ -124,7 +125,7 @@
             </button>
             <input type="checkbox" id="sort-check">
             <div id="sort-type">
-              <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 1)}">최신순</a>
+              <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName})}">최신순</a>
               <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 2)}">추천순</a>
 <!--              <button type="button">댓글순</button>-->
 <!--              <a>스크랩순</a>-->
@@ -145,9 +146,11 @@
             <input type="text" placeholder="커뮤니티 내에서 검색">
           </form>
           <div id="page-move">
-            <span>1/6362 페이지</span>
-            <svg style="color: hsla(220, 9%, 46%, 0.3);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="text-gray-300 dark:text-gray-700 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path></svg>
-            <a>
+            <span th:text="${pagination.page}"></span><span>/</span><span th:text="${pagination.endPage}"></span> 페이지</span>
+            <a class="prev" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = ${pagination.page - 1})}">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="text-gray-300 dark:text-gray-700 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path></svg>
+            </a>
+            <a class="next" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = ${pagination.page + 1})}">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg>
             </a>
           </div>
@@ -159,7 +162,7 @@
           <th:block th:each="board:${boards}">
             <div class="post" th:object="${board}">
               <div class="post-first-line">
-                <a href=""><img class="profile-picture" src="../static/img/community-profile2.png" alt=""><span th:text="*{userId}"></span></a>
+                <a href=""><img class="profile-picture" src="/img/community-profile2.png" alt=""><span th:text="*{userId}"></span></a>
                 <span> ㆍ </span>
                 <span th:text="*{boardRegisterDate}"></span>
               </div>
@@ -168,7 +171,7 @@
               </div>
               <div class="post-third-line">
                 <div class="tag-link">
-                  <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = '', sortType = 1)}" th:text="*{categoryName}"></a>
+                  <a th:href="@{/board/board(categoryName = *{categoryName})}" th:text="*{categoryName}"></a>
                 </div>
                 <div class="user-reaction">
                   <div>
@@ -190,18 +193,44 @@
         </div>
 
 <!--        paging-->
-        <div id="page-move-bottom">
-          <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg> Previous</button>
+        <div id="page-move-bottom" th:object="${pagination}">
+          <a class="prev" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page} - 1)}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg>
+            Previous</a>
           <div id="page">
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">4</a>
-            <a href="">5</a>
-            <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
-            <a href="">6364</a>
+            <div th:if="*{page} < 5">
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = 1)}">1</a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = 2)}">2</a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = 3)}">3</a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = 4)}">4</a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = 5)}">5</a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page + 3})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{endPage})}" th:text="*{endPage}"></a>
+            </div>
+
+            <div th:if="*{page} > *{endPage - 4}">
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{startPage})}" th:text="*{startPage}"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page} - 3)}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{endPage - 4})}" th:text="*{endPage} - 4"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{endPage - 3})}" th:text="*{endPage} - 3"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{endPage - 2})}" th:text="*{endPage} - 2"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{endPage - 1})}" th:text="*{endPage} - 1"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{endPage})}" th:text="*{endPage}"></a>
+            </div>
+
+
+            <div th:if="*{page} >= 5 and *{page} <= *{endPage - 4}">
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{startPage})}" th:text="*{startPage}"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page - 3})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page - 1})}" th:text="*{page} - 1"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page})}" th:text="*{page}"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page + 1})}" th:text="*{page} + 1"></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page + 3})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-3 w-3 opacity-80"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg></a>
+              <a class="change-page" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{endPage})}" th:text="*{endPage}"></a>
+            </div>
+
           </div>
-          <button>Next <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path></svg></button>
+          <a class="next" th:href="@{/board/board(categoryName = ${boardDTO.categoryName}, detailCategoryName = ${boardDTO.detailCategoryName}, sortType = ${boardDTO.sortType}, page = *{page} + 1)}">
+            Next <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path></svg></a>
         </div>
       </div>
       <!--      ===========================================================================================-->
@@ -214,5 +243,48 @@
         <a><img class="right-side-advertisement" src="../static/img/k-digital-trainning.jpg"></a>
       </div>
     </div>
+    <script th:inline="javascript">
+      let page = [[${pagination.page}]]
+      let start = [[${pagination.startPage}]];
+      let end = [[${pagination.endPage}]];
+      let prev = document.getElementsByClassName("prev");
+      let next = document.getElementsByClassName("next");
+
+      for(let i = 0; i < prev.length; i++) {
+        if (page === start) {
+          prev[i].style.color = "hsla(220, 9%, 46%, 0.3)";
+          prev[i].style.cursor = "default";
+          prev[i].addEventListener("click", function (e) {
+            e.preventDefault();
+          })
+        }
+        if (page === end) {
+          next[i].style.color = "hsla(220, 9%, 46%, 0.3)";
+          next[i].style.cursor = "default";
+          next[i].addEventListener("click", function (e) {
+            e.preventDefault();
+          })
+        }
+      }
+
+
+
+      let changePage = document.getElementsByClassName("change-page");
+      let i = 0;
+      for(; i < changePage.length; i++){
+        if(changePage[i].innerText == page) break;
+      }
+      console.log(changePage[i].innerText)
+      changePage[i].style.color = "#8BC34A";
+      changePage[i].style.borderTopColor = "#8BC34A";
+      changePage[i].style.borderTopStyle = "solid";
+      changePage[i].style.borderTopWidth = "1px";
+      changePage[i].style.lineHeight = "61px";
+      changePage[i].addEventListener("click", function (e) {
+        e.preventDefault();
+      })
+
+
+    </script>
   </body>
 </html>

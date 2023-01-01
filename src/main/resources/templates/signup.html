@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kirikiri - All That Foreign worker</title>
-    <link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href="../static/css/signup.css" />
-    <script type="text/javascript" src="../static/javascript/signup.js"></script>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <script type="text/javascript" src="/javascript/signup.js"></script>
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
   </head>
   <body>
     <div id="signup-page">
       <div>
         <a href="./mainPageHtml/index.html">
-          <img class="main-logo" src="../static/img/Logo.png" alt="kirikiri" />
+          <img class="main-logo" src="/img/Logo.png" alt="kirikiri" />
         </a>
         <h2 id="kirikiri-welcome">kirikiri에 오신것을 환영합니다.</h2>
         <p class="explan-site">
@@ -164,7 +164,7 @@
             </div>
           </div>
           </div>
-          <form id="signup-form" action="">
+          <form id="signup-form" action="/user/signup" method="post" th:object="${userVO}">
             <div>
               <div>
                 <label class="signup-label" for="id">아이디</label>
@@ -175,6 +175,7 @@
                     type="text"
                     placeholder="4~15자 이내로 입력해주세요"
                     required
+                    th:field="*{userId}"
                   />
                   <div class="warning-msg">
                     <p id="warning-msg-id" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
@@ -191,6 +192,7 @@
                     type="password"
                     placeholder="최소 6자 이상(알파벳, 숫자 필수)"
                     required
+                    th:field="*{userPassword}"
                   />
                   <div class="warning-msg">
                     <p id="warning-msg-pw1" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
@@ -209,6 +211,7 @@
                     type="email"
                     placeholder="munchkin@okky.kr"
                     required
+                    th:field="*{userEmail}"
                   />
                   <div class="warning-msg">
                     <p id="warning-msg-email" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
@@ -225,6 +228,7 @@
                     type="text"
                     placeholder="홍길동"
                     required
+                    th:field="*{userName}"
                   />
                   <div class="warning-msg">
                     <p id="warning-msg-name" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
@@ -241,6 +245,7 @@
                     type="text"
                     placeholder="별명을 알파벳, 한글, 숫자를 20자 이하로 입력해주세요."
                     required
+                    th:field="*{userNickname}"
                   />
                   <div class="warning-msg">
                     <p id="warning-msg-nickname" class="warning-msg"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 flex-shrink-0 text-red-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"></path></svg>
@@ -252,15 +257,15 @@
               <div class="mt-2">
                 <label class="signup-label" for="">국적</label>
                 <div class="mt-1">
-                  <select class="signup-select" name="" id="">
+                  <select class="signup-select" th:field="*{userNation}">
                     <option value="" selected>국적을 선택하세요.</option>
-                    <option value="china">중국</option>
-                    <option value="vietnam">베트남</option>
-                    <option value="thailand">태국</option>
-                    <option value="usa">미국</option>
-                    <option value="uzbekistan">우즈베키스탄</option>
-                    <option value="philippine">필리핀</option>
-                    <option value="japan">일본</option>
+                    <option value="China">중국</option>
+                    <option value="Vietnam">베트남</option>
+                    <option value="Thailand">태국</option>
+                    <option value="Usa">미국</option>
+                    <option value="Uzbekistan">우즈베키스탄</option>
+                    <option value="Philippine">필리핀</option>
+                    <option value="Japan">일본</option>
                     <option value="else">기타</option>
                   </select>
                 </div>
@@ -270,7 +275,7 @@
                 <div id="email-agree">
                   <p>이메일 수신동의</p>
                   <button id="email-agree-button" type="button">
-                    <input type="checkbox" id="email-check" checked>
+                    <input type="checkbox" id="email-check" th:field="*{userEmailRecieveCheck}" checked>
                     <span id="email-agree-button-circle"></span>
                   </button>
                 </div>

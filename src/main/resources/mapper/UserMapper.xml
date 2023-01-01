@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.kirikiri.mapper.UserMapper">
+    <insert id="insert">
+<!--        <selectKey keyProperty="userId" resultType="userVO" order="BEFORE">-->
+<!--            SELECT USER_ID FROM TBL_USER WHERE USER_ID = #{userId}-->
+<!--        </selectKey>-->
+        INSERT INTO TBL_USER(USER_ID, USER_PASSWORD, USER_NICKNAME, USER_EMAIL, USER_NAME, USER_NATION, USER_REGISTER_DATE)
+        VALUES(#{userId}, #{userPassword}, #{userNickname}, #{userEmail}, #{userName}, #{userNation}, SYSDATE)
+    </insert>
+    <select id="select" resultType="userVO">
+        SELECT USER_ID, USER_PASSWORD, USER_NICKNAME, USER_EMAIL, USER_NAME, USER_NATION, USER_EMAIL, USER_REGISTER_DATE, USER_PROFILE
+        FROM TBL_USER
+        WHERE USER_ID = #{userId} AND USER_PASSWORD = #{userPassword}
+    </select>
+    <select id="selectById" resultType="userVO">
+        SELECT USER_ID, USER_PASSWORD, USER_NICKNAME, USER_EMAIL, USER_NAME, USER_NATION, USER_EMAIL, USER_REGISTER_DATE, USER_PROFILE
+        FROM TBL_USER
+        WHERE USER_ID = #{userId}
+    </select>
 </mapper>

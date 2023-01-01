@@ -3,5 +3,7 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.example.kirikiri.domain.BoardVO" alias="boardVO"/>
+        <typeAlias type="com.example.kirikiri.domain.BoardDTO" alias="boardDTO"/>
+        <typeAlias type="com.example.kirikiri.domain.UserVO" alias="userVO"/>
     </typeAliases>
 </configuration>
