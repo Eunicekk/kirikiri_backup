@@ -107,11 +107,19 @@ public class BoardController {
         return new RedirectView("/board/all");
     }
 
+<<<<<<< HEAD
         //    작성한 게시글 조회
     @GetMapping("/activity")
+=======
+    //    작성한 게시글 조회
+    @GetMapping("/activity/writtenBoard")
+>>>>>>> test2
     public void getWrittenBoard(String userId, Integer page, Model model){
         PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
     }
+
+    @GetMapping("/activity/comment")
+    public void getComment(){}
 }
