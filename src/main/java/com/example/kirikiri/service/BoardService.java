@@ -4,8 +4,10 @@ import com.example.kirikiri.domain.BoardDTO;
 import com.example.kirikiri.domain.BoardVO;
 
 import com.example.kirikiri.repository.BoardDAO;
+import org.springframework.transaction.annotation.Transactional;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface BoardService {
@@ -38,4 +40,10 @@ public interface BoardService {
 
     // 작성한 게시글 조회
     public List<BoardVO> getWrittenBoard(String userId, Integer page);
+
+    @Transactional
+    public default List<BoardDTO> searchPosts(String keyword){
+        List<BoardDTO> boardDTOList = new ArrayList<>();
+        return boardDTOList;
+    }
 }

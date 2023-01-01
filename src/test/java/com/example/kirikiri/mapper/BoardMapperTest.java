@@ -13,7 +13,6 @@ public class BoardMapperTest {
     private BoardMapper boardMapper;
 
     @Test
-
     public void selectAllTest(){
         boardMapper.selectAll().stream().map(BoardVO::toString).forEach(log::info);
     }
@@ -43,21 +42,18 @@ public class BoardMapperTest {
     }
 
     @Test
-<<<<<<< HEAD
+    public void selectTest(){
     public void updateViewTest(){
         boardMapper.updateView(15L);
-    }
+    }}
 
     @Test
-    public void selectTest(){
-=======
     public void selectTest() {
->>>>>>> test2
         boardMapper.select(3L);
     }
 
     @Test
     public void searchTest(){
-        boardMapper.search("want").stream().map(BoardVO::toString).forEach(log::info);
+        boardMapper.search("타이틀").stream().map(BoardVO::toString).forEach(log::info);
     }
 }
