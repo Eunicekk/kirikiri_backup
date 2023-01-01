@@ -42,11 +42,15 @@ h2 {
 #add-post-form {
     width: 100%;
 }
+#category {
+    margin-top: 50px;
+    position: relative;
+}
 #topic {
     margin-top: 50px;
     position: relative;
 }
-#topic-select {
+.topic-select {
     width: 100%;
     padding: 12px 5px;
     color: rgb(107 114 128);

@@ -1,5 +1,6 @@
 package com.example.kirikiri.service;
 
+import com.example.kirikiri.domain.BoardDTO;
 import com.example.kirikiri.domain.BoardVO;
 import com.example.kirikiri.repository.BoardDAO;
 import lombok.RequiredArgsConstructor;
@@ -19,14 +20,45 @@ public class BoardServiceImpl implements BoardService {
     public List<BoardVO> getListAll() {
         return boardDAO.getListAll();
     }
+
     @Override
-    public List<BoardVO> getListByCategory(String categoryName) {
-        return boardDAO.getListByCategory(categoryName);
+    public List<BoardVO> getListAllOrderByLikes() {
+        return boardDAO.getListAllOrderByLikes();
     }
 
     @Override
-    public List<BoardVO> getListByDetailCategory(String detailCategoryName) {
-        return boardDAO.getListByDetailCategory(detailCategoryName);
+    public List<BoardVO> getListAllOrderByViews() {
+        return boardDAO.getListAllOrderByViews();
+    }
+
+    @Override
+    public List<BoardVO> getListByCategory(BoardVO boardVO) {
+        return boardDAO.getListByCategory(boardVO);
+    }
+
+    @Override
+    public List<BoardVO> getListByCategoryOrderByLikes(BoardVO boardVO) {
+        return boardDAO.getListByCategoryOrderByLikes(boardVO);
+    }
+
+    @Override
+    public List<BoardVO> getListByCategoryOrderByViews(BoardVO boardVO) {
+        return boardDAO.getListByCategoryOrderByViews(boardVO);
+    }
+
+    @Override
+    public List<BoardVO> getListByDetailCategory(BoardVO boardVO) {
+        return boardDAO.getListByDetailCategory(boardVO);
+    }
+
+    @Override
+    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardVO boardVO) {
+        return boardDAO.getListByDetailCategoryOrderByViews(boardVO);
+    }
+
+    @Override
+    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardVO boardVO) {
+        return boardDAO.getListByDetailCategoryOrderByLikes(boardVO);
     }
 
     @Override
@@ -46,6 +78,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public BoardVO getBoard(Long boardId) {
+        boardDAO.updateBoardView(boardId);
         return boardDAO.findById(boardId);
     }
     @Override

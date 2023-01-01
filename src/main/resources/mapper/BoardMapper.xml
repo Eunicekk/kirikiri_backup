@@ -7,18 +7,55 @@
         FROM TBL_BOARD
         ORDER BY BOARD_ID DESC
     </select>
+    <select id="selectAllByLikes" resultType="boardVO">
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM TBL_BOARD
+        ORDER BY BOARD_LIKES DESC
+    </select>
+    <select id="selectAllByViews" resultType="boardVO">
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM TBL_BOARD
+        ORDER BY BOARD_VIEWS DESC
+    </select>
+
     <select id="selectCategory" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
         FROM TBL_BOARD
         WHERE CATEGORY_NAME = #{categoryName}
         ORDER BY BOARD_ID DESC
     </select>
+    <select id="selectCategoryByLikes" resultType="boardVO">
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM TBL_BOARD
+        WHERE CATEGORY_NAME = #{categoryName}
+        ORDER BY BOARD_LIKES DESC
+    </select>
+    <select id="selectCategoryByViews" resultType="boardVO">
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM TBL_BOARD
+        WHERE CATEGORY_NAME = #{categoryName}
+        ORDER BY BOARD_VIEWS DESC
+    </select>
+
     <select id="selectDetailCategory" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
         FROM TBL_BOARD
-        WHERE DETAIL_CATEGORY_NAME = #{detailCategoryName}
+        WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
         ORDER BY BOARD_ID DESC
     </select>
+    <select id="selectDetailCategoryByLikes" resultType="boardVO">
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM TBL_BOARD
+        WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
+        ORDER BY BOARD_LIKES DESC
+    </select>
+    <select id="selectDetailCategoryByViews" resultType="boardVO">
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM TBL_BOARD
+        WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
+        ORDER BY BOARD_VIEWS DESC
+    </select>
+
     <insert id="insert">
         INSERT INTO TBL_BOARD(BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_VIEWS, BOARD_LIKES, USER_ID)
         VALUES(SEQ_BOARD.NEXTVAL, #{nationName}, #{categoryName}, #{detailCategoryName}, #{boardTitle}, #{boardContent}, #{boardViews}, #{boardLikes}, #{userId})
@@ -32,13 +69,23 @@
         SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, CATEGORY_NAME = #{categoryName}, DETAIL_CATEGORY_NAME = #{detailCategoryName}, BOARD_UPDATE_DATE = SYSDATE
         WHERE BOARD_ID = #{boardId}
     </update>
+    <update id="updateView">
+        UPDATE TBL_BOARD
+        SET BOARD_VIEWS = BOARD_VIEWS + 1
+        WHERE BOARD_ID = #{boardId}
+    </update>
     <select id="select" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
         FROM TBL_BOARD
         WHERE BOARD_ID = #{boardId}
     </select>
-    <select id="selectWritten" resultType="boardVO">
 
+    <select id="search" resultType="boardVO">
+        SELECT BOARD_ID, CATEGORY_NAME, BOARD_TITLE, BOARD_REGISTER_DATE
+        FROM TBL_BOARD
+        WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%'
+    </select>
+    <select id="selectWritten" resultType="boardVO">
         SELECT BOARD_ID, CATEGORY_NAME, BOARD_TITLE, BOARD_REGISTER_DATE
         FROM
         (

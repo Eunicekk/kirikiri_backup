@@ -28,16 +28,37 @@
             <h1>함께 할 때 더 즐거운 순간</h1>
             <p><span th:text="${userVO.userNickname}"></span>님 지식공유 플랫폼 OKKY에서 다양한 사람을 만나고 생각의 폭을 넓혀보세요.</p>
         </div>
-
-        <form id="add-post-form" th:action="@{/new}" method="post" th:object="${boardVO}">
-            <div id="topic">
-                <h2>토픽</h2>
-                <select th:field="*{detailCategoryName}" id="topic-select">
-                    <option value="" selected>토픽을 선택해주세요.</option>
-                    <option value="Home">Home</option>
-                    <option value="Work">Work</option>
-                    <option value="Real-life">Real life</option>
+        <div id="category" th:if="${boardVO.categoryName} == 'All'">
+            <form action="/board/new" method="get" id="category-form">
+                <h2>Category</h2>
+                <select th:field="${boardVO.categoryName}" class="topic-select" required>
+                    <option value="Free" selected>Free</option>
+                    <option value="Counselling">Counselling</option>
+                    <option value="Play">Play</option>
+                    <option value="Job">Job</option>
                 </select>
+            </form>
+        </div>
+        <form id="add-post-form" th:action="@{/board/new}" method="post" th:object="${boardVO}">
+            <div th:if="*{categoryName} != 'All'">
+                <div id="topic" th:if="*{categoryName} != 'Free'">
+                    <h2>토픽</h2>
+                    <select th:field="*{detailCategoryName}" class="topic-select" th:if="*{categoryName} == 'Counselling'">
+                        <option value="">토픽을 선택해주세요.</option>
+                        <option value="Home">Home</option>
+                        <option value="Work">Work</option>
+                    </select>
+                    <select th:field="*{detailCategoryName}" class="topic-select" th:if="*{categoryName} == 'Play'">
+                        <option value="">토픽을 선택해주세요.</option>
+                        <option value="Food">Food</option>
+                        <option value="Playground">Playground</option>
+                    </select>
+                    <select th:field="*{detailCategoryName}" class="topic-select" th:if="*{categoryName} == 'Job'">
+                        <option value="">토픽을 선택해주세요.</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Search">Search</option>
+                    </select>
+                </div>
             </div>
             <div id="title">
                 <h2>제목</h2>

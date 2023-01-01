@@ -46,11 +46,21 @@ public class BoardMapperTest {
     }
 
     @Test
+    public void updateViewTest(){
+        boardMapper.updateView(15L);
+    }
+
+    @Test
     public void selectTest(){
         boardMapper.select(3L);
 =======
     public void selectWritten(){
         log.info(boardMapper.selectWritten("kevs").toString());
 >>>>>>> myWorkSpace3
+    }
+
+    @Test
+    public void searchTest(){
+        boardMapper.search("want").stream().map(BoardVO::toString).forEach(log::info);
     }
 }

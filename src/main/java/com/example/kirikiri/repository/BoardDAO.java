@@ -15,13 +15,31 @@ public class BoardDAO {
     public List<BoardVO> getListAll(){
         return boardMapper.selectAll();
     }
-
-    public List<BoardVO> getListByCategory(String categoryName){
-        return boardMapper.selectCategory(categoryName);
+    public List<BoardVO> getListAllOrderByLikes(){
+        return boardMapper.selectAllByLikes();
+    }
+    public List<BoardVO> getListAllOrderByViews(){
+        return boardMapper.selectAllByViews();
     }
 
-    public List<BoardVO> getListByDetailCategory(String detailCategoryName){
-        return boardMapper.selectDetailCategory(detailCategoryName);
+    public List<BoardVO> getListByCategory(BoardVO boardVO){
+        return boardMapper.selectCategory(boardVO);
+    }
+    public List<BoardVO> getListByCategoryOrderByLikes(BoardVO boardVO){
+        return boardMapper.selectCategoryByLikes(boardVO);
+    }
+    public List<BoardVO> getListByCategoryOrderByViews(BoardVO boardVO){
+        return boardMapper.selectCategoryByViews(boardVO);
+    }
+
+    public List<BoardVO> getListByDetailCategory(BoardVO boardVO){
+        return boardMapper.selectDetailCategory(boardVO);
+    }
+    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardVO boardVO){
+        return boardMapper.selectDetailCategoryByLikes(boardVO);
+    }
+    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardVO boardVO){
+        return boardMapper.selectDetailCategoryByViews(boardVO);
     }
 
     public void add(BoardVO boardVO){
@@ -34,6 +52,10 @@ public class BoardDAO {
 
     public void setBoardVO(BoardVO boardVO){
         boardMapper.update(boardVO);
+    }
+
+    public void updateBoardView(Long boardId) {
+        boardMapper.updateView(boardId);
     }
 
     public BoardVO findById(Long boardId){
