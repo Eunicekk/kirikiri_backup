@@ -11,8 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/board/*")
@@ -113,5 +116,12 @@ public class BoardController {
         PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
+    }
+    @GetMapping("/board/search") // 커뮤니티 검색
+    public String search(@RequestParam(value = "keyword") String keyword, Model model) {
+        List<BoardDTO> boardDTOList = boardService.searchPosts(keyword);
+        model.addAttribute("boardList", boardDTOList);
+
+        return "board/community.html";
     }
 }
