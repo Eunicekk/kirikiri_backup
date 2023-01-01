@@ -5,6 +5,7 @@ import com.example.kirikiri.domain.BoardVO;
 import com.example.kirikiri.domain.PageBoardDTO;
 import com.example.kirikiri.domain.UserVO;
 import com.example.kirikiri.service.BoardService;
+import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardService boardService;
+    private final UserService userService;
 
     @GetMapping("/all")
     public String getList(BoardDTO boardDTO, Model model){
@@ -60,7 +62,7 @@ public class BoardController {
         return "/community";
     }
 
-    @GetMapping("/new")
+    @GetMapping("/board/new")
     public String addPost(BoardVO boardVO, UserVO userVO){
         userVO.setUserId("aaa");
         userVO.setUserNickname("aaa");
@@ -69,10 +71,10 @@ public class BoardController {
         boardVO.setUserId(userVO.getUserId());
         return "/addPost";
     }
-    @PostMapping("/new")
+    @PostMapping("/board/new")
     public RedirectView addPost(BoardVO boardVO){
         boardService.add(boardVO);
-        return new RedirectView("/board/all");
+        return new RedirectView("/all");
     }
     @GetMapping("/post")
     public String post(Long boardId, Model model){
@@ -112,6 +114,7 @@ public class BoardController {
         PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
+        model.addAttribute("user", userService.getInfo("kevs"));
         return "/activity/writtenBoard";
     }
 

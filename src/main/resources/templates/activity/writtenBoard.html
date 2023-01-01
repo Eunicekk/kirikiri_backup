@@ -22,9 +22,9 @@
         <div class="middle">
             <div class="info">
                 <div class="info_m">
-                    <div class="photo_div"><img src="../static/img/account.png" class="photo"></div> <!-- 개인 프로필 사진 출력 -->
+                    <div class="photo_div"><img class="photo" th:src="${user.userProfile}"></div> <!-- 개인 프로필 사진 출력 -->
                     <div class="name">
-                        <div class="username"><h2 id="name"></h2></div>
+                        <div class="username"><h2 id="name" th:text="${user.userNickname}"></h2></div>
                         <div class="act_score">
                             <svg class="thunder" width="9" height="12" viewBox="0 1 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <title>bolt icon</title>
@@ -119,6 +119,15 @@
         $("input#page").val($(this).attr("href"));
         $("form[name='page-form']").submit();
     });
+
+    let userProfile = [[${user.userProfile}]];
+
+    if(userProfile == null){
+        document.querySelector(".photo").src = "/img/account.png";
+    }else{
+        document.querySelector(".photo").src = userProfile;
+    }
+
 </script>
 <style>
     #link_1{
