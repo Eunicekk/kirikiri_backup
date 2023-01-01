@@ -107,11 +107,6 @@ public class BoardController {
         return new RedirectView("/board/all");
     }
 
-
-    //    작성한 게시글 조회
-    @GetMapping("/activity/writtenBoard")
-    public void selectWrittenBoard(){}
-
     //    작성한 게시글 조회
     @GetMapping("/activity/writtenBoard")
     public void getWrittenBoard(String userId, Integer page, Model model){
