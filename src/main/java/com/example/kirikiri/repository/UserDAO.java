@@ -15,4 +15,6 @@ public class UserDAO {
     }
 
     public void updateUserInfo(UserVO userVO){userMapper.updateUser(userVO);}
+
+    public void deleteUser(String userId){userMapper.deleteUser(userId);}
 }

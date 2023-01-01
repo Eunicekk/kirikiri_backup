@@ -2,35 +2,35 @@ window.onload=function() {
 
 
     // 메뉴로 페이지 이동 이벤트
-    let navitem = document.querySelector(".menu ul li");
-    let ident = navitem.id.split("_")[1];
-
-    navitem.parentNode.setAttribute("data-current", ident);
-    navitem.setAttribute("style", "background-color : #e5e7eb");
-
-    let pages = document.querySelectorAll(".tabpage");
-    for (let i = 1; i < pages.length; i++) {
-        pages[i].style.display = "none";
-    }
-
-    let tabs = document.querySelectorAll(".menu ul li");
-    for (let j = 0; j < tabs.length; j++) {
-        tabs[j].onclick = click;
-    }
-
-
-    function click() {
-        let current = this.parentNode.getAttribute("data-current");
-        document.getElementById("link_" + current).setAttribute("style", "background-color : #fff");
-
-        document.getElementById("tabpage_" + current).style.display = "none";
-
-        let ident = this.id.split("_")[1];
-        this.setAttribute("style", "background-color: #e5e7eb");
-        document.getElementById("tabpage_" + ident).style = "block";
-
-        this.parentNode.setAttribute("data-current", ident);
-    }
+    // let navitem = document.querySelector(".menu ul li");
+    // let ident = navitem.id.split("_")[1];
+    //
+    // navitem.parentNode.setAttribute("data-current", ident);
+    // navitem.setAttribute("style", "background-color : #e5e7eb");
+    //
+    // let pages = document.querySelectorAll(".tabpage");
+    // for (let i = 1; i < pages.length; i++) {
+    //     pages[i].style.display = "none";
+    // }
+    //
+    // let tabs = document.querySelectorAll(".menu ul li");
+    // for (let j = 0; j < tabs.length; j++) {
+    //     tabs[j].onclick = click;
+    // }
+    //
+    //
+    // function click() {
+    //     let current = this.parentNode.getAttribute("data-current");
+    //     document.getElementById("link_" + current).setAttribute("style", "background-color : #fff");
+    //
+    //     document.getElementById("tabpage_" + current).style.display = "none";
+    //
+    //     let ident = this.id.split("_")[1];
+    //     this.setAttribute("style", "background-color: #e5e7eb");
+    //     document.getElementById("tabpage_" + ident).style = "block";
+    //
+    //     this.parentNode.setAttribute("data-current", ident);
+    // }
 
 
     // 썸네일 이벤트

@@ -12,4 +12,6 @@ public interface UserMapper {
     // 유저 정보 업데이트
     public void updateUser(UserVO userVO);
 
+    public void deleteUser(String userId);
+
 }

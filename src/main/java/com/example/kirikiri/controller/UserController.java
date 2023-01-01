@@ -15,12 +15,12 @@ import org.springframework.web.servlet.view.RedirectView;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/myPage")
+    @GetMapping("/myPage/info")
     public void getInfoById(String userId, Model model){
         model.addAttribute("user", userService.getInfo("kevs"));
     }
 
-    @PostMapping("/myPage")
+    @PostMapping("/myPage/info")
     public RedirectView updateInfo(UserVO userVO, RedirectAttributes redirectAttributes){
         if(userVO.getUserAge()==null){
             userVO.setUserAge(0);
@@ -29,7 +29,12 @@ public class UserController {
         userService.updateInfo(userVO);
         System.out.println(userVO.isUserAgeCheck());
         redirectAttributes.addAttribute("userId", userVO.getUserId());
-        return new RedirectView("/myPage");
+        return new RedirectView("/myPage/info");
+    }
+    @GetMapping("/myPage/delete")
+    public RedirectView delete(String userId){
+        userService.deleteInfo("pigs");
+        return new RedirectView("/mainPageHtml/index");
     }
 
 }
