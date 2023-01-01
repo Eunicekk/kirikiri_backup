@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.kirikiri.mapper.MemberMapper">
+
+    <insert id = "memberJoin">
+        insert into login_member values(#{memberId},#{memberPw},#{memberName})
+    </insert>
+    <select id="memberLogin" resultType="com.vam.model.LoginVO">
+        select memberId, memberPw, memberName
+        from login_member
+        where memberId = #{memberId}
+    </select>
+    <select id="getMemberInfo" resultType="com.vam.model.LoginVO">
+         select memberId, memberName
+         from login_member
+         where memberId = #{memberId} and memberPw = #{memberPw}
+
+      </select>
+</mapper>
