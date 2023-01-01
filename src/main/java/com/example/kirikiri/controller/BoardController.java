@@ -18,7 +18,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/board/*")
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardService boardService;
@@ -110,13 +109,15 @@ public class BoardController {
         return new RedirectView("/board/all");
     }
 
-        //    작성한 게시글 조회
-    @GetMapping("/activity")
-    public void getWrittenBoard(String userId, Integer page, Model model){
+    //    작성한 게시글 조회
+    @GetMapping("/activity/writtenBoard")
+    public String getWrittenBoard(String userId, Integer page, Model model){
         PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
+        return "/activity/writtenBoard";
     }
+
     @GetMapping("/board/search") // 커뮤니티 검색
     public String search(@RequestParam(value = "keyword") String keyword, Model model) {
         List<BoardDTO> boardDTOList = boardService.searchPosts(keyword);
@@ -124,4 +125,8 @@ public class BoardController {
 
         return "board/community.html";
     }
+
+    @GetMapping("/activity/comment")
+    public String getComment(){return "activity/comment";}
+
 }

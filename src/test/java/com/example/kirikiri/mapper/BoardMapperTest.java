@@ -43,6 +43,12 @@ public class BoardMapperTest {
 
     @Test
     public void selectTest(){
+    public void updateViewTest(){
+        boardMapper.updateView(15L);
+    }}
+
+    @Test
+    public void selectTest() {
         boardMapper.select(3L);
     }
 

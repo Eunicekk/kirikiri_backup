@@ -146,6 +146,10 @@ name>h2{
     cursor: pointer;
     box-sizing: border-box;
 }
+#link_1:hover, #link_2:hover, #link_3:hover{
+    color: rgb(139, 195, 74);
+    border-bottom: 2px solid rgb(139, 195, 74);
+}
 .menu span{
     line-height: 21px;
 }
