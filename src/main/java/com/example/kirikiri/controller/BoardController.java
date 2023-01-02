@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/board/*")
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardService boardService;
@@ -98,17 +97,28 @@ public class BoardController {
     @GetMapping("/new")
     public String addPost(BoardVO boardVO, UserVO userVO, HttpServletRequest request){
         HttpSession session = request.getSession();
-        String userId = (String)session.getAttribute("userId");
-        UserVO user = userService.getUserVOById(userId);
-        userVO.setUserNickname(user.getUserNickname());
-        boardVO.setNationName(user.getUserNation());
-        boardVO.setUserId(user.getUserId());
-        return "/addPost";
+        String userId = "";
+        if(session != null) {
+            userId = (String) session.getAttribute("userId");
+        }
+        else {
+            return "/signup";
+        }
+        if(userId != null) {
+            UserVO user = userService.getUserVOById(userId);
+            userVO.setUserNickname(user.getUserNickname());
+            boardVO.setNationName(user.getUserNation());
+            boardVO.setUserId(user.getUserId());
+            return "/addPost";
+        }
+        else {
+            return "/signup";
+        }
     }
     @PostMapping("/new")
     public RedirectView addPost(BoardVO boardVO){
         boardService.add(boardVO);
-        return new RedirectView("/board/all");
+        return new RedirectView("/all");
     }
     @GetMapping("/post")
     public String post(Long boardId, Model model, HttpServletRequest request){
@@ -136,12 +146,12 @@ public class BoardController {
     public RedirectView editPost(BoardVO boardVO, RedirectAttributes redirectAttributes){
         boardService.edit(boardVO);
         redirectAttributes.addAttribute("boardId", boardVO.getBoardId());
-        return new RedirectView("/board/post");
+        return new RedirectView("/post");
     }
     @GetMapping("/delete")
     public RedirectView deletePost(Long boardId) {
         boardService.delete(boardId);
-        return new RedirectView("/board/all");
+        return new RedirectView("/all");
     }
 
     @GetMapping("/faq")
@@ -149,7 +159,22 @@ public class BoardController {
         return "/faq";
     }
     @GetMapping("/")
-    public String main(){
+    public String main(HttpServletRequest request, Model model, BoardVO boardVO){
+        HttpSession session = request.getSession();
+        String userId = null;
+        boolean userCheck;
+
+        if(session != null) {
+            userId = (String) session.getAttribute("userId");
+        }
+        if(userId != null) {
+            userCheck = true;
+            UserVO userVO = userService.getUserVOById(userId);
+            model.addAttribute("userVO", userVO);
+        }
+        else userCheck = false;
+        model.addAttribute("userCheck", userCheck);
+
         return "/mainPageHtml/index";
     }
 

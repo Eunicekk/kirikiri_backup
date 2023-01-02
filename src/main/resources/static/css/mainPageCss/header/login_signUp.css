@@ -5,9 +5,10 @@
     border-radius: 35px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-.login button,
-.signUp button {
+.login a,
+.signUp a {
     font-size: 12px;
 }
 
@@ -21,15 +22,15 @@
 }
 
 .signUp {
-    background-color: #0090f9;
+    background-color: #8BC34A;
 }
 
 .signUp:hover {
     cursor: pointer;
-    background-color: #0079cf;
+    background-color: #689F38;
 }
 
-.signUp button {
+.signUp a {
     color: #fff;
 }
 

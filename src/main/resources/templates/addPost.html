@@ -39,7 +39,7 @@
                 </select>
             </form>
         </div>
-        <form id="add-post-form" th:action="@{/board/new}" method="post" th:object="${boardVO}">
+        <form id="add-post-form" th:action="@{/new}" method="post" th:object="${boardVO}">
             <div th:if="*{categoryName} != 'All'">
                 <div id="topic" th:if="*{categoryName} != 'Free'">
                     <h2>토픽</h2>

@@ -28,7 +28,7 @@
             <h1>게시물 수정하기</h1>
         </div>
 
-        <form id="edit-post-form" action="/board/edit" method="post">
+        <form id="edit-post-form" action="/edit" method="post">
             <div id="topic">
                 <h2>토픽</h2>
                 <select th:field="*{detailCategoryName}" id="topic-select" th:if="*{categoryName} == 'Counselling'">

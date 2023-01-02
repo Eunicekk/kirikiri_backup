@@ -35,9 +35,12 @@ header {
     height: 28px;
     font-size: 14px;
 }
-.header_left_menu > div > span:hover {
-    cursor: pointer;
-    color: #0090f9;
+.header_left_menu > div > a {
+    text-decoration: #000;
+    color: #000;
+}
+.header_left_menu > div > a:hover {
+    color: #8BC34A;
 }
 
 .header_right {
@@ -62,6 +65,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.header_right_login svg {
+    width: 20px;
 }
 
 .menu_btn {
