@@ -10,6 +10,18 @@ import org.springframework.stereotype.Repository;
 public class UserDAO {
     private final UserMapper userMapper;
 
+    public void setUserVO(UserVO userVO) {
+        userMapper.insert(userVO);
+    }
+
+    public UserVO getUserVO(UserVO userVO) {
+        return userMapper.select(userVO);
+    }
+
+    public UserVO getUserVOById(String userId) {
+        return userMapper.selectById(userId);
+    }
+
     public UserVO userInfoById(String userId){
         return userMapper.selectUser(userId);
     }

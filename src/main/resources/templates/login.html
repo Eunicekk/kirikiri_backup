@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>kirikiri - All That Foreign worker</title>
-    <link rel="stylesheet" href="../static/css/reset.css" />
-    <link rel="stylesheet" href="../static/css/login.css" />
-    <script type="text/javascript" src="../static/javascript/login.js"></script>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <script type="text/javascript" src="/javascript/login.js"></script>
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
   </head>
   <body>
 <!--  전체 페이지-->
     <div id="login-page">
       <div>
-        <a href="./mainPageHtml/index.html">
-          <img class="main-logo" src="../static/img/Logo.png" alt="kirikiri" />
+        <a href="/">
+          <img class="main-logo" src="/img/Logo.png" alt="kirikiri" />
         </a>
         <h2 id="kirikiri-welcome">kirikiri에 오신것을 환영합니다.</h2>
         <p class="explan-site">
@@ -158,18 +158,18 @@
           </div>
 
 <!--          로그인폼-->
-          <form id="login-form" action="">
+          <form id="login-form" action="/login" method="post" th:object="${userVO}">
             <div>
               <div>
                 <label class="login-label" for="id">아이디</label>
                 <div class="mt-1">
-                  <input id="id" class="login-input" type="text" />
+                  <input id="id" class="login-input" type="text" th:field="*{userId}" />
                 </div>
               </div>
               <div class="mt-2">
                 <label class="login-label" for="password">비밀번호</label>
                 <div class="mt-1">
-                  <input id="password" class="login-input" type="password" />
+                  <input id="password" class="login-input" type="password" th:field="*{userPassword}" />
                 </div>
               </div>
               <div id="warning-msg">
@@ -183,12 +183,11 @@
               <a href="./findAccount.html">계정찾기</a>
             </div>
             <div id="login-button">
-<!--              백엔드 시 submit으로 전환-->
-              <button type="button">로그인</button>
+              <button type="submit">로그인</button>
             </div>
             <p id="go-signup">
               <span>아직 회원이 아니신가요?</span>
-              <a href="./signup.html">회원가입</a>
+              <a href="/signup">회원가입</a>
             </p>
           </form>
         </div>
@@ -203,5 +202,15 @@
         </div>
       </div>
     </div>
+  <script th:inline="javascript">
+    let check = false;
+    check = [[${userCheck}]];
+    let failMsg = document.getElementById("login-fail");
+    if(check) {
+      console.log(check);
+      failMsg.style.display = "flex";
+      console.log(check);
+    }
+  </script>
   </body>
 </html>

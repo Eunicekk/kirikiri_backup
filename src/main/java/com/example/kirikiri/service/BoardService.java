@@ -11,20 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface BoardService {
+
+    public Integer getCountAll();
+    public Integer getCountCategory(BoardVO boardVO);
+    public Integer getCountDetailCategory(BoardVO boardVO);
+
     //전체 게시물 조회
-    public List<BoardVO> getListAll();
-    public List<BoardVO> getListAllOrderByLikes();
-    public List<BoardVO> getListAllOrderByViews();
+    public List<BoardVO> getListAll(Integer page);
+    public List<BoardVO> getListAllOrderByLikes(Integer page);
+    public List<BoardVO> getListAllOrderByViews(Integer page);
 
     //특정 게시판 조회
-    public List<BoardVO> getListByCategory(BoardVO boardVO);
-    public List<BoardVO> getListByCategoryOrderByLikes(BoardVO boardVO);
-    public List<BoardVO> getListByCategoryOrderByViews(BoardVO boardVO);
+    public List<BoardVO> getListByCategory(BoardDTO boardDTO);
+    public List<BoardVO> getListByCategoryOrderByLikes(BoardDTO boardDTO);
+    public List<BoardVO> getListByCategoryOrderByViews(BoardDTO boardDTO);
 
     //특정 게시판 조회
-    public List<BoardVO> getListByDetailCategory(BoardVO boardVO);
-    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardVO boardVO);
-    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardVO boardVO);
+    public List<BoardVO> getListByDetailCategory(BoardDTO boardDTO);
+    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardDTO boardDTO);
+    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardDTO boardDTO);
 
     //게시물 추가
     public void add(BoardVO boardVO);

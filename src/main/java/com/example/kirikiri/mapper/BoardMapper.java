@@ -12,21 +12,27 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
+
+    //게시글수 카운트
+    public Integer countAll();
+    public Integer countCategory(BoardVO boardVO);
+    public Integer countDetailCategory(BoardVO boardVO);
+
     //게시글 목록
-    public List<BoardVO> selectAll();
-    public List<BoardVO> selectAllByLikes();
-    public List<BoardVO> selectAllByViews();
+    public List<BoardVO> selectAll(Integer page);
+    public List<BoardVO> selectAllByLikes(Integer page);
+    public List<BoardVO> selectAllByViews(Integer page);
 
     //카테고리 목록
 
-    public List<BoardVO> selectCategory(BoardVO boardVO);
-    public List<BoardVO> selectCategoryByLikes(BoardVO boardVO);
-    public List<BoardVO> selectCategoryByViews(BoardVO boardVO);
+    public List<BoardVO> selectCategory(BoardDTO boardDTO);
+    public List<BoardVO> selectCategoryByLikes(BoardDTO boardDTO);
+    public List<BoardVO> selectCategoryByViews(BoardDTO boardDTO);
     
     //세부 카테고리 목록
-    public List<BoardVO> selectDetailCategory(BoardVO boardVO);
-    public List<BoardVO> selectDetailCategoryByLikes(BoardVO boardVO);
-    public List<BoardVO> selectDetailCategoryByViews(BoardVO boardVO);
+    public List<BoardVO> selectDetailCategory(BoardDTO boardDTO);
+    public List<BoardVO> selectDetailCategoryByLikes(BoardDTO boardDTO);
+    public List<BoardVO> selectDetailCategoryByViews(BoardDTO boardDTO);
 
     //게시글 추가
     public void insert(BoardVO boardVO);

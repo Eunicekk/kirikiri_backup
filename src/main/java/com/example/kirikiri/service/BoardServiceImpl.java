@@ -17,48 +17,63 @@ public class BoardServiceImpl implements BoardService {
     private final BoardDAO boardDAO;
 
     @Override
-    public List<BoardVO> getListAll() {
-        return boardDAO.getListAll();
+    public Integer getCountAll(){
+        return boardDAO.getCountAll();
     }
 
     @Override
-    public List<BoardVO> getListAllOrderByLikes() {
-        return boardDAO.getListAllOrderByLikes();
+    public Integer getCountCategory(BoardVO boardVO) {
+        return boardDAO.getCountCategory(boardVO);
     }
 
     @Override
-    public List<BoardVO> getListAllOrderByViews() {
-        return boardDAO.getListAllOrderByViews();
+    public Integer getCountDetailCategory(BoardVO boardVO) {
+        return boardDAO.getCountDetailCategory(boardVO);
     }
 
     @Override
-    public List<BoardVO> getListByCategory(BoardVO boardVO) {
-        return boardDAO.getListByCategory(boardVO);
+    public List<BoardVO> getListAll(Integer page) {
+        return boardDAO.getListAll(page);
     }
 
     @Override
-    public List<BoardVO> getListByCategoryOrderByLikes(BoardVO boardVO) {
-        return boardDAO.getListByCategoryOrderByLikes(boardVO);
+    public List<BoardVO> getListAllOrderByLikes(Integer page) {
+        return boardDAO.getListAllOrderByLikes(page);
     }
 
     @Override
-    public List<BoardVO> getListByCategoryOrderByViews(BoardVO boardVO) {
-        return boardDAO.getListByCategoryOrderByViews(boardVO);
+    public List<BoardVO> getListAllOrderByViews(Integer page) {
+        return boardDAO.getListAllOrderByViews(page);
     }
 
     @Override
-    public List<BoardVO> getListByDetailCategory(BoardVO boardVO) {
-        return boardDAO.getListByDetailCategory(boardVO);
+    public List<BoardVO> getListByCategory(BoardDTO boardDTO) {
+        return boardDAO.getListByCategory(boardDTO);
     }
 
     @Override
-    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardVO boardVO) {
-        return boardDAO.getListByDetailCategoryOrderByViews(boardVO);
+    public List<BoardVO> getListByCategoryOrderByLikes(BoardDTO boardDTO) {
+        return boardDAO.getListByCategoryOrderByLikes(boardDTO);
     }
 
     @Override
-    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardVO boardVO) {
-        return boardDAO.getListByDetailCategoryOrderByLikes(boardVO);
+    public List<BoardVO> getListByCategoryOrderByViews(BoardDTO boardDTO) {
+        return boardDAO.getListByCategoryOrderByViews(boardDTO);
+    }
+
+    @Override
+    public List<BoardVO> getListByDetailCategory(BoardDTO boardDTO) {
+        return boardDAO.getListByDetailCategory(boardDTO);
+    }
+
+    @Override
+    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardDTO boardDTO) {
+        return boardDAO.getListByDetailCategoryOrderByViews(boardDTO);
+    }
+
+    @Override
+    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardDTO boardDTO) {
+        return boardDAO.getListByDetailCategoryOrderByLikes(boardDTO);
     }
 
     @Override

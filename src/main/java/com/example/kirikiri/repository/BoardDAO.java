@@ -1,5 +1,6 @@
 package com.example.kirikiri.repository;
 
+import com.example.kirikiri.domain.BoardDTO;
 import com.example.kirikiri.domain.BoardVO;
 import com.example.kirikiri.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
@@ -12,34 +13,44 @@ import java.util.List;
 public class BoardDAO {
     private final BoardMapper boardMapper;
 
-    public List<BoardVO> getListAll(){
-        return boardMapper.selectAll();
+    public Integer getCountAll() {
+        return boardMapper.countAll();
     }
-    public List<BoardVO> getListAllOrderByLikes(){
-        return boardMapper.selectAllByLikes();
+    public Integer getCountCategory(BoardVO boardVO) {
+        return boardMapper.countCategory(boardVO);
     }
-    public List<BoardVO> getListAllOrderByViews(){
-        return boardMapper.selectAllByViews();
-    }
-
-    public List<BoardVO> getListByCategory(BoardVO boardVO){
-        return boardMapper.selectCategory(boardVO);
-    }
-    public List<BoardVO> getListByCategoryOrderByLikes(BoardVO boardVO){
-        return boardMapper.selectCategoryByLikes(boardVO);
-    }
-    public List<BoardVO> getListByCategoryOrderByViews(BoardVO boardVO){
-        return boardMapper.selectCategoryByViews(boardVO);
+    public Integer getCountDetailCategory(BoardVO boardVO) {
+        return boardMapper.countDetailCategory(boardVO);
     }
 
-    public List<BoardVO> getListByDetailCategory(BoardVO boardVO){
-        return boardMapper.selectDetailCategory(boardVO);
+    public List<BoardVO> getListAll(Integer page){
+        return boardMapper.selectAll(page);
     }
-    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardVO boardVO){
-        return boardMapper.selectDetailCategoryByLikes(boardVO);
+    public List<BoardVO> getListAllOrderByLikes(Integer page){
+        return boardMapper.selectAllByLikes(page);
     }
-    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardVO boardVO){
-        return boardMapper.selectDetailCategoryByViews(boardVO);
+    public List<BoardVO> getListAllOrderByViews(Integer page){
+        return boardMapper.selectAllByViews(page);
+    }
+
+    public List<BoardVO> getListByCategory(BoardDTO boardDTO){
+        return boardMapper.selectCategory(boardDTO);
+    }
+    public List<BoardVO> getListByCategoryOrderByLikes(BoardDTO boardDTO){
+        return boardMapper.selectCategoryByLikes(boardDTO);
+    }
+    public List<BoardVO> getListByCategoryOrderByViews(BoardDTO boardDTO){
+        return boardMapper.selectCategoryByViews(boardDTO);
+    }
+
+    public List<BoardVO> getListByDetailCategory(BoardDTO boardDTO){
+        return boardMapper.selectDetailCategory(boardDTO);
+    }
+    public List<BoardVO> getListByDetailCategoryOrderByLikes(BoardDTO boardDTO){
+        return boardMapper.selectDetailCategoryByLikes(boardDTO);
+    }
+    public List<BoardVO> getListByDetailCategoryOrderByViews(BoardDTO boardDTO){
+        return boardMapper.selectDetailCategoryByViews(boardDTO);
     }
 
     public void add(BoardVO boardVO){

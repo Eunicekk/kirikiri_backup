@@ -1,28 +1,26 @@
 package com.example.kirikiri.controller;
 
-import com.example.kirikiri.domain.BoardDTO;
-import com.example.kirikiri.domain.BoardVO;
-import com.example.kirikiri.domain.PageBoardDTO;
-import com.example.kirikiri.domain.UserVO;
+import com.example.kirikiri.domain.*;
 import com.example.kirikiri.service.BoardService;
 import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 import java.util.List;
 import java.io.File;
 import java.io.IOException;
-
 
 @Controller
 @RequiredArgsConstructor
@@ -31,95 +29,165 @@ public class BoardController {
     private final UserService userService;
 
     @GetMapping("/all")
-    public String getList(BoardDTO boardDTO, Model model) {
-        model.addAttribute("boards", boardService.getListAll());
+    public String getList(BoardDTO boardDTO, Integer page, Model model){
+        if(page == null) page = 1;
+        Integer pageTotal = boardService.getCountAll();
+        model.addAttribute("boards", boardService.getListAll(page));
+        model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
         boardDTO.setCategoryName("All");
         return "/community";
     }
-
     @GetMapping("/board")
-    public String moveCategory(BoardDTO boardDTO, Model model) {
-        BoardVO boardVO = boardDTO.chageBoardVO();
-        if (boardDTO.getSortType() == 1) {
-            if (boardDTO.getCategoryName().equals("All")) {
-                model.addAttribute("boards", boardService.getListAll());
-            } else {
-                if (boardDTO.getDetailCategoryName().isEmpty())
-                    model.addAttribute("boards", boardService.getListByCategory(boardVO));
-                else model.addAttribute("boards", boardService.getListByDetailCategory(boardVO));
+    public String moveCategory(BoardDTO boardDTO, Integer page, Model model){
+        BoardVO boardVO = boardDTO.changeBoardVO();
+        Integer pageTotal;
+        if(page == null) page = 1;
+        boardDTO.setPage(page);
+        if(boardDTO.getSortType() == 1) {
+            if(boardDTO.getCategoryName().equals("All")){
+                pageTotal = boardService.getCountAll();
+                model.addAttribute("boards", boardService.getListAll(page));
+                model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
+            }
+            else {
+                if(boardDTO.getDetailCategoryName().isEmpty()) {
+                    pageTotal = boardService.getCountCategory(boardVO);
+                    model.addAttribute("boards", boardService.getListByCategory(boardDTO));
+                    model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
+                }
+                else {
+                    pageTotal = boardService.getCountDetailCategory(boardVO);
+                    model.addAttribute("boards", boardService.getListByDetailCategory(boardDTO));
+                    model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
+                }
             }
         }
-        if (boardDTO.getSortType() == 2) {
-            if (boardDTO.getCategoryName().equals("All")) {
-                model.addAttribute("boards", boardService.getListAllOrderByLikes());
-            } else {
-                if (boardDTO.getDetailCategoryName().isEmpty())
-                    model.addAttribute("boards", boardService.getListByCategoryOrderByLikes(boardVO));
-                else model.addAttribute("boards", boardService.getListByDetailCategoryOrderByLikes(boardVO));
+        if(boardDTO.getSortType() == 2) {
+            if(boardDTO.getCategoryName().equals("All")){
+                pageTotal = boardService.getCountAll();
+                model.addAttribute("boards", boardService.getListAllOrderByLikes(page));
+                model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
+            } else{
+                if(boardDTO.getDetailCategoryName().isEmpty()) {
+                    pageTotal = boardService.getCountCategory(boardVO);
+                    model.addAttribute("boards", boardService.getListByCategoryOrderByLikes(boardDTO));
+                    model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
+                }
+                else {
+                    pageTotal = boardService.getCountDetailCategory(boardVO);
+                    model.addAttribute("boards", boardService.getListByDetailCategoryOrderByLikes(boardDTO));
+                    model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
+                }
             }
         }
-        if (boardDTO.getSortType() == 3) {
-            if (boardDTO.getCategoryName().equals("All")) {
-                model.addAttribute("boards", boardService.getListAllOrderByViews());
+        if(boardDTO.getSortType() == 3) {
+            if(boardDTO.getCategoryName().equals("All")){
+                pageTotal = boardService.getCountAll();
+                model.addAttribute("boards", boardService.getListAllOrderByViews(page));
+                model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
             } else {
-                if (boardDTO.getDetailCategoryName().isEmpty())
-                    model.addAttribute("boards", boardService.getListByCategoryOrderByViews(boardVO));
-                else model.addAttribute("boards", boardService.getListByDetailCategoryOrderByViews(boardVO));
+                if(boardDTO.getDetailCategoryName().isEmpty()) {
+                    pageTotal = boardService.getCountCategory(boardVO);
+                    model.addAttribute("boards", boardService.getListByCategoryOrderByViews(boardDTO));
+                    model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
+                }
+                else {
+                    pageTotal = boardService.getCountDetailCategory(boardVO);
+                    model.addAttribute("boards", boardService.getListByDetailCategoryOrderByViews(boardDTO));
+                    model.addAttribute("pagination", new PageDTO().createPageBoardDTO(page, pageTotal));
+                }
             }
         }
 
         return "/community";
     }
 
-    @GetMapping("/board/new")
-    public String addPost(BoardVO boardVO, UserVO userVO) {
-        userVO.setUserId("aaa");
-        userVO.setUserNickname("aaa");
-        userVO.setUserNation("Japan");
-        boardVO.setNationName(userVO.getUserNation());
-        boardVO.setUserId(userVO.getUserId());
-        return "/addPost";
+    @GetMapping("/new")
+    public String addPost(BoardVO boardVO, UserVO userVO, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String userId = "";
+        if(session != null) {
+            userId = (String) session.getAttribute("userId");
+        }
+        else {
+            return "/signup";
+        }
+        if(userId != null) {
+            UserVO user = userService.getUserVOById(userId);
+            userVO.setUserNickname(user.getUserNickname());
+            boardVO.setNationName(user.getUserNation());
+            boardVO.setUserId(user.getUserId());
+            return "/addPost";
+        }
+        else {
+            return "/signup";
+        }
     }
-
-    @PostMapping("/board/new")
-    public RedirectView addPost(BoardVO boardVO) {
+    @PostMapping("/new")
+    public RedirectView addPost(BoardVO boardVO){
         boardService.add(boardVO);
         return new RedirectView("/all");
     }
 
+
+
+
     @GetMapping("/post")
-    public String post(Long boardId, Model model) {
+    public String post(Long boardId, Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String userId = (String)session.getAttribute("userId");
         BoardVO boardVO = boardService.getBoard(boardId);
         boolean userCheck;
         boolean updateCheck;
-        if (boardVO.getUserId().equals("aaa")) userCheck = true;
+        if(boardVO.getUserId().equals(userId)) userCheck = true;
         else userCheck = false;
-        if (!boardVO.getBoardUpdateDate().equals(boardVO.getBoardRegisterDate())) updateCheck = true;
+        if(!boardVO.getBoardUpdateDate().equals(boardVO.getBoardRegisterDate())) updateCheck = true;
         else updateCheck = false;
         model.addAttribute("boardVO", boardVO);
         model.addAttribute("userCheck", userCheck);
         model.addAttribute("updateCheck", updateCheck);
         return "/post";
     }
-
     @GetMapping("/edit")
-    public String editPost(Long boardId, Model model) {
+    public String editPost(Long boardId, Model model){
         BoardVO boardVO = boardService.getBoard(boardId);
         model.addAttribute("boardVO", boardVO);
         return "/editPost";
     }
-
     @PostMapping("/edit")
-    public RedirectView editPost(BoardVO boardVO, RedirectAttributes redirectAttributes) {
+    public RedirectView editPost(BoardVO boardVO, RedirectAttributes redirectAttributes){
         boardService.edit(boardVO);
         redirectAttributes.addAttribute("boardId", boardVO.getBoardId());
-        return new RedirectView("/board/post");
+        return new RedirectView("/post");
     }
-
     @GetMapping("/delete")
     public RedirectView deletePost(Long boardId) {
         boardService.delete(boardId);
-        return new RedirectView("/board/all");
+        return new RedirectView("/all");
+    }
+
+    @GetMapping("/faq")
+    public String FAQ(){
+        return "/faq";
+    }
+    @GetMapping("/")
+    public String main(HttpServletRequest request, Model model, BoardVO boardVO){
+        HttpSession session = request.getSession();
+        String userId = null;
+        boolean userCheck;
+
+        if(session != null) {
+            userId = (String) session.getAttribute("userId");
+        }
+        if(userId != null) {
+            userCheck = true;
+            UserVO userVO = userService.getUserVOById(userId);
+            model.addAttribute("userVO", userVO);
+        }
+        else userCheck = false;
+        model.addAttribute("userCheck", userCheck);
+
+        return "/mainPageHtml/index";
     }
 
     //    작성한 게시글 조회
@@ -151,9 +219,4 @@ public class BoardController {
         model.addAttribute("boards", boards);
         return "/community";
     }
-    @GetMapping("/display")
-        public byte[] display (String path) throws IOException {
-        return FileCopyUtils.copyToByteArray(new File("C:/upload", path));
-        }
-
 }

@@ -10,9 +10,23 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Qualifier("user") @Primary
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
 
+    @Override
+    public void signup(UserVO userVO) {
+        userDAO.setUserVO(userVO);
+    }
+
+    @Override
+    public UserVO login(UserVO userVO) {
+        return userDAO.getUserVO(userVO);
+    }
+
+    @Override
+    public UserVO getUserVOById(String userId) {
+        return userDAO.getUserVOById(userId);
+    }
     @Override
     public UserVO getInfo(String userId){return userDAO.userInfoById(userId);}
 

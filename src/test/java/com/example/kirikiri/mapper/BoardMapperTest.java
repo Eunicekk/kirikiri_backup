@@ -1,6 +1,8 @@
 package com.example.kirikiri.mapper;
 
 import com.example.kirikiri.domain.BoardVO;
+
+import com.example.kirikiri.domain.BoardVO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ public class BoardMapperTest {
 
     @Test
     public void selectAllTest(){
-        boardMapper.selectAll().stream().map(BoardVO::toString).forEach(log::info);
+        boardMapper.selectAll(1).stream().map(BoardVO::toString).forEach(log::info);
     }
 
     @Test
@@ -42,14 +44,8 @@ public class BoardMapperTest {
     }
 
     @Test
-    public void selectTest(){
     public void updateViewTest(){
         boardMapper.updateView(15L);
-    }}
-
-    @Test
-    public void selectTest() {
-        boardMapper.select(3L);
     }
 
     @Test

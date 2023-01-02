@@ -24,7 +24,7 @@ public class BoardDTO {
     private Long boardId;
     private String nationName;
     private String categoryName;
-    private String detailCategoryName;
+    private String detailCategoryName = "";
     private String boardTitle;
     private String boardContent;
     private String boardRegisterDate;
@@ -32,7 +32,8 @@ public class BoardDTO {
     private int boardViews;
     private int boardLikes;
     private String userId;
-    private int sortType;
+    private int sortType = 1;
+    private int page = 1;
     private String keyword;
 
     @Builder
@@ -45,7 +46,7 @@ public class BoardDTO {
         this.userId = userId;
     }
 
-    public BoardVO chageBoardVO(){
+    public BoardVO changeBoardVO(){
         BoardVO boardVO = new BoardVO(boardId, nationName, categoryName, detailCategoryName, boardTitle, boardContent, boardRegisterDate, boardUpdateDate, boardViews, boardLikes, userId);
         return boardVO;
     }
