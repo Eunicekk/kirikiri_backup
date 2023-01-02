@@ -3,22 +3,28 @@ package com.example.kirikiri.controller;
 import com.example.kirikiri.domain.UserVO;
 import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.jni.FileInfo;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-<<<<<<< HEAD
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URL;
 
 
 @Controller
 @RequiredArgsConstructor
-@Slf4j
 public class UserController {
     private final UserService userService;
 
@@ -78,67 +84,37 @@ public class UserController {
     public RedirectView delete(String userId){
         userService.deleteInfo("pigs");
         return new RedirectView("/mainPageHtml/index");
-=======
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
-
-@Controller
-@RequestMapping("/*")
-@RequiredArgsConstructor
-@Slf4j
-public class UserController {
-
-    private final UserService userService;
-
-    @GetMapping("/main")
-    public String main(){
-        return "/mainPageHtml/index";
->>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     }
 
     @GetMapping("/findAccount")
-    public void findGet(Model model){
+    public void findGet (Model model){
 
     }
 
     //계정 찾기
     @PostMapping("/checkEmail")
-    public void findById(Model model, String userEmail){
+    public void findById (Model model, String userEmail){
         model.addAttribute("userId", userService.findById(userEmail));
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     //비밀번호 변경
     @PostMapping("/password")
-    public void changePw(Model model, String userId){
+    public void changePw (Model model, String userId){
         model.addAttribute("user", userService.getUser(userId));
     }
 
 
     @PostMapping("/passwordResetCompletion")
-    public String changePwCompletion(Model model, String userId, String oldPw, String userPassword){
+    public String changePwCompletion (Model model, String userId, String oldPw, String userPassword){
         UserVO userVO = userService.getUser(userId);
 
-        if (oldPw.equals(userVO.getUserPassword())){
+        if (oldPw.equals(userVO.getUserPassword())) {
             userVO.setUserPassword(userPassword);
             userService.updatePw(userVO);
             return "/passwordResetCompletion";
-        }
-        else{
+        } else {
             return "/passwordResetfail";
         }
-
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     }
 
 }

@@ -26,10 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
     implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
-<<<<<<< HEAD
     implementation 'net.coobird:thumbnailator:0.4.8'
-=======
->>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.oracle.database.jdbc:ojdbc8'

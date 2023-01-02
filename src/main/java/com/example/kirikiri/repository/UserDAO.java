@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 public class UserDAO {
     private final UserMapper userMapper;
 
-<<<<<<< HEAD
     public void setUserVO(UserVO userVO) {
         userMapper.insert(userVO);
     }
@@ -31,8 +30,6 @@ public class UserDAO {
 
     public void deleteUser(String userId){userMapper.deleteUser(userId);}
 
-=======
->>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     // Email로 데이터 가져오기
     public String findById(String userEmail){
         return userMapper.selectUserEmail(userEmail);
