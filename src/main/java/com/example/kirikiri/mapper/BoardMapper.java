@@ -44,7 +44,7 @@ public interface BoardMapper {
     public BoardVO select(Long boardId);
 
 
-    public List<BoardVO> search(String keyward);
+    public List<BoardVO> search(String keyword);
 
     // 작성한 게시글 조회
     public List<BoardVO> selectWritten(@Param("userId") String userId, @Param("page") Integer page);
