@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../static/css/checkEmail.css">
+    <link rel="stylesheet" href="/css/checkEmail.css">
 </head>
 <body>
 <div class="containerbox">
     <div class="checkbox">
     <div class="email-guid">
        <div class="checkimg">
-           <img src ="../static/img/check-symbol-4794.svg" alt="체크이미지" width="56px" height="56px">
+           <img src ="/img/check-symbol-4794.svg" alt="체크이미지" width="56px" height="56px">
        </div>
         <span id="email">email@gmail.com</br></span>
+        </br></br><span id="userId"></span></br></br>
         <span class="check-guide">으로 안내 메일을 발송하였습니다.</span>
     </div>
     <div class="notification">
@@ -20,9 +21,22 @@
         * 서비스에 따라 스팸으로 분류되어 있을 수 있습니다. 스팸함도 꼭 확인해 주시기 바랍니다.</p></div>
     </div>
     <div class="login-button">
-        <button><a href="../templates/login.html">로그인</button>
+        <button><a href="/templates/login.html">로그인</a></button>
     </div>
 </div>
 </div>
+
+
+
+
 </body>
+
+<script th:inline="javascript" th:object="${userId}">
+
+    let userId = [[${userId}]];
+    const pUserId = document.getElementById("userId");
+    pUserId.innerHTML = userId;
+
+
+</script>
 </html>
