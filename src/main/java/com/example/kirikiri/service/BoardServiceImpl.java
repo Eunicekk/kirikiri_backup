@@ -25,10 +25,24 @@ public class BoardServiceImpl implements BoardService {
     public Integer getCountCategory(BoardVO boardVO) {
         return boardDAO.getCountCategory(boardVO);
     }
-
     @Override
     public Integer getCountDetailCategory(BoardVO boardVO) {
         return boardDAO.getCountDetailCategory(boardVO);
+    }
+
+    @Override
+    public Integer getCountSearchResult(String keyword) {
+        return boardDAO.getCountSearchResult(keyword);
+    }
+
+    @Override
+    public Integer getCountCategorySearchResult(BoardDTO boardDTO) {
+        return boardDAO.getCountCategorySearchResult(boardDTO);
+    }
+
+    @Override
+    public Integer getCountByUser(String userId) {
+        return boardDAO.getCountByUser(userId);
     }
 
     @Override
@@ -96,13 +110,26 @@ public class BoardServiceImpl implements BoardService {
         boardDAO.updateBoardView(boardId);
         return boardDAO.findById(boardId);
     }
+
+    @Override
+    public List<BoardVO> getFivePosts(String categoryName) {
+        return boardDAO.getFivePosts(categoryName);
+    }
+
+
     @Override
     public List<BoardVO> getWrittenBoard(String userId, Integer page) {
         return boardDAO.writtenBoard(userId, page);
     }
 
     @Override
-    public List<BoardVO> search(String keyword) {
-        return boardDAO.searchByTitle(keyword);
+    public List<BoardVO> search(BoardDTO boardDTO) {
+        return boardDAO.searchByTitle(boardDTO);
     }
+
+    @Override
+    public List<BoardVO> searchByCategory(BoardDTO boardDTO) {
+        return boardDAO.searchByTitleByCategory(boardDTO);
+    }
+
 }

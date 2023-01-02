@@ -24,7 +24,7 @@ public class UserVO {
     private String userEmail;
     private String userName;
     private String userNation;
-    private boolean userEmailRecieveCheck;
+    private boolean userEmailReceiveCheck;
     private String userRegisterDate;
     private String userProfile;
     private Integer userAge;
@@ -33,14 +33,14 @@ public class UserVO {
     private boolean userResidenceCheck;
 
     @Builder
-    public UserVO(String userId, String userPassword, String userNickname, String userEmail, String userName, String userNation, boolean userEmailRecieveCheck, String userProfile, Integer userAge, String userResidence, boolean userAgeCheck, boolean userResidenceCheck) {
+    public UserVO(String userId, String userPassword, String userNickname, String userEmail, String userName, String userNation, boolean userEmailReceiveCheck, String userProfile, Integer userAge, String userResidence, boolean userAgeCheck, boolean userResidenceCheck) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.userNickname = userNickname;
         this.userEmail = userEmail;
         this.userName = userName;
         this.userNation = userNation;
-        this.userEmailRecieveCheck = userEmailRecieveCheck;
+        this.userEmailReceiveCheck = userEmailReceiveCheck;
         this.userProfile = userProfile;
         this.userAge = userAge;
         this.userResidence = userResidence;

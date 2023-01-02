@@ -22,6 +22,15 @@ public class BoardDAO {
     public Integer getCountDetailCategory(BoardVO boardVO) {
         return boardMapper.countDetailCategory(boardVO);
     }
+    public Integer getCountSearchResult(String keyword) {
+        return boardMapper.countSearch(keyword);
+    }
+    public Integer getCountCategorySearchResult(BoardDTO boardDTO){
+        return boardMapper.countCategorySearch(boardDTO);
+    }
+    public Integer getCountByUser(String boardId){
+        return boardMapper.countByUser(boardId);
+    }
 
     public List<BoardVO> getListAll(Integer page){
         return boardMapper.selectAll(page);
@@ -69,6 +78,10 @@ public class BoardDAO {
         boardMapper.updateView(boardId);
     }
 
+    public List<BoardVO> getFivePosts(String categoryName) {
+        return boardMapper.selectFivePosts(categoryName);
+    }
+
     public BoardVO findById(Long boardId){
         return boardMapper.select(boardId);
     }
@@ -76,7 +89,10 @@ public class BoardDAO {
     public List<BoardVO> writtenBoard(String userId, Integer page){
         return boardMapper.selectWritten(userId, page);
     }
-    public List<BoardVO> searchByTitle(String keyword) {
-        return boardMapper.search(keyword);
+    public List<BoardVO> searchByTitle(BoardDTO boardDTO) {
+        return boardMapper.search(boardDTO);
+    }
+    public List<BoardVO> searchByTitleByCategory(BoardDTO boardDTO) {
+        return boardMapper.searchByCategory(boardDTO);
     }
 }

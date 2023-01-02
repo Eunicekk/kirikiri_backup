@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>OKKY</title>
+        <title>kirikiri</title>
 
         <link rel="stylesheet" href="/css/mainPageCss/reset.css" />
         <link
@@ -60,7 +60,7 @@
             rel="stylesheet"
             href="/css/mainPageCss/footer/footer_right.css"
         />
-
+        <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
         <script src="/javascript/mainPageJs/include-html.js"></script>
     </head>
     <body>
@@ -68,11 +68,14 @@
             <header>
                 <div class="header">
                     <div class="header_left">
-                        <img
-                            src="/img/Logo.png"
-                            alt="헤더의 로고이미지"
-                            width="110px"
-                        />
+                        <a href="/">
+                            <img
+                                src="/img/Logo.png"
+                                alt="헤더의 로고이미지"
+                                width="110px"
+                            />
+                        </a>
+
                         <div class="header_left_menu">
                             <div><a th:href="@{/all}">All</a></div>
                             <div><a th:href="@{/board(categoryName = 'Free')}">Free</a></div>
@@ -122,9 +125,12 @@
                         </div>
                         <div class="header_right_login" th:unless="${!userCheck}">
                             <div>
-                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg></a>
-                                <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg></a>
-                                <a href=""><img alt="profile"></a>
+                                <a class="scrap" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg></a>
+                                <a class="alert" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg></a>
+                                <button type="button" class="myPage">
+                                    <img src="" alt="profile" th:if="${profileCheck}">
+                                    <img src="/img/account.png" alt="profile" th:unless="${profileCheck}">
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -287,7 +293,7 @@
 
 
 <!--                중앙-->
-                <div id="main_center" th:object="${boardVO}">
+                <div id="main_center">
                     <img
                         class="banner"
                         src="/img/mainPageImage/main_banner.jpg"
@@ -301,204 +307,45 @@
                     <div class="tag_box">
                         <div class="tag f_tag">
                             <a th:href="@{/board(categoryName = 'Free')}" class="tag_title">
-                                <span>All</span>
+                                <span>Free</span>
                             </a>
-
                             <div class="posts">
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
+                                <th:block th:each="board:${freeBoards}" th:object="${board}">
+                                    <div class="post">
+                                        <div class="writers">
+                                            <div class="writers_info">
+                                                <img
+                                                        class="icon-user"
+                                                        src="/img/mainPageImage/icon-user.png"
+                                                        alt="유저 프로필 이미지"
+                                                />
+                                                <span th:text="*{userId}"></span>
+                                                <span>·</span>
+                                                <svg class="icon-lightning" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                                <span th:text="*{boardViews}"></span>
+                                                <span>·</span>
+                                                <span th:text="*{boardRegisterDate}"></span>
+                                            </div>
+                                            <div class="like_comment">
+                                                <img
+                                                        class="icon-up-down"
+                                                        src="/img/mainPageImage/icon-up-down.png"
+                                                        alt="좋아요 icon 이미지"
+                                                />
+                                                <span th:text="*{boardLikes}"></span>
+                                                <img
+                                                        class="icon-comment"
+                                                        src="/img/mainPageImage/icon-comment.png"
+                                                        alt="댓글 icon 이미지"
+                                                />
+                                                <span>0</span>
+                                            </div>
                                         </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
+                                        <div class="post_title">
+                                            <span th:text="*{boardTitle}"></span>
                                         </div>
                                     </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
+                                </th:block>
                             </div>
                         </div>
 
@@ -508,200 +355,44 @@
                             </a>
 
                             <div class="posts">
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
+                                <th:block th:each="board:${counselingBoards}" th:object="${board}">
+                                    <div class="post">
+                                        <div class="writers">
+                                            <div class="writers_info">
+                                                <img
+                                                        class="icon-user"
+                                                        src="/img/mainPageImage/icon-user.png"
+                                                        alt="유저 프로필 이미지"
+                                                />
+                                                <span th:text="*{userId}"></span>
+                                                <span>·</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                                <span th:text="*{boardViews}"></span>
+                                                <span>·</span>
+                                                <span th:text="*{boardRegisterDate}"></span>
+                                            </div>
+                                            <div class="like_comment">
+                                                <img
+                                                        class="icon-up-down"
+                                                        src="/img/mainPageImage/icon-up-down.png"
+                                                        alt="좋아요 icon 이미지"
+                                                />
+                                                <span th:text="*{boardLikes}"></span>
+                                                <img
+                                                        class="icon-comment"
+                                                        src="/img/mainPageImage/icon-comment.png"
+                                                        alt="댓글 icon 이미지"
+                                                />
+                                                <span>0</span>
+                                            </div>
                                         </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
+                                        <div class="post_title">
+                                            <span th:text="*{boardTitle}"></span>
                                         </div>
                                     </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
+                                </th:block>
 
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
 
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -712,200 +403,42 @@
                             </a>
 
                             <div class="posts">
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
+                                <th:block th:each="board:${playBoards}" th:object="${board}">
+                                    <div class="post">
+                                        <div class="writers">
+                                            <div class="writers_info">
+                                                <img
+                                                        class="icon-user"
+                                                        src="/img/mainPageImage/icon-user.png"
+                                                        alt="유저 프로필 이미지"
+                                                />
+                                                <span th:text="*{userId}"></span>
+                                                <span>·</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                                <span th:text="*{boardViews}"></span>
+                                                <span>·</span>
+                                                <span th:text="*{boardRegisterDate}"></span>
+                                            </div>
+                                            <div class="like_comment">
+                                                <img
+                                                        class="icon-up-down"
+                                                        src="/img/mainPageImage/icon-up-down.png"
+                                                        alt="좋아요 icon 이미지"
+                                                />
+                                                <span th:text="*{boardLikes}"></span>
+                                                <img
+                                                        class="icon-comment"
+                                                        src="/img/mainPageImage/icon-comment.png"
+                                                        alt="댓글 icon 이미지"
+                                                />
+                                                <span>0</span>
+                                            </div>
                                         </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
+                                        <div class="post_title">
+                                            <span th:text="*{boardTitle}"></span>
                                         </div>
                                     </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
+                                </th:block>
                             </div>
                         </div>
 
@@ -915,200 +448,42 @@
                             </a>
 
                             <div class="posts">
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
+                                <th:block th:each="board:${jobBoards}" th:object="${board}">
+                                    <div class="post">
+                                        <div class="writers">
+                                            <div class="writers_info">
+                                                <img
+                                                        class="icon-user"
+                                                        src="/img/mainPageImage/icon-user.png"
+                                                        alt="유저 프로필 이미지"
+                                                />
+                                                <span th:text="*{userId}"></span>
+                                                <span>·</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                                <span th:text="*{boardViews}"></span>
+                                                <span>·</span>
+                                                <span th:text="*{boardRegisterDate}"></span>
+                                            </div>
+                                            <div class="like_comment">
+                                                <img
+                                                        class="icon-up-down"
+                                                        src="/img/mainPageImage/icon-up-down.png"
+                                                        alt="좋아요 icon 이미지"
+                                                />
+                                                <span th:text="*{boardLikes}"></span>
+                                                <img
+                                                        class="icon-comment"
+                                                        src="/img/mainPageImage/icon-comment.png"
+                                                        alt="댓글 icon 이미지"
+                                                />
+                                                <span>0</span>
+                                            </div>
                                         </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
+                                        <div class="post_title">
+                                            <span th:text="*{boardTitle}"></span>
                                         </div>
                                     </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
-
-                                <div class="post">
-                                    <div class="writers">
-                                        <div class="writers_info">
-                                            <img
-                                                class="icon-user"
-                                                src="../../static/img/mainPageImage/icon-user.png"
-                                                alt="유저 프로필 이미지"
-                                            />
-                                            <span>ooo_개발자</span>
-                                            <span>·</span>
-                                            <img
-                                                class="icon-lightning"
-                                                src="../../static/img/mainPageImage/icon-lightning.png"
-                                                alt="활동점수 icon 이미지"
-                                            />
-                                            <span>00</span>
-                                            <span>·</span>
-                                            <span>00분전</span>
-                                        </div>
-                                        <div class="like_comment">
-                                            <img
-                                                class="icon-up-down"
-                                                src="../../static/img/mainPageImage/icon-up-down.png"
-                                                alt="좋아요 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                            <img
-                                                class="icon-comment"
-                                                src="../../static/img/mainPageImage/icon-comment.png"
-                                                alt="댓글 icon 이미지"
-                                            />
-                                            <span>0</span>
-                                        </div>
-                                    </div>
-                                    <div class="post_title">
-                                        <span>Post Title 입니다.</span>
-                                    </div>
-                                </div>
+                                </th:block>
                             </div>
                         </div>
                     </div>
@@ -1116,82 +491,13 @@
                 <div id="main_right">
                     <div class="side_banner">
                         <img
-                            src="../../static/img/mainPageImage/side_banner.png"
+                            src="/img/mainPageImage/side_banner.png"
                             alt="사이드 광고 베너"
                         />
                         <img
-                            src="../../static/img/mainPageImage/side_banner2.png"
+                            src="/img/mainPageImage/side_banner2.png"
                             alt="사이드 광고 베너2"
                         />
-                    </div>
-                </div>
-            </div>
-            <div id="event">
-                <div>
-                    <div class="event">
-                        <div class="event_span"><span>이벤트</span></div>
-
-                        <div class="event_boxs">
-                            <div class="event_box">
-                                <div class="event_img">
-                                    <img
-                                        src="../../static/img/mainPageImage/event.png"
-                                        alt="이벤트 이미지"
-                                    />
-                                </div>
-                                <div class="event_info">
-                                    <div>
-                                        <span>OKKY</span>
-                                        <span>·</span>
-                                        <span>0일</span>
-                                    </div>
-                                    <span>OO북스</span>
-                                </div>
-                                <div class="event_title">
-                                    <span>이벤트 타이틀 입니다.</span>
-                                </div>
-                            </div>
-
-                            <div class="event_box">
-                                <div class="event_img">
-                                    <img
-                                        src="../../static/img/mainPageImage/event2.png"
-                                        alt="이벤트 이미지"
-                                    />
-                                </div>
-                                <div class="event_info">
-                                    <div>
-                                        <span>OKKY</span>
-                                        <span>·</span>
-                                        <span>0일</span>
-                                    </div>
-                                    <span>OO북스</span>
-                                </div>
-                                <div class="event_title">
-                                    <span>이벤트 타이틀 입니다.</span>
-                                </div>
-                            </div>
-
-                            <div class="event_box">
-                                <div class="event_img">
-                                    <img
-                                        src="../../static/img/mainPageImage/event3.png"
-                                        alt="이벤트 이미지"
-                                    />
-                                </div>
-                                <div class="event_info">
-                                    <div>
-                                        <span>OKKY</span>
-                                        <span>·</span>
-                                        <span>0일</span>
-                                    </div>
-                                    <span>OO북스</span>
-                                </div>
-                                <div class="event_title">
-                                    <span>이벤트 타이틀 입니다.</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1200,7 +506,7 @@
                 <div>
                     <div class="footer_left">
                         <img
-                            src="../../static/img/Logo.png"
+                            src="/img/Logo.png"
                             alt="푸터의 로고 이미지"
                             width="120px"
                         />
@@ -1209,15 +515,15 @@
                         </div>
                         <div class="icon">
                             <img
-                                src="../../static/img/mainPageImage/icon-facebook.png"
+                                src="/img/mainPageImage/icon-facebook.png"
                                 alt="페이스북 아이콘"
                             />
                             <img
-                                src="../../static/img/mainPageImage/icon-youtube.png"
+                                src="/img/mainPageImage/icon-youtube.png"
                                 alt="유튜브 아이콘"
                             />
                             <img
-                                src="../../static/img/mainPageImage/icon-envelope.png"
+                                src="/img/mainPageImage/icon-envelope.png"
                                 alt="메일 아이콘"
                             />
                         </div>
@@ -1259,11 +565,11 @@
                         </div>
                         <div class="sponsored_logo">
                             <img
-                                src="../../static/img/mainPageImage/inames-logo.svg"
+                                src="/img/mainPageImage/inames-logo.svg"
                                 alt="inames 로고 이미지"
                             />
                             <img
-                                src="../../static/img/mainPageImage/nhn-cloud-logo.svg"
+                                src="/img/mainPageImage/nhn-cloud-logo.svg"
                                 alt="nhn-cloud 로고 이미지"
                             />
                         </div>

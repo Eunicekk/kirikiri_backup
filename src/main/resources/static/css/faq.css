@@ -4,41 +4,7 @@ body{
     font-family: Pretendard, sans-serif;
 }
 
-.search{
-    display: inline-block;
-    width: 235px;
-    height: 33px;
-    border-radius: 35px;
-    border: 1px solid gray;
-    position: absolute;
-    right: 300px;
-}
-.search form{
-    position: relative;
-}
-.search button{
-    border-style: none;
-    background-color: #ffffff;
-    position: absolute;
-    left: 10px; top: 8px;
-}
-.search svg{
-    width: 14px; height: 14px;
-    color: gray;
-}
-.search svg:hover{
-    color: #0090f9;
-}
-.search input{
-    font-size: 12px;
-    border-style: none;
-    position: absolute;
-    left: 35px; top: 9px;
-}
-.search input:focus{
-    outline: none;
-    /* #search에 이벤트 애니메이션 */
-}
+
 
 /* articles */
 article{
