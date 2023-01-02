@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    <link rel="stylesheet" href="../static/css/activity.css">-->
+    <link rel="stylesheet" href="/css/activity.css">
+<!--    <script type="text/javascript" src="/javascript/activity.js"></script>-->
+    <script type="text/javascript" src="../static/javascript/mainPageJs/include-html.js"></script>
+    <title>activity</title>
+</head>
+<body>
+<!--<header include-html="../../templates/mainPageHtml/header.html"></header>-->
+<div class="main">
+    <div class="main_without_m">
+        <div class="left">
+            <div class="ad1">
+                <a href="https://okky.kr/articles/1355338" target="_blank"><img src="/img/ad1.png"></a>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="info">
+                <div class="info_m">
+                    <div class="photo_div"><img class="photo" th:src="@{/file/display(path=${user.userProfile})}"></div> <!-- 개인 프로필 사진 출력 -->
+                    <div class="name">
+                        <div class="username"><h2 id="name" th:text="${user.userNickname}"></h2></div>
+<!--                        <div class="act_score">-->
+<!--                            <svg class="thunder" width="9" height="12" viewBox="0 1 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                <title>bolt icon</title>-->
+<!--                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.21535 0.575533C5.4443 0.647704 5.6 0.86003 5.6 1.10009V3.85009L7.8 3.85009C8.00508 3.85009 8.19313 3.96419 8.28783 4.14609C8.38254 4.328 8.36818 4.54748 8.25057 4.71549L4.40057 10.2155C4.26291 10.4122 4.0136 10.4968 3.78464 10.4246C3.55569 10.3525 3.4 10.1401 3.4 9.90009L3.4 7.15009H1.2C0.994914 7.15009 0.806866 7.03599 0.712157 6.85408C0.617448 6.67218 0.631811 6.45269 0.749418 6.28468L4.59942 0.784684C4.73708 0.588021 4.98639 0.503362 5.21535 0.575533Z" fill="currentColor"></path>-->
+<!--                            </svg>-->
+<!--                            <span>활동점수</span>&nbsp;<span id="actScore"></span>  &lt;!&ndash; 게시물 한개당 점수 1 &ndash;&gt;-->
+<!--                        </div>-->
+                    </div>
+                    <a href="../myPage/info" class="link"><span>나의 계정</span></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li id="link_1"><span>게시물</span></li>
+                        <li id="link_2" onclick="location.href='/activity/scrappedBoard?page=1'"><span>스크랩</span></li>
+                        <li id="link_3"><span onclick="location.href='/activity/comment'">댓글</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tabPages">
+                <div class="tabPage" id="tabPage_1">
+                    <div class="borderBottom"></div>
+                    <div class="write">
+                        <!-- 받은 데이터 값에 따라 div 생성 -->
+                        <th:block th:each="board:${boards}">
+                            <div class="content">
+                                <div class="whereAndTime">
+                                    <div class="where">
+                                        <a  class="where-link" href="" th:text="${board.categoryName}"></a>
+                                        <div class="where-word"> 에 게시물을 작성하였습니다</div>
+                                    </div>
+                                    <div class="time" th:text="*{board.boardRegisterDate}"></div>
+                                </div>
+                                <div class="Title">
+                                    <a class="aTitle" href="" th:text="*{board.boardTitle}"></a>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                    <div class="bottomMargin"></div>
+                    <div id="page-move-bottom1" th:object="${pagination}">
+                        <a class="changePage" th:href="*{startPage - 1}" th:if="*{prev}">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path>
+                            </svg>
+                            Previous
+                        </a>
+                        <div id="page1">
+                            <th:block th:each="page:${#numbers.sequence(pagination.startPage, pagination.endPage)}">
+                                <a class="changePage" th:href="${page}" th:if="${pagination.page != page}"><code th:text="${page}"></code></a>
+                                <code th:unless="${pagination.page != page}" th:text="${page}"></code>
+                            </th:block>
+
+                        </div>
+                        <a class="changePage" th:href="*{endPage + 1}" th:if="*{next}">
+                            Next
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                            </svg>
+                        </a>
+                        <p href="" th:unless="*{next}">
+                            Next
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                            </svg>
+                        </p>
+                        <form th:action="@{/activity/writtenBoard}" name="page-form">
+                            <input type="hidden" th:field="*{page}">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="ad2">
+                <a href="https://www.itwillbs.co.kr/" target="_blank"><img src="/img/ad2.jpg"></a>
+            </div>
+            <div class="ad3">
+                <a href="https://www.koybeauty.kr/goods/goods_view.php?goodsNo=1000000082&utm_source=criteo&utm_medium=consideration&utm_campaign=DA"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<footer include-html="../../templates/mainPageHtml/footer.html"></footer>-->
+</body>
+<script>
+    includeHTML();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script th:inline="javascript">
+    $("a.changePage").on("click",function(e){
+        e.preventDefault();
+        $("input#page").val($(this).attr("href"));
+        $("form[name='page-form']").submit();
+    });
+
+    let userProfile = [[${user.userProfile}]];
+
+    if(userProfile == null){
+        document.querySelector(".photo").src = "/img/account.png";
+    }
+
+
+</script>
+<style>
+    #link_1{
+        color: rgb(139, 195, 74);
+        border-bottom: 2px solid rgb(139, 195, 74);
+    }
+</style>
+</html>

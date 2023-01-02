@@ -158,7 +158,7 @@
           </div>
 
 <!--          로그인폼-->
-          <form id="login-form" action="/user/login" method="post" th:object="${userVO}">
+          <form id="login-form" action="/login" method="post" th:object="${userVO}">
             <div>
               <div>
                 <label class="login-label" for="id">아이디</label>
@@ -187,7 +187,7 @@
             </div>
             <p id="go-signup">
               <span>아직 회원이 아니신가요?</span>
-              <a href="./signup.html">회원가입</a>
+              <a href="/signup">회원가입</a>
             </p>
           </form>
         </div>

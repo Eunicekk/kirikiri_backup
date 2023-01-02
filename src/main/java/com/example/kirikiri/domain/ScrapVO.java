@@ -15,7 +15,7 @@ public class ScrapVO {
 //    CONSTRAINT FK_SCRAP_USER FOREIGN KEY(USER_ID) REFERENCES TBL_USER(USER_ID),
 //    CONSTRAINT FK_SCRAP_BOARD FOREIGN KEY(BOARD_ID) REFERENCES TBL_BOARD(BOARD_ID)
 //            );
-    private Long srcapId;
+    private Long scrapId;
     private String userId;
     private Long boardId;
     private String scrapRegisterDate;

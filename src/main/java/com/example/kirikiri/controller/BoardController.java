@@ -6,6 +6,7 @@ import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -13,6 +14,13 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
+import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
@@ -120,6 +128,10 @@ public class BoardController {
         boardService.add(boardVO);
         return new RedirectView("/all");
     }
+
+
+
+
     @GetMapping("/post")
     public String post(Long boardId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
@@ -178,11 +190,33 @@ public class BoardController {
         return "/mainPageHtml/index";
     }
 
-        //    작성한 게시글 조회
-    @GetMapping("/activity")
-    public void getWrittenBoard(String userId, Integer page, Model model){
-        PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page,255);
+    //    작성한 게시글 조회
+    @GetMapping("/activity/writtenBoard")
+    public String getWrittenBoard(String userId, Integer page, Model model) {
+        PageBoardDTO pbt = new PageBoardDTO().createPageBoardDTO(page, 255);
         model.addAttribute("pagination", pbt);
-        model.addAttribute("boards", boardService.getWrittenBoard("kevs",pbt.getPage()));
+        model.addAttribute("boards", boardService.getWrittenBoard("kevs", pbt.getPage()));
+        model.addAttribute("user", userService.getInfo("kevs"));
+        return "/activity/writtenBoard";
+    }
+
+//    @GetMapping("/board/search") // 커뮤니티 검색
+//    public String search(@RequestParam(value = "keyword") String keyword, Model model) {
+//        List<BoardDTO> boardDTOList = boardService.searchPosts(keyword);
+//        model.addAttribute("boards", boardDTOList);
+//        return "/community";
+//    }
+
+    @GetMapping("/activity/comment")
+    public String getComment() {
+        return "activity/comment";
+    }
+
+
+    @GetMapping("/board/search")
+    public String searchPosts(BoardDTO boardDTO, Model model) {
+        List<BoardVO> boards = boardService.search(boardDTO.getKeyword());
+        model.addAttribute("boards", boards);
+        return "/community";
     }
 }

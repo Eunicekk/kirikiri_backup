@@ -206,7 +206,7 @@ ul, li{
 label[for="picture"] div{
     width: 160px;
     height: 160px;
-    background-image: url(../../img/account.png);
+    /*background-image: url(../img/account.png);*/
     background-size: 100% 100%;
     cursor: pointer;
     border-radius: 100%;
@@ -249,20 +249,13 @@ label[for="toggle-slide1"]{
     transition: 0.5s;
     border: 2px solid rgb(229, 231, 235);
 }
-.onf_btn{
+.onf_btn1, .onf_btn2, .onf_btn3{
     position: absolute;
     width: 20px;
     height: 20px;
     border-radius: 100%;
     background-color: white;
     transition: 0.5s;
-}
-#toggle-slide1:checked + label[for="toggle-slide1"]{
-    background-color: #8BC34A;
-    border-color: #8BC34A;
-}
-#toggle-slide1:checked + label[for="toggle-slide1"] .onf_btn{
-    left: 20px;
 }
 .clicked{
     color: #8BC34A;
@@ -280,13 +273,6 @@ label[for="toggle-slide2"]{
     border-radius: 25px;
     transition: 0.5s;
     border: 2px solid rgb(229, 231, 235);
-}
-#toggle-slide2:checked + label[for="toggle-slide2"]{
-    background-color: #8BC34A;
-    border-color: #8BC34A;
-}
-#toggle-slide2:checked + label[for="toggle-slide2"] .onf_btn{
-    left: 20px;
 }
 .delete{
     padding-left: 80px;

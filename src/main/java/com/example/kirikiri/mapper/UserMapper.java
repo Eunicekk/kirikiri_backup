@@ -11,4 +11,12 @@ public interface UserMapper {
 
     public UserVO selectById(String userId);
 
+    // 유저 정보 조회
+    public UserVO selectUser(String userId);
+
+    // 유저 정보 업데이트
+    public void updateUser(UserVO userVO);
+
+    public void deleteUser(String userId);
+
 }

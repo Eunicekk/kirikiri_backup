@@ -27,4 +27,12 @@ public class UserServiceImpl implements UserService {
     public UserVO getUserVOById(String userId) {
         return userDAO.getUserVOById(userId);
     }
+    @Override
+    public UserVO getInfo(String userId){return userDAO.userInfoById(userId);}
+
+    @Override
+    public void updateInfo(UserVO userVO){userDAO.updateUserInfo(userVO);}
+
+    @Override
+    public void deleteInfo(String userId){userDAO.deleteUser(userId);}
 }

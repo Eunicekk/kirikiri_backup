@@ -73,7 +73,10 @@ public class BoardDAO {
         return boardMapper.select(boardId);
     }
 
-    public List<BoardVO> WrittenBoard(String userId, Integer page){
+    public List<BoardVO> writtenBoard(String userId, Integer page){
         return boardMapper.selectWritten(userId, page);
-    };
+    }
+    public List<BoardVO> searchByTitle(String keyword) {
+        return boardMapper.search(keyword);
+    }
 }
