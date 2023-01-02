@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     public void deleteInfo(String userId){userDAO.deleteUser(userId);}
 
     @Override
-    public String findById(String userEmail) {
+    public UserVO findById(String userEmail) {
         return userDAO.findById(userEmail);
     }
 

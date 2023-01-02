@@ -35,8 +35,8 @@
 
     <!--    email로 특정 데이터 가져오기 -->
 
-    <select id="selectUserEmail" resultType="String">
-        SELECT USER_ID
+    <select id="selectUserEmail" resultType="userVo">
+        SELECT USER_ID, USER_EMAIL
         FROM TBL_USER
         WHERE USER_EMAIL = #{userEmail}
     </select>

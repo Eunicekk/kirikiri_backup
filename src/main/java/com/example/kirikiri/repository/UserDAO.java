@@ -31,7 +31,7 @@ public class UserDAO {
     public void deleteUser(String userId){userMapper.deleteUser(userId);}
 
     // Email로 데이터 가져오기
-    public String findById(String userEmail){
+    public UserVO findById(String userEmail){
         return userMapper.selectUserEmail(userEmail);
     }
 

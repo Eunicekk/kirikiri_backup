@@ -100,11 +100,11 @@ public class UserController {
     //계정 찾기
     @PostMapping("/checkEmail")
     public void findById (Model model, String userEmail){
-        String userid = userService.findById(userEmail);
-        model.addAttribute("userId", userService.findById(userEmail));
+        UserVO userVO = userService.findById(userEmail);
+        model.addAttribute("user", userService.findById(userEmail));
 
         String recipient = userEmail;
-        String code = userid;
+        String code = userVO.getUserId();
 
         // 1. 발신자의 메일 계정과 비밀번호 설정
         final String user = "kimjinu2540@gmail.com";

@@ -20,7 +20,7 @@ public interface UserMapper {
     public void deleteUser(String userId);
 
     // Email로 데이터 조회
-    public String selectUserEmail(String userEmail);
+    public UserVO selectUserEmail(String userEmail);
 
     // Id로 데이터 조회
     public UserVO selectUserId(String userId);

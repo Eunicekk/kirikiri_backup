@@ -12,9 +12,10 @@
        <div class="checkimg">
            <img src ="/img/check-symbol-4794.svg" alt="체크이미지" width="56px" height="56px">
        </div>
-        <span id="email">email@gmail.com</br></span>
-        </br></br><span id="userId"></span></br></br>
-        <span class="check-guide">으로 안내 메일을 발송하였습니다.</span>
+        <span id="email">email@gmail.com</span></br>
+
+        <span class="check-guide">으로 안내 메일을 발송하였습니다.</span></br></br>
+        <span id="userId"></span>
     </div>
     <div class="notification">
         <div><p>해당 이메일을 확인 하시고, 비밀번호 변경이 필요하신 경우 해당 이메일을 통해 변경 가능합니다.</br>
@@ -31,10 +32,12 @@
 
 </body>
 
-<script th:inline="javascript" th:object="${userId}">
-
-    let userId = [[${userId}]];
+<script th:inline="javascript" th:object="${user}">
+    let userEmail = [[${user.userEmail}]];
+    let userId = [[${user.userId}]];
     const pUserId = document.getElementById("userId");
+    const pUserEmail = document.getElementById("email");
+    pUserEmail.innerHTML = userEmail;
     pUserId.innerHTML = userId;
 
 
