@@ -22,16 +22,16 @@
         <div class="middle">
             <div class="info">
                 <div class="info_m">
-                    <div class="photo_div"><img src="../static/img/account.png" class="photo"></div> <!-- 개인 프로필 사진 출력 -->
+                    <div class="photo_div"><img src="../static/img/account.png" class="photo" th:src="@{/file/display(path=${user.userProfile})}"></div> <!-- 개인 프로필 사진 출력 -->
                     <div class="name">
-                        <div class="username"><h2 id="name"></h2></div>
-                        <div class="act_score">
-                            <svg class="thunder" width="9" height="12" viewBox="0 1 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <title>bolt icon</title>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.21535 0.575533C5.4443 0.647704 5.6 0.86003 5.6 1.10009V3.85009L7.8 3.85009C8.00508 3.85009 8.19313 3.96419 8.28783 4.14609C8.38254 4.328 8.36818 4.54748 8.25057 4.71549L4.40057 10.2155C4.26291 10.4122 4.0136 10.4968 3.78464 10.4246C3.55569 10.3525 3.4 10.1401 3.4 9.90009L3.4 7.15009H1.2C0.994914 7.15009 0.806866 7.03599 0.712157 6.85408C0.617448 6.67218 0.631811 6.45269 0.749418 6.28468L4.59942 0.784684C4.73708 0.588021 4.98639 0.503362 5.21535 0.575533Z" fill="currentColor"></path>
-                            </svg>
-                            <span>활동점수</span>&nbsp;<span id="actScore"></span>  <!-- 게시물 한개당 점수 1 -->
-                        </div>
+                        <div class="username"><h2 id="name" th:text="${user.userNickname}"></h2></div>
+<!--                        <div class="act_score">-->
+<!--                            <svg class="thunder" width="9" height="12" viewBox="0 1 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                <title>bolt icon</title>-->
+<!--                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.21535 0.575533C5.4443 0.647704 5.6 0.86003 5.6 1.10009V3.85009L7.8 3.85009C8.00508 3.85009 8.19313 3.96419 8.28783 4.14609C8.38254 4.328 8.36818 4.54748 8.25057 4.71549L4.40057 10.2155C4.26291 10.4122 4.0136 10.4968 3.78464 10.4246C3.55569 10.3525 3.4 10.1401 3.4 9.90009L3.4 7.15009H1.2C0.994914 7.15009 0.806866 7.03599 0.712157 6.85408C0.617448 6.67218 0.631811 6.45269 0.749418 6.28468L4.59942 0.784684C4.73708 0.588021 4.98639 0.503362 5.21535 0.575533Z" fill="currentColor"></path>-->
+<!--                            </svg>-->
+<!--                            <span>활동점수</span>&nbsp;<span id="actScore"></span>  &lt;!&ndash; 게시물 한개당 점수 1 &ndash;&gt;-->
+<!--                        </div>-->
                     </div>
                     <a href="../myPage/info" class="link"><span>나의 계정</span></a>
                 </div>
@@ -132,6 +132,13 @@
         $("input#page").val($(this).attr("href"));
         $("form[name='page-form']").submit();
     });
+
+    let userProfile = [[${user.userProfile}]];
+
+    if(userProfile == null){
+        document.querySelector(".photo").src = "/img/account.png";
+    }
+
 </script>
 <style>
     #link_2{
