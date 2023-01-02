@@ -56,10 +56,22 @@ public class UserController {
         }
         else return new RedirectView("/login");
     }
+    @GetMapping("/logout")
+    public RedirectView logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.invalidate();
+
+        return new RedirectView("/");
+    }
 
     @GetMapping("/myPage/info")
-    public void getInfoById(String userId, Model model){
-        model.addAttribute("user", userService.getInfo("kevs"));
+    public void getInfoById(Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String userId = null;
+        if(session != null) {
+            userId = (String)session.getAttribute("userId");
+        }
+        model.addAttribute("user", userService.getInfo(userId));
     }
 
     @PostMapping("/myPage/info")
@@ -72,8 +84,6 @@ public class UserController {
         System.out.println(userVO.isUserAgeCheck());
         redirectAttributes.addAttribute("userId", userVO.getUserId());
 
-
-
         return new RedirectView("/myPage/info");
     }
     @GetMapping("/myPage/delete")
@@ -81,9 +91,16 @@ public class UserController {
 
 
     @PostMapping("/myPage/delete")
-    public RedirectView delete(String userId){
-        userService.deleteInfo("pigs");
-        return new RedirectView("/mainPageHtml/index");
+    public RedirectView delete(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String userId = null;
+        if(session != null) {
+            userId = (String)session.getAttribute("userId");
+        }
+        userService.deleteInfo(userId);
+        session.invalidate();
+
+        return new RedirectView("/");
     }
 
 }

@@ -169,6 +169,7 @@ public class BoardController {
     }
     @PostMapping("/new")
     public RedirectView addPost(BoardVO boardVO){
+        if(boardVO.getDetailCategoryName() == null) boardVO.setDetailCategoryName("Free");
         boardService.add(boardVO);
         return new RedirectView("/all");
     }

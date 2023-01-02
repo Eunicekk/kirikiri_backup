@@ -266,7 +266,7 @@
                     <option value="Uzbekistan">우즈베키스탄</option>
                     <option value="Philippine">필리핀</option>
                     <option value="Japan">일본</option>
-                    <option value="else">기타</option>
+                    <option value="other">기타</option>
                   </select>
                 </div>
               </div>
@@ -296,7 +296,7 @@
                           id="residence"
                           class="signup-input"
                           type="text"
-                          placeholder="20"
+                          placeholder="거주지역을 입력하세요."
                           required
                           th:field="*{userResidence}"
                   />
@@ -307,7 +307,7 @@
                 <div id="email-agree">
                   <p>이메일 수신동의</p>
                   <button id="email-agree-button" type="button">
-                    <input type="checkbox" id="email-check" th:field="*{userEmailRecieveCheck}" checked>
+                    <input type="checkbox" id="email-check" th:field="*{userEmailReceiveCheck}" checked>
                     <span id="email-agree-button-circle"></span>
                   </button>
                 </div>
