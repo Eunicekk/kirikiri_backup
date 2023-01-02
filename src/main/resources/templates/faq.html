@@ -9,8 +9,92 @@
     <link rel="stylesheet" href="../static/css/faq.css">
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
     <script type="text/javascript" src="../static/javascript/faq.js"></script>
+
+    <link rel="stylesheet" href="/css/mainPageCss/media.css" />
+    <link rel="stylesheet" href="/css/mainPageCss/header/darkmode.css"/>
+    <link rel="stylesheet" href="/css/mainPageCss/header/search.css"/>
+    <link rel="stylesheet" href="/css/mainPageCss/header/header.css"/>
+    <link rel="stylesheet" href="/css/mainPageCss/header/login_signUp.css"/>
+
+    <link rel="stylesheet" href="/css/mainPageCss/footer/footer.css"/>
+    <link rel="stylesheet" href="/css/mainPageCss/footer/footer_left.css"/>
+    <link rel="stylesheet" href="/css/mainPageCss/footer/footer_center.css"/>
+    <link rel="stylesheet" href="/css/mainPageCss/footer/footer_right.css"/>
+</head>
 <body>
 <!-- header -->
+<header>
+    <div class="header">
+        <div class="header_left">
+            <img
+                    src="/img/Logo.png"
+                    alt="헤더의 로고이미지"
+                    width="110px"
+            />
+            <div class="header_left_menu">
+                <div><a th:href="@{/all}">All</a></div>
+                <div><a th:href="@{/board(categoryName = 'Free')}">Free</a></div>
+                <div><a th:href="@{/board(categoryName = 'Play')}">Play</a></div>
+                <div><a th:href="@{/board(categoryName = 'Counseling')}">Counseling</a></div>
+                <div>|</div>
+                <div><a th:href="@{/faq}">FAQ</a></div>
+            </div>
+        </div>
+
+        <div class="header_right">
+            <div class="header_right_search">
+                <div class="search">
+                    <img
+                            src="/img/mainPageImage/search_icon.png"
+                            alt="검색 아이콘"
+                            class="searchIcon"
+                    />
+                    <input
+                            type="text"
+                            placeholder="검색"
+                            class="searchInput"
+                    />
+                </div>
+                <div>
+                    <input type="checkbox" id="toggle" hidden />
+
+                    <!-- 다크모드 on/off 스위치 -->
+                    <label for="toggle" class="toggleSwitch">
+                        <span class="toggleButton"></span>
+                        <img
+                                class="toggleImage_off"
+                                src="/img/mainPageImage/darkmode_off.png"
+                                alt="다크모드 off 시"
+                        />
+                        <img
+                                class="toggleImage_on"
+                                src="/img/mainPageImage/darkmode_on.png"
+                                alt="다크모드 on 시"
+                        />
+                    </label>
+                </div>
+            </div>
+            <div class="header_right_login" th:if="${!userCheck}">
+                <div class="login"><a href="/login">로그인</a></div>
+                <div class="signUp"><a href="/signup">회원가입</a></div>
+            </div>
+            <div class="header_right_login" th:unless="${!userCheck}">
+                <div>
+                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg></a>
+                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg></a>
+                    <a href=""><img alt="profile"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu_btn">
+            <img
+                    src="/img/mainPageImage/icon-menu.png"
+                    alt="메뉴 아이콘 이미지"
+            />
+        </div>
+    </div>
+</header>
 
 <!-- articles -->
 <article>
@@ -251,19 +335,14 @@
                             <details>
                                 <summary>
                                     <span class="question">Q.</span>
-                                    <span class="faq-title">OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</span>
+                                    <span class="faq-title">kirikiri 회원가입은 어떻게 하나요?</span>
                                     <span class="arrow">↓</span>
                                 </summary>
                                 <div class="faq-answer">
                                     <span class="answer">A.</span>
-                                    <p>OKKY 회원 여러분, 안녕하세요.<br>
-                                        스팸 단어에 대한 간단한 안내 드립니다.<br><br>
-                                        운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
-                                        운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
-                                        https://okky.kr/article/451325<br><br>
-                                        운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
-                                        단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
-                                        혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+                                    <p>kirikiri에서 '회원가입'을 눌러주세요.
+                                        사용 중인 카카오계정이 있다면, 카카오계정 로그인으로 신규가입하여 멜론서비스를 이용할 수 있습니다.<br>
+                                        사용중인 카카오계정이 없어도, 카카오계정 로그인에서 바로 카카오계정을 새로 만들어 kirikiri를 가입 가입 할 수 있습니다.</p>
                                 </div>
                             </details>
                         </li>
@@ -271,19 +350,16 @@
                             <details>
                                 <summary>
                                     <span class="question">Q.</span>
-                                    <span class="faq-title">OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</span>
+                                    <span class="faq-title">회원정보에 등록된 개인정보 확인과 수정은 어디서 할 수 있나요</span>
                                     <span class="arrow">↓</span>
                                 </summary>
                                 <div class="faq-answer">
                                     <span class="answer">A.</span>
-                                    <p>OKKY 회원 여러분, 안녕하세요.<br>
-                                        스팸 단어에 대한 간단한 안내 드립니다.<br><br>
-                                        운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
-                                        운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
-                                        https://okky.kr/article/451325<br><br>
-                                        운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
-                                        단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
-                                        혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+                                    <p>kirikiri에 등록된 개인정보 확인과 수정은 '마이페이지'에서 확인 및 수정할 수 있습니다.<br>
+                                        만약 아이디/비밀번호를 잊었다면,<br>
+                                        FAQ에서 아이디/비밀번호찾기에 대해 확인 후 kirikiri에 로그인 후 개인정보를 확인해 주세요.<br><br>
+
+                                        ※ 고인의 정보삭제, 탈퇴를 원하시는 경우에는 별도 FAQ에서 '사망자 탈퇴'로 검색해 주세요.</p>
                                 </div>
                             </details>
                         </li>
@@ -291,19 +367,26 @@
                             <details>
                                 <summary>
                                     <span class="question">Q.</span>
-                                    <span class="faq-title">OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</span>
+                                    <span class="faq-title">카카오계정으로 kirikiri에 회원 가입했는데 가입한 카카오계정/비밀번호를 잊어버렸어요</span>
                                     <span class="arrow">↓</span>
                                 </summary>
                                 <div class="faq-answer">
                                     <span class="answer">A.</span>
-                                    <p>OKKY 회원 여러분, 안녕하세요.<br>
-                                        스팸 단어에 대한 간단한 안내 드립니다.<br><br>
-                                        운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
-                                        운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
-                                        https://okky.kr/article/451325<br><br>
-                                        운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
-                                        단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
-                                        혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+                                    <p>1. kirikiri에 가입된 카카오계정 찾기<br>
+                                        kirikiri 회원정보에 등록한 휴대폰번호, 이메일, 본인확인 정보로 카카오계정을 찾을 수 있어요.<br><br>
+                                        1) 휴대폰번호, 이메일로 찾기<br>
+                                        ① 회원정보에 등록된 이름을 입력해 주세요.<br>
+                                        ② 회원정보에 등록된 휴대폰번호 또는 이메일 중 수신할 수 있는 정보를 입력 후 인증번호를 요청해 주세요.<br>
+                                        입력한 정보가 회원정보와 같을 경우 인증번호가 발송됩니다.<br>
+                                        ③ 인증번호를 입력하면, kirikiri에 연결된 카카오계정을 확인할 수 있습니다.<br><br>
+                                        2) 본인확인(본인명의 휴대폰인증) 정보로 찾기<br>
+                                        ① 본인확인(실명인증)이 완료된 아이디는 본인명의 휴대폰인증으로 찾을 수 있어요.<br>
+                                        ② 휴대폰본인인증을 진행해 주세요.<br>
+                                        ③ 본인확인결과에 해당하는 kirikiri에 연결된 카카오계정을 확인 할 수 있습니다.<br><br>
+                                        ※ 회원정보가 다르거나, 본인확인 정보가 없는 계정은 계정 찾기를 진행할 수 없습니다.<br><br><br>
+                                        2. 카카오계정 비밀번호 찾기<br>
+                                        카카오계정의 비밀번호는 카카오계정에서 비빌번호 찾기 및 재설정이 필요해요.<br>
+                                        [로그인 > 카카오계정 로그인 > 비밀번호 찾기] 를 통해 카카오에서 카카오계정 비밀번호 찾기를 바로 진행 할 수 있어요.</p>
                                 </div>
                             </details>
                         </li>
@@ -311,19 +394,24 @@
                             <details>
                                 <summary>
                                     <span class="question">Q.</span>
-                                    <span class="faq-title">OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</span>
+                                    <span class="faq-title">본인인증 3회 횟수 제한이 되었는데 어떻게 해야 되나요?</span>
                                     <span class="arrow">↓</span>
                                 </summary>
                                 <div class="faq-answer">
                                     <span class="answer">A.</span>
-                                    <p>OKKY 회원 여러분, 안녕하세요.<br>
-                                        스팸 단어에 대한 간단한 안내 드립니다.<br><br>
-                                        운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
-                                        운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
-                                        https://okky.kr/article/451325<br><br>
-                                        운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
-                                        단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
-                                        혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+                                    <p>신규 가입 후 본인인증을 했는데 본인확인 제한 메시지를 확인하신 경우에 해당 합니다.<br>
+                                        kirikiri는 최대 3개까지 본인명의 계정으로 멜론 서비스를 이용할 수 있습니다.<br>
+                                        본인인증 한 계정이 3개를 초과할 경우, 멜론 서비스 이용이 제한되게 됩니다.<br><br>
+
+                                        1. 본인인증한 내 계정을 알고 싶은 경우<br>
+                                        현재 신규가입되어 로그인 한 본인미인증계정 상태에서> 내 정보> 본인확인/개명> 본인확인을 한번 더 진행하면 3회 제한이 뜨면서 이미 본인확인 한 계정을 확인할 수 있습니다.<br><br>
+                                        2. 더 이상 사용하지 않는 계정이 있다면,<br>
+                                        해당 계정으로 [로그인> 내 정보> 개인정보 관리 > 멜론탈퇴]를 진행해 주세요.<br><br>
+                                        3. 내가 가입하지 않은 계정이 보인다면, (계정의 도용이 의심될 경우)<br>
+                                        사이버범죄 신고시스템(ecrm.police.go.kr) 또는 한국인터넷진흥원 개인정보침해신고센터 (http://privacy.kisa.or.kr) 으로 신고하실 수 있습니다.<br><br>
+                                        만약, 신규계정을 이미 로그아웃 했다면<br>
+                                        아이디찾기> 본인확인(본인명의 휴대폰인증) 정보로 찾기를 통해 본인명의로 멜론에 가입된 계정을 확인할 수 있어요.<br>
+                                        안내와 같이 더 이상 사용하지 않는 계정을 회원탈퇴 해 주세요.</p>
                                 </div>
                             </details>
                         </li>
@@ -331,19 +419,13 @@
                             <details>
                                 <summary>
                                     <span class="question">Q.</span>
-                                    <span class="faq-title">OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</span>
+                                    <span class="faq-title">연락처를 최신 정보로 변경하고 싶은데 어떻게 하나요?</span>
                                     <span class="arrow">↓</span>
                                 </summary>
                                 <div class="faq-answer">
                                     <span class="answer">A.</span>
-                                    <p>OKKY 회원 여러분, 안녕하세요.<br>
-                                        스팸 단어에 대한 간단한 안내 드립니다.<br><br>
-                                        운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
-                                        운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
-                                        https://okky.kr/article/451325<br><br>
-                                        운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
-                                        단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
-                                        혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+                                    <p>'마이페이지'에서 휴대폰과 이메일 정보를 등록하거나 변경할 수 있어요.<br>
+                                        등록된 연락처 정보는 kirikiri 아이디/비밀번호 찾기, 2단계인증, 로그인알림 등에 이용됩니다.</p>
                                 </div>
                             </details>
                         </li>
@@ -351,19 +433,14 @@
                             <details>
                                 <summary>
                                     <span class="question">Q.</span>
-                                    <span class="faq-title">OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</span>
+                                    <span class="faq-title">만 14세 미만 아동의 경우 보호자(법정대리인)의 동의가 꼭 필요한가요?</span>
                                     <span class="arrow">↓</span>
                                 </summary>
                                 <div class="faq-answer">
                                     <span class="answer">A.</span>
-                                    <p>OKKY 회원 여러분, 안녕하세요.<br>
-                                        스팸 단어에 대한 간단한 안내 드립니다.<br><br>
-                                        운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
-                                        운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
-                                        https://okky.kr/article/451325<br><br>
-                                        운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
-                                        단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
-                                        혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+                                    <p>만 14세 미만 아동의 개인정보는 더 특별히 관리되도록 관계 법령(개인정보보호법 및 위치정보보호법 등)에서 가이드하고 있습니다.<br>
+                                        따라서, 만 14세 미만 아동이 무분별한 개인정보 수집/제공에 이용되지 않도록 보호자(법정대리인)의 동의와 인증 절차를 통해 보호자의 관리 하에 서비스를 이용할 수 있도록 해야 합니다.<br>
+                                        kirikiri 서비스 이용 시 개인정보를 수집/제공/활용을 하는 서비스 이용 시 법정대리인동의를 받을 수 있습니다.</p>
                                 </div>
                             </details>
                         </li>
@@ -371,19 +448,14 @@
                             <details>
                                 <summary>
                                     <span class="question">Q.</span>
-                                    <span class="faq-title">OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</span>
+                                    <span class="faq-title">회원탈퇴는 어떻게 하나요?</span>
                                     <span class="arrow">↓</span>
                                 </summary>
                                 <div class="faq-answer">
                                     <span class="answer">A.</span>
-                                    <p>OKKY 회원 여러분, 안녕하세요.<br>
-                                        스팸 단어에 대한 간단한 안내 드립니다.<br><br>
-                                        운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
-                                        운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
-                                        https://okky.kr/article/451325<br><br>
-                                        운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
-                                        단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
-                                        혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+                                    <p>회원탈퇴는 '마이페이지'에서 진행할 수 있으며, 유의사항에 동의하셔야 탈퇴 가능합니다.<br>
+                                        탈퇴 전 아래 유의사항을 반드시 확인하신 후 신중하게 선택해 주시길 바랍니다.<br>
+                                        탈퇴 시 회원정보는 모두 삭제되나, 작성한 글 및 댓글은 삭제되지 않습니다.</p>
                                 </div>
                             </details>
                         </li>
@@ -391,24 +463,22 @@
                             <details>
                                 <summary>
                                     <span class="question">Q.</span>
-                                    <span class="faq-title">OKKY 스팸 단어로 인한 글 등록 불가 문제 관련 공지사항</span>
+                                    <span class="faq-title">사망자의 kirikiri 탈퇴가 가능한가요?</span>
                                     <span class="arrow">↓</span>
                                 </summary>
                                 <div class="faq-answer">
                                     <span class="answer">A.</span>
-                                    <p>OKKY 회원 여러분, 안녕하세요.<br>
-                                        스팸 단어에 대한 간단한 안내 드립니다.<br><br>
-                                        운영진들의 노력 (스팸 게시물 삭제, 스팸 단어 등록, 스팸 계정 차단 등) 과 회원 여러분들의 빠른 제보 덕분에 클린한 OKKY를 계속 유지할 수 있는 한편, 얼마 전 사례처럼 스팸 단어 때문에 불편을 겪으시는 회원분들이 일부 계시리라 생각합니다.<br><br>
-                                        운영자님 여기에서 허용되지않은 단어가 무엇인가요?<br>
-                                        https://okky.kr/article/451325<br><br>
-                                        운영진이 설정해 둔 스팸 단어의 대부분은 명확한 음란/도박성의 단어들이지만, 운영 중 일반적인 단어들이 몇 가지 추가된 경우가 있습니다.<br>
-                                        단어 자체에는 큰 문제가 없지만, 쓰는 경우에 따라 스팸 문구가 되거나 스팸 게시물에 자주 등장하는 단어들인데요.<br>
-                                        혹 OKKY에 글을 쓰시다가 내용에 전혀 문제가 없는 글인데도 스팸 단어 (‘허용하지 않은 단어’) 로 등록 불가한 문제가 생길 경우에는, 번거로우시겠지만 아래와 같이 대처해주세요!</p>
+                                    <p>먼저, 유명을 달리하신 분께 조의를 표합니다.<br><br>
+                                        고객 프라이버시 보호를 위해<br>
+                                        고인의 kirikiri 아이디 또는 카카오계정 및 데이터를 유족에게 제공하지 않고 있습니다.<br><br>
+                                        다만, 가족이 사망자의 kirikiri 계정 정보를 알고 계시는 상황에 한하여 사망자 계정의 삭제 처리는 가능합니다.<br>
+                                        사망자 계정의 탈퇴를 원하시는 경우 서류 제출을 통해 사망 사실 및 신청인과의 가족관계 확인 후 도움 드릴 수 있습니다.</p>
                                 </div>
                             </details>
                         </li>
                         <li>
                             <!-- page -->
+                            <div></div>
                             <div class="move-page">
                                 <button class="previous">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg>&nbsp;&nbsp;Previous
@@ -441,6 +511,79 @@
         <img src="../static/img/ad-banner.png">
     </div>
 </article>
+<footer>
+    <div>
+        <div class="footer_left">
+            <img
+                    src="../../static/img/Logo.png"
+                    alt="푸터의 로고 이미지"
+                    width="120px"
+            />
+            <div>
+                <span>All That Developer</span>
+            </div>
+            <div class="icon">
+                <img
+                        src="../../static/img/mainPageImage/icon-facebook.png"
+                        alt="페이스북 아이콘"
+                />
+                <img
+                        src="../../static/img/mainPageImage/icon-youtube.png"
+                        alt="유튜브 아이콘"
+                />
+                <img
+                        src="../../static/img/mainPageImage/icon-envelope.png"
+                        alt="메일 아이콘"
+                />
+            </div>
+        </div>
 
+        <div class="footer_center">
+            <div class="footerMenu">
+                <div><span>회사소개</span></div>
+                <div><span>공지사항</span></div>
+                <div><span>연락처</span></div>
+                <div><span>광고문의</span></div>
+                <div><span>채용</span></div>
+                <div>|</div>
+                <div><span>버그제보</span></div>
+                <div>|</div>
+                <div><span>개인정보 처리방침</span></div>
+                <div><span>서비스 이용약관</span></div>
+            </div>
+            <div class="company">
+                <div>
+                    상호명: (주)오키코리아 | 대표명 : 노상범, 장기진
+                    | 사업자등록번호 : 592-87-02037 | 문의 :
+                    <span>@okky.kr</span>
+                </div>
+                <div>
+                    통신판매업신고번호 : 제 2022-서울강남-04742호 ㅣ
+                    주소: 서울 강남구 봉은사로 303 TGL경복빌딩 502호
+                    (06103)
+                </div>
+                <div>
+                    © 2022 (주)오키코리아, Inc. All rights reserved.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_right">
+            <div class="sponsored_text">
+                <div>SPONSORED BY</div>
+            </div>
+            <div class="sponsored_logo">
+                <img
+                        src="../../static/img/mainPageImage/inames-logo.svg"
+                        alt="inames 로고 이미지"
+                />
+                <img
+                        src="../../static/img/mainPageImage/nhn-cloud-logo.svg"
+                        alt="nhn-cloud 로고 이미지"
+                />
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
