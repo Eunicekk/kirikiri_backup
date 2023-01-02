@@ -9,11 +9,15 @@ import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.io.File;
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
@@ -120,5 +124,10 @@ public class BoardController {
 
     @GetMapping("/activity/comment")
     public String getComment(){return "activity/comment";}
+
+    @GetMapping("/display")
+    public byte[] display(String path) throws IOException {
+        return FileCopyUtils.copyToByteArray(new File("C:/upload", path));
+    }
 
 }

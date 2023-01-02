@@ -3,12 +3,18 @@ package com.example.kirikiri.controller;
 import com.example.kirikiri.domain.UserVO;
 import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.jni.FileInfo;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URL;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,6 +35,9 @@ public class UserController {
         userService.updateInfo(userVO);
         System.out.println(userVO.isUserAgeCheck());
         redirectAttributes.addAttribute("userId", userVO.getUserId());
+
+
+
         return new RedirectView("/myPage/info");
     }
     @GetMapping("/myPage/delete")
