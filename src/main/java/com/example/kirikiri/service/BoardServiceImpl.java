@@ -85,4 +85,9 @@ public class BoardServiceImpl implements BoardService {
     public List<BoardVO> getWrittenBoard(String userId, Integer page) {
         return boardDAO.writtenBoard(userId, page);
     }
+
+    @Override
+    public List<BoardVO> search(String keyword) {
+        return boardDAO.searchByTitle(keyword);
+    }
 }

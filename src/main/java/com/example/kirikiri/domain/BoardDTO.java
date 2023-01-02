@@ -33,6 +33,7 @@ public class BoardDTO {
     private int boardLikes;
     private String userId;
     private int sortType;
+    private String keyword;
 
     @Builder
     public BoardDTO(String nationName, String categoryName, String detailCategoryName, String boardTitle, String boardContent, String userId) {

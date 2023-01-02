@@ -7,6 +7,7 @@ import com.example.kirikiri.domain.UserVO;
 import com.example.kirikiri.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -118,15 +119,21 @@ public class BoardController {
         return "/activity/writtenBoard";
     }
 
-    @GetMapping("/board/search") // 커뮤니티 검색
-    public String search(@RequestParam(value = "keyword") String keyword, Model model) {
-        List<BoardDTO> boardDTOList = boardService.searchPosts(keyword);
-        model.addAttribute("boardList", boardDTOList);
-
-        return "board/community.html";
-    }
+//    @GetMapping("/board/search") // 커뮤니티 검색
+//    public String search(@RequestParam(value = "keyword") String keyword, Model model) {
+//        List<BoardDTO> boardDTOList = boardService.searchPosts(keyword);
+//        model.addAttribute("boards", boardDTOList);
+//        return "/community";
+//    }
 
     @GetMapping("/activity/comment")
     public String getComment(){return "activity/comment";}
+
+    @GetMapping("/board/search")
+    public String searchPosts(BoardDTO boardDTO, Model model){
+        List<BoardVO> boards = boardService.search(boardDTO.getKeyword());
+        model.addAttribute("boards", boards);
+        return "/community";
+    }
 
 }

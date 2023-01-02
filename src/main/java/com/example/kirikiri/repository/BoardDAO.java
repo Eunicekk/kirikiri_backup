@@ -64,5 +64,8 @@ public class BoardDAO {
 
     public List<BoardVO> writtenBoard(String userId, Integer page){
         return boardMapper.selectWritten(userId, page);
-    };
+    }
+    public List<BoardVO> searchByTitle(String keyword) {
+        return boardMapper.search(keyword);
+    }
 }
