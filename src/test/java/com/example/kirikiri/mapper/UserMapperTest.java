@@ -21,6 +21,8 @@ public class UserMapperTest {
         userVO.setUserEmail(("aaaaaa"));
         userVO.setUserName(("aaa"));
         userVO.setUserNation("aaa");
+        userVO.setUserAge(20);
+        userVO.setUserResidence("ababab");
 
         userMapper.insert(userVO);
     }
