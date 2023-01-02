@@ -33,24 +33,57 @@
         WHERE USER_ID = #{userId}
     </delete>
 
+<<<<<<< HEAD
     <!--    email로 특정 데이터 가져오기 -->
+=======
+<!--    email로 특정 데이터 가져오기 -->
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     <select id="selectUserEmail" resultType="String">
         SELECT USER_ID
         FROM TBL_USER
         WHERE USER_EMAIL = #{userEmail}
     </select>
 
+<<<<<<< HEAD
     <!--    id로 특정 데이터 가져오기-->
+=======
+<!--    id로 특정 데이터 가져오기-->
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     <select id="selectUserId" resultType="userVO">
         SELECT *
         FROM TBL_USER
         WHERE USER_ID = #{userId}
     </select>
 
+<<<<<<< HEAD
     <!--    비밀번호 재설정 -->
+=======
+<!--    비밀번호 재설정 -->
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     <update id="updatePw" >
         UPDATE TBL_USER
         SET USER_PASSWORD = #{userPassword}
         WHERE USER_ID = #{userId}
     </update>
+<<<<<<< HEAD
+=======
+
+
+<!--    private String userId;-->
+<!--    private String userPassword;-->
+<!--    private String userNickname;-->
+<!--    private String userEmail;-->
+<!--    private String userName;-->
+<!--    private String userNation;-->
+<!--    private char userEmailReceiveCheck;-->
+<!--    private String userRegisterDate;-->
+<!--    private String userProfile;-->
+
+<!--    임시 데이터 입력 -->
+    <insert id="insert">
+        INSERT INTO TBL_USER(USER_ID, USER_PASSWORD, USER_NICKNAME, USER_EMAIL, USER_NAME, USER_NATION, USER_EMAIL_RECEIVE_CHECK, USER_PROFILE)
+        VALUES(#{userId}, #{userPassword}, #{userNickname}, #{userEmail}, #{userName}, #{userNation}, #{userEmailReceiveCheck}, #{userProfile})
+    </insert>
+
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -77,6 +78,23 @@ public class UserController {
     public RedirectView delete(String userId){
         userService.deleteInfo("pigs");
         return new RedirectView("/mainPageHtml/index");
+=======
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
+
+@Controller
+@RequestMapping("/*")
+@RequiredArgsConstructor
+@Slf4j
+public class UserController {
+
+    private final UserService userService;
+
+    @GetMapping("/main")
+    public String main(){
+        return "/mainPageHtml/index";
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     }
 
     @GetMapping("/findAccount")
@@ -89,7 +107,11 @@ public class UserController {
     public void findById(Model model, String userEmail){
         model.addAttribute("userId", userService.findById(userEmail));
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     //비밀번호 변경
     @PostMapping("/password")
     public void changePw(Model model, String userId){
@@ -110,6 +132,13 @@ public class UserController {
             return "/passwordResetfail";
         }
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
     }
 
 }

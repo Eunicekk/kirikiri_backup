@@ -2,8 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
+<<<<<<< HEAD
         <typeAlias type="com.example.kirikiri.domain.BoardVO" alias="boardVO"/>
         <typeAlias type="com.example.kirikiri.domain.BoardDTO" alias="boardDTO"/>
+=======
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
         <typeAlias type="com.example.kirikiri.domain.UserVO" alias="userVO"/>
     </typeAliases>
 </configuration>

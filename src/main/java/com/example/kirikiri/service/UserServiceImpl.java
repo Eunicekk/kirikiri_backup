@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Qualifier("user") @Primary
 public class UserServiceImpl implements UserService {
+<<<<<<< HEAD
     private final UserDAO userDAO;
 
     @Override
@@ -35,6 +36,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteInfo(String userId){userDAO.deleteUser(userId);}
+=======
+
+    private  final UserDAO userDAO;
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
 
     @Override
     public String findById(String userEmail) {
@@ -50,4 +55,9 @@ public class UserServiceImpl implements UserService {
     public void updatePw(UserVO userVO) {
         userDAO.setUserPw(userVO);
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
 }

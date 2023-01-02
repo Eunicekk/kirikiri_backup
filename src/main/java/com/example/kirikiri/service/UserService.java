@@ -2,6 +2,7 @@ package com.example.kirikiri.service;
 
 import com.example.kirikiri.domain.UserVO;
 
+<<<<<<< HEAD
 public interface UserService {
     public void signup(UserVO userVO);
     public UserVO login(UserVO userVO);
@@ -14,6 +15,9 @@ public interface UserService {
 
     // 회원정보 삭제
     public void deleteInfo(String userId);
+=======
+    public interface UserService {
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
 
     // Email로 데이터 가져오기
     public String findById(String userEmail);
@@ -23,5 +27,11 @@ public interface UserService {
 
     // 비밀번호 재설정
     public void updatePw(UserVO userVO);
+<<<<<<< HEAD
 }
 
+=======
+
+
+}
+>>>>>>> 319665cc80c20ee6a1e79404e302516cbcb43a4d
