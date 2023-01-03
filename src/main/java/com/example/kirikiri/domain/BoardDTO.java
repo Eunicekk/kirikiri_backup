@@ -35,6 +35,7 @@ public class BoardDTO {
     private int sortType = 1;
     private int page = 1;
     private String keyword;
+    private Integer posts;
 
     @Builder
     public BoardDTO(String nationName, String categoryName, String detailCategoryName, String boardTitle, String boardContent, String userId) {

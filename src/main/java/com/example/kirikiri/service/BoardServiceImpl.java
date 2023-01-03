@@ -116,6 +116,15 @@ public class BoardServiceImpl implements BoardService {
         return boardDAO.getFivePosts(categoryName);
     }
 
+    @Override
+    public List<BoardVO> getFivePopularPosts() {
+        return boardDAO.getFivePopularPosts();
+    }
+    @Override
+    public List<BoardDTO> getFivePopularWriters(){
+        return boardDAO.getFivePopularWriters();
+    }
+
 
     @Override
     public List<BoardVO> getWrittenBoard(String userId, Integer page) {

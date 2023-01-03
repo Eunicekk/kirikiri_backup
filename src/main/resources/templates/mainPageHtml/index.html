@@ -168,29 +168,15 @@
             <div class="main">
                 <div id="main_left">
                     <div class="main_left_Menu">
-                        <div class="bestTag"><span>#인기태그</span></div>
+                        <div class="bestTag"><span>인기 글 번호</span></div>
 
                         <div class="tag_menu">
-                            <div class="tag_menu_li">
-                                <span>#java</span>
-                                <span class="span_count">00</span>
-                            </div>
-                            <div class="tag_menu_li">
-                                <span>#javascript</span>
-                                <span class="span_count">00</span>
-                            </div>
-                            <div class="tag_menu_li">
-                                <span>#springboot</span>
-                                <span class="span_count">00</span>
-                            </div>
-                            <div class="tag_menu_li">
-                                <span>#spring</span>
-                                <span class="span_count">00</span>
-                            </div>
-                            <div class="tag_menu_li">
-                                <span>#react</span>
-                                <span class="span_count">00</span>
-                            </div>
+                            <th:block th:each="popularPost:${popularPosts}">
+                                <div class="tag_menu_li" th:object="${popularPost}">
+                                    <span><a th:href="@{/post(boardId = *{boardId})}" th:text="*{boardId}"></a></span>
+                                    <span class="span_count" th:text="*{boardViews}"></span>
+                                </div>
+                            </th:block>
                         </div>
                     </div>
 
@@ -217,96 +203,26 @@
                     <div class="main_left_TopWriters">
                         <div class="topWriters">Top Writers</div>
                         <div class="topWriters_users">
-                            <div class="topWriters_user">
-                                <div class="user_name">
-                                    <img
-                                        class="user_icon"
-                                        src="/img/mainPageImage/icon-user.png"
-                                        alt="유저 icon 이미지"
-                                    />
-                                    <span>고등어통조림</span>
+                            <th:block th:each="popularWriter:${popularWriters}">
+                                <div class="topWriters_user" th:object="${popularWriter}">
+                                    <div class="user_name">
+                                        <img
+                                                class="user_icon"
+                                                src="/img/mainPageImage/icon-user.png"
+                                                alt="유저 icon 이미지"
+                                        />
+                                        <span th:text="*{userId}"></span>
+                                    </div>
+                                    <div class="user_point">
+                                        <img
+                                                class="medal_icon"
+                                                src="/img/mainPageImage/icon-medal.png"
+                                                alt="매달 icon 이미지"
+                                        />
+                                        <span th:text="*{posts}"></span>
+                                    </div>
                                 </div>
-                                <div class="user_point">
-                                    <img
-                                        class="medal_icon"
-                                        src="/img/mainPageImage/icon-medal.png"
-                                        alt="매달 icon 이미지"
-                                    />
-                                    <span>000</span>
-                                </div>
-                            </div>
-                            <div class="topWriters_user">
-                                <div class="user_name">
-                                    <img
-                                        class="user_icon"
-                                        src="/img/mainPageImage/icon-user.png"
-                                        alt="유저 icon 이미지"
-                                    />
-                                    <span>1층</span>
-                                </div>
-                                <div class="user_point">
-                                    <img
-                                        class="medal_icon"
-                                        src="/img/mainPageImage/icon-medal.png"
-                                        alt="매달 icon 이미지"
-                                    />
-                                    <span>000</span>
-                                </div>
-                            </div>
-                            <div class="topWriters_user">
-                                <div class="user_name">
-                                    <img
-                                        class="user_icon"
-                                        src="/img/mainPageImage/icon-user.png"
-                                        alt="유저 icon 이미지"
-                                    />
-                                    <span>kenu</span>
-                                </div>
-                                <div class="user_point">
-                                    <img
-                                        class="medal_icon"
-                                        src="/img/mainPageImage/icon-medal.png"
-                                        alt="매달 icon 이미지"
-                                    />
-                                    <span>000</span>
-                                </div>
-                            </div>
-                            <div class="topWriters_user">
-                                <div class="user_name">
-                                    <img
-                                        class="user_icon"
-                                        src="/img/mainPageImage/icon-user.png"
-                                        alt="유저 icon 이미지"
-                                    />
-                                    <span>leemong77</span>
-                                </div>
-                                <div class="user_point">
-                                    <img
-                                        class="medal_icon"
-                                        src="/img/mainPageImage/icon-medal.png"
-                                        alt="매달 icon 이미지"
-                                    />
-                                    <span>000</span>
-                                </div>
-                            </div>
-                            <div class="topWriters_user">
-                                <div class="user_name">
-                                    <img
-                                        class="user_icon"
-                                        src="/img/mainPageImage/icon-user.png"
-                                        alt="유저 icon 이미지"
-                                    />
-                                    <span>무명시민</span>
-                                </div>
-                                <div class="user_point">
-                                    <img
-                                        class="medal_icon"
-                                        src="/img/mainPageImage/icon-medal.png"
-                                        alt="매달 icon 이미지"
-                                    />
-                                    <span>000</span>
-                                </div>
-                            </div>
+                            </th:block>
                         </div>
                     </div>
                 </div>

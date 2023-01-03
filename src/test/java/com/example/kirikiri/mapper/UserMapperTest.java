@@ -43,7 +43,7 @@ public class UserMapperTest {
 
     @Test
     public void duplicateTest(){
-        Boolean check = userService.duplicateCheck("aaaa");
+        Boolean check = userService.duplicateCheckId("aaaa");
         log.info("중복검사 : " + check);
     }
 }

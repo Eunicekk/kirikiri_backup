@@ -59,6 +59,9 @@ public interface BoardMapper {
 
     public List<BoardVO> selectFivePosts(String categoryName);
 
+    public List<BoardVO> selectPopularPosts();
+    public List<BoardDTO> selectPopularWriters();
+
     // 작성한 게시글 조회
     public List<BoardVO> selectWritten(@Param("userId") String userId, @Param("page") Integer page);
 }

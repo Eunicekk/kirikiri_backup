@@ -134,22 +134,21 @@
     <aside>
         <div class="tag">
             <ul>
-                <li>#인기 태그</li>
-                <li><a href="#">#java</a><span>64</span></li>
-                <li><a href="#">#springboot</a><span>34</span></li>
-                <li><a href="#">#spring</a><span>34</span></li>
-                <li><a href="#">#javascript</a><span>32</span></li>
-                <li><a href="#">#react</a><span>29</span></li>
+                <li>인기 글 번호</li>
+                <th:block th:each="popularPost:${popularPosts}">
+                    <li th:object="${popularPost}"><a th:href="@{/post(boardId = *{boardId})}" th:text="*{boardId}"></a><span th:text="*{boardViews}"></span></li>
+                </th:block>
             </ul>
         </div>
         <div class="tag">
             <ul>
                 <li>Top Writers</li>
-                <li><a href="#">고등어통조림</a><span>313</span></li>
-                <li><a href="#">adduci</a><span>172</span></li>
-                <li><a href="#">1층</a><span>158</span></li>
-                <li><a href="#">leemong77</a><span>143</span></li>
-                <li><a href="#">제운</a><span>138</span></li>
+                <th:block th:each="popularWriter:${popularWriters}">
+                    <li th:object="${popularWriter}">
+                        <a href="" th:text="*{userId}"></a>
+                        <span th:text="*{posts}"></span>
+                    </li>
+                </th:block>
             </ul>
         </div>
     </aside>

@@ -6,6 +6,7 @@ import com.example.kirikiri.mapper.BoardMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -80,6 +81,16 @@ public class BoardDAO {
 
     public List<BoardVO> getFivePosts(String categoryName) {
         return boardMapper.selectFivePosts(categoryName);
+    }
+    public List<BoardVO> getFivePopularPosts() {
+        return boardMapper.selectPopularPosts();
+    }
+    public List<BoardDTO> getFivePopularWriters() {
+        List<BoardDTO> lists = new ArrayList<BoardDTO>();
+        for(int i = 0; i < 5; i++) {
+            lists.add(boardMapper.selectPopularWriters().get(i));
+        }
+        return lists;
     }
 
     public BoardVO findById(Long boardId){

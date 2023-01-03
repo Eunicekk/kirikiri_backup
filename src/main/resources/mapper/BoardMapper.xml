@@ -184,6 +184,26 @@
         ]]>
     </select>
 
+    <select id="selectPopularPosts" resultType="boardVO">
+        SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM
+        (
+            SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM TBL_BOARD
+            ORDER BY BOARD_VIEWS DESC
+        )
+        <![CDATA[
+        WHERE ROWNUM <= 5
+        ]]>
+    </select>
+
+    <select id="selectPopularWriters" resultType="boardDTO">
+        SELECT USER_ID, COUNT(BOARD_ID) AS POSTS
+        FROM TBL_BOARD
+        GROUP BY USER_ID
+        ORDER BY COUNT(BOARD_ID) DESC
+    </select>
+
     <insert id="insert">
         INSERT INTO TBL_BOARD(BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_VIEWS, BOARD_LIKES, USER_ID)
         VALUES(SEQ_BOARD.NEXTVAL, #{nationName}, #{categoryName}, #{detailCategoryName}, #{boardTitle}, #{boardContent}, #{boardViews}, #{boardLikes}, #{userId})

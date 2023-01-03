@@ -38,6 +38,9 @@ public class BoardController {
         boolean profileCheck;
         UserVO userVO = null;
 
+        model.addAttribute("popularPosts", boardService.getFivePopularPosts());
+        model.addAttribute("popularWriters", boardService.getFivePopularWriters());
+
         if(session != null) {
             userId = (String) session.getAttribute("userId");
         }
@@ -66,6 +69,9 @@ public class BoardController {
         boolean userCheck = false;
         boolean profileCheck = false;
         UserVO userVO = null;
+
+        model.addAttribute("popularPosts", boardService.getFivePopularPosts());
+        model.addAttribute("popularWriters", boardService.getFivePopularWriters());
 
         if(session != null) {
             userId = (String) session.getAttribute("userId");
@@ -218,6 +224,9 @@ public class BoardController {
         boolean profileCheck = false;
         UserVO userVO = null;
 
+        model.addAttribute("popularPosts", boardService.getFivePopularPosts());
+        model.addAttribute("popularWriters", boardService.getFivePopularWriters());
+
         if(session != null) {
             userId = (String) session.getAttribute("userId");
         }
@@ -240,6 +249,9 @@ public class BoardController {
         boolean userCheck = false;
         boolean profileCheck = false;
         UserVO userVO = null;
+
+        model.addAttribute("popularPosts", boardService.getFivePopularPosts());
+        model.addAttribute("popularWriters", boardService.getFivePopularWriters());
 
         if(session != null) {
             userId = (String) session.getAttribute("userId");

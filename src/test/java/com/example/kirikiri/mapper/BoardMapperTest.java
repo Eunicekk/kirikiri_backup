@@ -61,4 +61,12 @@ public class BoardMapperTest {
     public void userActivity(){
         boardMapper.selectWritten("aaa", 1);
     }
+    @Test
+    public void selectPopularPosts(){
+        boardMapper.selectPopularPosts();
+    }
+    @Test
+    public void selectPopularWritersTest(){
+        boardMapper.selectPopularWriters();
+    }
 }
