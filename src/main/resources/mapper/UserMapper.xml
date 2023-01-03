@@ -37,4 +37,29 @@
         DELETE FROM TBL_USER
         WHERE USER_ID = #{userId}
     </delete>
+
+    <!--    email로 특정 데이터 가져오기 -->
+
+    <select id="selectUserEmail" resultType="userVo">
+        SELECT USER_ID, USER_EMAIL
+        FROM TBL_USER
+        WHERE USER_EMAIL = #{userEmail}
+    </select>
+
+    <!--    id로 특정 데이터 가져오기-->
+
+    <select id="selectUserId" resultType="userVO">
+        SELECT *
+        FROM TBL_USER
+        WHERE USER_ID = #{userId}
+    </select>
+
+    <!--    비밀번호 재설정 -->
+
+
+    <update id="updatePw" >
+        UPDATE TBL_USER
+        SET USER_PASSWORD = #{userPassword}
+        WHERE USER_ID = #{userId}
+    </update>
 </mapper>

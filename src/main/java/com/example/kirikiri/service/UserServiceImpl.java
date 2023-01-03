@@ -45,4 +45,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteInfo(String userId){userDAO.deleteUser(userId);}
+
+    @Override
+    public UserVO findById(String userEmail) {
+        return userDAO.findById(userEmail);
+    }
+
+    @Override
+    public UserVO getUser(String userId){
+        return userDAO.findId(userId);
+    }
+
+    @Override
+    public void updatePw(UserVO userVO) {
+        userDAO.setUserPw(userVO);
+    }
 }

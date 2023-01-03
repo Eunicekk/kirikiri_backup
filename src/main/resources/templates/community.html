@@ -178,19 +178,19 @@
         <span>작성하기</span>
       </a>
       <div class="board-detail-category" th:if="*{categoryName} == 'Counseling'">
-        <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Home', sortType = 1)}">Home</a>
-        <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Work', sortType = 1)}">Work</a>
-        <a th:href="@{/board/board(categoryName = *{categoryName}, sortType = 1, detailCategoryName = '', sortType = 1)}">All</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = 'Home', sortType = 1)}">Home</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = 'Work', sortType = 1)}">Work</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, sortType = 1, detailCategoryName = '', sortType = 1)}">All</a>
       </div>
       <div class="board-detail-category" th:if="*{categoryName} == 'Play'">
-        <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Food', sortType = 1)}">Food</a>
-        <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Playground', sortType = 1)}">Playground</a>
-        <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = '', sortType = 1)}">All</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = 'Food', sortType = 1)}">Food</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = 'Playground', sortType = 1)}">Playground</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = '', sortType = 1)}">All</a>
       </div>
       <div class="board-detail-category" th:if="*{categoryName} == 'Job'">
-        <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Offer', sortType = 1)}">Offer</a>
-        <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = 'Search', sortType = 1)}">Search</a>
-        <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = '', sortType = 1)}">All</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = 'Offer', sortType = 1)}">Offer</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = 'Search', sortType = 1)}">Search</a>
+        <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = '', sortType = 1)}">All</a>
       </div>
       <div id="sort">
         <button id="sort-button">
@@ -199,11 +199,11 @@
         </button>
         <input type="checkbox" id="sort-check">
         <div id="sort-type">
-          <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 1)}">최신순</a>
-          <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 2)}">추천순</a>
+          <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 1)}">최신순</a>
+          <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 2)}">추천순</a>
           <!--              <button type="button">댓글순</button>-->
           <!--              <a>스크랩순</a>-->
-          <a th:href="@{/board/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 3)}">조회순</a>
+          <a th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName}, sortType = 3)}">조회순</a>
         </div>
       </div>
     </div>

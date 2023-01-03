@@ -33,4 +33,17 @@ public class UserDAO {
     public void updateUserInfo(UserVO userVO){userMapper.updateUser(userVO);}
 
     public void deleteUser(String userId){userMapper.deleteUser(userId);}
+
+    // Email로 데이터 가져오기
+    public UserVO findById(String userEmail){
+        return userMapper.selectUserEmail(userEmail);
+    }
+
+    // ID로 데이터 가져오기(id넣기)
+    public UserVO findId(String userId) { return userMapper.selectUserId(userId);}
+
+    // 비밀번호 재설정
+    public void setUserPw(UserVO userVO){
+        userMapper.updatePw(userVO);
+    }
 }

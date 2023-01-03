@@ -1,521 +1,521 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>kirikiri</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kirikiri</title>
 
-        <link rel="stylesheet" href="/css/mainPageCss/reset.css" />
-        <link
+    <link rel="stylesheet" href="/css/mainPageCss/reset.css" />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/main/main.css"
-        />
-        <link rel="stylesheet" href="/css/mainPageCss/media.css" />
-        <link
+    />
+    <link rel="stylesheet" href="/css/mainPageCss/media.css" />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/header/darkmode.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/header/search.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/header/header.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/header/login_signUp.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/main/main_left.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/main/main_center.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/main/main_right.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/main/event.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/footer/footer.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/footer/footer_left.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/footer/footer_center.css"
-        />
-        <link
+    />
+    <link
             rel="stylesheet"
             href="/css/mainPageCss/footer/footer_right.css"
-        />
-        <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
-        <script src="/javascript/mainPageJs/include-html.js"></script>
-    </head>
-    <body>
-        <div class="body">
-            <header>
-                <div class="header">
-                    <div class="header_left">
-                        <a href="/">
-                            <img
-                                src="/img/Logo.png"
-                                alt="헤더의 로고이미지"
-                                width="110px"
-                            />
-                        </a>
-
-                        <div class="header_left_menu">
-                            <div><a th:href="@{/all}">All</a></div>
-                            <div><a th:href="@{/board(categoryName = 'Free')}">Free</a></div>
-                            <div><a th:href="@{/board(categoryName = 'Play')}">Play</a></div>
-                            <div><a th:href="@{/board(categoryName = 'Counseling')}">Counseling</a></div>
-                            <div>|</div>
-                            <div><a th:href="@{/faq}">FAQ</a></div>
-                        </div>
-                    </div>
-
-                    <div class="header_right">
-                        <div class="header_right_search">
-                            <div class="search">
-                                <img
-                                    src="/img/mainPageImage/search_icon.png"
-                                    alt="검색 아이콘"
-                                    class="searchIcon"
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="검색"
-                                    class="searchInput"
-                                />
-                            </div>
-                            <div>
-                                <input type="checkbox" id="toggle" hidden />
-
-                                <!-- 다크모드 on/off 스위치 -->
-                                <label for="toggle" class="toggleSwitch">
-                                    <span class="toggleButton"></span>
-                                    <img
-                                        class="toggleImage_off"
-                                        src="/img/mainPageImage/darkmode_off.png"
-                                        alt="다크모드 off 시"
-                                    />
-                                    <img
-                                        class="toggleImage_on"
-                                        src="/img/mainPageImage/darkmode_on.png"
-                                        alt="다크모드 on 시"
-                                    />
-                                </label>
-                            </div>
-                        </div>
-                        <div class="header_right_login" th:if="${!userCheck}">
-                            <div class="login"><a href="/login">로그인</a></div>
-                            <div class="signUp"><a href="/signup">회원가입</a></div>
-                        </div>
-                        <div class="header_right_login" th:unless="${!userCheck}">
-                            <div>
-                                <a class="scrap" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg></a>
-                                <a class="alert" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg></a>
-                                <div id="mypage">
-                                    <button type="button" class="mypage">
-                                        <img src="" alt="profile" th:if="${profileCheck}">
-                                        <img src="/img/account.png" alt="profile" th:unless="${profileCheck}">
-                                    </button>
-                                    <input id="mypage-check" type="checkbox" style="display: none">
-                                    <div id="mypage-menu">
-                                        <a href="/myPage/info">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="mr-2 h-4 w-4" role="none"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" role="none"></path></svg>
-                                            내 프로필
-                                        </a>
-                                        <a href="/myPage/delete">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="mr-2 h-4 w-4" role="none"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" role="none"></path></svg>
-                                            내 계정
-                                        </a>
-                                        <a href="/activity/writtenBoard">
-                                            <svg class="mr-2 h-4 w-4" width="16" height="16" viewBox="0 -1 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="none"><path d="M7 5.5V7.80769L8.5 9.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="none"></path><path d="M1 1.5L1 4.75H1.43783M13 6.25C12.6295 3.29027 10.0949 1 7.0233 1C4.49549 1 2.33137 2.55113 1.43783 4.75M1.43783 4.75H4M12.6088 9.25C11.7152 11.4489 9.55111 13 7.0233 13C3.9517 13 1.41711 10.7097 1.0466 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="none"></path></svg>
-                                            활동내역
-                                        </a>
-                                        <a id="logout" href="/logout">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="mr-2 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"></path></svg>
-                                            로그아웃
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="menu_btn">
-                        <img
-                            src="/img/mainPageImage/icon-menu.png"
-                            alt="메뉴 아이콘 이미지"
-                        />
-                    </div>
-                </div>
-            </header>
-
-            <div class="main">
-                <div id="main_left">
-                    <div class="main_left_Menu">
-                        <div class="bestTag"><span>인기 글 번호</span></div>
-
-                        <div class="tag_menu">
-                            <th:block th:each="popularPost:${popularPosts}">
-                                <div class="tag_menu_li" th:object="${popularPost}">
-                                    <span><a th:href="@{/post(boardId = *{boardId})}" th:text="*{boardId}"></a></span>
-                                    <span class="span_count" th:text="*{boardViews}"></span>
-                                </div>
-                            </th:block>
-                        </div>
-                    </div>
-
-                    <div class="main_left_Img">
-                        <img
-                            src="/img/mainPageImage/개발지식 챌린지.png"
-                            alt="개발지식 챌린지 이미지"
-                        />
-                    </div>
-
-                    <div class="main_left_BugReport">
-                        <div class="bugReport_img">
-                            <img
-                                src="/img/mainPageImage/bugReport.png"
-                                alt="버그리포트 이미지"
-                            />
-                        </div>
-                        <div class="bugReport_text">
-                            <p>버그와 제안은 여기에</p>
-                            <p>댓글로 남겨주세요.</p>
-                        </div>
-                    </div>
-
-                    <div class="main_left_TopWriters">
-                        <div class="topWriters">Top Writers</div>
-                        <div class="topWriters_users">
-                            <th:block th:each="popularWriter:${popularWriters}">
-                                <div class="topWriters_user" th:object="${popularWriter}">
-                                    <div class="user_name">
-                                        <img
-                                                class="user_icon"
-                                                src="/img/mainPageImage/icon-user.png"
-                                                alt="유저 icon 이미지"
-                                        />
-                                        <span th:text="*{userId}"></span>
-                                    </div>
-                                    <div class="user_point">
-                                        <img
-                                                class="medal_icon"
-                                                src="/img/mainPageImage/icon-medal.png"
-                                                alt="매달 icon 이미지"
-                                        />
-                                        <span th:text="*{posts}"></span>
-                                    </div>
-                                </div>
-                            </th:block>
-                        </div>
-                    </div>
-                </div>
-
-
-
-<!--                중앙-->
-                <div id="main_center">
+    />
+    <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+    <script src="/javascript/mainPageJs/include-html.js"></script>
+</head>
+<body>
+<div class="body">
+    <header>
+        <div class="header">
+            <div class="header_left">
+                <a href="/">
                     <img
-                        class="banner"
-                        src="/img/mainPageImage/main_banner.jpg"
-                        alt="광고 베너 이미지"
+                            src="/img/Logo.png"
+                            alt="헤더의 로고이미지"
+                            width="110px"
                     />
-                    <img
-                        class="banner_s"
-                        src="/img/mainPageImage/main_banner_S.jpg"
-                        alt="광고 베너 이미지"
-                    />
-                    <div class="tag_box">
-                        <div class="tag f_tag">
-                            <a th:href="@{/board(categoryName = 'Free')}" class="tag_title">
-                                <span>Free</span>
-                            </a>
-                            <div class="posts">
-                                <th:block th:each="board:${freeBoards}" th:object="${board}">
-                                    <div class="post">
-                                        <div class="writers">
-                                            <div class="writers_info">
-                                                <img
-                                                        class="icon-user"
-                                                        src="/img/mainPageImage/icon-user.png"
-                                                        alt="유저 프로필 이미지"
-                                                />
-                                                <span th:text="*{userId}"></span>
-                                                <span>·</span>
-                                                <svg class="icon-lightning" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                                <span th:text="*{boardViews}"></span>
-                                                <span>·</span>
-                                                <span th:text="*{boardRegisterDate}"></span>
-                                            </div>
-                                            <div class="like_comment">
-                                                <img
-                                                        class="icon-up-down"
-                                                        src="/img/mainPageImage/icon-up-down.png"
-                                                        alt="좋아요 icon 이미지"
-                                                />
-                                                <span th:text="*{boardLikes}"></span>
-                                                <img
-                                                        class="icon-comment"
-                                                        src="/img/mainPageImage/icon-comment.png"
-                                                        alt="댓글 icon 이미지"
-                                                />
-                                                <span>0</span>
-                                            </div>
-                                        </div>
-                                        <div class="post_title">
-                                            <span th:text="*{boardTitle}"></span>
-                                        </div>
-                                    </div>
-                                </th:block>
-                            </div>
-                        </div>
+                </a>
 
-                        <div class="tag">
-                            <a th:href="@{/board(categoryName = 'Counseling')}" class="tag_title">
-                                <span>Counseling</span>
-                            </a>
+                <div class="header_left_menu">
+                    <div><a th:href="@{/all}">All</a></div>
+                    <div><a th:href="@{/board(categoryName = 'Free')}">Free</a></div>
+                    <div><a th:href="@{/board(categoryName = 'Play')}">Play</a></div>
+                    <div><a th:href="@{/board(categoryName = 'Counseling')}">Counseling</a></div>
+                    <div>|</div>
+                    <div><a th:href="@{/faq}">FAQ</a></div>
+                </div>
+            </div>
 
-                            <div class="posts">
-                                <th:block th:each="board:${counselingBoards}" th:object="${board}">
-                                    <div class="post">
-                                        <div class="writers">
-                                            <div class="writers_info">
-                                                <img
-                                                        class="icon-user"
-                                                        src="/img/mainPageImage/icon-user.png"
-                                                        alt="유저 프로필 이미지"
-                                                />
-                                                <span th:text="*{userId}"></span>
-                                                <span>·</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                                <span th:text="*{boardViews}"></span>
-                                                <span>·</span>
-                                                <span th:text="*{boardRegisterDate}"></span>
-                                            </div>
-                                            <div class="like_comment">
-                                                <img
-                                                        class="icon-up-down"
-                                                        src="/img/mainPageImage/icon-up-down.png"
-                                                        alt="좋아요 icon 이미지"
-                                                />
-                                                <span th:text="*{boardLikes}"></span>
-                                                <img
-                                                        class="icon-comment"
-                                                        src="/img/mainPageImage/icon-comment.png"
-                                                        alt="댓글 icon 이미지"
-                                                />
-                                                <span>0</span>
-                                            </div>
-                                        </div>
-                                        <div class="post_title">
-                                            <span th:text="*{boardTitle}"></span>
-                                        </div>
-                                    </div>
-                                </th:block>
-
-
-                            </div>
-                        </div>
+            <div class="header_right">
+                <div class="header_right_search">
+                    <div class="search">
+                        <img
+                                src="/img/mainPageImage/search_icon.png"
+                                alt="검색 아이콘"
+                                class="searchIcon"
+                        />
+                        <input
+                                type="text"
+                                placeholder="검색"
+                                class="searchInput"
+                        />
                     </div>
-                    <div class="tag_box">
-                        <div class="tag f_tag">
-                            <a th:href="@{/board(categoryName = 'Play')}" class="tag_title">
-                                <span>Play</span>
-                            </a>
+                    <div>
+                        <input type="checkbox" id="toggle" hidden />
 
-                            <div class="posts">
-                                <th:block th:each="board:${playBoards}" th:object="${board}">
-                                    <div class="post">
-                                        <div class="writers">
-                                            <div class="writers_info">
-                                                <img
-                                                        class="icon-user"
-                                                        src="/img/mainPageImage/icon-user.png"
-                                                        alt="유저 프로필 이미지"
-                                                />
-                                                <span th:text="*{userId}"></span>
-                                                <span>·</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                                <span th:text="*{boardViews}"></span>
-                                                <span>·</span>
-                                                <span th:text="*{boardRegisterDate}"></span>
-                                            </div>
-                                            <div class="like_comment">
-                                                <img
-                                                        class="icon-up-down"
-                                                        src="/img/mainPageImage/icon-up-down.png"
-                                                        alt="좋아요 icon 이미지"
-                                                />
-                                                <span th:text="*{boardLikes}"></span>
-                                                <img
-                                                        class="icon-comment"
-                                                        src="/img/mainPageImage/icon-comment.png"
-                                                        alt="댓글 icon 이미지"
-                                                />
-                                                <span>0</span>
-                                            </div>
-                                        </div>
-                                        <div class="post_title">
-                                            <span th:text="*{boardTitle}"></span>
-                                        </div>
-                                    </div>
-                                </th:block>
-                            </div>
-                        </div>
-
-                        <div class="tag">
-                            <a th:href="@{/board(categoryName = 'Job')}" class="tag_title">
-                                <span>Job</span>
-                            </a>
-
-                            <div class="posts">
-                                <th:block th:each="board:${jobBoards}" th:object="${board}">
-                                    <div class="post">
-                                        <div class="writers">
-                                            <div class="writers_info">
-                                                <img
-                                                        class="icon-user"
-                                                        src="/img/mainPageImage/icon-user.png"
-                                                        alt="유저 프로필 이미지"
-                                                />
-                                                <span th:text="*{userId}"></span>
-                                                <span>·</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                                <span th:text="*{boardViews}"></span>
-                                                <span>·</span>
-                                                <span th:text="*{boardRegisterDate}"></span>
-                                            </div>
-                                            <div class="like_comment">
-                                                <img
-                                                        class="icon-up-down"
-                                                        src="/img/mainPageImage/icon-up-down.png"
-                                                        alt="좋아요 icon 이미지"
-                                                />
-                                                <span th:text="*{boardLikes}"></span>
-                                                <img
-                                                        class="icon-comment"
-                                                        src="/img/mainPageImage/icon-comment.png"
-                                                        alt="댓글 icon 이미지"
-                                                />
-                                                <span>0</span>
-                                            </div>
-                                        </div>
-                                        <div class="post_title">
-                                            <span th:text="*{boardTitle}"></span>
-                                        </div>
-                                    </div>
-                                </th:block>
-                            </div>
-                        </div>
+                        <!-- 다크모드 on/off 스위치 -->
+                        <label for="toggle" class="toggleSwitch">
+                            <span class="toggleButton"></span>
+                            <img
+                                    class="toggleImage_off"
+                                    src="/img/mainPageImage/darkmode_off.png"
+                                    alt="다크모드 off 시"
+                            />
+                            <img
+                                    class="toggleImage_on"
+                                    src="/img/mainPageImage/darkmode_on.png"
+                                    alt="다크모드 on 시"
+                            />
+                        </label>
                     </div>
                 </div>
-                <div id="main_right">
-                    <div class="side_banner">
-                        <img
-                            src="/img/mainPageImage/side_banner.png"
-                            alt="사이드 광고 베너"
-                        />
-                        <img
-                            src="/img/mainPageImage/side_banner2.png"
-                            alt="사이드 광고 베너2"
-                        />
+                <div class="header_right_login" th:if="${!userCheck}">
+                    <div class="login"><a href="/login">로그인</a></div>
+                    <div class="signUp"><a href="/signup">회원가입</a></div>
+                </div>
+                <div class="header_right_login" th:unless="${!userCheck}">
+                    <div>
+                        <a class="scrap" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg></a>
+                        <a class="alert" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg></a>
+                        <div id="mypage">
+                            <button type="button" class="mypage">
+                                <img src="" alt="profile" th:if="${profileCheck}">
+                                <img src="/img/account.png" alt="profile" th:unless="${profileCheck}">
+                            </button>
+                            <input id="mypage-check" type="checkbox" style="display: none">
+                            <div id="mypage-menu">
+                                <a href="/myPage/info">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="mr-2 h-4 w-4" role="none"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" role="none"></path></svg>
+                                    내 프로필
+                                </a>
+                                <a href="/myPage/delete">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="mr-2 h-4 w-4" role="none"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" role="none"></path></svg>
+                                    내 계정
+                                </a>
+                                <a href="/activity/writtenBoard">
+                                    <svg class="mr-2 h-4 w-4" width="16" height="16" viewBox="0 -1 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="none"><path d="M7 5.5V7.80769L8.5 9.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="none"></path><path d="M1 1.5L1 4.75H1.43783M13 6.25C12.6295 3.29027 10.0949 1 7.0233 1C4.49549 1 2.33137 2.55113 1.43783 4.75M1.43783 4.75H4M12.6088 9.25C11.7152 11.4489 9.55111 13 7.0233 13C3.9517 13 1.41711 10.7097 1.0466 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="none"></path></svg>
+                                    활동내역
+                                </a>
+                                <a id="logout" href="/logout">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="mr-2 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"></path></svg>
+                                    로그아웃
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <footer>
-                <div>
-                    <div class="footer_left">
-                        <img
-                            src="/img/Logo.png"
-                            alt="푸터의 로고 이미지"
-                            width="120px"
-                        />
-                        <div>
-                            <span>All That Developer</span>
-                        </div>
-                        <div class="icon">
-                            <img
-                                src="/img/mainPageImage/icon-facebook.png"
-                                alt="페이스북 아이콘"
-                            />
-                            <img
-                                src="/img/mainPageImage/icon-youtube.png"
-                                alt="유튜브 아이콘"
-                            />
-                            <img
-                                src="/img/mainPageImage/icon-envelope.png"
-                                alt="메일 아이콘"
-                            />
-                        </div>
-                    </div>
+            <div class="menu_btn">
+                <img
+                        src="/img/mainPageImage/icon-menu.png"
+                        alt="메뉴 아이콘 이미지"
+                />
+            </div>
+        </div>
+    </header>
 
-                    <div class="footer_center">
-                        <div class="footerMenu">
-                            <div><span>회사소개</span></div>
-                            <div><span>공지사항</span></div>
-                            <div><span>연락처</span></div>
-                            <div><span>광고문의</span></div>
-                            <div><span>채용</span></div>
-                            <div>|</div>
-                            <div><span>버그제보</span></div>
-                            <div>|</div>
-                            <div><span>개인정보 처리방침</span></div>
-                            <div><span>서비스 이용약관</span></div>
-                        </div>
-                        <div class="company">
-                            <div>
-                                상호명: (주)오키코리아 | 대표명 : 노상범, 장기진
-                                | 사업자등록번호 : 592-87-02037 | 문의 :
-                                <span>@okky.kr</span>
-                            </div>
-                            <div>
-                                통신판매업신고번호 : 제 2022-서울강남-04742호 ㅣ
-                                주소: 서울 강남구 봉은사로 303 TGL경복빌딩 502호
-                                (06103)
-                            </div>
-                            <div>
-                                © 2022 (주)오키코리아, Inc. All rights reserved.
-                            </div>
-                        </div>
-                    </div>
+    <div class="main">
+        <div id="main_left">
+            <div class="main_left_Menu">
+                <div class="bestTag"><span>인기 글 번호</span></div>
 
-                    <div class="footer_right">
-                        <div class="sponsored_text">
-                            <div>SPONSORED BY</div>
+                <div class="tag_menu">
+                    <th:block th:each="popularPost:${popularPosts}">
+                        <div class="tag_menu_li" th:object="${popularPost}">
+                            <span><a th:href="@{/post(boardId = *{boardId})}" th:text="*{boardId}"></a></span>
+                            <span class="span_count" th:text="*{boardViews}"></span>
                         </div>
-                        <div class="sponsored_logo">
-                            <img
-                                src="/img/mainPageImage/inames-logo.svg"
-                                alt="inames 로고 이미지"
-                            />
-                            <img
-                                src="/img/mainPageImage/nhn-cloud-logo.svg"
-                                alt="nhn-cloud 로고 이미지"
-                            />
+                    </th:block>
+                </div>
+            </div>
+
+            <div class="main_left_Img">
+                <img
+                        src="/img/mainPageImage/개발지식 챌린지.png"
+                        alt="개발지식 챌린지 이미지"
+                />
+            </div>
+
+            <div class="main_left_BugReport">
+                <div class="bugReport_img">
+                    <img
+                            src="/img/mainPageImage/bugReport.png"
+                            alt="버그리포트 이미지"
+                    />
+                </div>
+                <div class="bugReport_text">
+                    <p>버그와 제안은 여기에</p>
+                    <p>댓글로 남겨주세요.</p>
+                </div>
+            </div>
+
+            <div class="main_left_TopWriters">
+                <div class="topWriters">Top Writers</div>
+                <div class="topWriters_users">
+                    <th:block th:each="popularWriter:${popularWriters}">
+                        <div class="topWriters_user" th:object="${popularWriter}">
+                            <div class="user_name">
+                                <img
+                                        class="user_icon"
+                                        src="/img/mainPageImage/icon-user.png"
+                                        alt="유저 icon 이미지"
+                                />
+                                <span th:text="*{userId}"></span>
+                            </div>
+                            <div class="user_point">
+                                <img
+                                        class="medal_icon"
+                                        src="/img/mainPageImage/icon-medal.png"
+                                        alt="매달 icon 이미지"
+                                />
+                                <span th:text="*{posts}"></span>
+                            </div>
                         </div>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--                중앙-->
+        <div id="main_center">
+            <img
+                    class="banner"
+                    src="/img/mainPageImage/main_banner.jpg"
+                    alt="광고 베너 이미지"
+            />
+            <img
+                    class="banner_s"
+                    src="/img/mainPageImage/main_banner_S.jpg"
+                    alt="광고 베너 이미지"
+            />
+            <div class="tag_box">
+                <div class="tag f_tag">
+                    <a th:href="@{/board(categoryName = 'Free')}" class="tag_title">
+                        <span>Free</span>
+                    </a>
+                    <div class="posts">
+                        <th:block th:each="board:${freeBoards}" th:object="${board}">
+                            <div class="post">
+                                <div class="writers">
+                                    <div class="writers_info">
+                                        <img
+                                                class="icon-user"
+                                                src="/img/mainPageImage/icon-user.png"
+                                                alt="유저 프로필 이미지"
+                                        />
+                                        <span th:text="*{userId}"></span>
+                                        <span>·</span>
+                                        <svg class="icon-lightning" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        <span th:text="*{boardViews}"></span>
+                                        <span>·</span>
+                                        <span th:text="*{boardRegisterDate}"></span>
+                                    </div>
+                                    <div class="like_comment">
+                                        <img
+                                                class="icon-up-down"
+                                                src="/img/mainPageImage/icon-up-down.png"
+                                                alt="좋아요 icon 이미지"
+                                        />
+                                        <span th:text="*{boardLikes}"></span>
+                                        <img
+                                                class="icon-comment"
+                                                src="/img/mainPageImage/icon-comment.png"
+                                                alt="댓글 icon 이미지"
+                                        />
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                                <div class="post_title">
+                                    <span th:text="*{boardTitle}"></span>
+                                </div>
+                            </div>
+                        </th:block>
                     </div>
                 </div>
-            </footer>
+
+                <div class="tag">
+                    <a th:href="@{/board(categoryName = 'Counseling')}" class="tag_title">
+                        <span>Counseling</span>
+                    </a>
+
+                    <div class="posts">
+                        <th:block th:each="board:${counselingBoards}" th:object="${board}">
+                            <div class="post">
+                                <div class="writers">
+                                    <div class="writers_info">
+                                        <img
+                                                class="icon-user"
+                                                src="/img/mainPageImage/icon-user.png"
+                                                alt="유저 프로필 이미지"
+                                        />
+                                        <span th:text="*{userId}"></span>
+                                        <span>·</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        <span th:text="*{boardViews}"></span>
+                                        <span>·</span>
+                                        <span th:text="*{boardRegisterDate}"></span>
+                                    </div>
+                                    <div class="like_comment">
+                                        <img
+                                                class="icon-up-down"
+                                                src="/img/mainPageImage/icon-up-down.png"
+                                                alt="좋아요 icon 이미지"
+                                        />
+                                        <span th:text="*{boardLikes}"></span>
+                                        <img
+                                                class="icon-comment"
+                                                src="/img/mainPageImage/icon-comment.png"
+                                                alt="댓글 icon 이미지"
+                                        />
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                                <div class="post_title">
+                                    <span th:text="*{boardTitle}"></span>
+                                </div>
+                            </div>
+                        </th:block>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="tag_box">
+                <div class="tag f_tag">
+                    <a th:href="@{/board(categoryName = 'Play')}" class="tag_title">
+                        <span>Play</span>
+                    </a>
+
+                    <div class="posts">
+                        <th:block th:each="board:${playBoards}" th:object="${board}">
+                            <div class="post">
+                                <div class="writers">
+                                    <div class="writers_info">
+                                        <img
+                                                class="icon-user"
+                                                src="/img/mainPageImage/icon-user.png"
+                                                alt="유저 프로필 이미지"
+                                        />
+                                        <span th:text="*{userId}"></span>
+                                        <span>·</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        <span th:text="*{boardViews}"></span>
+                                        <span>·</span>
+                                        <span th:text="*{boardRegisterDate}"></span>
+                                    </div>
+                                    <div class="like_comment">
+                                        <img
+                                                class="icon-up-down"
+                                                src="/img/mainPageImage/icon-up-down.png"
+                                                alt="좋아요 icon 이미지"
+                                        />
+                                        <span th:text="*{boardLikes}"></span>
+                                        <img
+                                                class="icon-comment"
+                                                src="/img/mainPageImage/icon-comment.png"
+                                                alt="댓글 icon 이미지"
+                                        />
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                                <div class="post_title">
+                                    <span th:text="*{boardTitle}"></span>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+
+                <div class="tag">
+                    <a th:href="@{/board(categoryName = 'Job')}" class="tag_title">
+                        <span>Job</span>
+                    </a>
+
+                    <div class="posts">
+                        <th:block th:each="board:${jobBoards}" th:object="${board}">
+                            <div class="post">
+                                <div class="writers">
+                                    <div class="writers_info">
+                                        <img
+                                                class="icon-user"
+                                                src="/img/mainPageImage/icon-user.png"
+                                                alt="유저 프로필 이미지"
+                                        />
+                                        <span th:text="*{userId}"></span>
+                                        <span>·</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="icon-lightning"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                        <span th:text="*{boardViews}"></span>
+                                        <span>·</span>
+                                        <span th:text="*{boardRegisterDate}"></span>
+                                    </div>
+                                    <div class="like_comment">
+                                        <img
+                                                class="icon-up-down"
+                                                src="/img/mainPageImage/icon-up-down.png"
+                                                alt="좋아요 icon 이미지"
+                                        />
+                                        <span th:text="*{boardLikes}"></span>
+                                        <img
+                                                class="icon-comment"
+                                                src="/img/mainPageImage/icon-comment.png"
+                                                alt="댓글 icon 이미지"
+                                        />
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                                <div class="post_title">
+                                    <span th:text="*{boardTitle}"></span>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
         </div>
-    </body>
-    <script>
-        includeHTML();
-    </script>
+        <div id="main_right">
+            <div class="side_banner">
+                <img
+                        src="/img/mainPageImage/side_banner.png"
+                        alt="사이드 광고 베너"
+                />
+                <img
+                        src="/img/mainPageImage/side_banner2.png"
+                        alt="사이드 광고 베너2"
+                />
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <div class="footer_left">
+                <img
+                        src="/img/Logo.png"
+                        alt="푸터의 로고 이미지"
+                        width="120px"
+                />
+                <div>
+                    <span>All That Developer</span>
+                </div>
+                <div class="icon">
+                    <img
+                            src="/img/mainPageImage/icon-facebook.png"
+                            alt="페이스북 아이콘"
+                    />
+                    <img
+                            src="/img/mainPageImage/icon-youtube.png"
+                            alt="유튜브 아이콘"
+                    />
+                    <img
+                            src="/img/mainPageImage/icon-envelope.png"
+                            alt="메일 아이콘"
+                    />
+                </div>
+            </div>
+
+            <div class="footer_center">
+                <div class="footerMenu">
+                    <div><span>회사소개</span></div>
+                    <div><span>공지사항</span></div>
+                    <div><span>연락처</span></div>
+                    <div><span>광고문의</span></div>
+                    <div><span>채용</span></div>
+                    <div>|</div>
+                    <div><span>버그제보</span></div>
+                    <div>|</div>
+                    <div><span>개인정보 처리방침</span></div>
+                    <div><span>서비스 이용약관</span></div>
+                </div>
+                <div class="company">
+                    <div>
+                        상호명: (주)오키코리아 | 대표명 : 노상범, 장기진
+                        | 사업자등록번호 : 592-87-02037 | 문의 :
+                        <span>@okky.kr</span>
+                    </div>
+                    <div>
+                        통신판매업신고번호 : 제 2022-서울강남-04742호 ㅣ
+                        주소: 서울 강남구 봉은사로 303 TGL경복빌딩 502호
+                        (06103)
+                    </div>
+                    <div>
+                        © 2022 (주)오키코리아, Inc. All rights reserved.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer_right">
+                <div class="sponsored_text">
+                    <div>SPONSORED BY</div>
+                </div>
+                <div class="sponsored_logo">
+                    <img
+                            src="/img/mainPageImage/inames-logo.svg"
+                            alt="inames 로고 이미지"
+                    />
+                    <img
+                            src="/img/mainPageImage/nhn-cloud-logo.svg"
+                            alt="nhn-cloud 로고 이미지"
+                    />
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+<script>
+    includeHTML();
+</script>
 </html>
