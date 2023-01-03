@@ -151,10 +151,25 @@ public class BoardController {
     }
 
     @GetMapping("/new")
-    public String addPost(BoardVO boardVO, UserVO userVO, HttpServletRequest request){
+    public String addPost(BoardVO boardVO, UserVO userVO, HttpServletRequest request, Model model){
         HttpSession session = request.getSession();
-        String userId = "";
-        boolean profileCheck;
+        String userId = null;
+        boolean userCheck = false;
+        boolean profileCheck = false;
+
+        if(session != null) {
+            userId = (String) session.getAttribute("userId");
+        }
+        if(userId != null) {
+            userCheck = true;
+            userVO = userService.getUserVOById(userId);
+            if(userVO.getUserProfile() != null) profileCheck = true;
+            else profileCheck = false;
+            model.addAttribute("userVO", userVO);
+            model.addAttribute("profileCheck", profileCheck);
+        }
+        else userCheck = false;
+        model.addAttribute("userCheck", userCheck);
         if(session != null) {
             userId = (String)session.getAttribute("userId");
         }
@@ -215,6 +230,7 @@ public class BoardController {
     }
     @PostMapping("/edit")
     public RedirectView editPost(BoardVO boardVO, RedirectAttributes redirectAttributes){
+
         boardService.edit(boardVO);
         redirectAttributes.addAttribute("boardId", boardVO.getBoardId());
         return new RedirectView("/post");
