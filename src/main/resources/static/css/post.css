@@ -124,12 +124,14 @@ a:hover{
     display: flex;
     position: relative;
 }
-#share-scrap > a {
+#share-scrap > button {
     width: 45px;
     padding: 10px;
     color: hsla(220, 9%, 46%, 0.7);
+    background-color: #fff;
+    border: 0 solid #fff;
 }
-#share-scrap > a:hover {
+#share-scrap > button:hover {
     color: #8BC34A;
 }
 #user-menu {

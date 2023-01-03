@@ -20,4 +20,9 @@ public class ScrapServiceImpl implements ScrapService{
     public List<ScrapDTO> getScrappedBoard(String userId, Integer page) {
         return scrapDAO.scrappedBoard(userId, page);
     }
+
+    @Override
+    public void addScrap(ScrapVO scrapVO){
+        scrapDAO.setScrap(scrapVO);
+    }
 }

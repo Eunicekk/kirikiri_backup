@@ -2,6 +2,7 @@ package com.example.kirikiri.controller;
 
 import com.example.kirikiri.domain.PageBoardDTO;
 import com.example.kirikiri.domain.ScrapDTO;
+import com.example.kirikiri.domain.ScrapVO;
 import com.example.kirikiri.service.ScrapService;
 import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +22,11 @@ public class ScrapController {
         model.addAttribute("pagination", pbt);
         model.addAttribute("scraps", scrapService.getScrappedBoard("kevs",pbt.getPage()));
         model.addAttribute("user", userService.getInfo("kevs"));
+    }
+
+    @GetMapping("/post/scrapClickAdd")
+    public String getScrap(ScrapVO scrapVO){
+        scrapService.addScrap(scrapVO);
+        return "성공!!";
     }
 }

@@ -185,7 +185,15 @@ public class BoardController {
     @GetMapping("/post")
     public String post(Long boardId, Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
-        String userId = (String)session.getAttribute("userId");
+        String userId = "";
+        boolean userCheck2 = false;
+        if(session != null) {
+            userId  = (String) session.getAttribute("userId");
+            model.addAttribute("userId", userId);
+        }
+        if(userId != null) {
+            userCheck2 = true;
+        }
         BoardVO boardVO = boardService.getBoard(boardId);
         boolean userCheck;
         boolean updateCheck;
@@ -195,6 +203,7 @@ public class BoardController {
         else updateCheck = false;
         model.addAttribute("boardVO", boardVO);
         model.addAttribute("userCheck", userCheck);
+        model.addAttribute("userCheck2", userCheck2);
         model.addAttribute("updateCheck", updateCheck);
         return "/post";
     }

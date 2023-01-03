@@ -10,4 +10,5 @@ public interface ScrapService {
     // 스크랩한 게시글 조회
     public List<ScrapDTO> getScrappedBoard(String userId, Integer page);
 
+    public void addScrap(ScrapVO scrapVO);
 }
