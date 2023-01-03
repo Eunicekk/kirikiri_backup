@@ -33,6 +33,12 @@ window.onload = ()=>{
         })
     }
 
+
+
+
+
+
+
     // 댓글 쓰기 버튼 클릭 시, 해당 댓글의 답글 작성란 보여주기
     let writeCommentButton = document.getElementsByClassName("comment-reply-add");
     let replyForm = document.getElementsByClassName("comment-reply-write");

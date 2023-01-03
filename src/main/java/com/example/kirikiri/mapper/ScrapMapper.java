@@ -14,4 +14,6 @@ public interface ScrapMapper {
     public List<ScrapDTO> selectScrapped(@Param("userId") String userId, @Param("page") Integer page);
 
     public List<ScrapDTO> test(@Param("userId")String userId);
+
+    public void insert(ScrapVO scrapVO);
 }

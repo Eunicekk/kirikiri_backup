@@ -16,5 +16,9 @@ public class ScrapDAO {
 
     public List<ScrapDTO> scrappedBoard(String userId, Integer page){
         return scrapMapper.selectScrapped(userId, page);
-    };
+    }
+
+    public void setScrap(ScrapVO scrapVO){
+        scrapMapper.insert(scrapVO);
+    }
 }
