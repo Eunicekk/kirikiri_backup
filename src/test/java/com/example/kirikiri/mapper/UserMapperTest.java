@@ -1,6 +1,7 @@
 package com.example.kirikiri.mapper;
 
 import com.example.kirikiri.domain.UserVO;
+import com.example.kirikiri.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class UserMapperTest {
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    UserService userService;
 
     @Test
     public void insertTest(){
@@ -35,5 +39,11 @@ public class UserMapperTest {
         boolean check = false;
         check = (userMapper.select(userVO) == null) ? false : true;
         log.info("" + check);
+    }
+
+    @Test
+    public void duplicateTest(){
+        Boolean check = userService.duplicateCheck("aaaa");
+        log.info("중복검사 : " + check);
     }
 }

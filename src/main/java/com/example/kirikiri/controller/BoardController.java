@@ -26,7 +26,6 @@ import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
-@Slf4j
 public class BoardController {
     private final BoardService boardService;
     private final UserService userService;

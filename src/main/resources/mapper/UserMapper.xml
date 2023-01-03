@@ -18,6 +18,11 @@
         FROM TBL_USER
         WHERE USER_ID = #{userId}
     </select>
+    <select id="selectByNickname" resultType="userVO">
+        SELECT USER_ID, USER_PASSWORD, USER_NICKNAME, USER_EMAIL, USER_NAME, USER_NATION, USER_EMAIL, USER_REGISTER_DATE, USER_PROFILE
+        FROM TBL_USER
+        WHERE USER_NICKNAME = #{userNickname}
+    </select>
     <select id="selectUser" resultType="userVO">
         SELECT USER_NAME, USER_NICKNAME, USER_NATION, USER_AGE, USER_AGE_CHECK, USER_RESIDENCE, USER_RESIDENCE_CHECK, USER_EMAIL_RECEIVE_CHECK, USER_PROFILE
         FROM TBL_USER

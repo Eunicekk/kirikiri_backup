@@ -67,6 +67,41 @@ window.onload = ()=>{
         signupErrMsg.style.display = "flex";
     })
 
+    $("#submit-btn").attr("type", "button");
+
+    $("#id").on("change", function () {
+        const userId = $("#id").val();
+        console.log(userId);
+        $.ajax({
+            type: "get",
+            url: "/check/duplicateId",
+            data: {userId: userId},
+            success: duplicateCheck
+        })
+    })
+    $("#nickname").on("change", function () {
+        const userNickname = $("#nickname").val();
+        $.ajax({
+            type: "get",
+            url: "/check/duplicateNickname",
+            data: {userNickname: userNickname},
+            success: duplicateCheck
+        })
+    })
+    function duplicateCheck(data) {
+        console.log(5)
+        if(data) {
+            signupErrMsg.style.display = "flex";
+            $("#submit-btn").attr("type", "button")
+        } else {
+            signupErrMsg.style.display = "none";
+            $("#submit-btn").attr("type", "submit")
+        }
+    }
+
+
+
+
     // 이메일 수신 동의 버튼 클릭 시, 좌우로 이동
     let emailButton = document.getElementById("email-agree-button");
     let check = document.getElementById("email-check");
