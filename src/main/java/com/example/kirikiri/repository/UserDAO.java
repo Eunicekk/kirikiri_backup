@@ -22,6 +22,10 @@ public class UserDAO {
         return userMapper.selectById(userId);
     }
 
+    public UserVO getUserVOByNickname(String userNickname) {
+        return userMapper.selectById(userNickname);
+    }
+
     public UserVO userInfoById(String userId){
         return userMapper.selectUser(userId);
     }

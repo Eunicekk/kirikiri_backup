@@ -23,7 +23,7 @@ header {
     height: 28px;
 }
 
-.header_left > img:hover {
+.header_left > a > img:hover {
     cursor: pointer;
 }
 
@@ -66,9 +66,11 @@ header {
     align-items: center;
     justify-content: space-between;
 }
-.header_right_login svg {
-    width: 20px;
+.header_right_login > div {
+    display: flex;
+    align-items: center;
 }
+
 
 .menu_btn {
     position: absolute;
@@ -89,3 +91,64 @@ header {
     width: 18px;
     height: 16px;
 }
+
+.scrap, .alert {
+    color: hsla(220, 9%, 46%, 0.5);
+}
+.scrap svg, .alert svg {
+    width: 25px;
+}
+.scrap:hover, .alert:hover {
+    color: #8BC34A;
+}
+#mypage {
+    position: relative;
+}
+
+.mypage {
+    background-color: #fff;
+    border: 0px solid #fff;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+.mypage img{
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+}
+#mypage-menu {
+    display: flex;
+    background-color: #ffffff;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 200px;
+    position: absolute;
+    right: 0;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 5px;
+    visibility: hidden;
+}
+#mypage-menu svg {
+    width: 20px;
+    margin-right: 10px;
+}
+#mypage-menu > a {
+    text-align: left;
+    padding: 10px 30px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+#mypage-menu > a:hover {
+    color: #8BC34A;
+}
+#logout {
+    width: 100%;
+    border-top: 1px solid hsla(220, 9%, 46%, 0.7);
+}
+
+

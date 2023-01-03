@@ -26,13 +26,14 @@
     <div id="center-div">
         <div id="add-post-text">
             <h1>함께 할 때 더 즐거운 순간</h1>
-            <p><span th:text="${userVO.userNickname}"></span>님 지식공유 플랫폼 OKKY에서 다양한 사람을 만나고 생각의 폭을 넓혀보세요.</p>
+            <p><span th:text="${userVO.userNickname}"></span>님 정보 공유 플랫폼 kirikiri에서 다양한 사람을 만나고 정보의 폭을 넓혀보세요.</p>
         </div>
         <div id="category" th:if="${boardVO.categoryName} == 'All'">
             <form action="/new" method="get" id="category-form">
                 <h2>Category</h2>
                 <select th:field="${boardVO.categoryName}" class="topic-select" required>
-                    <option value="Free" selected>Free</option>
+                    <option value="" selected>Choose Category</option>
+                    <option value="Free">Free</option>
                     <option value="Counseling">Counseling</option>
                     <option value="Play">Play</option>
                     <option value="Job">Job</option>
@@ -44,29 +45,29 @@
                 <div id="topic" th:if="*{categoryName} != 'Free'">
                     <h2>토픽</h2>
                     <select th:field="*{detailCategoryName}" class="topic-select" th:if="*{categoryName} == 'Counseling'">
-                        <option value="">토픽을 선택해주세요.</option>
+                        <option value="">Choose Topic.</option>
                         <option value="Home">Home</option>
                         <option value="Work">Work</option>
                     </select>
                     <select th:field="*{detailCategoryName}" class="topic-select" th:if="*{categoryName} == 'Play'">
-                        <option value="">토픽을 선택해주세요.</option>
+                        <option value="">Choose Topic.</option>
                         <option value="Food">Food</option>
                         <option value="Playground">Playground</option>
                     </select>
                     <select th:field="*{detailCategoryName}" class="topic-select" th:if="*{categoryName} == 'Job'">
-                        <option value="">토픽을 선택해주세요.</option>
+                        <option value="">Choose Topic.</option>
                         <option value="Offer">Offer</option>
                         <option value="Search">Search</option>
                     </select>
                 </div>
             </div>
             <div id="title">
-                <h2>제목</h2>
-                <input type="text" th:field="*{boardTitle}" placeholder="제목을 입력해주세요.">
+                <h2>Title</h2>
+                <input type="text" th:field="*{boardTitle}" placeholder="Please enter a title.">
             </div>
 
             <div id="content">
-                <h2>본문</h2>
+                <h2>Content</h2>
                 <div id="content-box">
                     <textarea id="summernote" th:field="*{boardContent}"></textarea>
                 </div>
@@ -75,8 +76,8 @@
                 <input type="hidden" th:field="*{userId}">
 
                 <div class="add-post-button">
-                    <button id="cancel-button" type="button">취소</button>
-                    <button id="register-button" type="submit">등록</button>
+                    <button id="cancel-button" type="button">Cancel</button>
+                    <button id="register-button" type="submit">Enter</button>
                 </div>
             </div>
         </form>

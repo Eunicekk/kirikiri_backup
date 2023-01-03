@@ -11,6 +11,15 @@
     <select id="countDetailCategory" resultType="Integer">
         SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
     </select>
+    <select id="countSearch" resultType="Integer">
+        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%'
+    </select>
+    <select id="countCategorySearch" resultType="Integer">
+        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE CATEGORY_NAME = #{categoryName} AND BOARD_TITLE LIKE '%'||#{keyword}||'%'
+    </select>
+    <select id="countByUser" resultType="Integer">
+        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE USER_ID = #{userId}
+    </select>
 
     <select id="selectAll" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
@@ -175,6 +184,26 @@
         ]]>
     </select>
 
+    <select id="selectPopularPosts" resultType="boardVO">
+        SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM
+        (
+            SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM TBL_BOARD
+            ORDER BY BOARD_VIEWS DESC
+        )
+        <![CDATA[
+        WHERE ROWNUM <= 5
+        ]]>
+    </select>
+
+    <select id="selectPopularWriters" resultType="boardDTO">
+        SELECT USER_ID, COUNT(BOARD_ID) AS POSTS
+        FROM TBL_BOARD
+        GROUP BY USER_ID
+        ORDER BY COUNT(BOARD_ID) DESC
+    </select>
+
     <insert id="insert">
         INSERT INTO TBL_BOARD(BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_VIEWS, BOARD_LIKES, USER_ID)
         VALUES(SEQ_BOARD.NEXTVAL, #{nationName}, #{categoryName}, #{detailCategoryName}, #{boardTitle}, #{boardContent}, #{boardViews}, #{boardLikes}, #{userId})
@@ -199,10 +228,55 @@
         WHERE BOARD_ID = #{boardId}
     </select>
 
+    <select id="selectFivePosts" resultType="boardVO">
+        SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM
+        (
+            SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM TBL_BOARD
+            WHERE CATEGORY_NAME = #{categoryName}
+            ORDER BY BOARD_ID DESC
+        )
+        <![CDATA[
+        WHERE ROWNUM <= 5
+        ]]>
+    </select>
+
     <select id="search" resultType="boardVO">
-        SELECT BOARD_ID, CATEGORY_NAME, BOARD_TITLE, BOARD_REGISTER_DATE
-        FROM TBL_BOARD
-        WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%'
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%'
+                ORDER BY BOARD_ID DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
+    </select>
+    <select id="searchByCategory" resultType="boardVO">
+        SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+        FROM
+        (
+            SELECT ROWNUM R, BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+            FROM
+            (
+                SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
+                FROM TBL_BOARD
+                WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%' AND CATEGORY_NAME = #{categoryName}
+                ORDER BY BOARD_ID DESC
+            )
+        <![CDATA[
+            WHERE ROWNUM <= #{page} * 20
+        )
+        WHERE R > (#{page} - 1) * 20
+        ]]>
     </select>
     <select id="selectWritten" resultType="boardVO">
         SELECT BOARD_ID, CATEGORY_NAME, BOARD_TITLE, BOARD_REGISTER_DATE
@@ -217,9 +291,9 @@
                 ORDER BY BOARD_ID DESC
             )
         <![CDATA[
-            WHERE ROWNUM <= #{page} * 10
+            WHERE ROWNUM <= #{page} * 20
         )
-        WHERE R > (#{page}-1) * 10
+        WHERE R > (#{page}-1) * 20
         ]]>
     </select>
 </mapper>

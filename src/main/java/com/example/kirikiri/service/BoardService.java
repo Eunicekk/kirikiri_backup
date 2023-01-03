@@ -15,6 +15,9 @@ public interface BoardService {
     public Integer getCountAll();
     public Integer getCountCategory(BoardVO boardVO);
     public Integer getCountDetailCategory(BoardVO boardVO);
+    public Integer getCountSearchResult(String keyword);
+    public Integer getCountCategorySearchResult(BoardDTO boardDTO);
+    public Integer getCountByUser(String userId);
 
     //전체 게시물 조회
     public List<BoardVO> getListAll(Integer page);
@@ -43,9 +46,16 @@ public interface BoardService {
     //게시물 조회
     public BoardVO getBoard(Long boardId);
 
+    public List<BoardVO> getFivePosts(String categoryName);
+
+    public List<BoardVO> getFivePopularPosts();
+    public List<BoardDTO> getFivePopularWriters();
+
     // 작성한 게시글 조회
     public List<BoardVO> getWrittenBoard(String userId, Integer page);
 
-    public List<BoardVO> search(String keyword);
+    public List<BoardVO> search(BoardDTO boardDTO);
+
+    public List<BoardVO> searchByCategory(BoardDTO boardDTO);
 
 }

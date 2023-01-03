@@ -31,6 +31,16 @@ public class UserServiceImpl implements UserService {
     public UserVO getInfo(String userId){return userDAO.userInfoById(userId);}
 
     @Override
+    public Boolean duplicateCheckId(String userId) {
+        return (userDAO.getUserVOById(userId) != null) ? true : false;
+    }
+    @Override
+    public Boolean duplicateCheckNickname(String userNickname) {
+        return (userDAO.getUserVOByNickname(userNickname) != null) ? true : false;
+    }
+
+
+    @Override
     public void updateInfo(UserVO userVO){userDAO.updateUserInfo(userVO);}
 
     @Override

@@ -50,6 +50,23 @@ public class BoardMapperTest {
 
     @Test
     public void searchTest(){
-        boardMapper.search("타이틀").stream().map(BoardVO::toString).forEach(log::info);
+        Integer total = boardMapper.countSearch("want");
+        log.info("total = " + total);
+    }
+    @Test
+    public void userPaging(){
+        log.info("total = " + boardMapper.countByUser("aaa"));
+    }
+    @Test
+    public void userActivity(){
+        boardMapper.selectWritten("aaa", 1);
+    }
+    @Test
+    public void selectPopularPosts(){
+        boardMapper.selectPopularPosts();
+    }
+    @Test
+    public void selectPopularWritersTest(){
+        boardMapper.selectPopularWriters();
     }
 }

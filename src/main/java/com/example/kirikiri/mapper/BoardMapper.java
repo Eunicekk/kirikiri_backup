@@ -17,6 +17,9 @@ public interface BoardMapper {
     public Integer countAll();
     public Integer countCategory(BoardVO boardVO);
     public Integer countDetailCategory(BoardVO boardVO);
+    public Integer countSearch(String keyword);
+    public Integer countCategorySearch(BoardDTO boardDTO);
+    public Integer countByUser(String userId);
 
     //게시글 목록
     public List<BoardVO> selectAll(Integer page);
@@ -50,7 +53,14 @@ public interface BoardMapper {
     public BoardVO select(Long boardId);
 
 
-    public List<BoardVO> search(String keyword);
+    public List<BoardVO> search(BoardDTO boardDTO);
+
+    public List<BoardVO> searchByCategory(BoardDTO boardDTO);
+
+    public List<BoardVO> selectFivePosts(String categoryName);
+
+    public List<BoardVO> selectPopularPosts();
+    public List<BoardDTO> selectPopularWriters();
 
     // 작성한 게시글 조회
     public List<BoardVO> selectWritten(@Param("userId") String userId, @Param("page") Integer page);

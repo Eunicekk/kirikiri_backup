@@ -27,3 +27,19 @@ function includeHTML() {
         }
     }
 }
+window.onload = () => {
+    let myPage = document.getElementsByClassName("mypage");
+    let myPageMenu = document.getElementById("mypage-menu");
+    let check = document.getElementById("mypage-check");
+
+    myPage[0].addEventListener("click", ()=>{
+        if(check.checked === false) {
+            myPageMenu.style.visibility = "visible";
+            check.checked = true;
+        }
+        else {
+            myPageMenu.style.visibility = "hidden";
+            check.checked = false;
+        }
+    })
+}
