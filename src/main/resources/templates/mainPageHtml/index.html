@@ -324,7 +324,7 @@
                                     </div>
                                 </div>
                                 <div class="post_title">
-                                    <span th:text="*{boardTitle}"></span>
+                                    <span><a th:href="@{post(boardId = *{boardId})}" th:text="*{boardTitle}"></a></span>
                                 </div>
                             </div>
                         </th:block>
@@ -372,7 +372,7 @@
                                     </div>
                                 </div>
                                 <div class="post_title">
-                                    <span th:text="*{boardTitle}"></span>
+                                    <span><a th:href="@{post(boardId = *{boardId})}" th:text="*{boardTitle}"></a></span>
                                 </div>
                             </div>
                         </th:block>
@@ -417,7 +417,7 @@
                                     </div>
                                 </div>
                                 <div class="post_title">
-                                    <span th:text="*{boardTitle}"></span>
+                                    <span><a th:href="@{post(boardId = *{boardId})}" th:text="*{boardTitle}"></a></span>
                                 </div>
                             </div>
                         </th:block>
