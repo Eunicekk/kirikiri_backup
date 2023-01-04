@@ -166,7 +166,9 @@
             </div>
             <div id="share-scrap">
                 <button href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg></button>
-                <button id="scrap" type="button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:fill-current hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg></button>
+                <button id="scrap" type="button">
+                    <svg class="scrap-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg>
+                </button>
                 <button type="button" id="user-menu" th:if="${userCheck}">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg>
                 </button>
@@ -500,45 +502,53 @@
 
     content.innerHTML = text;
 
-    const scrapCheck = $("scrap-check").val;
+    let scrapCheck = document.getElementById("scrap-check");
+    let scrap = document.getElementById("scrap");
+
+    console.log(scrapCheck.checked);
+
     const boardId = [[${boardVO.boardId}]];
     const userId = [[${userId}]]
     console.log(userId);
-    if(scrapCheck){
-        $("#scrap").on("click", function () {
+    console.log(boardId);
+
+    scrap.addEventListener("click", ()=>{
+        if(scrapCheck.checked === false) {
+            scrap.style.color = "#8BC34A";
+            scrapCheck.checked = true;
+            console.log(scrapCheck.checked);
             $.ajax({
                 type: "get",
-                url: "/post/scrapClickAdd",
+                url: "/scrap/add",
                 data: {
                     boardId: boardId,
                     userId: userId
                 },
                 success: addScrap
             })
-        })
-    } else {
-        $("#scrap").on("click", function () {
+        }
+        else {
+            scrap.style.color = "hsla(220, 9%, 46%, 0.7)";
+            scrapCheck.checked = false;
             $.ajax({
                 type: "get",
-                url: "/post/scrapClickDelete",
+                url: "/scrap/delete",
                 data: {
                     boardId: boardId,
                     userId: userId
                 },
                 success: deleteScrap
             })
-        })
-    }
+        }
+    })
 
     function addScrap(data) {
-        console.log(data)
-        alert("스크랩이 추가되었습니다.");
-        $("#scrap").style.color = "#8BC34A";
+        console.log(data);
+
     }
     function deleteScrap(data) {
-        console.log(data)
-        alert("스크랩이 삭제되었습니다.");
-        $("#scrap").style.color = "hsla(220, 9%, 46%, 0.7)";
+        console.log(data);
+
     }
 </script>
 </body>

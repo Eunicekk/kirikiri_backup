@@ -125,10 +125,10 @@
 
     <!--        인기태그-->
     <ul id="popular-tag">
-      <p>인기 글 번호</p>
+      <p>Top Posts</p>
       <div>
         <th:block th:each="popularPost:${popularPosts}">
-          <li th:object="${popularPost}"><a th:href="@{/post(boardId = *{boardId})}" th:text="*{boardId}"></a><span th:text="*{boardViews}"></span></li>
+          <li th:object="${popularPost}"><a th:href="@{/post(boardId= *{boardId})}" th:text="*{boardTitle}"></a><span th:text="*{boardViews}"></span></li>
         </th:block>
       </div>
     </ul>

@@ -31,4 +31,8 @@
         INSERT INTO TBL_SCRAP(SCRAP_ID, USER_ID, BOARD_ID)
         VALUES (SEQ_SCRAP.NEXTVAL, #{userId}, #{boardId})
     </insert>
+    <delete id="delete">
+        DELETE FROM TBL_SCRAP
+        WHERE USER_ID = #{userId} AND BOARD_ID = #{boardId}
+    </delete>
 </mapper>
