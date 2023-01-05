@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/login.css" />
     <script type="text/javascript" src="/javascript/login.js"></script>
     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   </head>
   <body>
 <!--  전체 페이지-->
@@ -183,7 +184,7 @@
               <a href="./findAccount.html">계정찾기</a>
             </div>
             <div id="login-button">
-              <button type="submit">로그인</button>
+              <button id="login-btn" type="button">로그인</button>
             </div>
             <p id="go-signup">
               <span>아직 회원이 아니신가요?</span>
@@ -203,14 +204,7 @@
       </div>
     </div>
   <script th:inline="javascript">
-    let check = false;
-    check = [[${userCheck}]];
-    let failMsg = document.getElementById("login-fail");
-    if(check) {
-      console.log(check);
-      failMsg.style.display = "flex";
-      console.log(check);
-    }
+
 
 
 

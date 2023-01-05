@@ -53,14 +53,10 @@ public class UserController {
     public RedirectView login(UserVO userVO, Model model, HttpServletRequest request){
         boolean userCheck = true;
         HttpSession session = request.getSession();
-        userCheck = (userService.login(userVO) == null) ? true : false;
         model.addAttribute("userCheck", userCheck);
-        if(!userCheck) {
-            String userId = userVO.getUserId();
-            session.setAttribute("userId", userId);
-            return new RedirectView("/");
-        }
-        else return new RedirectView("/login");
+        String userId = userVO.getUserId();
+        session.setAttribute("userId", userId);
+        return new RedirectView("/");
     }
     @GetMapping("/logout")
     public RedirectView logout(HttpServletRequest request){

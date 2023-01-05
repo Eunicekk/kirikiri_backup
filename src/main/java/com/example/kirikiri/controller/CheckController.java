@@ -19,9 +19,14 @@ public class CheckController {
         Boolean check = userService.duplicateCheckId(userId);
         return check;
     }
-    @GetMapping("/duplicateNickname")
+    @GetMapping("/check/duplicateNickname")
     public Boolean duplicateNickname(@RequestParam("userNickname")String userNickname) {
         Boolean check = userService.duplicateCheckNickname(userNickname);
+        return check;
+    }
+    @PostMapping("/check/login")
+    public Boolean login(UserVO userVO){
+        Boolean check = userService.login(userVO);
         return check;
     }
     @GetMapping("/scrap/add")
