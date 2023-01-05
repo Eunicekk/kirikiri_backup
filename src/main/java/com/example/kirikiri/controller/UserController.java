@@ -163,31 +163,20 @@ public class UserController {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-
     }
 
     //비밀번호 변경
-    @GetMapping("/password")
-    public void password (Model model, String userId){
-        model.addAttribute("user", userService.getUser(userId));
-    }
+    @GetMapping("/passwordReset")
+    public void password (UserVO userVO, HttpServletRequest request){
+        HttpSession session = request.getSession();
 
-    @PostMapping("/password")
-    public void changePw (Model model, String userId){
-        model.addAttribute("user", userService.getUser(userId));
-    }
-
-
-    @PostMapping("/passwordResetCompletion")
-    public String changePwCompletion (Model model, String userId, String oldPw, String userPassword) {
-        UserVO userVO = userService.getUser(userId);
-
-        if (oldPw.equals(userVO.getUserPassword())) {
-            userVO.setUserPassword(userPassword);
-            userService.updatePw(userVO);
-            return "/passwordResetCompletion";
-        } else {
-            return "/passwordResetFail";
+        if(session != null) {
+            userVO.setUserId((String)session.getAttribute("userId"));
         }
+    }
+    @PostMapping("/passwordResetCompletion")
+    public String changePwCompletion (Model model, UserVO userVO, HttpServletRequest request) {
+        userService.updatePw(userVO);
+        return "/passwordResetCompletion";
     }
 }
