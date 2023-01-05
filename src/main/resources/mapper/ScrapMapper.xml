@@ -35,4 +35,13 @@
         DELETE FROM TBL_SCRAP
         WHERE USER_ID = #{userId} AND BOARD_ID = #{boardId}
     </delete>
+    <delete id="deleteByBoardId">
+        DELETE FROM TBL_SCRAP
+        WHERE BOARD_ID = #{boardId}
+    </delete>
+    <select id="select" resultType="scrapVO">
+        SELECT SCRAP_ID, BOARD_ID, SCRAP_REGISTER_DATE
+        FROM TBL_SCRAP
+        WHERE BOARD_ID = #{boardId} AND USER_ID = #{userId}
+    </select>
 </mapper>

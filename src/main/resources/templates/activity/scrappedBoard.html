@@ -22,9 +22,12 @@
         <div class="middle">
             <div class="info">
                 <div class="info_m">
-                    <div class="photo_div"><img src="../static/img/account.png" class="photo" th:src="@{/file/display(path=${user.userProfile})}"></div> <!-- 개인 프로필 사진 출력 -->
+                    <div class="photo_div">
+                        <img th:if="${userVO.userProfile} != null" class="photo" th:src="@{/file/display(path=${userVO.userProfile})}">
+                        <img th:unless="${userVO.userProfile} != null" src="/img/account.png" alt="">
+                    </div> <!-- 개인 프로필 사진 출력 -->
                     <div class="name">
-                        <div class="username"><h2 id="name" th:text="${user.userNickname}"></h2></div>
+                        <div class="username"><h2 id="name" th:text="${userVO.userNickname}"></h2></div>
 <!--                        <div class="act_score">-->
 <!--                            <svg class="thunder" width="9" height="12" viewBox="0 1 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">-->
 <!--                                <title>bolt icon</title>-->
@@ -37,7 +40,7 @@
                 </div>
                 <div class="menu">
                     <ul>
-                        <li id="link_1" onclick="location.href='/activity/writtenBoard?page=1'"><span>게시물</span></li>
+                        <li id="link_1"><a th:href="@{/activity/writtenBoard(userId = ${userVO.userId})}"><span>게시물</span></a></li>
                         <li id="link_2"><span>스크랩</span></li>
                         <li id="link_3" onclick="location.href='/activity/comment'"><span>댓글</span></li>
                     </ul>
@@ -49,16 +52,16 @@
                     <div class="comment">
                         <!-- 받은 데이터 값에 따라 div 생성 -->
                         <th:block th:each="scrap:${scraps}">
-                            <div class="content">
+                            <div class="content" th:object="${scrap}">
                                 <div class="whereAndTime">
                                     <div class="where">
-                                        <a  class="where-link" href="" th:text="${scrap.categoryName}"></a>
+                                        <a  class="where-link" th:href="@{/board(categoryName = *{categoryName})}" th:text="*{categoryName}"></a>
                                         <div class="where-word"> 에 게시물을 스크랩 하였습니다</div>
                                     </div>
-                                    <div class="time" th:text="*{scrap.scrapRegisterDate}"></div>
+                                    <div class="time" th:text="*{scrapRegisterDate}"></div>
                                 </div>
                                 <div class="Title">
-                                    <a class="aTitle" href="" th:text="*{scrap.boardTitle}"></a>
+                                    <a class="aTitle" th:href="@{/post(boardId = *{boardId})}" th:text="*{boardTitle}"></a>
                                 </div>
                             </div>
 <!--                            <div class="comment">-->
@@ -133,7 +136,7 @@
         $("form[name='page-form']").submit();
     });
 
-    let userProfile = [[${user.userProfile}]];
+    let userProfile = [[${userVO.userProfile}]];
 
     if(userProfile == null){
         document.querySelector(".photo").src = "/img/account.png";

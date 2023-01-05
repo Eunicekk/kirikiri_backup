@@ -79,4 +79,20 @@ window.onload = ()=>{
         });
     });
 
+    // 마이페이지
+    let myPage = document.getElementsByClassName("mypage");
+    let myPageMenu = document.getElementById("mypage-menu");
+    let myPageCheck = document.getElementById("mypage-check");
+
+    myPage[0].addEventListener("click", ()=>{
+        if(myPageCheck.checked === false) {
+            myPageMenu.style.visibility = "visible";
+            myPageCheck.checked = true;
+        }
+        else {
+            myPageMenu.style.visibility = "hidden";
+            myPageCheck.checked = false;
+        }
+    })
+
 }

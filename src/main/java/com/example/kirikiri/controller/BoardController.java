@@ -2,6 +2,7 @@ package com.example.kirikiri.controller;
 
 import com.example.kirikiri.domain.*;
 import com.example.kirikiri.service.BoardService;
+import com.example.kirikiri.service.ScrapService;
 import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,7 @@ import java.io.IOException;
 public class BoardController {
     private final BoardService boardService;
     private final UserService userService;
+    private final ScrapService scrapService;
 
     @GetMapping("/all")
     public String getList(BoardDTO boardDTO, Integer page, Model model, HttpServletRequest request){
@@ -202,12 +204,13 @@ public class BoardController {
         HttpSession session = request.getSession();
         String userId = "";
         boolean userCheck2 = false;
+
         if(session != null) {
-            userId  = (String) session.getAttribute("userId");
-            model.addAttribute("userId", userId);
+            userId  = (String)session.getAttribute("userId");
         }
         if(userId != null) {
             userCheck2 = true;
+            model.addAttribute("userVO", userService.getUserVOById(userId));
         }
         BoardVO boardVO = boardService.getBoard(boardId);
         boolean userCheck;
@@ -220,12 +223,27 @@ public class BoardController {
         model.addAttribute("userCheck", userCheck);
         model.addAttribute("userCheck2", userCheck2);
         model.addAttribute("updateCheck", updateCheck);
+        ScrapVO scrapVO = new ScrapVO();
+        scrapVO.setBoardId(boardId);
+        scrapVO.setUserId(userId);
+        model.addAttribute("scrapCheck", scrapService.checkScrap(scrapVO));
         return "/post";
     }
     @GetMapping("/edit")
-    public String editPost(Long boardId, Model model){
+    public String editPost(Long boardId, Model model, HttpServletRequest request){
         BoardVO boardVO = boardService.getBoard(boardId);
+
+        HttpSession session = request.getSession();
+        String userId = "";
+        boolean userCheck2 = false;
+        if(session != null) {
+            userId  = (String) session.getAttribute("userId");
+            model.addAttribute("userVO", userService.getUserVOById(userId));
+        }
+
         model.addAttribute("boardVO", boardVO);
+        model.addAttribute("userCheck", true);
+
         return "/editPost";
     }
     @PostMapping("/edit")
@@ -302,13 +320,15 @@ public class BoardController {
 
     //    작성한 게시글 조회
     @GetMapping("/activity/writtenBoard")
-    public String getWrittenBoard(String userId, Integer page, Model model) {
+    public String getWrittenBoard(Integer page, UserVO userVO, Model model) {
         if(page == null) page = 1;
-        Integer pageTotal = boardService.getCountByUser(userId);
+
+        userVO = userService.getUserVOById(userVO.getUserId());
+
+        Integer pageTotal = boardService.getCountByUser(userVO.getUserId());
         PageDTO pbt = new PageDTO().createPageBoardDTO(page, pageTotal);
         model.addAttribute("pagination", pbt);
-        model.addAttribute("boards", boardService.getWrittenBoard("aaa", pbt.getPage()));
-        model.addAttribute("user", userService.getInfo("aaa"));
+        model.addAttribute("boards", boardService.getWrittenBoard(userVO.getUserId(), pbt.getPage()));
         return "/activity/writtenBoard";
     }
 

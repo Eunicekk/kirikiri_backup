@@ -3,6 +3,7 @@ package com.example.kirikiri.service;
 import com.example.kirikiri.domain.BoardDTO;
 import com.example.kirikiri.domain.BoardVO;
 import com.example.kirikiri.repository.BoardDAO;
+import com.example.kirikiri.repository.ScrapDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
@@ -15,6 +16,7 @@ import java.util.List;
 @Qualifier("board") @Primary
 public class BoardServiceImpl implements BoardService {
     private final BoardDAO boardDAO;
+    private final ScrapDAO scrapDAO;
     //전체 게시물 수
     @Override
     public Integer getCountAll(){
@@ -102,6 +104,7 @@ public class BoardServiceImpl implements BoardService {
     //게시물 삭제
     @Override
     public void delete(Long boardId) {
+        scrapDAO.deleteByBoardId(boardId);
         boardDAO.delete(boardId);
     }
     //게시물 수정

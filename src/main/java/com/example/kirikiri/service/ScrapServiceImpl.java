@@ -31,5 +31,8 @@ public class ScrapServiceImpl implements ScrapService{
         scrapDAO.deleteScrap(scrapVO);
     }
 
-
+    @Override
+    public boolean checkScrap(ScrapVO scrapVO) {
+        return (scrapDAO.getScrapVO(scrapVO) != null) ? true : false;
+    }
 }
