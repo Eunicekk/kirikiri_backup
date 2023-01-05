@@ -39,7 +39,7 @@
             <div class="content">
                 <!-- 계정관리 화면 -->
                 <div class="tabpage" id="tabpage_1">
-                    <form id="user_info" th:action="@{/myPage/info}" th:object="${user}" method="post">
+                    <form id="user_info" th:action="@{/myPage/info}" th:object="${userVO}" method="post">
                         <div class="info">
                             <h2>회원정보</h2>
                             <div class="info_word">
@@ -149,17 +149,17 @@
     includeHTML();
 </script>
 <script th:inline="javascript">
-    let userAge = [[${user.userAge}]];
+    let userAge = [[${userVO.userAge}]];
     if(!userAge){
         document.getElementById("userage").value = "";
     }
 
-    let userResidence =[[${user.userResidence}]];
+    let userResidence =[[${userVO.userResidence}]];
     if(!userResidence){
         document.getElementById("userlivingplace").value = "";
     }
 
-    let userAgeCheck = [[${user.userAgeCheck}]]
+    let userAgeCheck = [[${userVO.userAgeCheck}]]
     console.log(userAgeCheck);
     if(userAgeCheck == false){
         document.querySelector("#toggle-slide1").checked = false;
@@ -194,7 +194,7 @@
         }
     }
 
-    let userResidenceCheck = [[${user.userResidenceCheck}]]
+    let userResidenceCheck = [[${userVO.userResidenceCheck}]]
     console.log(userResidenceCheck);
     if(userResidenceCheck == false){
         document.querySelector("#toggle-slide2").checked = false;
@@ -230,8 +230,8 @@
     }
 
 
-    let userEmailRecieveCheck = [[${user.userEmailRecieveCheck}]]
-    console.log(userEmailRecieveCheck);
+    let userEmailReceiveCheck = [[${userVO.userEmailReceiveCheck}]]
+    console.log(userEmailReceiveCheck);
     if(userEmailRecieveCheck == false){
         document.querySelector("#toggle-slide3").checked = false;
         document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#e5e7eb";
@@ -258,13 +258,13 @@
     }
 
 
-    // let userProfile = "/file/display?path=" + [[${user.userProfile}]];
+    // let userProfile = "/file/display?path=" + [[${userVO.userProfile}]];
     //
     // console.log(userProfile);
     //
     // document.querySelector(".change").style.backgroundImage = userProfile;
 
-    // let userProfile = [[${user.userProfile}]];
+    // let userProfile = [[${userVO.userProfile}]];
     //
     // console.log(userProfile);
     //

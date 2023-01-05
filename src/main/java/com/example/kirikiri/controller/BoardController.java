@@ -204,29 +204,35 @@ public class BoardController {
         HttpSession session = request.getSession();
         String userId = "";
         boolean userCheck2 = false;
+        boolean scrapCheck = false;
+        boolean userCheck = false;
+        boolean updateCheck = false;
+        UserVO userVO = new UserVO();
 
         if(session != null) {
             userId  = (String)session.getAttribute("userId");
         }
         if(userId != null) {
             userCheck2 = true;
-            model.addAttribute("userVO", userService.getUserVOById(userId));
+            userVO = userService.getUserVOById(userId);
+            ScrapVO scrapVO = new ScrapVO();
+            scrapVO.setBoardId(boardId);
+            scrapVO.setUserId(userId);
+            scrapCheck = scrapService.checkScrap(scrapVO);
         }
         BoardVO boardVO = boardService.getBoard(boardId);
-        boolean userCheck;
-        boolean updateCheck;
+
         if(boardVO.getUserId().equals(userId)) userCheck = true;
         else userCheck = false;
         if(!boardVO.getBoardUpdateDate().equals(boardVO.getBoardRegisterDate())) updateCheck = true;
         else updateCheck = false;
+        model.addAttribute("userVO", userVO);
         model.addAttribute("boardVO", boardVO);
         model.addAttribute("userCheck", userCheck);
         model.addAttribute("userCheck2", userCheck2);
         model.addAttribute("updateCheck", updateCheck);
-        ScrapVO scrapVO = new ScrapVO();
-        scrapVO.setBoardId(boardId);
-        scrapVO.setUserId(userId);
-        model.addAttribute("scrapCheck", scrapService.checkScrap(scrapVO));
+        model.addAttribute("scrapCheck", scrapCheck);
+
         return "/post";
     }
     @GetMapping("/edit")

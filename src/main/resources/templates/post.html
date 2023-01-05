@@ -211,7 +211,7 @@
         </div>
         <div class="advertisement-box">
             <a  href="">
-                <img class="advertisement" src="../static/img/post-advertisement.png">
+                <img class="advertisement" src="/img/post-advertisement.png">
             </a>
         </div>
 
@@ -221,7 +221,7 @@
             <div id="add-comment-box">
                 <div id="add-comment">
                     <div>
-                        <img class="profile-picture" src="../static/img/community-profile.png" alt="">
+                        <img class="profile-picture" src="/img/community-profile.png" alt="">
                     </div>
                     <form id="add-comment-form" action="">
 
@@ -500,10 +500,6 @@
     </div>
 </footer>
 <script th:inline="javascript">
-
-
-
-
     let text = [[${boardVO.boardContent}]];
     let content = document.getElementById("post-content");
 

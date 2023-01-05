@@ -70,10 +70,14 @@ public class UserController {
     public void getInfoById(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         String userId = null;
+        UserVO userVO = new UserVO();
         if(session != null) {
             userId = (String)session.getAttribute("userId");
         }
-        model.addAttribute("user", userService.getInfo(userId));
+        if(userId != null) {
+            userVO = userService.getUserVOById(userId);
+        }
+        model.addAttribute("userVO", userVO);
     }
 
     @PostMapping("/myPage/info")
