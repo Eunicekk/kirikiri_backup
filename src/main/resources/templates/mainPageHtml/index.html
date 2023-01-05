@@ -173,7 +173,7 @@
                 <div class="tag_menu">
                     <th:block th:each="popularPost:${popularPosts}">
                         <div class="tag_menu_li" th:object="${popularPost}">
-                            <span><a th:href="@{/post(boardId = *{boardId})}" th:text="*{boardId}"></a></span>
+                            <span><a th:href="@{/post(boardId = *{boardId})}" th:text="*{boardTitle}"></a></span>
                             <span class="span_count" th:text="*{boardViews}"></span>
                         </div>
                     </th:block>

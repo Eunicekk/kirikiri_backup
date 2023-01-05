@@ -83,14 +83,29 @@ public class BoardDAO {
         return boardMapper.selectFivePosts(categoryName);
     }
     public List<BoardVO> getFivePopularPosts() {
-        return boardMapper.selectPopularPosts();
+        List<BoardVO> list = boardMapper.selectPopularPosts();
+        List<BoardVO> addList = new ArrayList<BoardVO>();
+        for(BoardVO boardVO : list) {
+            String newBoardTitle = "";
+            if(boardVO.getBoardTitle().length() > 10) {
+                newBoardTitle = boardVO.getBoardTitle().substring(0, 10) + "...";
+                boardVO.setBoardTitle(newBoardTitle);
+            }
+            addList.add(boardVO);
+        }
+        return addList;
     }
     public List<BoardDTO> getFivePopularWriters() {
-        List<BoardDTO> lists = new ArrayList<BoardDTO>();
-        for(int i = 0; i < 5; i++) {
-            lists.add(boardMapper.selectPopularWriters().get(i));
+        List<BoardDTO> list = boardMapper.selectPopularWriters();
+        List<BoardDTO> addList = new ArrayList<BoardDTO>();
+        int size = 5;
+        if(list.size() < 5) {
+            size = list.size();
         }
-        return lists;
+        for(int i = 0; i < size; i++) {
+            addList.add(boardMapper.selectPopularWriters().get(i));
+        }
+        return addList;
     }
 
     public BoardVO findById(Long boardId){

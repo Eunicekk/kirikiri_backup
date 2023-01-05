@@ -11,4 +11,6 @@ public interface ScrapService {
     public List<ScrapDTO> getScrappedBoard(String userId, Integer page);
 
     public void addScrap(ScrapVO scrapVO);
+
+    public void deleteScrap(ScrapVO scrapVO);
 }

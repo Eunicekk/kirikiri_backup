@@ -6,7 +6,6 @@ window.onload = () => {
     let warningMsgId = document.getElementById("warning-msg-id");
     let warningMsgPw = document.getElementById("warning-msg-pw");
     id.addEventListener("keyup", ()=>{
-        console.log(3);
         if(id.value === "") {
             warningMsgId.style.display = "flex";
             warningMsgPw.style.display = "none";
@@ -18,17 +17,28 @@ window.onload = () => {
             warningMsgPw.style.display = "none";
         }
     })
-    password.addEventListener("keyup", ()=>{
-        if(id.value === "") {
-            warningMsgId.style.display = "flex";
-            warningMsgPw.style.display = "none";
-        } else if(password.value === "") {
-            warningMsgId.style.display = "none";
-            warningMsgPw.style.display = "flex";
-        } else {
-            warningMsgId.style.display = "none";
-            warningMsgPw.style.display = "none";
-        }
+
+
+    $("#login-btn").on("click", function () {
+        const id = $("#id").val();
+        const password = $("#password").val();
+        $.ajax({
+            type: "post",
+            url: "/check/login",
+            data: {
+                userId: id,
+                userPassword: password
+            },
+            success: loginCheck
+        })
     })
+    function loginCheck(data) {
+        if(data) {
+            console.log("success");
+            $("#login-form").submit();
+        } else {
+            $("#login-fail").css("display", "flex");
+        }
+    }
 
 }

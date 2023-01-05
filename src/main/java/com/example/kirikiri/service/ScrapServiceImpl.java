@@ -25,4 +25,11 @@ public class ScrapServiceImpl implements ScrapService{
     public void addScrap(ScrapVO scrapVO){
         scrapDAO.setScrap(scrapVO);
     }
+
+    @Override
+    public void deleteScrap(ScrapVO scrapVO) {
+        scrapDAO.deleteScrap(scrapVO);
+    }
+
+
 }

@@ -5,7 +5,7 @@ import com.example.kirikiri.domain.UserVO;
 public interface UserService {
     public void signup(UserVO userVO);
 
-    public UserVO login(UserVO userVO);
+    public boolean login(UserVO userVO);
 
     public UserVO getUserVOById(String userId);
     // 회원정보 출력

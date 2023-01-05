@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserVO login(UserVO userVO) {
-        return userDAO.getUserVO(userVO);
+    public boolean login(UserVO userVO) {
+        return (userDAO.getUserVO(userVO) != null) ? true : false;
     }
 
     @Override

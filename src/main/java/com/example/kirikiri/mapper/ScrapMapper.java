@@ -16,4 +16,6 @@ public interface ScrapMapper {
     public List<ScrapDTO> test(@Param("userId")String userId);
 
     public void insert(ScrapVO scrapVO);
+
+    public void delete(ScrapVO scrapVO);
 }

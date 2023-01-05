@@ -24,9 +24,5 @@ public class ScrapController {
         model.addAttribute("user", userService.getInfo("kevs"));
     }
 
-    @GetMapping("/post/scrapClickAdd")
-    public String getScrap(ScrapVO scrapVO){
-        scrapService.addScrap(scrapVO);
-        return "성공!!";
-    }
+
 }

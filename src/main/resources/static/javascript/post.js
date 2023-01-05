@@ -14,6 +14,8 @@ window.onload = ()=>{
         }
     })
 
+
+
     // 댓글 모두 숨기기 버튼 클릭 시, 해당 댓글의 대댓글이 닫힘
     let hideCommentsButton = document.getElementsByClassName("comment-reply-hidden");
     let comments = document.getElementsByClassName("comment-reply-list");

@@ -21,4 +21,8 @@ public class ScrapDAO {
     public void setScrap(ScrapVO scrapVO){
         scrapMapper.insert(scrapVO);
     }
+
+    public void deleteScrap(ScrapVO scrapVO) {
+        scrapMapper.delete(scrapVO);
+    }
 }
