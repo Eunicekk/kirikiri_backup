@@ -213,31 +213,36 @@ public class BoardController {
             userId  = (String)session.getAttribute("userId");
         }
         if(userId != null) {
-            userCheck2 = true;
+            userCheck = true;
             userVO = userService.getUserVOById(userId);
             ScrapVO scrapVO = new ScrapVO();
             scrapVO.setBoardId(boardId);
             scrapVO.setUserId(userId);
             scrapCheck = scrapService.checkScrap(scrapVO);
         }
-        BoardVO boardVO = boardService.getBoard(boardId);
+        BoardDTO boardDTO = boardService.getBoardDTO(boardId);
 
-        if(boardVO.getUserId().equals(userId)) userCheck = true;
-        else userCheck = false;
-        if(!boardVO.getBoardUpdateDate().equals(boardVO.getBoardRegisterDate())) updateCheck = true;
+        if(boardDTO.getUserId().equals(userId)) userCheck2 = true;
+        else userCheck2 = false;
+        if(!boardDTO.getBoardUpdateDate().equals(boardDTO.getBoardRegisterDate())) updateCheck = true;
         else updateCheck = false;
+
+
+
+
         model.addAttribute("userVO", userVO);
-        model.addAttribute("boardVO", boardVO);
+        model.addAttribute("boardDTO", boardDTO);
         model.addAttribute("userCheck", userCheck);
         model.addAttribute("userCheck2", userCheck2);
         model.addAttribute("updateCheck", updateCheck);
         model.addAttribute("scrapCheck", scrapCheck);
+        model.addAttribute("boardId", boardId);
 
         return "/post";
     }
     @GetMapping("/edit")
     public String editPost(Long boardId, Model model, HttpServletRequest request){
-        BoardVO boardVO = boardService.getBoard(boardId);
+        BoardVO boardVO = boardService.getBoardVO(boardId);
 
         HttpSession session = request.getSession();
         String userId = "";
@@ -326,8 +331,19 @@ public class BoardController {
 
     //    작성한 게시글 조회
     @GetMapping("/activity/writtenBoard")
-    public String getWrittenBoard(Integer page, UserVO userVO, Model model) {
+    public String getWrittenBoard(Integer page, UserVO userVO, Model model, HttpServletRequest request) {
         if(page == null) page = 1;
+        boolean userCheck2 = false;
+        HttpSession session = request.getSession();
+        String userId = null;
+
+        if(session != null){
+            userId = (String)session.getAttribute("userId");
+            if(userId != null) {
+                if (userId.equals(userVO.getUserId())) userCheck2 = true;
+            }
+        }
+
 
         userVO = userService.getUserVOById(userVO.getUserId());
 
@@ -335,6 +351,8 @@ public class BoardController {
         PageDTO pbt = new PageDTO().createPageBoardDTO(page, pageTotal);
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard(userVO.getUserId(), pbt.getPage()));
+        model.addAttribute("userCheck2", userCheck2);
+
         return "/activity/writtenBoard";
     }
 

@@ -4,16 +4,17 @@ window.onload = ()=>{
     let myMenu = document.getElementById("user-menu");
     let myMenuBtn = document.getElementById("update-delete-btn");
     let menuCheck = document.getElementById("menu-check");
-    myMenu.addEventListener("click", ()=>{
-        if(menuCheck.checked == false) {
-            myMenuBtn.style.display = "flex";
-            menuCheck.checked = true;
-        } else {
-            myMenuBtn.style.display = "none";
-            menuCheck.checked = false;
-        }
-    })
-
+    if(myMenu) {
+        myMenu.addEventListener("click", () => {
+            if (menuCheck.checked == false) {
+                myMenuBtn.style.display = "flex";
+                menuCheck.checked = true;
+            } else {
+                myMenuBtn.style.display = "none";
+                menuCheck.checked = false;
+            }
+        })
+    }
 
 
     // 댓글 모두 숨기기 버튼 클릭 시, 해당 댓글의 대댓글이 닫힘
@@ -35,12 +36,6 @@ window.onload = ()=>{
         })
     }
 
-
-
-
-
-
-
     // 댓글 쓰기 버튼 클릭 시, 해당 댓글의 답글 작성란 보여주기
     let writeCommentButton = document.getElementsByClassName("comment-reply-add");
     let replyForm = document.getElementsByClassName("comment-reply-write");
@@ -61,22 +56,18 @@ window.onload = ()=>{
     }
 
     // 댓글 박스
-    $(document).ready(function () {
-        $('#summernote').summernote({
-            placeholder: '내용을 작성하세요',
-            height: 100,
-            width: 800,
-            maxHeight: 100,
-            minHeight: 100
-        });
+    $('#summernote').summernote({
+        placeholder: '내용을 작성하세요',
+        height: 100,
+        width: 800,
+        maxHeight: 100,
+        minHeight: 100
     });
-    $(document).ready(function () {
-        $('.summernote').summernote({
-            placeholder: '내용을 작성하세요',
-            height: 100,
-            maxHeight: 100,
-            minHeight: 100
-        });
+    $('.summernote').summernote({
+        placeholder: '내용을 작성하세요',
+        height: 100,
+        maxHeight: 100,
+        minHeight: 100
     });
 
     // 마이페이지
@@ -94,5 +85,6 @@ window.onload = ()=>{
             myPageCheck.checked = false;
         }
     })
+
 
 }

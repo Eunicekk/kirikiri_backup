@@ -44,7 +44,8 @@ public interface BoardService {
     public void edit(BoardVO boardVO);
 
     //게시물 조회
-    public BoardVO getBoard(Long boardId);
+    public BoardDTO getBoardDTO(Long boardId);
+    public BoardVO getBoardVO(Long boardId);
 
     public List<BoardVO> getFivePosts(String categoryName);
 

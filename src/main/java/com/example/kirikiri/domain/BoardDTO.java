@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Data @NoArgsConstructor
 public class BoardDTO {
@@ -36,6 +38,7 @@ public class BoardDTO {
     private int page = 1;
     private String keyword;
     private Integer posts;
+    private List<CommentVO> comments;
 
     @Builder
     public BoardDTO(String nationName, String categoryName, String detailCategoryName, String boardTitle, String boardContent, String userId) {
@@ -50,5 +53,20 @@ public class BoardDTO {
     public BoardVO changeBoardVO(){
         BoardVO boardVO = new BoardVO(boardId, nationName, categoryName, detailCategoryName, boardTitle, boardContent, boardRegisterDate, boardUpdateDate, boardViews, boardLikes, userId);
         return boardVO;
+    }
+
+    @Builder
+    public BoardDTO(BoardVO boardVO, List<CommentVO> comments) {
+        this.nationName = boardVO.getNationName();
+        this.categoryName = boardVO.getCategoryName();
+        this.detailCategoryName = boardVO.getDetailCategoryName();
+        this.boardTitle = boardVO.getBoardTitle();
+        this.boardContent = boardVO.getBoardContent();
+        this.userId = boardVO.getUserId();
+        this.boardRegisterDate = boardVO.getBoardRegisterDate();
+        this.boardUpdateDate = boardVO.getBoardUpdateDate();
+        this.boardViews = boardVO.getBoardViews();
+        this.boardLikes = boardVO.getBoardLikes();
+        this.comments = comments;
     }
 }

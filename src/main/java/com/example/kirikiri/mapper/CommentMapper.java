@@ -9,9 +9,13 @@ import java.util.List;
 public interface CommentMapper {
     public List<CommentVO> selectByBoardId(Long boardId);
 
+    public CommentVO selectByCommentId(Long commentId);
+
     public void insert(CommentVO commentVO);
 
     public void update(CommentVO commentVO);
 
     public void delete(Long commentId);
+
+    public void deleteByBoardId(Long boardId);
 }

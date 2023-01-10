@@ -2,7 +2,9 @@ package com.example.kirikiri.service;
 
 import com.example.kirikiri.domain.BoardDTO;
 import com.example.kirikiri.domain.BoardVO;
+import com.example.kirikiri.domain.CommentVO;
 import com.example.kirikiri.repository.BoardDAO;
+import com.example.kirikiri.repository.CommentDAO;
 import com.example.kirikiri.repository.ScrapDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +19,8 @@ import java.util.List;
 public class BoardServiceImpl implements BoardService {
     private final BoardDAO boardDAO;
     private final ScrapDAO scrapDAO;
+    private final CommentDAO commentDAO;
+
     //전체 게시물 수
     @Override
     public Integer getCountAll(){
@@ -112,9 +116,16 @@ public class BoardServiceImpl implements BoardService {
     public void edit(BoardVO boardVO) {
         boardDAO.setBoardVO(boardVO);
     }
+
     //게시물 상세 보기
     @Override
-    public BoardVO getBoard(Long boardId) {
+    public BoardDTO getBoardDTO(Long boardId) {
+        boardDAO.updateBoardView(boardId);
+        BoardDTO boardDTO = new BoardDTO(boardDAO.findById(boardId), commentDAO.getCommentsListByBoardId(boardId));
+        return boardDTO;
+    }
+    @Override
+    public BoardVO getBoardVO(Long boardId) {
         boardDAO.updateBoardView(boardId);
         return boardDAO.findById(boardId);
     }

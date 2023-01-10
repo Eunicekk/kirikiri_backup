@@ -5,18 +5,31 @@
         SELECT COMMENT_ID, COMMENT_CONTENT, COMMENT_REGISTER_DATE, COMMENT_UPDATE_DATE, COMMENT_LIKES, BOARD_ID, USER_ID
         FROM TBL_COMMENT
         WHERE BOARD_ID = #{boardId}
+        ORDER BY COMMENT_ID
+    </select>
+    <select id="selectByCommentId" resultType="commentVO">
+        SELECT COMMENT_ID, COMMENT_CONTENT, COMMENT_REGISTER_DATE, COMMENT_UPDATE_DATE, COMMENT_LIKES, BOARD_ID, USER_ID
+        FROM TBL_COMMENT
+        WHERE COMMENT_ID = #{commentId}
     </select>
     <insert id="insert">
+        <selectKey keyProperty="commentId" resultType="long" order="BEFORE">
+            SELECT SEQ_COMMENT.NEXTVAL FROM DUAL
+        </selectKey>
         INSERT INTO TBL_COMMENT(COMMENT_ID, COMMENT_CONTENT, BOARD_ID, USER_ID)
-        VALUES SEQ_COMMENT.NEXTVAL, #{commentContent}, #{boardId}, #{userId}
+        VALUES(${commentId}, #{commentContent}, #{boardId}, #{userId})
     </insert>
     <update id="update">
-        UPDATE TBL_BOARD
+        UPDATE TBL_COMMENT
         SET COMMENT_CONTENT = #{commentContent}, COMMENT_UPDATE_DATE = SYSDATE
         WHERE COMMENT_ID = #{commentId}
     </update>
     <delete id="delete">
-        DELETE FROM TBL_BOARD
+        DELETE FROM TBL_COMMENT
         WHERE COMMENT_ID = #{commentId}
+    </delete>
+    <delete id="deleteByBoardId">
+        DELETE FROM TBL_COMMENT
+        WHERE BOARD_ID = #{boardId}
     </delete>
 </mapper>
