@@ -32,6 +32,7 @@ a:hover{
 /*공통*/
 .profile-picture {
     width: 40px;
+    height: 40px;
     border-radius: 100%;
 }
 
@@ -351,6 +352,7 @@ a:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 .comment-first-line > div {
     display: flex;
@@ -374,6 +376,10 @@ a:hover{
 }
 .comment-info-text svg {
     width: 15px;
+}
+.like-dislike-mymenu {
+    position: relative;
+    display: flex;
 }
 .like-dislike {
     height: 30px;
@@ -421,6 +427,54 @@ a:hover{
     width: 50px;
     text-align: center;
 }
+
+.mymenu-btn {
+    position: relative;
+}
+.user-menu {
+    position: relative;
+}
+.user-menu {
+    background-color: #fff;
+    border: 0 solid #fff;
+    color: hsla(220, 9%, 46%, 0.7);
+    margin-left: 20px;
+}
+.user-menu:hover {
+    color: #8BC34A;
+}
+.user-menu svg {
+    width: 20px;
+}
+.update-delete-btn {
+    position: absolute;
+    width: 150px;
+    top: 50px;
+    right: 0;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 5px 15px;
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    z-index: 100;
+}
+.update-delete-btn > button {
+    background-color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+.update-delete-btn > button:hover {
+    color: #8BC34A;
+}
+.update-delete-btn svg {
+    width: 20px;
+    margin-right: 10px;
+}
+
 .comment-content {
     margin: 10px 0;
     font-size: 12px;
@@ -474,6 +528,38 @@ a:hover{
 }
 .reply-check {
     display: none;
+}
+
+
+.comment-edit-mode {
+    display: none;
+}
+.comment-edit-mode > div {
+    display: flex;
+}
+.comment-edit-mode img {
+    margin-right: 10px;
+}
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.cancel-button {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid hsla(220, 9%, 46%, 0.3);
+    border-radius: 5px;
+    font-weight: bold;
+}
+.write-comment-button {
+    margin-left: 20px;
+    padding: 10px 30px;
+    background-color: #8BC34A;
+    color: #fff;
+    border: 0 solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 

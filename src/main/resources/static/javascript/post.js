@@ -86,5 +86,48 @@ window.onload = ()=>{
         }
     })
 
+    $(".user-menu").each(function (i, btn) {
+        btn.addEventListener("click", function () {
+            console.log(i);
+            if($($(".menu-check")[i]).is(":checked") === false) {
+                $($(".update-delete-btn")[i]).css("display", "flex");
+                $($(".menu-check")[i]).prop("checked", true);
+            } else {
+                $($(".update-delete-btn")[i]).css("display", "none");
+                $($(".menu-check")[i]).prop("checked", false);
+            }
+        })
+    })
+
+
+    $(".comment-update").each(function (i, btn) {
+        btn.addEventListener("click", function () {
+            const text = $($(".comment-content-value")[i]).val();
+            if($($(".change-edit-mode-check")[i]).is(":checked")) {
+                $($(".comment-edit-mode")[i]).css("display", "none");
+                $($(".comment-normal-mode")[i]).css("display", "block");
+                $($(".change-edit-mode-check")[i]).prop("checked", false);
+            } else {
+                $($(".comment-edit-mode")[i]).css("display", "block");
+                $($(".comment-normal-mode")[i]).css("display", "none");
+                $($(".change-edit-mode-check")[i]).prop("checked", true);
+                $($(".edit-mode-content")[i]).summernote("code", text);
+            }
+        })
+    })
+    $(".cancel-button").each(function (i, btn) {
+        btn.addEventListener("click", function () {
+            if($($(".change-edit-mode-check")[i]).is(":checked")) {
+                $($(".comment-edit-mode")[i]).css("display", "none");
+                $($(".comment-normal-mode")[i]).css("display", "block");
+                $($(".change-edit-mode-check")[i]).prop("checked", false);
+            } else {
+                $($(".comment-edit-mode")[i]).css("display", "block");
+                $($(".comment-normal-mode")[i]).css("display", "none");
+                $($(".change-edit-mode-check")[i]).prop("checked", true);
+            }
+        })
+    })
+
 
 }
