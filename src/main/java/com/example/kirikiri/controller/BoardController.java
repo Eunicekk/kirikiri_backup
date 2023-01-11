@@ -2,6 +2,7 @@ package com.example.kirikiri.controller;
 
 import com.example.kirikiri.domain.*;
 import com.example.kirikiri.service.BoardService;
+import com.example.kirikiri.service.CommentService;
 import com.example.kirikiri.service.ScrapService;
 import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +32,7 @@ public class BoardController {
     private final BoardService boardService;
     private final UserService userService;
     private final ScrapService scrapService;
+    private final CommentService commentService;
 
     @GetMapping("/all")
     public String getList(BoardDTO boardDTO, Integer page, Model model, HttpServletRequest request){
@@ -358,7 +360,28 @@ public class BoardController {
 
 
     @GetMapping("/activity/comment")
-    public String getComment() {
+    public String getComment(Integer page, UserVO userVO, Model model, HttpServletRequest request) {
+        if(page == null) page = 1;
+        boolean userCheck2 = false;
+        HttpSession session = request.getSession();
+        String userId = null;
+
+        if(session != null){
+            userId = (String)session.getAttribute("userId");
+            if(userId != null) {
+                if (userId.equals(userVO.getUserId())) userCheck2 = true;
+            }
+        }
+
+
+        userVO = userService.getUserVOById(userVO.getUserId());
+
+        Integer pageTotal = boardService.getCountByUser(userVO.getUserId());
+        PageDTO pbt = new PageDTO().createPageBoardDTO(page, pageTotal);
+        model.addAttribute("pagination", pbt);
+        model.addAttribute("comments", commentService.getCommentVOByUserId(userVO.getUserId()));
+        model.addAttribute("userCheck2", userCheck2);
+
         return "/activity/comment";
     }
 

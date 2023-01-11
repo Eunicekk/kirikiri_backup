@@ -42,7 +42,7 @@
                     <ul>
                         <li id="link_1"><span>게시물</span></li>
                         <li id="link_2"><a th:href="@{/activity/scrappedBoard(userId = ${userVO.userId})}">스크랩</a></li>
-                        <li id="link_3"><span onclick="location.href='/activity/comment'">댓글</span></li>
+                        <li id="link_3"><a th:href="@{/activity/comment(userId = ${userVO.userId})}"><span>댓글</span></a></li>
                     </ul>
                 </div>
             </div>

@@ -93,7 +93,7 @@
                     <a class="alert" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg></a>
                     <div id="mypage">
                         <button type="button" class="mypage">
-                            <img src="" alt="profile" th:if="${profileCheck}">
+                            <img th:src="@{/file/display(userProfile = ${userVO.userProfile})}" alt="profile" th:if="${profileCheck}">
                             <img src="/img/account.png" alt="profile" th:unless="${profileCheck}">
                         </button>
                         <input id="mypage-check" type="checkbox" style="display: none">
@@ -157,7 +157,9 @@
             <!--            프로필, 공유, 스크랩-->
             <div id="post-first-line">
                 <div id="post-info">
-                    <a th:href="@{/activity/writtenBoard(userId = *{userId})}"><img class="profile-picture" src="/img/community-profile.png" alt=""></a>
+                    <a th:href="@{/activity/writtenBoard(userId = *{userId})}">
+                        <img class="profile-picture" src="/img/community-profile.png" alt="">
+                    </a>
                     <div id="post-info-text">
                         <a th:href="@{/activity/writtenBoard(userId = *{userId})}" th:text="*{userId}"></a>
                         <p>
@@ -193,7 +195,7 @@
             </div>
 
             <!--            내용-->
-            <div id="post-content">
+            <div id="post-content" th:utext="*{boardContent}">
 
             </div>
 
@@ -289,11 +291,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="hidden" class="comment-content-value" th:value="*{commentContent}">
-                            <div class="comment-content">
-
-
-                            </div>
+                            <div class="comment-content" th:utext="*{commentContent}"></div>
                         </div>
                         <div class="comment-edit-mode">
                             <div>
@@ -565,19 +563,6 @@
     </div>
 </footer>
 <script th:inline="javascript">
-    //서머노트에 추가
-    let text = [[${boardDTO.boardContent}]];
-    let content = document.getElementById("post-content");
-
-    content.innerHTML = text;
-
-
-    let commentTexts = $(".comment-content-value");
-
-    $(".comment-content").each(function(i, comment){
-        let commentText = $(commentTexts[i]).val();
-        $(comment).html(commentText);
-    });
 
     //스크랩 추가
     let scrapCheck = document.getElementById("scrap-check");

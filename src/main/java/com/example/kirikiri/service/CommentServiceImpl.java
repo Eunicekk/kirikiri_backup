@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Qualifier("comment") @Primary
@@ -17,6 +19,11 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public CommentVO getCommentVO(Long commentId) {
         return commentDAO.getCommentVO(commentId);
+    }
+
+    @Override
+    public List<CommentVO> getCommentVOByUserId(String userId) {
+        return commentDAO.getCommentsListByUserId(userId);
     }
 
     @Override

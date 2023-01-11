@@ -82,13 +82,7 @@ public class UserController {
 
     @PostMapping("/myPage/info")
     public RedirectView updateInfo(UserVO userVO, RedirectAttributes redirectAttributes){
-        if(userVO.getUserAge()==null){
-            userVO.setUserAge(0);
-        }
-        userVO.setUserId("kevs");
         userService.updateInfo(userVO);
-        System.out.println(userVO.isUserAgeCheck());
-        redirectAttributes.addAttribute("userId", userVO.getUserId());
 
         return new RedirectView("/myPage/info");
     }

@@ -37,8 +37,8 @@
                 </div>
                 <div class="menu">
                     <ul>
-                        <li id="link_1" onclick="location.href='/activity/writtenBoard?page=1'"><span>게시물</span></li>
-                        <li id="link_2" onclick="location.href='/activity/scrappedBoard?page=1'"><span>스크랩</span></li>
+                        <li id="link_1"><a th:href="@{/activity/writtenBoard(userId = ${userVO.userId})}"><span>게시물</span></a></li>
+                        <li id="link_1"><a th:href="@{/activity/scrappedBoard(userId = ${userVO.userId})}"><span>스크랩</span></a></li>
                         <li id="link_3"><span>댓글</span></li>
                     </ul>
                 </div>
@@ -46,7 +46,22 @@
             <div class="tabPages">
                 <div class="tabPage" id="tabPage_3">
                     <div class="borderBottom"></div>
-                    <div class="like"><!-- 받은 데이터 값에 따라 div 생성 --></div>
+                    <div class="like">
+                        <th:block th:each="comment:${comments}">
+                            <div class="content" th:object="${comment}">
+                                <div class="whereAndTime">
+                                    <div class="where">
+                                        <a  class="where-link" th:href="@{/post(boardId = *{boardId})}" th:text="*{boardId}"></a>
+                                        <div class="where-word">번 게시물에 댓글을 달았습니다</div>
+                                    </div>
+                                    <div class="time" th:text="*{commentRegisterDate}"></div>
+                                </div>
+                                <div class="Title">
+                                    <a class="aTitle" th:href="@{/post(boardId = *{boardId})}" th:utext="*{commentContent}"></a>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
                     <div class="bottomMargin"></div>
                     <div id="page-move-bottom3">
                         <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"></path></svg> Previous</button>

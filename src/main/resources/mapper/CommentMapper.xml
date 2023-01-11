@@ -12,6 +12,11 @@
         FROM TBL_COMMENT
         WHERE COMMENT_ID = #{commentId}
     </select>
+    <select id="selectByUserId" resultType="commentVO">
+        SELECT COMMENT_ID, COMMENT_CONTENT, COMMENT_REGISTER_DATE, COMMENT_UPDATE_DATE, COMMENT_LIKES, BOARD_ID, USER_ID
+        FROM TBL_COMMENT
+        WHERE USER_ID = #{userId}
+    </select>
     <insert id="insert">
         <selectKey keyProperty="commentId" resultType="long" order="BEFORE">
             SELECT SEQ_COMMENT.NEXTVAL FROM DUAL

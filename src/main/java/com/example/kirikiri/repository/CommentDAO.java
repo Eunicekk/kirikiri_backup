@@ -20,6 +20,10 @@ public class CommentDAO {
         return commentMapper.selectByCommentId(commentId);
     }
 
+    public List<CommentVO> getCommentsListByUserId(String userId) {
+        return commentMapper.selectByUserId(userId);
+    }
+
     public void addComment(CommentVO commentVO){
         commentMapper.insert(commentVO);
     }

@@ -11,6 +11,8 @@ public interface CommentMapper {
 
     public CommentVO selectByCommentId(Long commentId);
 
+    public List<CommentVO> selectByUserId(String userId);
+
     public void insert(CommentVO commentVO);
 
     public void update(CommentVO commentVO);
