@@ -333,54 +333,54 @@ public class BoardController {
 
     //    작성한 게시글 조회
     @GetMapping("/activity/writtenBoard")
-    public String getWrittenBoard(Integer page, UserVO userVO, Model model, HttpServletRequest request) {
+    public String getWrittenBoard(Integer page, String userId, Model model, HttpServletRequest request) {
         if(page == null) page = 1;
         boolean userCheck2 = false;
         HttpSession session = request.getSession();
-        String userId = null;
+        String sessionUserId = null;
 
         if(session != null){
-            userId = (String)session.getAttribute("userId");
-            if(userId != null) {
-                if (userId.equals(userVO.getUserId())) userCheck2 = true;
+            sessionUserId = (String)session.getAttribute("userId");
+            if(sessionUserId != null) {
+                if (sessionUserId.equals(userId)) userCheck2 = true;
             }
         }
 
+        UserVO userVO = userService.getUserVOById(userId);
 
-        userVO = userService.getUserVOById(userVO.getUserId());
-
-        Integer pageTotal = boardService.getCountByUser(userVO.getUserId());
+        Integer pageTotal = boardService.getCountByUser(userId);
         PageDTO pbt = new PageDTO().createPageBoardDTO(page, pageTotal);
         model.addAttribute("pagination", pbt);
         model.addAttribute("boards", boardService.getWrittenBoard(userVO.getUserId(), pbt.getPage()));
         model.addAttribute("userCheck2", userCheck2);
+        model.addAttribute("userVO", userVO);
 
         return "/activity/writtenBoard";
     }
 
 
     @GetMapping("/activity/comment")
-    public String getComment(Integer page, UserVO userVO, Model model, HttpServletRequest request) {
+    public String getComment(Integer page, String userId, Model model, HttpServletRequest request) {
         if(page == null) page = 1;
         boolean userCheck2 = false;
         HttpSession session = request.getSession();
-        String userId = null;
+        String sessionUserId = null;
 
         if(session != null){
-            userId = (String)session.getAttribute("userId");
-            if(userId != null) {
-                if (userId.equals(userVO.getUserId())) userCheck2 = true;
+            sessionUserId = (String)session.getAttribute("userId");
+            if(sessionUserId != null) {
+                if (sessionUserId.equals(userId)) userCheck2 = true;
             }
         }
 
+        UserVO userVO = userService.getUserVOById(userId);
 
-        userVO = userService.getUserVOById(userVO.getUserId());
-
-        Integer pageTotal = boardService.getCountByUser(userVO.getUserId());
+        Integer pageTotal = boardService.getCountByUser(userId);
         PageDTO pbt = new PageDTO().createPageBoardDTO(page, pageTotal);
         model.addAttribute("pagination", pbt);
         model.addAttribute("comments", commentService.getCommentVOByUserId(userVO.getUserId()));
         model.addAttribute("userCheck2", userCheck2);
+        model.addAttribute("userVO", userVO);
 
         return "/activity/comment";
     }

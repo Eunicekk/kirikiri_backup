@@ -22,7 +22,10 @@
         <div class="middle">
             <div class="info">
                 <div class="info_m">
-                    <div class="photo_div"><img src="/img/account.png"></div> <!-- 개인 프로필 사진 출력 -->
+                    <div class="photo_div">
+                        <img class="photo" th:src="@{/file/display(userProfile = ${userVO.userProfile})}" alt="profile" th:if="${userVO.userProfile != null}">
+                        <img class="photo" src="/img/account.png" alt="profile" th:unless="${userVO.userProfile != null}">
+                    </div> <!-- 개인 프로필 사진 출력 -->
                     <div class="name">
                         <div class="username"><h2 id="name"></h2></div>
                         <div class="act_score">

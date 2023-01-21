@@ -23,8 +23,8 @@
             <div class="info">
                 <div class="info_m">
                     <div class="photo_div">
-                        <img th:if="${userVO.userProfile} != null" class="photo" th:src="@{/file/display(path=${userVO.userProfile})}">
-                        <img th:unless="${userVO.userProfile} != null" src="/img/account.png" alt="">
+                        <img class="photo" th:src="@{/file/display(userProfile = ${userVO.userProfile})}" alt="profile" th:if="${userVO.userProfile != null}">
+                        <img class="photo" src="/img/account.png" alt="profile" th:unless="${userVO.userProfile != null}">
                     </div> <!-- 개인 프로필 사진 출력 -->
                     <div class="name">
                         <div class="username"><h2 id="name" th:text="${userVO.userNickname}"></h2></div>
