@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>kirikiri - Post</title>
 
+    <link rel="stylesheet" href="/css/mainPageCss/reset.css" />
+    <link rel="stylesheet" href="/css/mainPageCss/media.css" />
+
     <!--  jQuery, bootstrap -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -80,18 +83,18 @@
                     </label>
                 </div>
             </div>
-            <div class="header_right_login" th:if="${!userCheck2}">
+            <div class="header_right_login" th:if="${!userCheck}">
                 <div class="login"><a href="/login">로그인</a></div>
                 <div class="signUp"><a href="/signup">회원가입</a></div>
             </div>
-            <div class="header_right_login" th:unless="${!userCheck2}">
+            <div class="header_right_login" th:unless="${!userCheck}">
                 <div>
-                    <a class="scrap" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg></a>
+                    <a class="scrap" th:href="@{/activity/writtenBoard(userId = ${userVO.userId})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg></a>
                     <a class="alert" href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path></svg></a>
                     <div id="mypage">
                         <button type="button" class="mypage">
-                            <img src="" alt="profile" th:if="${profileCheck}">
-                            <img src="/img/account.png" alt="profile" th:unless="${profileCheck}">
+                            <img th:src="@{/file/display(userProfile = ${userVO.userProfile})}" alt="profile" th:if="${userVO.userProfile != null}">
+                            <img src="/img/account.png" alt="profile" th:unless="${userVO.userProfile != null}">
                         </button>
                         <input id="mypage-check" type="checkbox" style="display: none">
                         <div id="mypage-menu">
@@ -103,7 +106,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="mr-2 h-4 w-4" role="none"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" role="none"></path></svg>
                                 내 계정
                             </a>
-                            <a href="/activity/writtenBoard">
+                            <a th:href="@{/activity/writtenBoard(userId = ${userVO.userId})}">
                                 <svg class="mr-2 h-4 w-4" width="16" height="16" viewBox="0 -1 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="none"><path d="M7 5.5V7.80769L8.5 9.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="none"></path><path d="M1 1.5L1 4.75H1.43783M13 6.25C12.6295 3.29027 10.0949 1 7.0233 1C4.49549 1 2.33137 2.55113 1.43783 4.75M1.43783 4.75H4M12.6088 9.25C11.7152 11.4489 9.55111 13 7.0233 13C3.9517 13 1.41711 10.7097 1.0466 7.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="none"></path></svg>
                                 활동내역
                             </a>
@@ -132,100 +135,105 @@
     </div>
 
     <!--        중앙-->
-    <div id="center-div" th:object="${boardVO}">
-        <div class="advertisement-box">
-            <a>
-            <img class="advertisement" src="/img/post-advertisement.png">
-            </a>
-        </div>
+    <div id="center-div">
+        <div th:object="${boardDTO}">
+            <div class="advertisement-box">
+                <a>
+                <img class="advertisement" src="/img/post-advertisement.png">
+                </a>
+            </div>
 
-        <div id="category">
-            <div class="center-line"></div>
-            <div id="category-link">
-                <div>
-                    <a th:href="@{/board(categoryName = *{categoryName})}"><span th:text="*{categoryName}"></span></a>
-                    <span> / </span>
-                    <a class="blue-font" th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName})}"><span th:text="*{detailCategoryName}"></span></a>
+            <div id="category">
+                <div class="center-line"></div>
+                <div id="category-link">
+                    <div>
+                        <a th:href="@{/board(categoryName = *{categoryName})}"><span th:text="*{categoryName}"></span></a>
+                        <span> / </span>
+                        <a class="blue-font" th:href="@{/board(categoryName = *{categoryName}, detailCategoryName = *{detailCategoryName})}"><span th:text="*{detailCategoryName}"></span></a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!--            프로필, 공유, 스크랩-->
-        <div id="post-first-line">
-            <div id="post-info">
-                <a href=""><img class="profile-picture" src="/img/community-profile.png" alt=""></a>
-                <div id="post-info-text">
-                    <a href="" th:text="*{userId}"></a>
-                    <p>
-                        <svg class="inline h-3 w-3" width="9" height="12" viewBox="0 1 9 12" fill="none" xmlns="http://www.w3.org/2000/svg"><title>bolt icon</title><path fill-rule="evenodd" clip-rule="evenodd" d="M5.21535 0.575533C5.4443 0.647704 5.6 0.86003 5.6 1.10009V3.85009L7.8 3.85009C8.00508 3.85009 8.19313 3.96419 8.28783 4.14609C8.38254 4.328 8.36818 4.54748 8.25057 4.71549L4.40057 10.2155C4.26291 10.4122 4.0136 10.4968 3.78464 10.4246C3.55569 10.3525 3.4 10.1401 3.4 9.90009L3.4 7.15009H1.2C0.994914 7.15009 0.806866 7.03599 0.712157 6.85408C0.617448 6.67218 0.631811 6.45269 0.749418 6.28468L4.59942 0.784684C4.73708 0.588021 4.98639 0.503362 5.21535 0.575533Z" fill="currentColor"></path></svg>
-                        <span th:text="*{boardRegisterDate}"></span><span> ㆍ </span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span th:text="*{boardViews}"></span>
-                        <span id="update-check" th:if="${updateCheck}"> ㆍ 수정됨</span></p>
+            <!--            프로필, 공유, 스크랩-->
+            <div id="post-first-line">
+                <div id="post-info">
+                    <a th:href="@{/activity/writtenBoard(userId = *{userId})}">
+                        <img class="profile-picture" src="/img/community-profile.png" alt="">
+                    </a>
+                    <div id="post-info-text">
+                        <a th:href="@{/activity/writtenBoard(userId = *{userId})}" th:text="*{userId}"></a>
+                        <p>
+                            <svg class="inline h-3 w-3" width="9" height="12" viewBox="0 1 9 12" fill="none" xmlns="http://www.w3.org/2000/svg"><title>bolt icon</title><path fill-rule="evenodd" clip-rule="evenodd" d="M5.21535 0.575533C5.4443 0.647704 5.6 0.86003 5.6 1.10009V3.85009L7.8 3.85009C8.00508 3.85009 8.19313 3.96419 8.28783 4.14609C8.38254 4.328 8.36818 4.54748 8.25057 4.71549L4.40057 10.2155C4.26291 10.4122 4.0136 10.4968 3.78464 10.4246C3.55569 10.3525 3.4 10.1401 3.4 9.90009L3.4 7.15009H1.2C0.994914 7.15009 0.806866 7.03599 0.712157 6.85408C0.617448 6.67218 0.631811 6.45269 0.749418 6.28468L4.59942 0.784684C4.73708 0.588021 4.98639 0.503362 5.21535 0.575533Z" fill="currentColor"></path></svg>
+                            <span th:text="*{boardRegisterDate}"></span><span> ㆍ </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-4 w-4 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span th:text="*{boardViews}"></span>
+                            <span id="update-check" th:if="${updateCheck}"> ㆍ 수정됨</span></p>
+                    </div>
+                </div>
+                <div id="share-scrap">
+                    <button href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg></button>
+                    <button id="scrap" type="button">
+                        <svg class="scrap-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg>
+                    </button>
+                    <button type="button" id="user-menu" th:if="${userCheck2}">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg>
+                    </button>
+                    <input type="checkbox" style="display: none" id="scrap-check">
+                    <div id="update-delete-btn">
+                        <a th:href="@{/edit(boardId=*{boardId})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path></svg>
+                            수정하기</a>
+                        <a th:href="@{/delete(boardId=*{boardId})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
+                            삭제하기</a>
+                    </div>
+                    <input id="menu-check" type="checkbox" style="display: none">
                 </div>
             </div>
-            <div id="share-scrap">
-                <button href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"></path></svg></button>
-                <button id="scrap" type="button">
-                    <svg class="scrap-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path></svg>
-                </button>
-                <button type="button" id="user-menu" th:if="${userCheck}">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg>
-                </button>
-                <input type="checkbox" style="display: none" id="scrap-check">
-                <div id="update-delete-btn">
-                    <a th:href="@{/edit(boardId=*{boardId})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path></svg>
-                        수정하기</a>
-                    <a th:href="@{/delete(boardId=*{boardId})}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
-                        삭제하기</a>
+
+            <!--            제목-->
+            <div id="post-title">
+                <h1 th:text="*{boardTitle}"></h1>
+            </div>
+
+            <!--            내용-->
+            <div id="post-content" th:utext="*{boardContent}">
+
+            </div>
+
+            <!--            태그, 좋아요-->
+            <div id="tag-like">
+
+                <div id="like-dislike">
+                    <button id="down-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:text-red-500 group-hover:text-red-500 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>
+                    </button>
+                    <p th:text="*{boardLikes}"></p>
+                    <button id="up-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:text-blue-500 group-hover:text-blue-500 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path></svg>
+                    </button>
                 </div>
-                <input id="menu-check" type="checkbox" style="display: none">
             </div>
-        </div>
-
-        <!--            제목-->
-        <div id="post-title">
-            <h1 th:text="*{boardTitle}"></h1>
-        </div>
-
-        <!--            내용-->
-        <div id="post-content">
-
-        </div>
-
-        <!--            태그, 좋아요-->
-        <div id="tag-like">
-
-            <div id="like-dislike">
-                <button id="down-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:text-red-500 group-hover:text-red-500 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>
-                </button>
-                <p th:text="*{boardLikes}"></p>
-                <button id="up-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:text-blue-500 group-hover:text-blue-500 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path></svg>
-                </button>
+            <div class="advertisement-box">
+                <a  href="">
+                    <img class="advertisement" src="/img/post-advertisement.png">
+                </a>
             </div>
-        </div>
-        <div class="advertisement-box">
-            <a  href="">
-                <img class="advertisement" src="../static/img/post-advertisement.png">
-            </a>
         </div>
 
         <!--            댓글-->
         <div id="comment-area">
-            <p>11개의 댓글</p>
+            <p><span id="comments-size" th:text="${boardDTO.comments.size()}"></span>개의 댓글</p>
             <div id="add-comment-box">
                 <div id="add-comment">
                     <div>
-                        <img class="profile-picture" src="../static/img/community-profile.png" alt="">
+                        <img class="profile-picture" th:src="@{/file/display(userProfile = ${userVO.userProfile})}" alt="profile" th:if="${userVO.userProfile != null}">
+                        <img class="profile-picture" src="/img/account.png" alt="profile" th:unless="${userVO.userProfile != null}">
                     </div>
                     <form id="add-comment-form" action="">
 
-                        <div id="summernote"></div>
+                        <textarea id="summernote"></textarea>
 
                         <div id="add-comment-button">
-                            <button type="submit">댓글 쓰기</button>
+                            <button id="comment-btn" type="button">댓글 쓰기</button>
                         </div>
                     </form>
                 </div>
@@ -233,7 +241,74 @@
 
             <!--                댓글 리스트-->
             <div id="comment-list">
-                <div class="comment">
+                <th:block th:each="comment:${boardDTO.comments}">
+                    <div class="comment" th:object="${comment}">
+                        <input type="hidden" class="comment-id" th:value="*{commentId}">
+                        <input class="change-edit-mode-check" type="checkbox" style="display: none">
+                        <div class="comment-normal-mode">
+                            <div class="comment-first-line">
+                                <div>
+                                    <a th:href="@{/activity/writtenBoard(userId = *{userId})}">
+                                        <img class="profile-picture" src="/img/account.png" alt=""></a>
+                                    <div class="comment-info-text">
+                                        <a th:href="@{/activity/writtenBoard(userId = *{userId})}" class="comment-nickname" th:text="*{userId}"></a>
+                                        <span th:text="*{commentRegisterDate}"></span>
+                                    </div>
+                                </div>
+                                <div class="like-dislike-mymenu">
+                                    <div class="like-dislike">
+                                        <button class="down-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:text-red-500 group-hover:text-red-500 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>
+                                        </button>
+                                        <p th:text="*{commentLikes}"></p>
+                                        <button class="up-button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:text-blue-500 group-hover:text-blue-500 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path></svg>
+                                        </button>
+
+                                    </div>
+                                    <div class="mymenu-btn" th:if="${userVO.userId} == *{userId}">
+                                        <button type="button" class="user-menu" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg>
+                                        </button>
+                                        <div class="update-delete-btn">
+                                            <button class="comment-update"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path></svg>
+                                                수정하기</button>
+                                            <button class="comment-remove"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
+                                                삭제하기</button>
+                                        </div>
+                                        <input class="menu-check" type="checkbox" style="display: none">
+                                    </div>
+                                    <div class="mymenu-btn" th:unless="${userVO.userId} == *{userId}" style="display: none">
+                                        <button type="button" class="user-menu" >
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6 text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg>
+                                        </button>
+                                        <div class="update-delete-btn">
+                                            <button class="comment-update"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path></svg>
+                                                수정하기</button>
+                                            <button class="comment-remove"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>
+                                                삭제하기</button>
+                                        </div>
+                                        <input class="menu-check" type="checkbox" style="display: none">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-content" th:utext="*{commentContent}"></div>
+                        </div>
+                        <div class="comment-edit-mode">
+                            <div>
+                                <img class="profile-picture" src="/img/account.png" alt="">
+                                <textarea class="summernote edit-mode-content">
+
+                                </textarea>
+                            </div>
+                            <div class="buttons">
+                                <button class="cancel-button">취소</button>
+                                <button class="write-comment-button">댓글 쓰기</button>
+                            </div>
+                        </div>
+                    </div>
+                </th:block>
+
                     <div class="comment-first-line">
                         <div>
                             <a href=""><img class="profile-picture" src="../static/img/community-profile.png" alt=""></a>
@@ -403,24 +478,16 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
             </div>
         </div>
-
+        <!--        오른쪽-->
+        <div id="right-div">
+            <a><img class="right-side-advertisement" src="/img/k-digital-trainning.jpg"></a>
+        </div>
     </div>
 
-    <!--        오른쪽-->
-    <div id="right-div">
-        <a><img class="right-side-advertisement" src="/img/k-digital-trainning.jpg"></a>
-    </div>
+
+
 </div>
 <footer>
     <div>
@@ -497,20 +564,22 @@
     </div>
 </footer>
 <script th:inline="javascript">
-    let text = [[${boardVO.boardContent}]];
-    let content = document.getElementById("post-content");
 
-    content.innerHTML = text;
-
+    //스크랩 추가
     let scrapCheck = document.getElementById("scrap-check");
     let scrap = document.getElementById("scrap");
 
-    console.log(scrapCheck.checked);
+    const scrapCheckDB = [[${scrapCheck}]];
+    if(scrapCheckDB) {
+        scrap.style.color = "#8BC34A";
+        scrapCheck.checked = true;
+    } else {
+        scrap.style.color = "hsla(220, 9%, 46%, 0.7)";
+        scrapCheck.checked = false;
+    }
 
-    const boardId = [[${boardVO.boardId}]];
-    const userId = [[${userId}]]
-    console.log(userId);
-    console.log(boardId);
+    const boardId = [[${boardId}]];
+    const userId = [[${userVO.userId}]]
 
     scrap.addEventListener("click", ()=>{
         if(scrapCheck.checked === false) {
@@ -550,6 +619,100 @@
         console.log(data);
 
     }
+
+
+
+    // 댓글 추가
+    let commentsSize = [[${boardDTO.comments.size()}]];
+
+    $("#comment-btn").on("click", function () {
+        const commentContent = $("#summernote").summernote("code");
+        console.log(commentContent);
+        $.ajax({
+            type: "get",
+            url: "/comment/add",
+            data: {
+                boardId: boardId,
+                userId: userId,
+                commentContent: commentContent
+            },
+            success: showCommentResult
+        })
+    });
+
+    function showCommentResult(comment) {
+        let text = "";
+        text += `<div class="comment">
+                        <div>
+                            <div class="comment-first-line">
+                                <div>
+                                    <a href="@{/activity/writtenBoard?userId= ` + comment.userId + `">
+                                        <img class="profile-picture" src="/img/community-profile.png" alt=""></a>
+                                    <div class="comment-info-text">
+                                        <a href="/activity/writtenBoard?userId=` + comment.userId + `" class="comment-nickname">` + comment.userId + `</a>
+                                        <span>` + comment.commentRegisterDate + `</span>
+                                    </div>
+                                </div>
+                                <div class="like-dislike">
+                                    <button class="down-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:text-red-500 group-hover:text-red-500 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>
+                                    </button>
+                                    <p>` + comment.commentLikes + `</p>
+                                    <button class="up-button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="hover:text-blue-500 group-hover:text-blue-500 h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path></svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="comment-content">
+                                ` + comment.commentContent + `
+                            </div>
+                        </div>
+                    </div>`
+        $("#comment-list").append(text);
+        commentsSize++;
+        $("#comments-size").html(commentsSize);
+        $("#summernote").summernote("code", "");
+    }
+
+    //댓글 수정
+    $(".write-comment-button").each(function (i, btn) {
+        btn.addEventListener("click", function (e) {
+            const commentContent = $($(".edit-mode-content")[i]).summernote("code");
+            const commentId = $($(".comment-id")[i]).val();
+            $.ajax({
+                type:"get",
+                url: "/comment/update",
+                data: {
+                    commentId: commentId,
+                    commentContent: commentContent
+                },
+                success: function (commentVO) {
+                    $($(".comment-edit-mode")[i]).css("display", "none");
+                    $($(".comment-normal-mode")[i]).css("display", "block");
+                    $($(".change-edit-mode-check")[i]).prop("checked", false);
+                    $($(".comment-content")[i]).html(commentVO.commentContent);
+                }
+            })
+        })
+    })
+
+    //댓글삭제
+    $(".comment-remove").each(function (i, btn) {
+        btn.addEventListener("click", function (e) {
+            const commentId = $($(".comment-id")[i]).val();
+            $.ajax({
+                type: "get",
+                url: "/comment/remove",
+                data: {
+                    commentId: commentId
+                },
+                success: function () {
+                    $($(".comment")[i]).css("display", "none");
+                }
+            })
+        })
+    })
 </script>
 </body>
 </html>

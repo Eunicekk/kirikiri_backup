@@ -70,21 +70,19 @@ public class UserController {
     public void getInfoById(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         String userId = null;
+        UserVO userVO = new UserVO();
         if(session != null) {
             userId = (String)session.getAttribute("userId");
         }
-        model.addAttribute("user", userService.getInfo(userId));
+        if(userId != null) {
+            userVO = userService.getUserVOById(userId);
+        }
+        model.addAttribute("userVO", userVO);
     }
 
     @PostMapping("/myPage/info")
     public RedirectView updateInfo(UserVO userVO, RedirectAttributes redirectAttributes){
-        if(userVO.getUserAge()==null){
-            userVO.setUserAge(0);
-        }
-        userVO.setUserId("kevs");
         userService.updateInfo(userVO);
-        System.out.println(userVO.isUserAgeCheck());
-        redirectAttributes.addAttribute("userId", userVO.getUserId());
 
         return new RedirectView("/myPage/info");
     }
@@ -163,31 +161,20 @@ public class UserController {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-
     }
 
     //비밀번호 변경
-    @GetMapping("/password")
-    public void password (Model model, String userId){
-        model.addAttribute("user", userService.getUser(userId));
-    }
+    @GetMapping("/passwordReset")
+    public void password (UserVO userVO, HttpServletRequest request){
+        HttpSession session = request.getSession();
 
-    @PostMapping("/password")
-    public void changePw (Model model, String userId){
-        model.addAttribute("user", userService.getUser(userId));
-    }
-
-
-    @PostMapping("/passwordResetCompletion")
-    public String changePwCompletion (Model model, String userId, String oldPw, String userPassword) {
-        UserVO userVO = userService.getUser(userId);
-
-        if (oldPw.equals(userVO.getUserPassword())) {
-            userVO.setUserPassword(userPassword);
-            userService.updatePw(userVO);
-            return "/passwordResetCompletion";
-        } else {
-            return "/passwordResetFail";
+        if(session != null) {
+            userVO.setUserId((String)session.getAttribute("userId"));
         }
+    }
+    @PostMapping("/passwordResetCompletion")
+    public String changePwCompletion (Model model, UserVO userVO, HttpServletRequest request) {
+        userService.updatePw(userVO);
+        return "/passwordResetCompletion";
     }
 }

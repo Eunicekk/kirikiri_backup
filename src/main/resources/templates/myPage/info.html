@@ -8,6 +8,7 @@
 <!--    <script type="text/javascript" src="/javascript/myPage.js"></script>-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="/javascript/mainPageJs/include-html.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <title>myPage</title>
 </head>
 <body>
@@ -39,7 +40,7 @@
             <div class="content">
                 <!-- 계정관리 화면 -->
                 <div class="tabpage" id="tabpage_1">
-                    <form id="user_info" th:action="@{/myPage/info}" th:object="${user}" method="post">
+                    <form id="user_info" th:action="@{/myPage/info}" th:object="${userVO}" method="post" enctype="multipart/form-data">
                         <div class="info">
                             <h2>회원정보</h2>
                             <div class="info_word">
@@ -76,10 +77,13 @@
                                     </div>
                                 </div>
                                 <div class="profile">
-                                    <label for="picture">
-                                        <div class="change"><p>변경</p></div>
+                                    <label id="profile-label" for="picture">
+                                        <img class="profile-img" src="/img/account.png" alt="" th:if="*{userProfile == null}">
+                                        <img class="profile-img" th:src="@{/file/display(userProfile = *{userProfile})}" alt="" th:unless="*{userProfile == null}">
+                                        <input type="hidden" id="profile-path" th:field="*{userProfile}">
+                                        <p id="profile-text">변경</p>
                                     </label>
-                                    <input type="file" id="picture" th:field="*{userProfile}">
+                                    <input type="file" id="picture">
                                 </div>
                             </div>
                         </div>
@@ -87,7 +91,6 @@
                             <div class="age">
                                 <label for="userage" class="userage">나이 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>비공개</span></label>
                                 <div class="age_enter">
-                                    <!--                                    <input type="text" id="userage" value="원래 나이">-->
                                     <input type="text" id="userage" th:field="*{userAge}">
                                     <div class="btn">
                                         <input type="checkbox" id="toggle-slide1" onclick="checkSlide1()" th:field="*{userAgeCheck}">
@@ -101,7 +104,6 @@
                                 <label for="userlivingplace" class="userlivingplace">거주 지역 &nbsp;&nbsp;<span>비공개</span></label>
                                 <p class="checkinfo">구 단위만 입력</p>
                                 <div class="livingplace_enter">
-                                    <!--                                    <input type="text" id="userlivingplace" value="원래 거주지">-->
                                     <input type="text" id="userlivingplace" th:field="*{userResidence}">
                                     <div class="btn">
                                         <input type="checkbox" id="toggle-slide2" onclick="checkSlide2()" th:field="*{userResidenceCheck}">
@@ -133,6 +135,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" th:field="*{userId}">
                             <div class="submit-div">
                                 <button type="submit" id="infoSubmit">저장</button>
                             </div>
@@ -143,23 +146,60 @@
         </div>
     </div>
 </div>
-<!--<footer include-html="../../templates/mainPageHtml/footer.html"></footer>-->
 </body>
 <script>
     includeHTML();
 </script>
 <script th:inline="javascript">
-    let userAge = [[${user.userAge}]];
+
+
+    $("input[type=file]").on("change", function () {
+        let formData = new FormData();
+        formData.append("upload", $(this)[0].files[0]);
+        console.log($(this)[0].files[0]);
+        $.ajax({
+            type: "post",
+            url: "/file/upload",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: showUploadResult
+        })
+    })
+
+    function showUploadResult(userProfile) {
+        $($(".profile-img")[0]).attr("src", "/file/display?userProfile=" + userProfile);
+
+        $("#profile-path").val(userProfile);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let userAge = [[${userVO.userAge}]];
     if(!userAge){
         document.getElementById("userage").value = "";
     }
 
-    let userResidence =[[${user.userResidence}]];
+    let userResidence =[[${userVO.userResidence}]];
     if(!userResidence){
         document.getElementById("userlivingplace").value = "";
     }
 
-    let userAgeCheck = [[${user.userAgeCheck}]]
+    let userAgeCheck = [[${userVO.userAgeCheck}]]
     console.log(userAgeCheck);
     if(userAgeCheck == false){
         document.querySelector("#toggle-slide1").checked = false;
@@ -194,7 +234,7 @@
         }
     }
 
-    let userResidenceCheck = [[${user.userResidenceCheck}]]
+    let userResidenceCheck = [[${userVO.userResidenceCheck}]]
     console.log(userResidenceCheck);
     if(userResidenceCheck == false){
         document.querySelector("#toggle-slide2").checked = false;
@@ -230,8 +270,8 @@
     }
 
 
-    let userEmailRecieveCheck = [[${user.userEmailRecieveCheck}]]
-    console.log(userEmailRecieveCheck);
+    let userEmailReceiveCheck = [[${userVO.userEmailReceiveCheck}]]
+    console.log(userEmailReceiveCheck);
     if(userEmailRecieveCheck == false){
         document.querySelector("#toggle-slide3").checked = false;
         document.querySelector("label[for=toggle-slide3]").style.backgroundColor = "#e5e7eb";
@@ -256,49 +296,6 @@
             document.querySelector(".onf_btn3").style.left = "0px";
         }
     }
-
-
-    // let userProfile = "/file/display?path=" + [[${user.userProfile}]];
-    //
-    // console.log(userProfile);
-    //
-    // document.querySelector(".change").style.backgroundImage = userProfile;
-
-    // let userProfile = [[${user.userProfile}]];
-    //
-    // console.log(userProfile);
-    //
-    // if(userProfile == null){
-    //     document.querySelector(".photo").src = "/img/account.png";
-    // }else{
-    //     document.querySelector(".photo").src = "/file/display?path=" + userProfile;
-    // }
-
-
-
-
-
-
-
-
-    const file = document.querySelector("input[type='file']");
-    const thumbnail = document.querySelector("label[for='picture'] div");
-    file.addEventListener("change", function (event) {
-        let reader = new FileReader();
-        reader.readAsDataURL(event.target.files[0]);
-        reader.onload = function (event) {
-            console.log(event);
-            let url = event.target.result;
-            if (url.includes("image")) {
-                thumbnail.style.backgroundImage = "url('" + url + "')";
-            } else {
-                thumbnail.style.backgroundImage = "url('/img/account.png')";
-                // ../images/account.png 대신 backend에 저장된 이미지 파일
-            }
-        }
-    });
-
-
 
     // 필수 정보 입력 여부
 
@@ -343,6 +340,12 @@
 
 
 
+
+
+
+
+
+
 </script>
 <style>
     #link_1{
@@ -350,6 +353,25 @@
     }
     #link_5:hover{
         background-color: #e5e7eb;
+    }
+
+    #profile-label {
+        cursor: pointer;
+        position: relative;
+    }
+    #profile-label:hover {
+        filter: brightness(0.7);
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+
+    }
+    #profile-text {
+        position: absolute;
+        bottom: 30px;
+        right: 36px;
     }
 </style>
 </html>

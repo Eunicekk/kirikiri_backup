@@ -1,10 +1,16 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
+a{
+    color: inherit;
+}
+
 *{
     margin: 0px;
     padding: 0px;
     font-family: Pretendard;
+    text-decoration: none;
 }
+
 ul{
     margin: 0;
     padding: 0;
@@ -146,11 +152,15 @@ name>h2{
     cursor: pointer;
     box-sizing: border-box;
 }
+#link_1, #link_2, #link_3 {
+    color: inherit;
+}
 #link_1:hover, #link_2:hover, #link_3:hover{
     color: rgb(139, 195, 74);
     border-bottom: 2px solid rgb(139, 195, 74);
 }
-.menu span{
+
+.menu a{
     line-height: 21px;
 }
 

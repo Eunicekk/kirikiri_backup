@@ -22,24 +22,20 @@
         <div class="middle">
             <div class="info">
                 <div class="info_m">
-                    <div class="photo_div"><img class="photo" th:src="@{/file/display(path=${user.userProfile})}"></div> <!-- 개인 프로필 사진 출력 -->
+                    <div class="photo_div">
+                        <img class="photo" th:src="@{/file/display(userProfile = ${userVO.userProfile})}" alt="profile" th:if="${userVO.userProfile != null}">
+                        <img class="photo" src="/img/account.png" alt="profile" th:unless="${userVO.userProfile != null}">
+                    </div> <!-- 개인 프로필 사진 출력 -->
                     <div class="name">
-                        <div class="username"><h2 id="name" th:text="${user.userNickname}"></h2></div>
-<!--                        <div class="act_score">-->
-<!--                            <svg class="thunder" width="9" height="12" viewBox="0 1 9 12" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                                <title>bolt icon</title>-->
-<!--                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.21535 0.575533C5.4443 0.647704 5.6 0.86003 5.6 1.10009V3.85009L7.8 3.85009C8.00508 3.85009 8.19313 3.96419 8.28783 4.14609C8.38254 4.328 8.36818 4.54748 8.25057 4.71549L4.40057 10.2155C4.26291 10.4122 4.0136 10.4968 3.78464 10.4246C3.55569 10.3525 3.4 10.1401 3.4 9.90009L3.4 7.15009H1.2C0.994914 7.15009 0.806866 7.03599 0.712157 6.85408C0.617448 6.67218 0.631811 6.45269 0.749418 6.28468L4.59942 0.784684C4.73708 0.588021 4.98639 0.503362 5.21535 0.575533Z" fill="currentColor"></path>-->
-<!--                            </svg>-->
-<!--                            <span>활동점수</span>&nbsp;<span id="actScore"></span>  &lt;!&ndash; 게시물 한개당 점수 1 &ndash;&gt;-->
-<!--                        </div>-->
+                        <div class="username"><h2 id="name" th:text="${userVO.userNickname}"></h2></div>
                     </div>
-                    <a href="../myPage/info" class="link"><span>나의 계정</span></a>
+                    <a th:if="${userCheck2}" href="/myPage/info" class="link"><span>나의 계정</span></a>
                 </div>
                 <div class="menu">
                     <ul>
                         <li id="link_1"><span>게시물</span></li>
-                        <li id="link_2" onclick="location.href='/activity/scrappedBoard?page=1'"><span>스크랩</span></li>
-                        <li id="link_3"><span onclick="location.href='/activity/comment'">댓글</span></li>
+                        <li id="link_2"><a th:href="@{/activity/scrappedBoard(userId = ${userVO.userId})}">스크랩</a></li>
+                        <li id="link_3"><a th:href="@{/activity/comment(userId = ${userVO.userId})}"><span>댓글</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -49,16 +45,16 @@
                     <div class="write">
                         <!-- 받은 데이터 값에 따라 div 생성 -->
                         <th:block th:each="board:${boards}">
-                            <div class="content">
+                            <div class="content" th:object="${board}">
                                 <div class="whereAndTime">
                                     <div class="where">
-                                        <a  class="where-link" href="" th:text="${board.categoryName}"></a>
+                                        <a  class="where-link" th:href="@{/board(categoryName = *{categoryName})}" th:text="*{categoryName}"></a>
                                         <div class="where-word"> 에 게시물을 작성하였습니다</div>
                                     </div>
-                                    <div class="time" th:text="*{board.boardRegisterDate}"></div>
+                                    <div class="time" th:text="*{boardRegisterDate}"></div>
                                 </div>
                                 <div class="Title">
-                                    <a class="aTitle" href="" th:text="*{board.boardTitle}"></a>
+                                    <a class="aTitle" th:href="@{/post(boardId = *{boardId})}" th:text="*{boardTitle}"></a>
                                 </div>
                             </div>
                         </th:block>
@@ -109,9 +105,7 @@
 </div>
 <!--<footer include-html="../../templates/mainPageHtml/footer.html"></footer>-->
 </body>
-<script>
-    includeHTML();
-</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script th:inline="javascript">
     $("a.changePage").on("click",function(e){
@@ -120,11 +114,13 @@
         $("form[name='page-form']").submit();
     });
 
-    let userProfile = [[${user.userProfile}]];
+    let userProfile = [[${userVO.userProfile}]];
+    let userId = [[${userVO.userId}]];
 
-    if(userProfile == null){
-        document.querySelector(".photo").src = "/img/account.png";
-    }
+    console.log(userProfile);
+    console.log(userId);
+    console.log([[${userVO.userNation}]]);
+
 
 
 </script>

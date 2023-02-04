@@ -2,6 +2,8 @@ package com.example.kirikiri.controller;
 
 import com.example.kirikiri.domain.*;
 import com.example.kirikiri.service.BoardService;
+import com.example.kirikiri.service.CommentService;
+import com.example.kirikiri.service.ScrapService;
 import com.example.kirikiri.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +31,8 @@ import java.io.IOException;
 public class BoardController {
     private final BoardService boardService;
     private final UserService userService;
+    private final ScrapService scrapService;
+    private final CommentService commentService;
 
     @GetMapping("/all")
     public String getList(BoardDTO boardDTO, Integer page, Model model, HttpServletRequest request){
@@ -202,30 +206,57 @@ public class BoardController {
         HttpSession session = request.getSession();
         String userId = "";
         boolean userCheck2 = false;
+        boolean scrapCheck = false;
+        boolean userCheck = false;
+        boolean updateCheck = false;
+        UserVO userVO = new UserVO();
+
         if(session != null) {
-            userId  = (String) session.getAttribute("userId");
-            model.addAttribute("userId", userId);
+            userId  = (String)session.getAttribute("userId");
         }
         if(userId != null) {
-            userCheck2 = true;
+            userCheck = true;
+            userVO = userService.getUserVOById(userId);
+            ScrapVO scrapVO = new ScrapVO();
+            scrapVO.setBoardId(boardId);
+            scrapVO.setUserId(userId);
+            scrapCheck = scrapService.checkScrap(scrapVO);
         }
-        BoardVO boardVO = boardService.getBoard(boardId);
-        boolean userCheck;
-        boolean updateCheck;
-        if(boardVO.getUserId().equals(userId)) userCheck = true;
-        else userCheck = false;
-        if(!boardVO.getBoardUpdateDate().equals(boardVO.getBoardRegisterDate())) updateCheck = true;
+        BoardDTO boardDTO = boardService.getBoardDTO(boardId);
+
+        if(boardDTO.getUserId().equals(userId)) userCheck2 = true;
+        else userCheck2 = false;
+        if(!boardDTO.getBoardUpdateDate().equals(boardDTO.getBoardRegisterDate())) updateCheck = true;
         else updateCheck = false;
-        model.addAttribute("boardVO", boardVO);
+
+
+
+
+        model.addAttribute("userVO", userVO);
+        model.addAttribute("boardDTO", boardDTO);
         model.addAttribute("userCheck", userCheck);
         model.addAttribute("userCheck2", userCheck2);
         model.addAttribute("updateCheck", updateCheck);
+        model.addAttribute("scrapCheck", scrapCheck);
+        model.addAttribute("boardId", boardId);
+
         return "/post";
     }
     @GetMapping("/edit")
-    public String editPost(Long boardId, Model model){
-        BoardVO boardVO = boardService.getBoard(boardId);
+    public String editPost(Long boardId, Model model, HttpServletRequest request){
+        BoardVO boardVO = boardService.getBoardVO(boardId);
+
+        HttpSession session = request.getSession();
+        String userId = "";
+        boolean userCheck2 = false;
+        if(session != null) {
+            userId  = (String) session.getAttribute("userId");
+            model.addAttribute("userVO", userService.getUserVOById(userId));
+        }
+
         model.addAttribute("boardVO", boardVO);
+        model.addAttribute("userCheck", true);
+
         return "/editPost";
     }
     @PostMapping("/edit")
@@ -302,19 +333,55 @@ public class BoardController {
 
     //    작성한 게시글 조회
     @GetMapping("/activity/writtenBoard")
-    public String getWrittenBoard(String userId, Integer page, Model model) {
+    public String getWrittenBoard(Integer page, String userId, Model model, HttpServletRequest request) {
         if(page == null) page = 1;
+        boolean userCheck2 = false;
+        HttpSession session = request.getSession();
+        String sessionUserId = null;
+
+        if(session != null){
+            sessionUserId = (String)session.getAttribute("userId");
+            if(sessionUserId != null) {
+                if (sessionUserId.equals(userId)) userCheck2 = true;
+            }
+        }
+
+        UserVO userVO = userService.getUserVOById(userId);
+
         Integer pageTotal = boardService.getCountByUser(userId);
         PageDTO pbt = new PageDTO().createPageBoardDTO(page, pageTotal);
         model.addAttribute("pagination", pbt);
-        model.addAttribute("boards", boardService.getWrittenBoard("aaa", pbt.getPage()));
-        model.addAttribute("user", userService.getInfo("aaa"));
+        model.addAttribute("boards", boardService.getWrittenBoard(userVO.getUserId(), pbt.getPage()));
+        model.addAttribute("userCheck2", userCheck2);
+        model.addAttribute("userVO", userVO);
+
         return "/activity/writtenBoard";
     }
 
 
     @GetMapping("/activity/comment")
-    public String getComment() {
+    public String getComment(Integer page, String userId, Model model, HttpServletRequest request) {
+        if(page == null) page = 1;
+        boolean userCheck2 = false;
+        HttpSession session = request.getSession();
+        String sessionUserId = null;
+
+        if(session != null){
+            sessionUserId = (String)session.getAttribute("userId");
+            if(sessionUserId != null) {
+                if (sessionUserId.equals(userId)) userCheck2 = true;
+            }
+        }
+
+        UserVO userVO = userService.getUserVOById(userId);
+
+        Integer pageTotal = boardService.getCountByUser(userId);
+        PageDTO pbt = new PageDTO().createPageBoardDTO(page, pageTotal);
+        model.addAttribute("pagination", pbt);
+        model.addAttribute("comments", commentService.getCommentVOByUserId(userVO.getUserId()));
+        model.addAttribute("userCheck2", userCheck2);
+        model.addAttribute("userVO", userVO);
+
         return "/activity/comment";
     }
 

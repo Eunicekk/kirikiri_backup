@@ -13,4 +13,6 @@ public interface ScrapService {
     public void addScrap(ScrapVO scrapVO);
 
     public void deleteScrap(ScrapVO scrapVO);
+
+    public boolean checkScrap(ScrapVO scrapVO);
 }

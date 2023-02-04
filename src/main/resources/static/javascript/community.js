@@ -19,13 +19,13 @@ window.onload = () => {
     let myPageCheck = document.getElementById("mypage-check");
 
     myPage[0].addEventListener("click", ()=>{
-        if(check.checked === false) {
+        if(myPageCheck.checked === false) {
             myPageMenu.style.visibility = "visible";
-            check.checked = true;
+            myPageCheck.checked = true;
         }
         else {
             myPageMenu.style.visibility = "hidden";
-            check.checked = false;
+            myPageCheck.checked = false;
         }
     })
 }

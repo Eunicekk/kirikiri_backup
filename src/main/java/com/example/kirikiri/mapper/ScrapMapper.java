@@ -18,4 +18,8 @@ public interface ScrapMapper {
     public void insert(ScrapVO scrapVO);
 
     public void delete(ScrapVO scrapVO);
+
+    public void deleteByBoardId(Long boardId);
+
+    public ScrapVO select(ScrapVO scrapVO);
 }

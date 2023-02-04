@@ -25,4 +25,10 @@ public class ScrapDAO {
     public void deleteScrap(ScrapVO scrapVO) {
         scrapMapper.delete(scrapVO);
     }
+    public void deleteByBoardId(Long boardId) {
+        scrapMapper.deleteByBoardId(boardId);
+    }
+    public ScrapVO getScrapVO(ScrapVO scrapVO){
+        return scrapMapper.select(scrapVO);
+    }
 }

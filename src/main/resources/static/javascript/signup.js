@@ -63,10 +63,6 @@ window.onload = ()=>{
     let signup = document.getElementById("signup-button");
     let signupErrMsg = document.getElementById("signup-fail");
 
-    signup.addEventListener("click", ()=>{
-        signupErrMsg.style.display = "flex";
-    })
-
     $("#submit-btn").attr("type", "button");
 
     $("#id").on("change", function () {
