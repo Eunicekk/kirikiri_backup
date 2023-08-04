@@ -3,22 +3,22 @@
 <mapper namespace="com.example.kirikiri.mapper.BoardMapper">
 
     <select id="countAll" resultType="Integer">
-        SELECT COUNT(BOARD_ID) FROM TBL_BOARD
+        SELECT COUNT(BOARD_ID) FROM TABLE_BOARD
     </select>
     <select id="countCategory" resultType="Integer">
-        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE CATEGORY_NAME = #{categoryName}
+        SELECT COUNT(BOARD_ID) FROM TABLE_BOARD WHERE CATEGORY_NAME = #{categoryName}
     </select>
     <select id="countDetailCategory" resultType="Integer">
-        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
+        SELECT COUNT(BOARD_ID) FROM TABLE_BOARD WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
     </select>
     <select id="countSearch" resultType="Integer">
-        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%'
+        SELECT COUNT(BOARD_ID) FROM TABLE_BOARD WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%'
     </select>
     <select id="countCategorySearch" resultType="Integer">
-        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE CATEGORY_NAME = #{categoryName} AND BOARD_TITLE LIKE '%'||#{keyword}||'%'
+        SELECT COUNT(BOARD_ID) FROM TABLE_BOARD WHERE CATEGORY_NAME = #{categoryName} AND BOARD_TITLE LIKE '%'||#{keyword}||'%'
     </select>
     <select id="countByUser" resultType="Integer">
-        SELECT COUNT(BOARD_ID) FROM TBL_BOARD WHERE USER_ID = #{userId}
+        SELECT COUNT(BOARD_ID) FROM TABLE_BOARD WHERE USER_ID = #{userId}
     </select>
 
     <select id="selectAll" resultType="boardVO">
@@ -29,7 +29,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 ORDER BY BOARD_ID DESC
             )
         <![CDATA[
@@ -47,7 +47,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 ORDER BY BOARD_LIKES DESC
             )
         <![CDATA[
@@ -64,7 +64,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 ORDER BY BOARD_VIEWS DESC
             )
         <![CDATA[
@@ -82,7 +82,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE CATEGORY_NAME = #{categoryName}
                 ORDER BY BOARD_ID DESC
             )
@@ -100,7 +100,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE CATEGORY_NAME = #{categoryName}
                 ORDER BY BOARD_LIKES DESC
             )
@@ -118,7 +118,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE CATEGORY_NAME = #{categoryName}
                 ORDER BY BOARD_VIEWS DESC
             )
@@ -137,7 +137,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
                 ORDER BY BOARD_ID DESC
             )
@@ -155,7 +155,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
                 ORDER BY BOARD_LIKES DESC
             )
@@ -173,7 +173,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE CATEGORY_NAME = #{categoryName} AND DETAIL_CATEGORY_NAME = #{detailCategoryName}
                 ORDER BY BOARD_VIEWS DESC
             )
@@ -189,7 +189,7 @@
         FROM
         (
             SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-            FROM TBL_BOARD
+            FROM TABLE_BOARD
             ORDER BY BOARD_VIEWS DESC
         )
         <![CDATA[
@@ -199,32 +199,32 @@
 
     <select id="selectPopularWriters" resultType="boardDTO">
         SELECT USER_ID, COUNT(BOARD_ID) AS POSTS
-        FROM TBL_BOARD
+        FROM TABLE_BOARD
         GROUP BY USER_ID
         ORDER BY COUNT(BOARD_ID) DESC
     </select>
 
     <insert id="insert">
-        INSERT INTO TBL_BOARD(BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_VIEWS, BOARD_LIKES, USER_ID)
+        INSERT INTO TABLE_BOARD(BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_VIEWS, BOARD_LIKES, USER_ID)
         VALUES(SEQ_BOARD.NEXTVAL, #{nationName}, #{categoryName}, #{detailCategoryName}, #{boardTitle}, #{boardContent}, #{boardViews}, #{boardLikes}, #{userId})
     </insert>
     <delete id="delete">
-        DELETE FROM TBL_BOARD
+        DELETE FROM TABLE_BOARD
         WHERE BOARD_ID = #{boardId}
     </delete>
     <update id="update">
-        UPDATE TBL_BOARD
+        UPDATE TABLE_BOARD
         SET BOARD_TITLE = #{boardTitle}, BOARD_CONTENT = #{boardContent}, CATEGORY_NAME = #{categoryName}, DETAIL_CATEGORY_NAME = #{detailCategoryName}, BOARD_UPDATE_DATE = SYSDATE
         WHERE BOARD_ID = #{boardId}
     </update>
     <update id="updateView">
-        UPDATE TBL_BOARD
+        UPDATE TABLE_BOARD
         SET BOARD_VIEWS = BOARD_VIEWS + 1
         WHERE BOARD_ID = #{boardId}
     </update>
     <select id="select" resultType="boardVO">
         SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-        FROM TBL_BOARD
+        FROM TABLE_BOARD
         WHERE BOARD_ID = #{boardId}
     </select>
 
@@ -233,7 +233,7 @@
         FROM
         (
             SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-            FROM TBL_BOARD
+            FROM TABLE_BOARD
             WHERE CATEGORY_NAME = #{categoryName}
             ORDER BY BOARD_ID DESC
         )
@@ -250,7 +250,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%'
                 ORDER BY BOARD_ID DESC
             )
@@ -268,7 +268,7 @@
             FROM
             (
                 SELECT BOARD_ID, NATION_NAME, CATEGORY_NAME, DETAIL_CATEGORY_NAME, BOARD_TITLE, BOARD_CONTENT, BOARD_REGISTER_DATE, BOARD_UPDATE_DATE, BOARD_VIEWS, BOARD_LIKES, USER_ID
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE BOARD_TITLE LIKE '%'||#{keyword}||'%' AND CATEGORY_NAME = #{categoryName}
                 ORDER BY BOARD_ID DESC
             )
@@ -286,7 +286,7 @@
             FROM
             (
                 SELECT BOARD_ID, CATEGORY_NAME, BOARD_TITLE, BOARD_REGISTER_DATE
-                FROM TBL_BOARD
+                FROM TABLE_BOARD
                 WHERE USER_ID = #{userId}
                 ORDER BY BOARD_ID DESC
             )
